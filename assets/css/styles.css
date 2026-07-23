@@ -329,18 +329,17 @@ p { margin: 0; text-wrap: pretty; }
   z-index: 60;
 }
 .lang.is-open .lang__menu { display: block; }
-.lang__menu button {
+.lang__menu a {
   display: flex; align-items: center; gap: .6rem;
   width: 100%;
   padding: .55rem .7rem;
-  border: 0; background: transparent;
   color: var(--ink-soft);
   border-radius: 4px;
   font-size: .9rem;
   text-align: left;
 }
-.lang__menu button:hover { background: var(--surface-2); color: var(--ink); }
-.lang__menu button[aria-selected='true'] { color: var(--brand); font-weight: 700; }
+.lang__menu a:hover { background: var(--surface-2); color: var(--ink); }
+.lang__menu a[aria-current='true'] { color: var(--brand); font-weight: 700; }
 .lang__menu b { font-family: var(--font-display); letter-spacing: .06em; width: 26px; flex: none; }
 
 /* Menú móvil */
@@ -621,7 +620,26 @@ p { margin: 0; text-wrap: pretty; }
 }
 .project__zoom svg { width: 22px; height: 22px; }
 
+.project { cursor: pointer; }
 .project__body { padding: 1.25rem 1.35rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.project__open {
+  margin-top: auto;
+  padding: .85rem 0 0;
+  border: 0;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  align-self: flex-start;
+  color: var(--brand);
+  font-size: .84rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition: gap .2s var(--ease);
+}
+.project__open svg { width: 16px; height: 16px; }
+.project:hover .project__open { gap: .8rem; }
 .project__loc {
   display: flex; align-items: center; gap: .35rem;
   font-size: .78rem;
@@ -1002,7 +1020,7 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
 /* ---------- 18. Pie ----------------------------------------------------- */
 .footer { background: var(--bg-alt); border-top: 1px solid var(--line); padding-block: 3.5rem 1.75rem; }
 .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; }
-.footer h4 {
+.footer .footer__h {
   font-size: .82rem;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -1010,6 +1028,7 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
   margin-bottom: 1.1rem;
   font-family: var(--font-body);
   font-weight: 800;
+  line-height: 1.4;
 }
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
 .footer a, .footer p, .footer li { color: var(--ink-mut); font-size: .92rem; }
