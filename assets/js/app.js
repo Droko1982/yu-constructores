@@ -10,6 +10,17 @@
   var DICT = window.YU_I18N || {};
   var lang = 'es';
 
+  /*
+    Las páginas de idioma viven en subcarpetas (/en/, /pt/), así que las rutas
+    que arma el guion deben partir de la raíz del sitio y no de la página actual.
+    La deducimos de la ruta de este mismo archivo.
+  */
+  var ASSET_BASE = (function () {
+    var s = document.currentScript;
+    if (s && s.src) return s.src.replace(/assets\/js\/app\.js(?:[?#].*)?$/, '');
+    return '';
+  })();
+
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
@@ -34,69 +45,14 @@
   }
 
   /*
-    El idioma se resuelve por parámetro ?lang= o por la preferencia guardada.
-    NO se autodetecta el idioma del navegador: la URL canónica debe servir siempre
-    español para el posicionamiento local en Colombia. El conmutador de la cabecera
-    permite cambiar a inglés o portugués en un clic y la elección queda guardada.
+    Cada idioma se sirve como página estática propia (/, /en/, /pt/), de modo que
+    los buscadores indexan HTML ya traducido en lugar de texto que cambia por JS.
+    Aquí solo se lee el idioma del documento para los textos que genera el guion
+    (mensaje del cotizador, títulos de la galería y avisos del formulario).
   */
-  function detectLang() {
-    var qs = new URLSearchParams(window.location.search).get('lang');
-    if (qs && SUPPORTED.indexOf(qs.toLowerCase()) > -1) return qs.toLowerCase();
-    try {
-      var saved = localStorage.getItem('yu-lang');
-      if (saved && SUPPORTED.indexOf(saved) > -1) return saved;
-    } catch (e) {}
-    return 'es';
-  }
-
-  function applyLang(next, persist) {
-    lang = SUPPORTED.indexOf(next) > -1 ? next : 'es';
-    document.documentElement.lang = lang === 'es' ? 'es-CO' : lang;
-
-    $$('[data-i18n]').forEach(function (el) {
-      var v = t(el.getAttribute('data-i18n'));
-      if (v) el.textContent = v;
-    });
-    $$('[data-i18n-html]').forEach(function (el) {
-      var v = t(el.getAttribute('data-i18n-html'));
-      if (v) el.innerHTML = v;
-    });
-    $$('[data-i18n-ph]').forEach(function (el) {
-      var v = t(el.getAttribute('data-i18n-ph'));
-      if (v) el.setAttribute('placeholder', v);
-    });
-    $$('[data-i18n-aria]').forEach(function (el) {
-      var v = t(el.getAttribute('data-i18n-aria'));
-      if (v) el.setAttribute('aria-label', v);
-    });
-    $$('[data-i18n-title]').forEach(function (el) {
-      var v = t(el.getAttribute('data-i18n-title'));
-      if (v) el.setAttribute('title', v);
-    });
-    $$('[data-i18n-alt]').forEach(function (el) {
-      var v = t(el.getAttribute('data-i18n-alt'));
-      if (v) el.setAttribute('alt', v);
-    });
-
-    if (t('meta.title')) document.title = t('meta.title');
-    var md = $('meta[name="description"]');
-    if (md && t('meta.desc')) md.setAttribute('content', t('meta.desc'));
-
-    var cur = $('#langCurrent');
-    if (cur) cur.textContent = lang.toUpperCase();
-    $$('#lang [data-lang]').forEach(function (b) {
-      b.setAttribute('aria-selected', b.getAttribute('data-lang') === lang ? 'true' : 'false');
-    });
-
-    if (persist) {
-      try { localStorage.setItem('yu-lang', lang); } catch (e) {}
-      var url = new URL(window.location.href);
-      if (lang === 'es') url.searchParams.delete('lang');
-      else url.searchParams.set('lang', lang);
-      history.replaceState(null, '', url.toString());
-    }
-
-    updateQuote();
+  function readLang() {
+    var l = (document.documentElement.lang || 'es').slice(0, 2).toLowerCase();
+    return SUPPORTED.indexOf(l) > -1 ? l : 'es';
   }
 
   var langBox = $('#lang');
@@ -107,16 +63,16 @@
       var open = langBox.classList.toggle('is-open');
       langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    $$('#lang [data-lang]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        applyLang(b.getAttribute('data-lang'), true);
-        langBox.classList.remove('is-open');
-        langBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
     document.addEventListener('click', function () {
       langBox.classList.remove('is-open');
       langBtn.setAttribute('aria-expanded', 'false');
+    });
+    langBox.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        langBox.classList.remove('is-open');
+        langBtn.setAttribute('aria-expanded', 'false');
+        langBtn.focus();
+      }
     });
   }
 
@@ -260,7 +216,7 @@
   function lbOpen(slug, count, key, loc) {
     lbState.imgs = [];
     for (var i = 1; i <= count; i++) {
-      lbState.imgs.push('assets/img/proyectos/' + slug + '-' + i + '.jpg');
+      lbState.imgs.push(ASSET_BASE + 'assets/img/proyectos/' + slug + '-' + i + '.jpg');
     }
     lbState.i = 0;
     lbState.key = key;
@@ -428,24 +384,22 @@
   };
 
   function maybeOfferLanguage() {
-    var saved = null;
-    try {
-      saved = localStorage.getItem('yu-lang');
-      if (localStorage.getItem('yu-lang-hint') === 'off') return;
-    } catch (e) {}
-    if (saved) return;
-    if (new URLSearchParams(window.location.search).get('lang')) return;
+    if (lang !== 'es') return;
+    try { if (localStorage.getItem('yu-lang-hint') === 'off') return; } catch (e) {}
 
     var nav = (navigator.language || 'es').slice(0, 2).toLowerCase();
     var offer = OFFERS[nav];
     if (!offer) return;
+
+    var link = $('#lang [data-lang="' + nav + '"]');
+    if (!link) return;
 
     var box = document.createElement('div');
     box.className = 'lang-hint';
     box.setAttribute('role', 'status');
     box.innerHTML =
       '<span>' + offer.text + '</span>' +
-      '<button type="button" class="lang-hint__go">' + offer.cta + '</button>' +
+      '<a class="lang-hint__go" href="' + link.getAttribute('href') + '" hreflang="' + nav + '">' + offer.cta + '</a>' +
       '<button type="button" class="lang-hint__x" aria-label="Close">&times;</button>';
     document.body.appendChild(box);
 
@@ -455,12 +409,7 @@
       setTimeout(function () { box.remove(); }, 300);
     }
 
-    box.querySelector('.lang-hint__go').addEventListener('click', function () {
-      applyLang(nav, true);
-      dismiss();
-    });
     box.querySelector('.lang-hint__x').addEventListener('click', dismiss);
-
     setTimeout(function () { box.classList.add('is-in'); }, 1200);
     setTimeout(function () { if (box.isConnected) dismiss(); }, 14000);
   }
@@ -469,6 +418,7 @@
   var y = $('#year');
   if (y) y.textContent = String(new Date().getFullYear());
 
-  applyLang(detectLang(), false);
+  lang = readLang();
+  updateQuote();
   maybeOfferLanguage();
 })();

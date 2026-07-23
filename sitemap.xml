@@ -9,8 +9,8 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
@@ -51,24 +51,24 @@
   </url>
 
   <url>
-    <loc>https://droko1982.github.io/yu-constructores/?lang=en</loc>
+    <loc>https://droko1982.github.io/yu-constructores/en/</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
   </url>
 
   <url>
-    <loc>https://droko1982.github.io/yu-constructores/?lang=pt</loc>
+    <loc>https://droko1982.github.io/yu-constructores/pt/</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
   </url>
 
