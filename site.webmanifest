@@ -1,0 +1,15 @@
+{
+  "name": "YU Constructores · YU Construcciones S.A.S.",
+  "short_name": "YU Constructores",
+  "description": "Constructora de obra civil e infraestructura en Armenia, Quindío. Proyectos en todo Colombia.",
+  "lang": "es-CO",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12161a",
+  "theme_color": "#f5a302",
+  "icons": [
+    { "src": "assets/img/brand/logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/brand/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
