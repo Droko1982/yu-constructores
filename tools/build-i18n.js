@@ -160,7 +160,10 @@ function rebuildJsonLd(html, lang, pageUrl) {
   const data = JSON.parse(m[1]);
   const T = DICT[lang];
 
-  data['@graph'] = data['@graph'].filter((n) => n['@type'] !== 'FAQPage' && n['@type'] !== 'ItemList');
+  // Los nodos derivados se regeneran en cada ejecución; si no se purgan primero,
+  // el generador los acumularía al reescribir index.html sobre sí mismo.
+  const DERIVED = ['FAQPage', 'ItemList', 'WebPage'];
+  data['@graph'] = data['@graph'].filter((n) => DERIVED.indexOf(n['@type']) === -1);
 
   for (const node of data['@graph']) {
     if (node['@type'] === 'GeneralContractor') {
