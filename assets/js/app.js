@@ -372,19 +372,6 @@
     });
   }
 
-  /* --------------------------------------------------- Enlaces de WhatsApp -- */
-  /*
-    El mensaje prellenado se arma aquí y no en el HTML, para que salga en el
-    idioma de la página que el visitante está viendo. Si el guion no carga, el
-    enlace sigue funcionando: solo abre el chat sin texto.
-  */
-  function buildWhatsAppLinks() {
-    $$('[data-wa]').forEach(function (a) {
-      var msg = t('wa.' + a.getAttribute('data-wa'));
-      if (!msg) return;
-      a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
-    });
-  }
 
   /* --------------------------------------- Sugerencia de idioma al visitante */
   /*
@@ -433,7 +420,6 @@
   if (y) y.textContent = String(new Date().getFullYear());
 
   lang = readLang();
-  buildWhatsAppLinks();
   updateQuote();
   maybeOfferLanguage();
 })();
