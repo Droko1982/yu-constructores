@@ -60,8 +60,7 @@ yu-constructores/
 - **Razón social:** YU Construcciones S.A.S.
 - **NIT:** 901400072-5
 - **Dirección:** Calle 20 #12-32, piso 1, Sector Centro — Armenia, Quindío
-- **WhatsApp:** +57 320 594 0466
-- **Teléfono directo del ingeniero:** +57 304 655 7120
+- **WhatsApp y teléfono:** +57 320 594 0466
 - **Correo:** yuconstruccionessas@gmail.com
 - **Instagram:** [@yuconstructorasas](https://www.instagram.com/yuconstructorasas)
 - **Google Maps:** https://maps.app.goo.gl/aVbfpvg7zthBdL8MA
