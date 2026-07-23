@@ -259,4 +259,17 @@ for (const lang of Object.keys(LOCALES)) {
   built.push(`${dir || '/'} → ${(out.length / 1024).toFixed(0)} KB`);
 }
 
+/* Sella el sitemap con la fecha de esta generación, para que <lastmod> no
+   se quede atrás cada vez que cambia el contenido. */
+const sitemapPath = path.join(ROOT, 'sitemap.xml');
+if (fs.existsSync(sitemapPath)) {
+  const today = new Date().toISOString().slice(0, 10);
+  const xml = fs.readFileSync(sitemapPath, 'utf8');
+  const updated = xml.replace(/<lastmod>[^<]*<\/lastmod>/g, () => '<lastmod>' + today + '</lastmod>');
+  if (updated !== xml) {
+    fs.writeFileSync(sitemapPath, updated, 'utf8');
+    console.log('sitemap.xml → lastmod ' + today);
+  }
+}
+
 console.log('Páginas generadas:\n  ' + built.join('\n  '));

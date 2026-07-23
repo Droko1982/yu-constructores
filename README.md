@@ -94,16 +94,23 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
 
 ## Pendientes sugeridos
 
-- [ ] Confirmar el enlace de activación de FormSubmit desde el correo de la empresa.
-- [ ] Conectar un dominio propio (p. ej. `yuconstructores.com`) y actualizar la
+- [x] ~~Activar FormSubmit~~ — hecho y verificado de punta a punta el 23/07/2026.
+- [ ] **Completar la ficha de Google Business Profile** (`kgmid /g/11z74qkm_s`). La ficha
+      ya existe, pero le falta contenido: enlazar este sitio como web oficial, publicar
+      el horario de atención, subir fotos de obra y listar los servicios. Es el factor
+      con mayor peso en el posicionamiento local en Armenia.
+- [ ] **Conectar un dominio propio** (p. ej. `yuconstructores.com`) y actualizar la
       constante `BASE` en `tools/build-i18n.js`, más `sitemap.xml` y `robots.txt`.
-      Un dominio propio sube bastante el techo de posicionamiento frente a `github.io`.
+      Sube bastante el techo de posicionamiento frente a `github.io`.
 - [ ] Registrar el sitio en Google Search Console y enviar el `sitemap.xml`.
-- [ ] Reclamar y completar la ficha de Google Business Profile (horarios, fotos, servicios)
-      — es el factor con mayor peso en el posicionamiento local en Armenia.
-- [ ] Añadir reseñas reales de clientes cuando estén disponibles (no se incluyeron
-      testimonios ficticios de forma deliberada).
+- [ ] Pedir reseñas a clientes anteriores. No se incluyeron testimonios ficticios de
+      forma deliberada; el espacio está listo para cuando existan reseñas reales.
+- [ ] Publicar el horario de atención en el sitio cuando la empresa lo defina. Se retiró
+      porque el que había no provenía de la empresa.
+- [ ] Nombrar las entidades contratantes de la obra pública (alcantarillado y colegios),
+      si la empresa autoriza. Da más credibilidad que cualquier texto de marketing.
 - [ ] Sumar certificados, RUP o pólizas escaneadas si se quieren mostrar públicamente.
+- [ ] Añadir Facebook, LinkedIn o TikTok al pie y a `sameAs` cuando existan.
 
 ## Autoría
 
