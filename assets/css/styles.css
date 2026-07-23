@@ -640,6 +640,13 @@ p { margin: 0; text-wrap: pretty; }
 }
 .project__open svg { width: 16px; height: 16px; }
 .project:hover .project__open { gap: .8rem; }
+.project__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  margin-bottom: .45rem;
+}
 .project__loc {
   display: flex; align-items: center; gap: .35rem;
   font-size: .78rem;
@@ -647,7 +654,16 @@ p { margin: 0; text-wrap: pretty; }
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
-  margin-bottom: .4rem;
+  min-width: 0;
+}
+.project__year {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--ink-mut);
+  white-space: nowrap;
+  flex: none;
+  font-variant-numeric: tabular-nums;
 }
 .project__loc svg { width: 13px; height: 13px; }
 .project__body h3 { font-size: 1.25rem; margin-bottom: .45rem; }
