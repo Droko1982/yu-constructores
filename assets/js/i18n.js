@@ -11,6 +11,7 @@ window.YU_I18N = {
     'meta.desc': 'YU Construcciones S.A.S. — constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, estabilización de taludes, remodelaciones y mantenimiento de infraestructura en el Eje Cafetero y toda Colombia.',
 
     'nav.home': 'Inicio',
+    'brand.tag': 'Construcciones S.A.S. · Eje Cafetero',
     'nav.services': 'Servicios',
     'nav.projects': 'Proyectos',
     'nav.process': 'Proceso',
@@ -288,6 +289,7 @@ window.YU_I18N = {
     'meta.desc': 'YU Construcciones S.A.S. — construction company based in Armenia, Quindío. Civil works, water and sewer networks, slope stabilisation, remodelling and infrastructure maintenance across Colombia\'s Coffee Region and the whole country.',
 
     'nav.home': 'Home',
+    'brand.tag': 'Construcciones S.A.S. · Coffee Region',
     'nav.services': 'Services',
     'nav.projects': 'Projects',
     'nav.process': 'Process',
@@ -565,6 +567,7 @@ window.YU_I18N = {
     'meta.desc': 'YU Construcciones S.A.S. — construtora sediada em Armenia, Quindío. Obras civis, redes de água e esgoto, estabilização de taludes, reformas e manutenção de infraestrutura na Região Cafeeira e em toda a Colômbia.',
 
     'nav.home': 'Início',
+    'brand.tag': 'Construcciones S.A.S. · Região Cafeeira',
     'nav.services': 'Serviços',
     'nav.projects': 'Projetos',
     'nav.process': 'Processo',
