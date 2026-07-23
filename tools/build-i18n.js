@@ -72,9 +72,10 @@ function translateBody(html, lang) {
       const v = get(key);
       if (v === null) return tagStr;
       const re = new RegExp('\\s' + target + '="[^"]*"');
+      const attr = ` ${target}="${escAttr(v)}"`;
       return re.test(tagStr)
-        ? tagStr.replace(re, ` ${target}="${escAttr(v)}"`)
-        : tagStr.replace(/>$/, ` ${target}="${escAttr(v)}">`);
+        ? tagStr.replace(re, () => attr)
+        : tagStr.replace(/>$/, () => attr + '>');
     });
   }
 
@@ -193,10 +194,10 @@ function rebuildJsonLd(html, lang, pageUrl) {
   data['@graph'].push(buildProjectList(lang, pageUrl));
   data['@graph'].push(buildFaqJsonLd(lang, pageUrl));
 
-  return html.replace(
-    /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-    '<script type="application/ld+json">\n' + JSON.stringify(data, null, 2) + '\n</script>'
-  );
+  // Reemplazo con función: en una cadena de reemplazo, "$$" significa un "$"
+  // literal y "$1" una retrorreferencia, así que el JSON se corrompería.
+  const block = '<script type="application/ld+json">\n' + JSON.stringify(data, null, 2) + '\n</script>';
+  return html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => block);
 }
 
 /* ------------------------------------------------------ Cabecera del documento */
@@ -205,17 +206,17 @@ function rewriteHead(html, lang) {
   const L = LOCALES[lang];
   const pageUrl = BASE + (L.dir ? L.dir + '/' : '');
 
-  html = html.replace(/<html lang="[^"]*"/, `<html lang="${L.htmlLang}"`);
-  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(T['meta.title'])}</title>`);
-  html = html.replace(/(<meta name="description" content=")[^"]*(">)/, `$1${escAttr(T['meta.desc'])}$2`);
-  html = html.replace(/(<link rel="canonical" href=")[^"]*(">)/, `$1${pageUrl}$2`);
+  html = html.replace(/<html lang="[^"]*"/, () => `<html lang="${L.htmlLang}"`);
+  html = html.replace(/<title>[\s\S]*?<\/title>/, () => `<title>${esc(T['meta.title'])}</title>`);
+  html = html.replace(/(<meta name="description" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(T['meta.desc']) + b);
+  html = html.replace(/(<link rel="canonical" href=")[^"]*(">)/, (_m, a, b) => a + pageUrl + b);
 
-  html = html.replace(/(<meta property="og:title" content=")[^"]*(">)/, `$1${escAttr(T['meta.title'])}$2`);
-  html = html.replace(/(<meta property="og:description" content=")[^"]*(">)/, `$1${escAttr(T['meta.desc'])}$2`);
-  html = html.replace(/(<meta property="og:url" content=")[^"]*(">)/, `$1${pageUrl}$2`);
-  html = html.replace(/(<meta property="og:locale" content=")[^"]*(">)/, `$1${L.ogLocale}$2`);
-  html = html.replace(/(<meta name="twitter:title" content=")[^"]*(">)/, `$1${escAttr(T['meta.title'])}$2`);
-  html = html.replace(/(<meta name="twitter:description" content=")[^"]*(">)/, `$1${escAttr(T['meta.desc'])}$2`);
+  html = html.replace(/(<meta property="og:title" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(T['meta.title']) + b);
+  html = html.replace(/(<meta property="og:description" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(T['meta.desc']) + b);
+  html = html.replace(/(<meta property="og:url" content=")[^"]*(">)/, (_m, a, b) => a + pageUrl + b);
+  html = html.replace(/(<meta property="og:locale" content=")[^"]*(">)/, (_m, a, b) => a + L.ogLocale + b);
+  html = html.replace(/(<meta name="twitter:title" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(T['meta.title']) + b);
+  html = html.replace(/(<meta name="twitter:description" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(T['meta.desc']) + b);
 
   const alts = Object.keys(LOCALES).filter((l) => l !== lang).map((l) => LOCALES[l].ogLocale);
   html = html.replace(/(<meta property="og:locale:alternate" content="[^"]*">\s*)+/,
@@ -234,10 +235,10 @@ function rewriteHead(html, lang) {
   for (const l of ['es', 'en', 'pt']) {
     html = html.replace(
       new RegExp(`(<a href=")[^"]*(" hreflang="${l}" lang="${l}" data-lang="${l}")(?:\\s+aria-current="true")?`),
-      `$1${hrefs[l]}$2${l === lang ? ' aria-current="true"' : ''}`
+      (_m, a, b) => a + hrefs[l] + b + (l === lang ? ' aria-current="true"' : '')
     );
   }
-  html = html.replace(/(<span id="langCurrent">)[^<]*(<\/span>)/, `$1${lang.toUpperCase()}$2`);
+  html = html.replace(/(<span id="langCurrent">)[^<]*(<\/span>)/, (_m, a, b) => a + lang.toUpperCase() + b);
 
   return rebuildJsonLd(html, lang, pageUrl);
 }

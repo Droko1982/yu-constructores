@@ -834,6 +834,13 @@ body.is-locked { overflow: hidden; }
 .about__list { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .7rem; }
 .about__list li { display: flex; gap: .65rem; align-items: flex-start; font-size: .95rem; color: var(--ink-soft); }
 .about__list svg { width: 19px; height: 19px; color: var(--brand); flex: none; margin-top: .2rem; }
+.about__credit {
+  margin-top: 1.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-size: .84rem;
+  color: var(--ink-mut);
+}
 
 /* ---------- 14. Cotizador ----------------------------------------------- */
 .quoter {
@@ -1018,7 +1025,9 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
 .cta-band .btn-row { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
 
 /* ---------- 18. Pie ----------------------------------------------------- */
-.footer { background: var(--bg-alt); border-top: 1px solid var(--line); padding-block: 3.5rem 1.75rem; }
+/* El relleno inferior reserva sitio para el botón flotante de WhatsApp,
+   que antes tapaba la última línea del pie. */
+.footer { background: var(--bg-alt); border-top: 1px solid var(--line); padding-block: 3.5rem 5.5rem; }
 .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; }
 .footer .footer__h {
   font-size: .82rem;
@@ -1196,6 +1205,8 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
   .fab-wa { padding: .95rem; }
   .to-top { bottom: 84px; right: 20px; }
   .lightbox__thumbs { flex-wrap: nowrap; justify-content: flex-start; }
+  .footer { padding-bottom: 6.5rem; }
+  .footer__bottom { text-align: center; justify-content: center; }
 }
 
 /* Pantallas muy estrechas: compactamos la cabecera para que nada se salga */
