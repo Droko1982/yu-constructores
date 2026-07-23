@@ -24,6 +24,8 @@ window.YU_I18N = {
     'hero.title': 'Construimos obras que <em>aumentan el valor</em> de su patrimonio',
     'hero.sub': 'YU Construcciones S.A.S. ejecuta obra civil, infraestructura y remodelaciones con cronograma cumplido, presupuesto transparente y acabados profesionales. Sede en Armenia, Quindío; proyectos en todo el país.',
     'hero.cta1': 'Cotizar por WhatsApp',
+    'wa.general': 'Hola YU Constructora, les escribo desde su página web. Quisiera hacerles una consulta.',
+    'wa.quote': 'Hola YU Constructora, les escribo desde su página web. Tengo un proyecto y quisiera solicitar una cotización.',
     'hero.cta2': 'Ver proyectos',
     'hero.chip1': 'NIT 901400072-5',
     'hero.chip2': 'Sector público y privado',
@@ -206,7 +208,7 @@ window.YU_I18N = {
     'quote.previewEmpty': 'Complete los datos y aquí verá el mensaje que se enviará al ingeniero.',
     'quote.send': 'Enviar por WhatsApp',
     'quote.note': 'No pedimos datos de pago ni documentos. La cotización formal se entrega por escrito después de la visita técnica.',
-    'quote.msgIntro': 'Hola YU Construcciones, quiero cotizar un proyecto.',
+    'quote.msgIntro': 'Hola YU Constructora, les escribo desde su página web. Quisiera solicitar una cotización con estos datos:',
     'quote.msgType': 'Tipo',
     'quote.msgArea': 'Área',
     'quote.msgCity': 'Ubicación',
@@ -234,7 +236,7 @@ window.YU_I18N = {
     'form.send': 'Enviar mensaje',
     'form.sending': 'Enviando…',
     'form.ok': '¡Gracias! Su mensaje fue enviado. Le responderemos muy pronto.',
-    'form.err': 'No pudimos enviar el mensaje. Escríbanos por WhatsApp al +57 304 655 7120.',
+    'form.err': 'No pudimos enviar el mensaje. Escríbanos por WhatsApp al +57 320 594 0466.',
     'form.privacy': 'Sus datos se usan únicamente para responder su solicitud.',
 
     'faq.eyebrow': 'Preguntas frecuentes',
@@ -280,7 +282,7 @@ window.YU_I18N = {
     'a11y.top': 'Volver arriba',
     'a11y.skip': 'Ir al contenido principal',
     'a11y.logoAlt': 'Logotipo de YU Construcciones S.A.S.',
-    'a11y.wa': 'Escribir por WhatsApp al +57 304 655 7120'
+    'a11y.wa': 'Escribir por WhatsApp al +57 320 594 0466'
   },
 
   /* --------------------------------------------------------------- ENGLISH */
@@ -302,6 +304,8 @@ window.YU_I18N = {
     'hero.title': 'We build projects that <em>increase the value</em> of your property',
     'hero.sub': 'YU Construcciones S.A.S. delivers civil works, infrastructure and remodelling on schedule, with transparent budgets and professional finishes. Based in Armenia, Quindío; projects nationwide.',
     'hero.cta1': 'Get a quote on WhatsApp',
+    'wa.general': 'Hello YU Constructora, I am writing from your website. I would like to ask a question.',
+    'wa.quote': 'Hello YU Constructora, I am writing from your website. I have a project and would like to request a quote.',
     'hero.cta2': 'See projects',
     'hero.chip1': 'Tax ID 901400072-5',
     'hero.chip2': 'Public & private sector',
@@ -484,7 +488,7 @@ window.YU_I18N = {
     'quote.previewEmpty': 'Fill in the fields and the message sent to the engineer will appear here.',
     'quote.send': 'Send on WhatsApp',
     'quote.note': 'We never ask for payment details or documents. The formal quote is delivered in writing after the site visit.',
-    'quote.msgIntro': 'Hello YU Construcciones, I would like a quote for a project.',
+    'quote.msgIntro': 'Hello YU Constructora, I am writing from your website. I would like to request a quote with these details:',
     'quote.msgType': 'Type',
     'quote.msgArea': 'Area',
     'quote.msgCity': 'Location',
@@ -512,7 +516,7 @@ window.YU_I18N = {
     'form.send': 'Send message',
     'form.sending': 'Sending…',
     'form.ok': 'Thank you! Your message was sent. We will get back to you shortly.',
-    'form.err': 'We could not send the message. Please write to us on WhatsApp at +57 304 655 7120.',
+    'form.err': 'We could not send the message. Please write to us on WhatsApp at +57 320 594 0466.',
     'form.privacy': 'Your data is used only to answer your request.',
 
     'faq.eyebrow': 'FAQ',
@@ -558,7 +562,7 @@ window.YU_I18N = {
     'a11y.top': 'Back to top',
     'a11y.skip': 'Skip to main content',
     'a11y.logoAlt': 'YU Construcciones S.A.S. logo',
-    'a11y.wa': 'Message us on WhatsApp at +57 304 655 7120'
+    'a11y.wa': 'Message us on WhatsApp at +57 320 594 0466'
   },
 
   /* ------------------------------------------------------------- PORTUGUÊS */
@@ -580,6 +584,8 @@ window.YU_I18N = {
     'hero.title': 'Construímos obras que <em>valorizam</em> o seu patrimônio',
     'hero.sub': 'A YU Construcciones S.A.S. executa obras civis, infraestrutura e reformas com cronograma cumprido, orçamento transparente e acabamentos profissionais. Sede em Armenia, Quindío; projetos em todo o país.',
     'hero.cta1': 'Orçamento pelo WhatsApp',
+    'wa.general': 'Olá YU Constructora, escrevo pelo site de vocês. Gostaria de fazer uma consulta.',
+    'wa.quote': 'Olá YU Constructora, escrevo pelo site de vocês. Tenho um projeto e gostaria de solicitar um orçamento.',
     'hero.cta2': 'Ver projetos',
     'hero.chip1': 'CNPJ (NIT) 901400072-5',
     'hero.chip2': 'Setor público e privado',
@@ -762,7 +768,7 @@ window.YU_I18N = {
     'quote.previewEmpty': 'Preencha os campos e aqui aparecerá a mensagem enviada ao engenheiro.',
     'quote.send': 'Enviar pelo WhatsApp',
     'quote.note': 'Nunca pedimos dados de pagamento nem documentos. O orçamento formal é entregue por escrito após a visita técnica.',
-    'quote.msgIntro': 'Olá YU Construcciones, gostaria de um orçamento para um projeto.',
+    'quote.msgIntro': 'Olá YU Constructora, escrevo pelo site de vocês. Gostaria de solicitar um orçamento com estes dados:',
     'quote.msgType': 'Tipo',
     'quote.msgArea': 'Área',
     'quote.msgCity': 'Local',
@@ -790,7 +796,7 @@ window.YU_I18N = {
     'form.send': 'Enviar mensagem',
     'form.sending': 'Enviando…',
     'form.ok': 'Obrigado! Sua mensagem foi enviada. Responderemos em breve.',
-    'form.err': 'Não foi possível enviar a mensagem. Escreva pelo WhatsApp +57 304 655 7120.',
+    'form.err': 'Não foi possível enviar a mensagem. Escreva pelo WhatsApp +57 320 594 0466.',
     'form.privacy': 'Seus dados são usados apenas para responder à sua solicitação.',
 
     'faq.eyebrow': 'Perguntas frequentes',
@@ -836,6 +842,6 @@ window.YU_I18N = {
     'a11y.top': 'Voltar ao topo',
     'a11y.skip': 'Ir para o conteúdo principal',
     'a11y.logoAlt': 'Logotipo da YU Construcciones S.A.S.',
-    'a11y.wa': 'Fale conosco pelo WhatsApp +57 304 655 7120'
+    'a11y.wa': 'Fale conosco pelo WhatsApp +57 320 594 0466'
   }
 };
