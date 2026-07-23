@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-del-bosque-thumb.jpg</image:loc>
+      <image:title>Casa del Bosque — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/taludes-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Contención y estabilización de taludes — Aeropuerto Matecaña, Pereira</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/alcantarillado-la-miranda-thumb.jpg</image:loc>
+      <image:title>Alcantarillado Barrio La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/planta-frigopork-thumb.jpg</image:loc>
+      <image:title>Planta de beneficio porcino Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/acueducto-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Acueducto y alcantarillado — Aeropuerto Matecaña, Pereira</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-chambery-lote-9c-thumb.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/colegio-libre-circasia-thumb.jpg</image:loc>
+      <image:title>Colegio Libre — Circasia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/colegio-san-vicente-genova-thumb.jpg</image:loc>
+      <image:title>Colegio San Vicente — Génova, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/?lang=en</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/?lang=pt</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
+  </url>
+
+</urlset>
