@@ -244,6 +244,39 @@ function rewriteHead(html, lang) {
   return rebuildJsonLd(html, lang, pageUrl);
 }
 
+/* --------------------------------------------- Mensajes de WhatsApp
+   El texto va escrito en el href, no lo pone JavaScript. Así el enlace lleva el
+   mensaje aunque el guion no haya cargado todavía, y no depende de que el
+   navegador tenga en caché la misma versión del HTML y del guion. */
+function writeWhatsAppLinks(html, lang) {
+  const T = DICT[lang];
+  return html.replace(
+    /href="(https:\/\/wa\.me\/\d+)(?:\?text=[^"]*)?" data-wa="([a-z]+)"/g,
+    (m, base, key) => {
+      const msg = T['wa.' + key];
+      if (!msg) throw new Error('Falta la clave wa.' + key + ' en "' + lang + '"');
+      return 'href="' + base + '?text=' + encodeURIComponent(msg) + '" data-wa="' + key + '"';
+    }
+  );
+}
+
+/* ------------------------------------------------------- Rompe-caché
+   GitHub Pages sirve los recursos con max-age=600. Sin una marca de versión, un
+   visitante puede quedarse con el CSS o el guion viejo junto al HTML nuevo. La
+   marca es el hash del contenido: solo cambia cuando el archivo cambia. */
+function stampAssets(html) {
+  return html.replace(
+    /((?:\.\.\/)?assets\/(?:css|js)\/[a-z0-9.-]+\.(?:css|js))(?:\?v=[a-f0-9]+)?/g,
+    (m, rel) => {
+      const file = path.join(ROOT, rel.replace(/^\.\.\//, ''));
+      if (!fs.existsSync(file)) return m;
+      const hash = require('crypto').createHash('sha1')
+        .update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+      return rel + '?v=' + hash;
+    }
+  );
+}
+
 /* ------------------------------------------------------------------ Salida */
 const source = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const built = [];
@@ -251,6 +284,8 @@ const built = [];
 for (const lang of Object.keys(LOCALES)) {
   let out = translateBody(source, lang);
   out = rewriteHead(out, lang);
+  out = writeWhatsAppLinks(out, lang);
+  out = stampAssets(out);
 
   const dir = LOCALES[lang].dir;
   const dest = dir ? path.join(ROOT, dir, 'index.html') : path.join(ROOT, 'index.html');
