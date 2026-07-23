@@ -146,6 +146,7 @@ function buildProjectList(lang, pageUrl) {
       item: {
         '@type': 'CreativeWork',
         name: T['prj.' + key + '.t'],
+        temporalCoverage: T['prj.' + key + '.y'].replace('–', '/'),
         description: T['prj.' + key + '.d'],
         locationCreated: { '@type': 'Place', name: T['prj.' + key + '.l'] },
         creator: { '@id': BASE + '#organizacion' },
