@@ -1,4 +1,4 @@
-# YU Constructores — sitio web oficial
+# YU Constructora — sitio web oficial
 
 Sitio web de **YU Construcciones S.A.S.** (NIT 901400072-5), constructora de obra civil e
 infraestructura con sede en Armenia, Quindío, Colombia.

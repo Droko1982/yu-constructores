@@ -1,5 +1,5 @@
 /* =============================================================================
-   YU Constructores · Lógica del sitio
+   YU Constructora · Lógica del sitio
    Autor: Dr. Mauricio Rodríguez Herrera
    ============================================================================= */
 (function () {
@@ -350,7 +350,7 @@
           telefono: $('#cPhone').value,
           email: $('#cEmail').value,
           mensaje: $('#cMsg').value,
-          _subject: 'Nueva solicitud desde el sitio de YU Constructores',
+          _subject: 'Nueva solicitud desde el sitio de YU Constructora',
           _template: 'table',
           _captcha: 'false'
         })

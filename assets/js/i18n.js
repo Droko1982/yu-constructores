@@ -1,5 +1,5 @@
 /* =============================================================================
-   YU Constructores · Internacionalización (ES · EN · PT)
+   YU Constructora · Internacionalización (ES · EN · PT)
    Autor: Dr. Mauricio Rodríguez Herrera
    ============================================================================= */
 
@@ -7,7 +7,7 @@ window.YU_I18N = {
 
   /* --------------------------------------------------------------- ESPAÑOL */
   es: {
-    'meta.title': 'YU Constructores | Constructora en Armenia, Quindío · Obra civil e infraestructura',
+    'meta.title': 'YU Constructora en Armenia, Quindío | Obra civil e infraestructura',
     'meta.desc': 'YU Construcciones S.A.S. — constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, estabilización de taludes, remodelaciones y mantenimiento de infraestructura en el Eje Cafetero y toda Colombia.',
 
     'nav.home': 'Inicio',
@@ -285,7 +285,7 @@ window.YU_I18N = {
 
   /* --------------------------------------------------------------- ENGLISH */
   en: {
-    'meta.title': 'YU Constructores | Civil works & construction company in Armenia, Quindío, Colombia',
+    'meta.title': 'YU Constructora | Construction & civil works company in Armenia, Colombia',
     'meta.desc': 'YU Construcciones S.A.S. — construction company based in Armenia, Quindío. Civil works, water and sewer networks, slope stabilisation, remodelling and infrastructure maintenance across Colombia\'s Coffee Region and the whole country.',
 
     'nav.home': 'Home',
@@ -563,7 +563,7 @@ window.YU_I18N = {
 
   /* ------------------------------------------------------------- PORTUGUÊS */
   pt: {
-    'meta.title': 'YU Constructores | Construtora em Armenia, Quindío · Obras civis e infraestrutura na Colômbia',
+    'meta.title': 'YU Constructora em Armenia, Quindío | Obras civis e infraestrutura',
     'meta.desc': 'YU Construcciones S.A.S. — construtora sediada em Armenia, Quindío. Obras civis, redes de água e esgoto, estabilização de taludes, reformas e manutenção de infraestrutura na Região Cafeeira e em toda a Colômbia.',
 
     'nav.home': 'Início',

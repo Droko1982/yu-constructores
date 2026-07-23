@@ -1,5 +1,5 @@
 /* =============================================================================
-   YU Constructores · Generador de páginas por idioma
+   YU Constructora · Generador de páginas por idioma
    -----------------------------------------------------------------------------
    Toma index.html (fuente en español) y produce en/index.html y pt/index.html
    con el HTML ya traducido, para que los buscadores indexen contenido real en
