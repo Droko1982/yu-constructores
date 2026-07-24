@@ -3,7 +3,7 @@
 Sitio web de **YU Construcciones S.A.S.** (NIT 901400072-5), constructora de obra civil e
 infraestructura con sede en Armenia, Quindío, Colombia.
 
-🔗 **Sitio publicado:** https://droko1982.github.io/yu-constructores/
+🔗 **Sitio publicado:** https://yuconstructora.com/
 
 ---
 
@@ -99,9 +99,9 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
       ya existe, pero le falta contenido: enlazar este sitio como web oficial, publicar
       el horario de atención, subir fotos de obra y listar los servicios. Es el factor
       con mayor peso en el posicionamiento local en Armenia.
-- [ ] **Conectar un dominio propio** (p. ej. `yuconstructores.com`) y actualizar la
-      constante `BASE` en `tools/build-i18n.js`, más `sitemap.xml` y `robots.txt`.
-      Sube bastante el techo de posicionamiento frente a `github.io`.
+- [x] ~~Conectar un dominio propio~~ — **yuconstructora.com** conectado el 24/07/2026
+      (DNS en Namecheap, archivo `CNAME` y HTTPS de GitHub Pages). Las URL absolutas del
+      sitio, el `sitemap.xml` y el `robots.txt` ya apuntan al dominio.
 - [ ] Registrar el sitio en Google Search Console y enviar el `sitemap.xml`.
 - [ ] Pedir reseñas a clientes anteriores. No se incluyeron testimonios ficticios de
       forma deliberada; el espacio está listo para cuando existan reseñas reales.

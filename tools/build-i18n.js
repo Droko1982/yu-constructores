@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const BASE = 'https://droko1982.github.io/yu-constructores/';
+const BASE = 'https://yuconstructora.com/';
 
 global.window = {};
 // eslint-disable-next-line no-eval
