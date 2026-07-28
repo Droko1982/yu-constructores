@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://droko1982.github.io/yu-constructores/sitemap.xml
+Sitemap: https://yuconstructora.com/sitemap.xml
