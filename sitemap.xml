@@ -145,6 +145,39 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/cobertura/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/cobertura/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/en/coverage/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/cobertura/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/pt/cobertura/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/cobertura/"/>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/politica-de-datos/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>yearly</changefreq>

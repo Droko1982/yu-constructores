@@ -50,6 +50,11 @@ const LOCALES = {
 const PAGES = [
   { id: 'home', slug: { es: '', en: '', pt: '' } },
   {
+    id: 'cobertura',
+    content: 'tools/pages/cobertura',
+    slug: { es: 'cobertura', en: 'coverage', pt: 'cobertura' }
+  },
+  {
     id: 'privacidad',
     content: 'tools/pages/privacidad',
     slug: { es: 'politica-de-datos', en: 'privacy-policy', pt: 'politica-de-dados' }
@@ -144,6 +149,18 @@ function locate(page, lang) {
     file: path.join(ROOT, ...parts, 'index.html')
   };
 }
+
+/* Zona de operación, en un solo sitio: la usan el nodo de la empresa, cada
+   servicio y cada obra. La región va antes que el país porque el negocio real
+   está en el Eje Cafetero, aunque se ejecute en todo el territorio. */
+const AREA_SERVED = [
+  { '@type': 'AdministrativeArea', name: 'Eje Cafetero' },
+  { '@type': 'AdministrativeArea', name: 'Quindío' },
+  { '@type': 'AdministrativeArea', name: 'Risaralda' },
+  { '@type': 'AdministrativeArea', name: 'Caldas' },
+  { '@type': 'AdministrativeArea', name: 'Valle del Cauca' },
+  { '@type': 'Country', name: 'Colombia' }
+];
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const escAttr = (s) => esc(s).replace(/"/g, '&quot;');
@@ -248,10 +265,7 @@ function buildServiceList(lang) {
         description: T['svc.' + i + '.d'],
         serviceType: T['svc.' + i + '.t'],
         provider: { '@id': BASE + '#organizacion' },
-        areaServed: [
-          { '@type': 'AdministrativeArea', name: 'Quindío' },
-          { '@type': 'Country', name: 'Colombia' }
-        ]
+        areaServed: AREA_SERVED
       }
     });
   }
@@ -356,7 +370,10 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
   if (page.project) {
     crumbs.push({ '@type': 'ListItem', position: 2, name: T['nav.projects'], item: homeUrl + '#proyectos' });
   }
-  crumbs.push({ '@type': 'ListItem', position: crumbs.length + 1, name: meta.title, item: at.url });
+  /* La miga se dibuja bajo el resultado de búsqueda, así que lleva el nombre de
+     la página a secas: el sufijo de marca del <title> ahí sobra. */
+  const crumbName = meta.title.split(' | ')[0].trim();
+  crumbs.push({ '@type': 'ListItem', position: crumbs.length + 1, name: crumbName, item: at.url });
 
   const graph = [
     {
@@ -386,13 +403,7 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
       serviceType: T['svc.' + n + '.t'],
       url: at.url,
       provider: { '@id': BASE + '#organizacion' },
-      areaServed: [
-        { '@type': 'AdministrativeArea', name: 'Quindío' },
-        { '@type': 'AdministrativeArea', name: 'Risaralda' },
-        { '@type': 'AdministrativeArea', name: 'Valle del Cauca' },
-        { '@type': 'AdministrativeArea', name: 'Caldas' },
-        { '@type': 'Country', name: 'Colombia' }
-      ]
+      areaServed: AREA_SERVED
     });
   }
 

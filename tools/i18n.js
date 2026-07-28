@@ -7,8 +7,8 @@ window.YU_I18N = {
 
   /* --------------------------------------------------------------- ESPAÑOL */
   es: {
-    'meta.title': 'Constructora en Armenia, Quindío | YU Construcciones',
-    'meta.desc': 'Constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, estabilización de taludes y remodelaciones. Cobertura en todo el Eje Cafetero.',
+    'meta.title': 'Constructora en Armenia y el Eje Cafetero | YU',
+    'meta.desc': 'Constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, taludes y remodelaciones en todo el Eje Cafetero, con proyectos en toda Colombia.',
 
     'nav.home': 'Inicio',
     'brand.tag': 'Construcciones S.A.S. · Eje Cafetero',
@@ -149,6 +149,8 @@ window.YU_I18N = {
     'cov.g3d': 'Ejecutamos proyectos de obra civil e infraestructura en cualquier departamento del país, con equipo desplazado y coordinación remota para clientes que viven fuera de la región o en el exterior.',
     'cov.map': 'Ubicación de YU Construcciones S.A.S. en Armenia, Quindío',
     'cov.seo': 'Si busca una constructora en Armenia, un contratista de obra civil en Calarcá o una empresa para remodelar su casa en Circasia, Montenegro o La Tebaida, atendemos todo el Quindío con el mismo equipo técnico y el mismo estándar de obra. También ejecutamos proyectos públicos y privados en Pereira, Dosquebradas, Manizales, Cartago y el norte del Valle del Cauca.',
+    'cov.more': 'Zonas donde trabajamos',
+    'footer.reviews': 'Reseñas en Google',
 
     'why.eyebrow': 'Por qué YU',
     'why.title': 'Razones para confiarnos su obra',
@@ -295,7 +297,7 @@ window.YU_I18N = {
 
   /* --------------------------------------------------------------- ENGLISH */
   en: {
-    'meta.title': 'Construction company in Armenia, Colombia | YU',
+    'meta.title': 'Construction company in Armenia, Coffee Region | YU',
     'meta.desc': 'Construction company based in Armenia, Quindío. Civil works, water and sewer networks, slope stabilisation and remodelling across the Coffee Region.',
 
     'nav.home': 'Home',
@@ -437,6 +439,8 @@ window.YU_I18N = {
     'cov.g3d': 'We deliver civil works and infrastructure projects in any department of the country, with deployed crews and remote coordination for clients who live outside the region or abroad.',
     'cov.map': 'Location of YU Construcciones S.A.S. in Armenia, Quindío',
     'cov.seo': 'Whether you are looking for a construction company in Armenia, a civil works contractor in Calarcá or a builder to remodel a house in Circasia, Montenegro or La Tebaida, we cover the whole of Quindío with the same technical team and the same building standard. We also deliver public and private projects in Pereira, Dosquebradas, Manizales, Cartago and northern Valle del Cauca.',
+    'cov.more': 'Areas we work in',
+    'footer.reviews': 'Reviews on Google',
 
     'why.eyebrow': 'Why YU',
     'why.title': 'Reasons to trust us with your project',
@@ -583,7 +587,7 @@ window.YU_I18N = {
 
   /* ------------------------------------------------------------- PORTUGUÊS */
   pt: {
-    'meta.title': 'Construtora em Armenia, Colômbia | YU Construcciones',
+    'meta.title': 'Construtora em Armenia, Região Cafeeira | YU',
     'meta.desc': 'Construtora sediada em Armenia, Quindío. Obras civis, redes de água e esgoto, estabilização de taludes e reformas em toda a Região Cafeeira.',
 
     'nav.home': 'Início',
@@ -725,6 +729,8 @@ window.YU_I18N = {
     'cov.g3d': 'Executamos projetos de obra civil e infraestrutura em qualquer departamento do país, com equipe deslocada e coordenação remota para clientes que moram fora da região ou no exterior.',
     'cov.map': 'Localização da YU Construcciones S.A.S. em Armenia, Quindío',
     'cov.seo': 'Se você procura uma construtora em Armenia, um empreiteiro de obras civis em Calarcá ou uma empresa para reformar uma casa em Circasia, Montenegro ou La Tebaida, atendemos todo o Quindío com a mesma equipe técnica e o mesmo padrão de obra. Também executamos projetos públicos e privados em Pereira, Dosquebradas, Manizales, Cartago e no norte do Valle del Cauca.',
+    'cov.more': 'Áreas onde atuamos',
+    'footer.reviews': 'Avaliações no Google',
 
     'why.eyebrow': 'Por que a YU',
     'why.title': 'Razões para confiar sua obra a nós',

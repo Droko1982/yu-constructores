@@ -1,7 +1,7 @@
 /* Generado por tools/build-i18n.js a partir de tools/i18n.js — no editar a mano. */
 window.YU_I18N = {
   "en": {
-    "meta.title": "Construction company in Armenia, Colombia | YU",
+    "meta.title": "Construction company in Armenia, Coffee Region | YU",
     "meta.desc": "Construction company based in Armenia, Quindío. Civil works, water and sewer networks, slope stabilisation and remodelling across the Coffee Region.",
     "nav.home": "Home",
     "brand.tag": "Construcciones S.A.S. · Coffee Region",
@@ -135,6 +135,8 @@ window.YU_I18N = {
     "cov.g3d": "We deliver civil works and infrastructure projects in any department of the country, with deployed crews and remote coordination for clients who live outside the region or abroad.",
     "cov.map": "Location of YU Construcciones S.A.S. in Armenia, Quindío",
     "cov.seo": "Whether you are looking for a construction company in Armenia, a civil works contractor in Calarcá or a builder to remodel a house in Circasia, Montenegro or La Tebaida, we cover the whole of Quindío with the same technical team and the same building standard. We also deliver public and private projects in Pereira, Dosquebradas, Manizales, Cartago and northern Valle del Cauca.",
+    "cov.more": "Areas we work in",
+    "footer.reviews": "Reviews on Google",
     "why.eyebrow": "Why YU",
     "why.title": "Reasons to trust us with your project",
     "why.sub": "We are a legally registered company with technical backing and proven experience in both public and private contracts.",
