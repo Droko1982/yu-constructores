@@ -1,8 +1,8 @@
 /* Generado por tools/build-i18n.js a partir de tools/i18n.js — no editar a mano. */
 window.YU_I18N = {
   "es": {
-    "meta.title": "Constructora en Armenia, Quindío | YU Construcciones",
-    "meta.desc": "Constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, estabilización de taludes y remodelaciones. Cobertura en todo el Eje Cafetero.",
+    "meta.title": "Constructora en Armenia y el Eje Cafetero | YU",
+    "meta.desc": "Constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, taludes y remodelaciones en todo el Eje Cafetero, con proyectos en toda Colombia.",
     "nav.home": "Inicio",
     "brand.tag": "Construcciones S.A.S. · Eje Cafetero",
     "nav.services": "Servicios",
@@ -135,6 +135,8 @@ window.YU_I18N = {
     "cov.g3d": "Ejecutamos proyectos de obra civil e infraestructura en cualquier departamento del país, con equipo desplazado y coordinación remota para clientes que viven fuera de la región o en el exterior.",
     "cov.map": "Ubicación de YU Construcciones S.A.S. en Armenia, Quindío",
     "cov.seo": "Si busca una constructora en Armenia, un contratista de obra civil en Calarcá o una empresa para remodelar su casa en Circasia, Montenegro o La Tebaida, atendemos todo el Quindío con el mismo equipo técnico y el mismo estándar de obra. También ejecutamos proyectos públicos y privados en Pereira, Dosquebradas, Manizales, Cartago y el norte del Valle del Cauca.",
+    "cov.more": "Zonas donde trabajamos",
+    "footer.reviews": "Reseñas en Google",
     "why.eyebrow": "Por qué YU",
     "why.title": "Razones para confiarnos su obra",
     "why.sub": "Somos una empresa legalmente constituida, con respaldo técnico y experiencia comprobada en contratación pública y privada.",

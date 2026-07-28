@@ -1,7 +1,7 @@
 /* Generado por tools/build-i18n.js a partir de tools/i18n.js — no editar a mano. */
 window.YU_I18N = {
   "pt": {
-    "meta.title": "Construtora em Armenia, Colômbia | YU Construcciones",
+    "meta.title": "Construtora em Armenia, Região Cafeeira | YU",
     "meta.desc": "Construtora sediada em Armenia, Quindío. Obras civis, redes de água e esgoto, estabilização de taludes e reformas em toda a Região Cafeeira.",
     "nav.home": "Início",
     "brand.tag": "Construcciones S.A.S. · Região Cafeeira",
@@ -135,6 +135,8 @@ window.YU_I18N = {
     "cov.g3d": "Executamos projetos de obra civil e infraestrutura em qualquer departamento do país, com equipe deslocada e coordenação remota para clientes que moram fora da região ou no exterior.",
     "cov.map": "Localização da YU Construcciones S.A.S. em Armenia, Quindío",
     "cov.seo": "Se você procura uma construtora em Armenia, um empreiteiro de obras civis em Calarcá ou uma empresa para reformar uma casa em Circasia, Montenegro ou La Tebaida, atendemos todo o Quindío com a mesma equipe técnica e o mesmo padrão de obra. Também executamos projetos públicos e privados em Pereira, Dosquebradas, Manizales, Cartago e no norte do Valle del Cauca.",
+    "cov.more": "Áreas onde atuamos",
+    "footer.reviews": "Avaliações no Google",
     "why.eyebrow": "Por que a YU",
     "why.title": "Razões para confiar sua obra a nós",
     "why.sub": "Somos uma empresa legalmente constituída, com respaldo técnico e experiência comprovada em contratos públicos e privados.",
