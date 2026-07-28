@@ -66,6 +66,7 @@ window.YU_I18N = {
     "prj.photos": "fotos",
     "prj.open": "Ver galería del proyecto",
     "prj.openLabel": "Ver galería",
+    "prj.more": "Ver la obra completa",
     "prj.gallery": "Galería del proyecto",
     "prj.p1.t": "Casa Campestre Lote 78",
     "prj.p1.l": "Alcalá, Valle del Cauca",

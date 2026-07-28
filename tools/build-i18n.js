@@ -101,6 +101,33 @@ const PAGES = [
   }
 ];
 
+/* Páginas de obra. "project" es la clave del proyecto en el diccionario, de
+   donde salen título, ubicación, año y descripción ya traducidos; "slug" lleva
+   el municipio porque la búsqueda útil es «constructora en Circasia», no el
+   nombre de la obra. La galería se inyecta sola a partir de PROJECTS. */
+for (const [key, slug, place] of [
+  ['p1', 'casa-campestre-lote-78', 'alcala-valle'],
+  ['p2', 'casa-chambery-lote-9c', 'pereira'],
+  ['p3', 'casa-del-bosque', 'pereira'],
+  ['p4', 'alcantarillado-la-miranda', 'armenia'],
+  ['p5', 'planta-frigopork', 'la-victoria-valle'],
+  ['p6', 'colegio-libre', 'circasia'],
+  ['p7', 'colegio-san-vicente', 'genova'],
+  ['p8', 'acueducto-aeropuerto-matecana', 'pereira'],
+  ['p9', 'taludes-aeropuerto-matecana', 'pereira']
+]) {
+  PAGES.push({
+    id: 'obra-' + key,
+    project: key,
+    content: 'tools/pages/obra-' + key,
+    slug: {
+      es: 'proyectos/' + slug + '-' + place,
+      en: 'projects/' + slug + '-' + place,
+      pt: 'projetos/' + slug + '-' + place
+    }
+  });
+}
+
 /* Dónde vive una página en un idioma: carpetas, URL absoluta y los prefijos
    relativos hacia la raíz del sitio y hacia la portada de ese idioma. */
 function locate(page, lang) {
@@ -326,6 +353,9 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
   if (page.service) {
     crumbs.push({ '@type': 'ListItem', position: 2, name: T['nav.services'], item: homeUrl + '#servicios' });
   }
+  if (page.project) {
+    crumbs.push({ '@type': 'ListItem', position: 2, name: T['nav.projects'], item: homeUrl + '#proyectos' });
+  }
   crumbs.push({ '@type': 'ListItem', position: crumbs.length + 1, name: meta.title, item: at.url });
 
   const graph = [
@@ -363,6 +393,29 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
         { '@type': 'AdministrativeArea', name: 'Caldas' },
         { '@type': 'Country', name: 'Colombia' }
       ]
+    });
+  }
+
+  /* Cada obra se declara como CreativeWork, igual que en el listado de la
+     portada, pero aquí con su URL propia y todas sus fotografías. */
+  if (page.project) {
+    const k = page.project;
+    const p = PHOTOS[k];
+    const imgs = [];
+    for (let i = 1; i <= p.count; i++) {
+      imgs.push(BASE + 'assets/img/proyectos/' + p.slug + '-' + i + '.jpg');
+    }
+    graph.push({
+      '@type': 'CreativeWork',
+      '@id': at.url + '#obra',
+      name: T['prj.' + k + '.t'],
+      url: at.url,
+      description: T['prj.' + k + '.d'],
+      temporalCoverage: T['prj.' + k + '.y'].replace('–', '/'),
+      locationCreated: { '@type': 'Place', name: T['prj.' + k + '.l'] },
+      creator: { '@id': BASE + '#organizacion' },
+      inLanguage: LOCALES[lang].htmlLang,
+      image: imgs
     });
   }
 
@@ -568,6 +621,39 @@ function rewritePageLinks(html, lang, at) {
   });
 }
 
+/* Número de fotografías de cada obra. Se lee de index.html en lugar de
+   repetirse aquí, para que añadir una foto no obligue a tocar dos sitios. */
+const PHOTOS = (() => {
+  const out = {};
+  for (const m of source.matchAll(/data-slug="([a-z0-9-]+)" data-count="(\d+)" data-key="(p\d)"/g)) {
+    out[m[3]] = { slug: m[1], count: Number(m[2]) };
+  }
+  return out;
+})();
+
+/* Rejilla de fotografías de una obra. Se sirve la variante de 640 px, que es lo
+   que ocupa una celda; el .jpg queda de respaldo. Las rutas se escriben
+   relativas a la raíz y rewriteHead les antepone después los "../" que toquen. */
+function buildGallery(key, lang) {
+  const T = DICT[lang];
+  const p = PHOTOS[key];
+  if (!p) throw new Error('No se encontró data-count para la obra ' + key);
+  const alt = T['prj.' + key + '.alt'] || T['prj.' + key + '.t'];
+  const shots = [];
+  for (let i = 1; i <= p.count; i++) {
+    const base = 'assets/img/proyectos/' + p.slug + '-' + i;
+    shots.push(
+      '        <figure class="shot">\n' +
+      '          <picture>\n' +
+      `            <source type="image/webp" srcset="${base}-640.webp">\n` +
+      `            <img src="${base}.jpg" loading="lazy" decoding="async" alt="${escAttr(alt)} (${i}/${p.count})">\n` +
+      '          </picture>\n' +
+      '        </figure>'
+    );
+  }
+  return '      <div class="shots">\n' + shots.join('\n') + '\n      </div>';
+}
+
 /* El contenido de cada página secundaria vive en un archivo por idioma. El
    título y la descripción viajan como comentarios al principio, junto al texto
    que describen, en lugar de en una tabla aparte del generador. */
@@ -606,7 +692,14 @@ for (const page of PAGES) {
     } else {
       const content = readContent(page, lang);
       meta = { title: content.title, desc: content.desc };
-      out = SHELL.head + SHELL.prelude + '<main id="main">\n' + content.body + '\n</main>' + SHELL.postlude;
+      let body = content.body;
+      if (page.project) {
+        if (!body.includes('<!-- galeria -->')) {
+          throw new Error('Falta el marcador <!-- galeria --> en ' + page.content + '.' + lang + '.html');
+        }
+        body = body.replace('<!-- galeria -->', () => buildGallery(page.project, lang));
+      }
+      out = SHELL.head + SHELL.prelude + '<main id="main">\n' + body + '\n</main>' + SHELL.postlude;
 
       // Aquí no hay héroe: precargarlo descargaría cientos de KB que no se pintan.
       out = out.replace(/\n?\s*<link rel="preload" as="image"[^>]*>/, '');

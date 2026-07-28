@@ -66,6 +66,7 @@ window.YU_I18N = {
     "prj.photos": "photos",
     "prj.open": "Open project gallery",
     "prj.openLabel": "View gallery",
+    "prj.more": "See the full project",
     "prj.gallery": "Project gallery",
     "prj.p1.t": "Country House — Lot 78",
     "prj.p1.l": "Alcalá, Valle del Cauca",

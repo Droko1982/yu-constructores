@@ -77,6 +77,7 @@ window.YU_I18N = {
     'prj.photos': 'fotos',
     'prj.open': 'Ver galería del proyecto',
     'prj.openLabel': 'Ver galería',
+    'prj.more': 'Ver la obra completa',
     'prj.gallery': 'Galería del proyecto',
 
     'prj.p1.t': 'Casa Campestre Lote 78',
@@ -364,6 +365,7 @@ window.YU_I18N = {
     'prj.photos': 'photos',
     'prj.open': 'Open project gallery',
     'prj.openLabel': 'View gallery',
+    'prj.more': 'See the full project',
     'prj.gallery': 'Project gallery',
 
     'prj.p1.t': 'Country House — Lot 78',
@@ -651,6 +653,7 @@ window.YU_I18N = {
     'prj.photos': 'fotos',
     'prj.open': 'Abrir galeria do projeto',
     'prj.openLabel': 'Ver galeria',
+    'prj.more': 'Ver a obra completa',
     'prj.gallery': 'Galeria do projeto',
 
     'prj.p1.t': 'Casa de Campo Lote 78',
