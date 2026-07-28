@@ -214,7 +214,7 @@ Pendientes de contenido:
 - [ ] Nombrar las entidades contratantes de la obra pública (alcantarillado y colegios),
       si la empresa autoriza. Da más credibilidad que cualquier texto de marketing.
 - [ ] Sumar certificados, RUP o pólizas escaneadas si se quieren mostrar públicamente.
-- [ ] Añadir Facebook, LinkedIn o TikTok al pie y a `sameAs` cuando existan.
+- [x] ~~Añadir Facebook y TikTok~~ al pie y a `sameAs` (28/07/2026). Falta LinkedIn si se abre.
 
 ## Autoría
 
