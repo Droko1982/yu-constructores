@@ -58,6 +58,16 @@ const RULES = [
   { test: /brand[/\\]hero-\d+\.jpe?g$/i, widths: [768, 1280, 1920] },
   { test: /brand[/\\]nosotros\.jpe?g$/i, widths: [640, 1200] },
   { test: /-thumb\.jpe?g$/i, widths: [450, 900] },
+  /* Fotos de obra: 640 para la rejilla de la página de proyecto, 1280 para el
+     visor a pantalla completa. La rejilla las muestra a un tercio de ancho, así
+     que servirlas a 1280 sería descargar cuatro veces los píxeles necesarios.
+
+     "nominal" significa que el número del nombre es una etiqueta, no una medida:
+     estas dos variantes se piden por nombre exacto —desde el guion del visor y
+     desde el <source> de la rejilla— así que deben existir siempre, incluso para
+     las pocas fotos que son más angostas que 640 px. withoutEnlargement evita
+     que se amplíen: se quedan en su tamaño y conservan el nombre acordado. */
+  { test: /proyectos[/\\][a-z0-9-]+-\d+\.jpe?g$/i, widths: [640, 1280], nominal: true },
   { test: /.*/, widths: [1280] }
 ];
 
@@ -78,9 +88,9 @@ function sources() {
   return out.sort();
 }
 
-function widthsFor(file) {
+function ruleFor(file) {
   const rel = path.relative(ROOT, file);
-  return RULES.find((r) => r.test.test(rel)).widths;
+  return RULES.find((r) => r.test.test(rel));
 }
 
 /* Regenera solo lo que haga falta: si la variante existe y es más reciente que
@@ -112,18 +122,21 @@ const mb = (n) => (n / 1024 / 1024).toFixed(2) + ' MB';
     const srcBytes = fs.statSync(src).size;
     jpgBytes += srcBytes;
 
-    /* Con varias anchuras se descartan las que superen el original: van a un
-       srcset y el descriptor "1280w" debe corresponder a píxeles reales.
+    /* El nombre de archivo puede ser una medida o una etiqueta:
 
-       Con una sola anchura el nombre es una etiqueta, no una medida: esa
-       variante se pide directamente desde el guion (el visor de galería carga
-       "-1280.webp"), así que el archivo tiene que existir aunque la foto sea
-       más angosta. withoutEnlargement impide que se amplíe: se queda en su
-       tamaño original y conserva el nombre acordado. */
-    const rule = widthsFor(src);
-    const widths = rule.length > 1
-      ? (rule.filter((w) => w <= meta.width).length ? rule.filter((w) => w <= meta.width) : [meta.width])
-      : rule;
+       · Sin "nominal" y con varias anchuras, los archivos alimentan un srcset y
+         el descriptor "1280w" debe corresponder a píxeles reales, así que se
+         descartan las anchuras que superen el original.
+       · Con "nominal", o con una sola anchura, el archivo se pide por su nombre
+         exacto desde el HTML o el guion: tiene que existir siempre.
+         withoutEnlargement evita ampliarlo, así que se queda en su tamaño real
+         y conserva el nombre acordado. */
+    const rule = ruleFor(src);
+    let widths = rule.widths;
+    if (!rule.nominal && widths.length > 1) {
+      const fit = widths.filter((w) => w <= meta.width);
+      widths = fit.length ? fit : [meta.width];
+    }
 
     const made = [];
     for (const w of widths) {

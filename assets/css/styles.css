@@ -415,6 +415,71 @@ p { margin: 0; text-wrap: pretty; }
 }
 .consent a { color: var(--brand); text-decoration: underline; text-underline-offset: .18em; }
 
+/* Enlace de la tarjeta del portafolio hacia la página de la obra. Convive con
+   el botón que abre el visor: son dos acciones distintas sobre la misma obra. */
+.project__more {
+  display: inline-block;
+  margin-top: .7rem;
+  font-family: var(--font-display);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: .22em;
+  position: relative;
+  z-index: 2;
+}
+
+/* ------------------------------------------------- Rejilla de obra ejecutada
+   La relación de aspecto fija reserva el hueco antes de que baje la imagen, de
+   modo que el texto no salta mientras carga la galería. */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-block: 1.6rem 2.4rem;
+}
+.shots picture { display: contents; }
+.shot {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+.shot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s var(--ease);
+}
+.shot:hover img { transform: scale(1.05); }
+
+@media (max-width: 900px) { .shots { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .shots { grid-template-columns: 1fr; } }
+
+/* Ficha de datos de la obra */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem 1.6rem;
+  margin-block: 1.4rem 2rem;
+  padding: 1.3rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+.facts div { display: flex; flex-direction: column; gap: .2rem; }
+.facts dt, .facts small {
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-mut);
+}
+.facts dd, .facts b { margin: 0; font-weight: 700; }
+
 /* ---------------------------------------------------------- Páginas legales
    Texto corrido a una sola columna. Se limita la medida de línea porque un
    párrafo de 160 caracteres es incómodo de leer en pantalla ancha. */

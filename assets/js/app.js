@@ -292,7 +292,15 @@
   }
 
   projectEls.forEach(function (p) {
-    p.addEventListener('click', function () {
+    p.addEventListener('click', function (e) {
+      /*
+        La tarjeta abre el visor, pero también contiene el enlace a la página de
+        la obra. Sin esta comprobación, pulsar el enlace dispararía las dos
+        cosas: se abriría la galería y acto seguido el navegador cambiaría de
+        página, dejando el visor abierto al volver atrás.
+      */
+      if (e.target.closest && e.target.closest('a')) return;
+
       var locEl = $('.project__loc span', p);
       lbOpen(
         p.getAttribute('data-slug'),

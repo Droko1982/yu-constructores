@@ -66,6 +66,7 @@ window.YU_I18N = {
     "prj.photos": "fotos",
     "prj.open": "Abrir galeria do projeto",
     "prj.openLabel": "Ver galeria",
+    "prj.more": "Ver a obra completa",
     "prj.gallery": "Galeria do projeto",
     "prj.p1.t": "Casa de Campo Lote 78",
     "prj.p1.l": "Alcalá, Valle del Cauca",
