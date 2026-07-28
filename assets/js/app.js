@@ -114,9 +114,18 @@
   }
 
   /* ------------------------------------------------- Enlace activo del menú */
+  /*
+    En las páginas secundarias los enlaces del menú apuntan a la portada
+    ("../#servicios"), que no es un selector CSS válido: pasárselo a
+    querySelector lanza una excepción y detendría el resto del guion. Solo se
+    consultan los que son anclas de esta misma página.
+  */
   var navLinks = $$('#nav a');
   var sections = navLinks
-    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+    .map(function (a) {
+      var href = a.getAttribute('href') || '';
+      return href.charAt(0) === '#' && href.length > 1 ? document.querySelector(href) : null;
+    })
     .filter(Boolean);
 
   if ('IntersectionObserver' in window && sections.length) {
@@ -151,18 +160,35 @@
   var heroIx = 0;
   var heroTimer = null;
 
+  /*
+    Activa una diapositiva aplazada. El srcset del <source> debe escribirse
+    ANTES que el src del <img>: el navegador resuelve <picture> en cuanto la
+    imagen recibe una fuente, así que al revés ya habría elegido el JPEG y la
+    variante WebP no se usaría.
+  */
+  function heroLoad(img) {
+    if (!img || img.src) return;
+    var pic = img.parentNode;
+    if (pic && pic.tagName === 'PICTURE') {
+      $$('source[data-srcset]', pic).forEach(function (s) {
+        s.setAttribute('srcset', s.getAttribute('data-srcset'));
+        s.removeAttribute('data-srcset');
+      });
+    }
+    if (img.dataset.src) img.src = img.dataset.src;
+  }
+
   function heroGo(i) {
     if (!heroImgs.length) return;
     heroIx = (i + heroImgs.length) % heroImgs.length;
     heroImgs.forEach(function (img, n) {
-      if (n === heroIx && img.dataset.src && !img.src) img.src = img.dataset.src;
+      if (n === heroIx) heroLoad(img);
       img.classList.toggle('is-active', n === heroIx);
     });
     heroDots.forEach(function (d, n) { d.setAttribute('aria-current', n === heroIx ? 'true' : 'false'); });
 
     // Precarga la siguiente
-    var nx = heroImgs[(heroIx + 1) % heroImgs.length];
-    if (nx && nx.dataset.src && !nx.src) nx.src = nx.dataset.src;
+    heroLoad(heroImgs[(heroIx + 1) % heroImgs.length]);
   }
 
   function heroPlay() {
@@ -202,8 +228,22 @@
   var lbState = { imgs: [], i: 0, key: '', loc: '' };
   var lastFocus = null;
 
+  /*
+    Las fotos del visor se piden en WebP (variante de 1280 px, en torno a la
+    mitad de peso). Si el navegador no la trae —formato no soportado o archivo
+    ausente porque la foto es nueva y no se ha generado— se cae al .jpg
+    original. Se marca el nodo para no reintentar en bucle.
+  */
+  function swapToJpeg(img) {
+    // Al cerrar el visor se vacía el src, y eso también dispara "error".
+    if (img.dataset.fallback === 'done' || !/-1280\.webp$/.test(img.src)) return;
+    img.dataset.fallback = 'done';
+    img.src = img.src.replace(/-1280\.webp$/, '.jpg');
+  }
+
   function lbRender() {
     if (!lbState.imgs.length) return;
+    delete lbImg.dataset.fallback;
     lbImg.src = lbState.imgs[lbState.i];
     lbImg.alt = t('prj.' + lbState.key + '.t') + ' — ' + (lbState.i + 1) + '/' + lbState.imgs.length;
     lbTitle.textContent = t('prj.' + lbState.key + '.t');
@@ -216,7 +256,7 @@
   function lbOpen(slug, count, key, loc) {
     lbState.imgs = [];
     for (var i = 1; i <= count; i++) {
-      lbState.imgs.push(ASSET_BASE + 'assets/img/proyectos/' + slug + '-' + i + '.jpg');
+      lbState.imgs.push(ASSET_BASE + 'assets/img/proyectos/' + slug + '-' + i + '-1280.webp');
     }
     lbState.i = 0;
     lbState.key = key;
@@ -228,6 +268,7 @@
       b.type = 'button';
       b.setAttribute('aria-label', String(n + 1));
       var im = document.createElement('img');
+      im.addEventListener('error', function () { swapToJpeg(im); });
       im.src = src;
       im.loading = 'lazy';
       im.alt = '';
@@ -263,6 +304,7 @@
   });
 
   if (lb) {
+    lbImg.addEventListener('error', function () { swapToJpeg(lbImg); });
     $('#lbClose').addEventListener('click', lbClose);
     $('#lbPrev').addEventListener('click', function () {
       lbState.i = (lbState.i - 1 + lbState.imgs.length) % lbState.imgs.length;
@@ -350,6 +392,11 @@
           telefono: $('#cPhone').value,
           email: $('#cEmail').value,
           mensaje: $('#cMsg').value,
+          // Queda constancia del consentimiento en el propio correo: la Ley 1581
+          // exige poder probar que el titular autorizó el tratamiento.
+          autorizacion: $('#cConsent').checked
+            ? 'Autorizó el tratamiento de datos el ' + new Date().toLocaleString('es-CO')
+            : 'NO autorizó',
           _subject: 'Nueva solicitud desde el sitio de YU Constructora',
           _template: 'table',
           _captcha: 'false'

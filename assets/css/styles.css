@@ -378,7 +378,76 @@ p { margin: 0; text-wrap: pretty; }
   overflow: hidden;
   isolation: isolate;
 }
+/* Enlace de la tarjeta de servicio hacia su página propia. Se separa del texto
+   y se ancla abajo para que las cuatro tarjetas con página lo alineen igual. */
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.card__link::after { content: '→'; transition: transform .25s var(--ease); }
+.card:hover .card__link::after { transform: translateX(4px); }
+
+/* ------------------------------------------- Casilla de autorización de datos */
+.consent {
+  display: flex;
+  gap: .7rem;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  font-size: .86rem;
+  line-height: 1.55;
+  cursor: pointer;
+}
+.consent input {
+  flex: 0 0 auto;
+  width: 1.05rem; height: 1.05rem;
+  margin-top: .15rem;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+.consent a { color: var(--brand); text-decoration: underline; text-underline-offset: .18em; }
+
+/* ---------------------------------------------------------- Páginas legales
+   Texto corrido a una sola columna. Se limita la medida de línea porque un
+   párrafo de 160 caracteres es incómodo de leer en pantalla ancha. */
+.legal { max-width: 68ch; }
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-block: 2.4rem .8rem;
+}
+.legal h2:first-of-type { margin-top: 1.2rem; }
+.legal p, .legal li { line-height: 1.75; }
+.legal p { margin-bottom: 1rem; }
+.legal ul { margin: 0 0 1.4rem 1.2rem; }
+.legal li { margin-bottom: .5rem; }
+.legal a { color: var(--brand); text-decoration: underline; text-underline-offset: .18em; }
+.legal__meta {
+  font-size: .85rem;
+  opacity: .72;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
 .hero__media { position: absolute; inset: 0; z-index: -2; }
+
+/* Las imágenes van dentro de <picture> para ofrecer WebP con respaldo JPEG.
+   "display: contents" saca al envoltorio de la maquetación, de modo que las
+   reglas siguen aplicándose al <img> como si fuera hijo directo. */
+.hero__media picture,
+.project__media picture,
+.about__media picture { display: contents; }
+
 .hero__media img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -494,6 +563,10 @@ p { margin: 0; text-wrap: pretty; }
   padding: 2rem 1.7rem;
   position: relative;
   overflow: hidden;
+  /* Columna para que el enlace de «ver el servicio» pueda anclarse abajo con
+     margin-top:auto y quede a la misma altura en todas las tarjetas. */
+  display: flex;
+  flex-direction: column;
   transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
 .card::after {
@@ -1082,6 +1155,8 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
   font-size: .84rem;
   color: var(--ink-mut);
 }
+.footer__bottom a { color: inherit; text-decoration: underline; text-underline-offset: .18em; }
+.footer__bottom a:hover { color: var(--brand); }
 
 /* ---------- 19. Flotantes ----------------------------------------------- */
 .fab-wa {

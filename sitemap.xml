@@ -5,7 +5,7 @@
 
   <url>
     <loc>https://droko1982.github.io/yu-constructores/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
@@ -18,15 +18,15 @@
     </image:image>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-del-bosque-thumb.jpg</image:loc>
-      <image:title>Casa del Bosque — Pereira, Risaralda</image:title>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
     </image:image>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/taludes-aeropuerto-matecana-thumb.jpg</image:loc>
-      <image:title>Contención y estabilización de taludes — Aeropuerto Matecaña, Pereira</image:title>
+      <image:title>Contención y taludes — Aeropuerto Matecaña — Pereira, Risaralda</image:title>
     </image:image>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/alcantarillado-la-miranda-thumb.jpg</image:loc>
-      <image:title>Alcantarillado pluvial y sanitario, Barrio La Miranda — Armenia, Quindío</image:title>
+      <image:title>Alcantarillado pluvial y sanitario — Barrio La Miranda — Armenia, Quindío</image:title>
     </image:image>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/planta-frigopork-thumb.jpg</image:loc>
@@ -34,11 +34,11 @@
     </image:image>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/acueducto-aeropuerto-matecana-thumb.jpg</image:loc>
-      <image:title>Acueducto y alcantarillado — Aeropuerto Matecaña, Pereira</image:title>
+      <image:title>Acueducto y alcantarillado — Aeropuerto Matecaña — Pereira, Risaralda</image:title>
     </image:image>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-chambery-lote-9c-thumb.jpg</image:loc>
-      <image:title>Casa Chambery Lote 9C — Pereira, Risaralda</image:title>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
     </image:image>
     <image:image>
       <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/colegio-libre-circasia-thumb.jpg</image:loc>
@@ -52,24 +52,261 @@
 
   <url>
     <loc>https://droko1982.github.io/yu-constructores/en/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
+      <image:title>Country House — Lot 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-del-bosque-thumb.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/taludes-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Retaining &amp; Slopes — Matecaña Airport — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/alcantarillado-la-miranda-thumb.jpg</image:loc>
+      <image:title>Storm &amp; Sanitary Sewer — La Miranda Neighbourhood — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/planta-frigopork-thumb.jpg</image:loc>
+      <image:title>Frigopork Processing Plant — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/acueducto-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Water &amp; Sewer — Matecaña Airport — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-chambery-lote-9c-thumb.jpg</image:loc>
+      <image:title>Chambery House — Lot 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/colegio-libre-circasia-thumb.jpg</image:loc>
+      <image:title>Colegio Libre School — Circasia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/colegio-san-vicente-genova-thumb.jpg</image:loc>
+      <image:title>San Vicente de Paúl School — Génova, Quindío</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://droko1982.github.io/yu-constructores/pt/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/"/>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
+      <image:title>Casa de Campo Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-del-bosque-thumb.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/taludes-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Contenção e taludes — Aeroporto Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/alcantarillado-la-miranda-thumb.jpg</image:loc>
+      <image:title>Drenagem pluvial e esgoto — Bairro La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/planta-frigopork-thumb.jpg</image:loc>
+      <image:title>Planta de abate suíno Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/acueducto-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Água e esgoto — Aeroporto Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/casa-chambery-lote-9c-thumb.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/colegio-libre-circasia-thumb.jpg</image:loc>
+      <image:title>Colégio Libre — Circasia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://droko1982.github.io/yu-constructores/assets/img/proyectos/colegio-san-vicente-genova-thumb.jpg</image:loc>
+      <image:title>Colégio San Vicente de Paúl — Génova, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/politica-de-datos/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/politica-de-dados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/politica-de-datos/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/en/privacy-policy/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/politica-de-dados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/politica-de-datos/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/pt/politica-de-dados/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/politica-de-dados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/politica-de-datos/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/servicios/construccion-obra-civil-armenia/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/civil-works-construction/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/construcao-de-obras-civis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/construccion-obra-civil-armenia/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/en/services/civil-works-construction/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/civil-works-construction/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/construcao-de-obras-civis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/construccion-obra-civil-armenia/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/pt/servicos/construcao-de-obras-civis/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/civil-works-construction/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/construcao-de-obras-civis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/construccion-obra-civil-armenia/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/servicios/acueducto-alcantarillado-quindio/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/water-and-sewer-networks/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/redes-de-agua-e-esgoto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/acueducto-alcantarillado-quindio/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/en/services/water-and-sewer-networks/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/water-and-sewer-networks/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/redes-de-agua-e-esgoto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/acueducto-alcantarillado-quindio/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/pt/servicos/redes-de-agua-e-esgoto/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/water-and-sewer-networks/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/redes-de-agua-e-esgoto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/acueducto-alcantarillado-quindio/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/servicios/estabilizacion-de-taludes-muros-de-contencion/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/slope-stabilisation-retaining-walls/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/en/services/slope-stabilisation-retaining-walls/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/slope-stabilisation-retaining-walls/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/slope-stabilisation-retaining-walls/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/servicios/remodelaciones-armenia-quindio/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/remodelling-and-refurbishment/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/reformas-e-adequacoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/remodelaciones-armenia-quindio/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/en/services/remodelling-and-refurbishment/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/remodelling-and-refurbishment/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/reformas-e-adequacoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/remodelaciones-armenia-quindio/"/>
+  </url>
+
+  <url>
+    <loc>https://droko1982.github.io/yu-constructores/pt/servicos/reformas-e-adequacoes/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://droko1982.github.io/yu-constructores/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://droko1982.github.io/yu-constructores/en/services/remodelling-and-refurbishment/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://droko1982.github.io/yu-constructores/pt/servicos/reformas-e-adequacoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://droko1982.github.io/yu-constructores/servicios/remodelaciones-armenia-quindio/"/>
   </url>
 
 </urlset>
