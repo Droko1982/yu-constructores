@@ -3,7 +3,7 @@
 Sitio web de **YU Construcciones S.A.S.** (NIT 901400072-5), constructora de obra civil e
 infraestructura con sede en Armenia, Quindío, Colombia.
 
-🔗 **Sitio publicado:** https://droko1982.github.io/yu-constructores/
+🔗 **Sitio publicado:** https://yuconstructora.com/
 
 ---
 
@@ -175,8 +175,10 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
 - [x] ~~Activar FormSubmit~~ — hecho y verificado de punta a punta el 23/07/2026.
 - [x] ~~Publicar el horario de atención~~ — lunes a viernes de 8:00 a 18:00, visible en
       Contacto y declarado como `openingHoursSpecification` (28/07/2026).
+- [x] ~~Conectar un dominio propio~~ — **yuconstructora.com** conectado el 24/07/2026
+      (DNS en Namecheap, archivo `CNAME` y HTTPS de GitHub Pages).
 - [x] ~~Centralizar el dominio~~ — vive solo en `BASE`; el generador lo propaga al HTML,
-      al `sitemap.xml` y al `robots.txt` (28/07/2026).
+      al `sitemap.xml`, al `robots.txt` y a las rutas absolutas del `404.html` (28/07/2026).
 - [x] ~~Imágenes responsivas~~ — WebP por anchura con respaldo JPEG; la primera carga en
       teléfono baja de 11,1 MB a 4,6 MB (28/07/2026).
 
@@ -188,10 +190,9 @@ Lo que más pesa ahora está **fuera del código**:
       en el posicionamiento local en Armenia, por encima de cualquier ajuste del sitio.
 - [ ] **Pedir reseñas a clientes anteriores.** No se incluyeron testimonios ficticios de
       forma deliberada; el espacio está listo para cuando existan reseñas reales.
-- [ ] **Conectar un dominio propio** (p. ej. `yuconstructora.com`). Ya solo requiere
-      cambiar `BASE` y añadir el `CNAME`. Sube el techo frente a `github.io`.
 - [ ] **Registrar el sitio en Google Search Console** y enviar el `sitemap.xml`. Hoy no
       hay forma de saber si Google indexó el sitio ni con qué consultas aparece.
+      Conviene reclamar el dominio propio, no la dirección de `github.io`.
 
 Pendientes de contenido:
 

@@ -17,11 +17,14 @@ const ROOT = path.join(__dirname, '..');
 
 /* -----------------------------------------------------------------------------
    Dirección del sitio. Es el único lugar donde se escribe el dominio: el
-   generador propaga este valor al HTML de los tres idiomas, al sitemap y al
-   robots.txt. Para mudarse a un dominio propio basta con cambiar esta línea
-   (o exportar YU_BASE) y volver a ejecutar el generador.
+   generador propaga este valor al HTML de todas las páginas, al sitemap, al
+   robots.txt y a las rutas absolutas del 404. Para mudarse basta con cambiar
+   esta línea (o exportar YU_BASE) y volver a ejecutar el generador.
+
+   El dominio propio se conectó el 24/07/2026; el archivo CNAME de la raíz debe
+   coincidir con lo que se ponga aquí.
    -------------------------------------------------------------------------- */
-const BASE = (process.env.YU_BASE || 'https://droko1982.github.io/yu-constructores/')
+const BASE = (process.env.YU_BASE || 'https://yuconstructora.com/')
   .replace(/\/*$/, '/');
 
 global.window = {};
