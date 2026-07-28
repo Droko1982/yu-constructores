@@ -2,3 +2,7 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 *.log
+
+# Solo aparece al generar las imágenes (npm install --no-save sharp).
+# El sitio no tiene dependencias: la carpeta es temporal y puede borrarse.
+node_modules/

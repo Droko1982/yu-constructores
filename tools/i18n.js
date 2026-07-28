@@ -7,8 +7,8 @@ window.YU_I18N = {
 
   /* --------------------------------------------------------------- ESPAÑOL */
   es: {
-    'meta.title': 'YU Constructora en Armenia, Quindío | Obra civil e infraestructura',
-    'meta.desc': 'YU Construcciones S.A.S. — constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, estabilización de taludes, remodelaciones y mantenimiento de infraestructura en el Eje Cafetero y toda Colombia.',
+    'meta.title': 'Constructora en Armenia, Quindío | YU Construcciones',
+    'meta.desc': 'Constructora en Armenia, Quindío. Obra civil, acueducto y alcantarillado, estabilización de taludes y remodelaciones. Cobertura en todo el Eje Cafetero.',
 
     'nav.home': 'Inicio',
     'brand.tag': 'Construcciones S.A.S. · Eje Cafetero',
@@ -227,6 +227,8 @@ window.YU_I18N = {
     'contact.mail': 'Correo electrónico',
     'contact.addr': 'Oficina',
     'contact.addrV': 'Calle 20 #12-32, piso 1 · Sector Centro\nArmenia, Quindío — Colombia',
+    'contact.hours': 'Horario de atención',
+    'contact.hoursV': 'Lunes a viernes, 8:00 a. m. – 6:00 p. m.',
     'contact.formTitle': 'Escríbanos',
     'form.name': 'Nombre completo',
     'form.email': 'Correo electrónico',
@@ -238,6 +240,10 @@ window.YU_I18N = {
     'form.ok': '¡Gracias! Su mensaje fue enviado. Le responderemos muy pronto.',
     'form.err': 'No pudimos enviar el mensaje. Escríbanos por WhatsApp al +57 320 594 0466.',
     'form.privacy': 'Sus datos se usan únicamente para responder su solicitud.',
+    'svc.more': 'Ver el servicio en detalle',
+    'form.consent': 'He leído y autorizo el tratamiento de mis datos personales conforme a la',
+    'form.consentLink': 'política de tratamiento de datos',
+    'form.consentErr': 'Debe autorizar el tratamiento de sus datos para poder enviar el mensaje.',
 
     'faq.eyebrow': 'Preguntas frecuentes',
     'faq.title': 'Lo que más nos preguntan',
@@ -268,6 +274,7 @@ window.YU_I18N = {
     'footer.services': 'Servicios',
     'footer.contact': 'Contacto',
     'footer.rights': 'Todos los derechos reservados.',
+    'footer.privacy': 'Política de tratamiento de datos',
     'footer.legal': 'YU Construcciones S.A.S. · NIT 901400072-5 · Armenia, Quindío, Colombia',
     'footer.author': 'Sitio desarrollado por Dr. Mauricio Rodríguez Herrera',
     'footer.ig': 'Instagram',
@@ -287,8 +294,8 @@ window.YU_I18N = {
 
   /* --------------------------------------------------------------- ENGLISH */
   en: {
-    'meta.title': 'YU Constructora | Construction & civil works company in Armenia, Colombia',
-    'meta.desc': 'YU Construcciones S.A.S. — construction company based in Armenia, Quindío. Civil works, water and sewer networks, slope stabilisation, remodelling and infrastructure maintenance across Colombia\'s Coffee Region and the whole country.',
+    'meta.title': 'Construction company in Armenia, Colombia | YU',
+    'meta.desc': 'Construction company based in Armenia, Quindío. Civil works, water and sewer networks, slope stabilisation and remodelling across the Coffee Region.',
 
     'nav.home': 'Home',
     'brand.tag': 'Construcciones S.A.S. · Coffee Region',
@@ -507,6 +514,8 @@ window.YU_I18N = {
     'contact.mail': 'Email',
     'contact.addr': 'Office',
     'contact.addrV': 'Calle 20 #12-32, floor 1 · Downtown\nArmenia, Quindío — Colombia',
+    'contact.hours': 'Opening hours',
+    'contact.hoursV': 'Monday to Friday, 8:00 a.m. – 6:00 p.m.',
     'contact.formTitle': 'Write to us',
     'form.name': 'Full name',
     'form.email': 'Email address',
@@ -518,6 +527,10 @@ window.YU_I18N = {
     'form.ok': 'Thank you! Your message was sent. We will get back to you shortly.',
     'form.err': 'We could not send the message. Please write to us on WhatsApp at +57 320 594 0466.',
     'form.privacy': 'Your data is used only to answer your request.',
+    'svc.more': 'See this service in detail',
+    'form.consent': 'I have read and authorise the processing of my personal data under the',
+    'form.consentLink': 'personal data protection policy',
+    'form.consentErr': 'You must authorise the processing of your data before sending the message.',
 
     'faq.eyebrow': 'FAQ',
     'faq.title': 'What clients ask us most',
@@ -548,6 +561,7 @@ window.YU_I18N = {
     'footer.services': 'Services',
     'footer.contact': 'Contact',
     'footer.rights': 'All rights reserved.',
+    'footer.privacy': 'Personal data protection policy',
     'footer.legal': 'YU Construcciones S.A.S. · Tax ID 901400072-5 · Armenia, Quindío, Colombia',
     'footer.author': 'Website developed by Dr. Mauricio Rodríguez Herrera',
     'footer.ig': 'Instagram',
@@ -567,8 +581,8 @@ window.YU_I18N = {
 
   /* ------------------------------------------------------------- PORTUGUÊS */
   pt: {
-    'meta.title': 'YU Constructora em Armenia, Quindío | Obras civis e infraestrutura',
-    'meta.desc': 'YU Construcciones S.A.S. — construtora sediada em Armenia, Quindío. Obras civis, redes de água e esgoto, estabilização de taludes, reformas e manutenção de infraestrutura na Região Cafeeira e em toda a Colômbia.',
+    'meta.title': 'Construtora em Armenia, Colômbia | YU Construcciones',
+    'meta.desc': 'Construtora sediada em Armenia, Quindío. Obras civis, redes de água e esgoto, estabilização de taludes e reformas em toda a Região Cafeeira.',
 
     'nav.home': 'Início',
     'brand.tag': 'Construcciones S.A.S. · Região Cafeeira',
@@ -787,6 +801,8 @@ window.YU_I18N = {
     'contact.mail': 'E-mail',
     'contact.addr': 'Escritório',
     'contact.addrV': 'Calle 20 #12-32, 1º andar · Centro\nArmenia, Quindío — Colômbia',
+    'contact.hours': 'Horário de atendimento',
+    'contact.hoursV': 'Segunda a sexta, 8h00 – 18h00',
     'contact.formTitle': 'Escreva para nós',
     'form.name': 'Nome completo',
     'form.email': 'E-mail',
@@ -798,6 +814,10 @@ window.YU_I18N = {
     'form.ok': 'Obrigado! Sua mensagem foi enviada. Responderemos em breve.',
     'form.err': 'Não foi possível enviar a mensagem. Escreva pelo WhatsApp +57 320 594 0466.',
     'form.privacy': 'Seus dados são usados apenas para responder à sua solicitação.',
+    'svc.more': 'Ver o serviço em detalhe',
+    'form.consent': 'Li e autorizo o tratamento dos meus dados pessoais conforme a',
+    'form.consentLink': 'política de tratamento de dados',
+    'form.consentErr': 'É necessário autorizar o tratamento dos seus dados para enviar a mensagem.',
 
     'faq.eyebrow': 'Perguntas frequentes',
     'faq.title': 'O que mais nos perguntam',
@@ -828,6 +848,7 @@ window.YU_I18N = {
     'footer.services': 'Serviços',
     'footer.contact': 'Contato',
     'footer.rights': 'Todos os direitos reservados.',
+    'footer.privacy': 'Política de tratamento de dados',
     'footer.legal': 'YU Construcciones S.A.S. · NIT 901400072-5 · Armenia, Quindío, Colômbia',
     'footer.author': 'Site desenvolvido pelo Dr. Mauricio Rodríguez Herrera',
     'footer.ig': 'Instagram',
