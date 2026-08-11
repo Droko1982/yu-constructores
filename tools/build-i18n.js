@@ -38,7 +38,7 @@ const BASE = (process.env.YU_BASE || 'https://yuconstructora.com/')
    Para activarla: crear el sitio en dash.cloudflare.com → Web Analytics, copiar
    el token del fragmento que entrega y pegarlo aquí.
    -------------------------------------------------------------------------- */
-const ANALYTICS_TOKEN = process.env.YU_ANALYTICS || '';
+const ANALYTICS_TOKEN = process.env.YU_ANALYTICS || '3d774664bfcf4c329fcb0e9c4f75d5b7';
 
 global.window = {};
 // eslint-disable-next-line no-eval
@@ -581,8 +581,10 @@ function stampAssets(html) {
    La marca <!-- analitica --> permite que la operación sea idempotente: en la
    siguiente ejecución se reemplaza el bloque anterior en lugar de acumularlo. */
 function writeAnalytics(html) {
+  // Se reproduce el fragmento tal como lo entrega Cloudflare: type="module" ya
+  // implica carga diferida, así que no hace falta añadir defer.
   const block = ANALYTICS_TOKEN
-    ? '<!-- analitica -->\n<script defer src="https://static.cloudflareinsights.com/beacon.min.js" ' +
+    ? '<!-- analitica -->\n<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" ' +
       'data-cf-beacon=\'{"token": "' + ANALYTICS_TOKEN + '"}\'></script>\n<!-- /analitica -->\n'
     : '';
 
