@@ -13,11 +13,12 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 |---|---|
 | **Diseño** | Modo oscuro por defecto + modo claro, paleta tomada del logotipo oficial (ámbar `#f5a302` sobre carbón `#12161a`), tipografía Barlow / Barlow Condensed |
 | **Idiomas** | Español (`/`), Inglés (`/en/`) y Portugués (`/pt/`) — **páginas estáticas independientes**, no traducción por JavaScript, para que cada idioma se indexe con su propio HTML, `<title>`, descripción y datos estructurados |
-| **Contenido** | Héroe con carrusel de obra real, 8 servicios, 9 proyectos con galería completa (34 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, FAQ, contacto |
-| **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit |
-| **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` (portafolio) + `FAQPage` + `Service` × 8, `sitemap.xml` con `hreflang` e imágenes, `robots.txt`, Open Graph, Twitter Cards, metadatos `geo.*`, anclas por servicio, textos orientados a búsquedas locales del Quindío |
-| **Accesibilidad** | Enlace de salto, roles ARIA, navegación por teclado en la galería, `prefers-reduced-motion`, foco visible, HTML validado (sin contenido de flujo dentro de `<button>`, jerarquía de encabezados correcta) |
-| **Rendimiento** | **Cero dependencias externas**: tipografías auto-alojadas (sin Google Fonts), iconos SVG en línea, carga diferida, precarga del héroe y de las dos fuentes críticas. Imágenes responsivas en WebP con respaldo JPEG (un teléfono baja 4,6 MB en lugar de 11,1 MB) y diccionario servido por idioma (18 KB en lugar de 56 KB) |
+| **Tamaño** | **48 páginas** indexables: portada, 4 servicios, 9 obras, cobertura y política de datos, cada una en los tres idiomas |
+| **Contenido** | Héroe con carrusel de obra real, 8 servicios (4 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, FAQ, contacto |
+| **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos |
+| **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang` e imágenes, `robots.txt`, Open Graph, Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios |
+| **Accesibilidad** | Enlace de salto, roles ARIA, navegación por teclado en la galería, `prefers-reduced-motion`, foco visible, respaldo en `<noscript>` para el contenido animado, HTML validado |
+| **Rendimiento** | **Cero dependencias externas**: tipografías auto-alojadas (sin Google Fonts), iconos SVG en línea, carga diferida, precarga del héroe y de las dos fuentes críticas. Imágenes responsivas en WebP con respaldo JPEG (un teléfono baja 2,0 MB en lugar de 11,1 MB) y diccionario servido por idioma (20 KB en lugar de 58 KB) |
 
 ## Estructura
 
@@ -32,31 +33,32 @@ yu-constructores/
 ├── site.webmanifest        # PWA / icono en escritorio
 ├── .nojekyll               # Evita el procesado Jekyll en GitHub Pages
 ├── AUTHORS.md
-├── politica-de-datos/      # Generada — política de datos (ES)
-├── en/privacy-policy/      # Generada — política de datos (EN)
-├── pt/politica-de-dados/   # Generada — política de datos (PT)
-├── servicios/…             # Generadas — 4 páginas de servicio (ES)
-├── en/services/…           # Generadas — 4 páginas de servicio (EN)
-├── pt/servicos/…           # Generadas — 4 páginas de servicio (PT)
+│
+│  ── Todo lo de abajo se GENERA. No editar a mano. ──
+├── en/  ·  pt/             # Portadas en inglés y portugués
+├── servicios/…             # 4 páginas de servicio  (en/services/, pt/servicos/)
+├── proyectos/…             # 9 páginas de obra      (en/projects/, pt/projetos/)
+├── cobertura/              # Zonas de operación     (en/coverage/, pt/cobertura/)
+├── politica-de-datos/      # Política de datos      (en/privacy-policy/, pt/politica-de-dados/)
+│
 ├── tools/                  # Nada de aquí se publica: son las fuentes de compilación
-│   ├── build-i18n.js       # Genera todas las páginas a partir de index.html + i18n.js
+│   ├── build-i18n.js       # Genera las 48 páginas + sitemap + robots + rutas del 404
 │   ├── build-images.js     # Genera las variantes .webp a partir de los .jpg
-│   ├── i18n.js             # FUENTE: diccionarios ES · EN · PT (263 claves por idioma)
+│   ├── i18n.js             # FUENTE: diccionarios ES · EN · PT (270 claves por idioma)
 │   └── pages/              # FUENTE de las páginas secundarias, un archivo por idioma
+│       ├── cobertura.{es,en,pt}.html
 │       ├── privacidad.{es,en,pt}.html
-│       ├── obra-civil.{es,en,pt}.html
-│       ├── acueducto.{es,en,pt}.html
-│       ├── taludes.{es,en,pt}.html
-│       └── remodelaciones.{es,en,pt}.html
+│       ├── obra-civil / acueducto / taludes / remodelaciones .{es,en,pt}.html
+│       └── obra-p1 … obra-p9 .{es,en,pt}.html     # una por obra ejecutada
 └── assets/
     ├── css/fonts.css       # @font-face de las tipografías auto-alojadas
     ├── css/styles.css      # Estilos (tokens de tema, componentes, responsive)
     ├── fonts/              # Barlow y Barlow Condensed (woff2, subconjuntos latin)
-    ├── js/i18n.{es,en,pt}.js  # Generados — cada página carga solo el suyo (18 KB)
+    ├── js/i18n.{es,en,pt}.js  # Generados — cada página carga solo el suyo (20 KB)
     ├── js/app.js           # Tema, carrusel, filtros, galería, cotizador, formulario
     └── img/
         ├── brand/          # Logotipos, héroes, imagen Open Graph
-        └── proyectos/      # 34 fotografías de obra + miniaturas
+        └── proyectos/      # 41 fotografías (32 de obra + 9 miniaturas)
                             # cada .jpg tiene sus .webp por anchura (generados)
 ```
 
@@ -70,6 +72,22 @@ yu-constructores/
 >
 > El generador falla en voz alta si falta una clave en algún idioma, así que sirve
 > también como validación.
+
+### Comprobar antes de publicar
+
+```bash
+node tools/check.js
+```
+
+Recorre las 48 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
+enlaces rotos, `data-page` sin resolver, anclas sin destino, marcado mal anidado, títulos
+o descripciones duplicados o demasiado largos, imágenes sin `alt`, `hreflang` que no se
+autorreferencia, JSON-LD inválido, y **que exista un único número de contacto en todo el
+sitio**.
+
+Ese último control existe por un motivo concreto: un teléfono desactualizado en una sola
+página perdida es un cliente perdido, y es el tipo de error que no da la cara al revisar
+a ojo.
 
 ### Imágenes
 
@@ -163,7 +181,11 @@ Buscar la clave, editar el valor en los tres idiomas y volver a generar:
 3. Añadir las claves `prj.pN.t`, `prj.pN.l`, `prj.pN.d` y `prj.pN.alt` en los tres idiomas.
 4. Añadir el proyecto a la lista `PROJECTS` de `tools/build-i18n.js`, para que entre
    en los datos estructurados y en el `sitemap.xml`.
-5. Ejecutar `node tools/build-images.js` y después `node tools/build-i18n.js`.
+5. Para darle página propia: crear `tools/pages/obra-pN.{es,en,pt}.html` —copiar una
+   existente— con el marcador `<!-- galeria -->` donde vaya la rejilla de fotos, y
+   registrarla en el bucle de páginas de obra de `tools/build-i18n.js`.
+6. Ejecutar `node tools/build-images.js`, luego `node tools/build-i18n.js` y por último
+   `node tools/check.js`.
 
 ### Formulario de contacto
 Usa [FormSubmit](https://formsubmit.co) apuntando a `yuconstruccionessas@gmail.com`.
@@ -180,19 +202,30 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
 - [x] ~~Centralizar el dominio~~ — vive solo en `BASE`; el generador lo propaga al HTML,
       al `sitemap.xml`, al `robots.txt` y a las rutas absolutas del `404.html` (28/07/2026).
 - [x] ~~Imágenes responsivas~~ — WebP por anchura con respaldo JPEG; la primera carga en
-      teléfono baja de 11,1 MB a 4,6 MB (28/07/2026).
+      teléfono baja de 11,1 MB a 2,0 MB (28/07/2026).
+- [x] ~~Declarar Facebook y TikTok~~ en `sameAs` y en el pie (28/07/2026).
+- [x] ~~Registrar el sitio en Google Search Console~~ — dominio verificado por registro
+      TXT y `sitemap.xml` aceptado (28/07/2026).
+- [x] ~~Completar la ficha de Google Business Profile~~ — reclamada, verificada y con
+      datos, servicios y fotografías (28/07/2026). Primera reseña recibida.
+- [x] ~~Reforzar el Eje Cafetero~~ — página de cobertura propia y `areaServed` con la
+      región, cuatro departamentos y quince municipios (28/07/2026). Deliberadamente **no**
+      se creó una página por municipio: veinte páginas casi idénticas son *doorway pages*
+      y Google las penaliza.
+- [x] ~~Cambio de número de contacto~~ a +57 304 655 7120 (11/08/2026), sustituido en las
+      51 fuentes y verificado en producción.
 
 Lo que más pesa ahora está **fuera del código**:
 
-- [ ] **Completar la ficha de Google Business Profile** (`kgmid /g/11z74qkm_s`). La ficha
-      ya existe, pero le falta contenido: enlazar este sitio como web oficial, publicar
-      el horario, subir fotos de obra y listar los servicios. Es el factor con mayor peso
-      en el posicionamiento local en Armenia, por encima de cualquier ajuste del sitio.
-- [ ] **Pedir reseñas a clientes anteriores.** No se incluyeron testimonios ficticios de
-      forma deliberada; el espacio está listo para cuando existan reseñas reales.
-- [ ] **Registrar el sitio en Google Search Console** y enviar el `sitemap.xml`. Hoy no
-      hay forma de saber si Google indexó el sitio ni con qué consultas aparece.
-      Conviene reclamar el dominio propio, no la dirección de `github.io`.
+- [ ] **Seguir pidiendo reseñas.** Es el factor de mayor peso en el posicionamiento local
+      que queda por trabajar. Nunca se incluyeron testimonios ficticios; el espacio del
+      sitio está listo para cuando haya cinco o seis reales.
+      **No añadir `aggregateRating` al sitio**: calificarse a sí mismo en la propia web
+      incumple las normas de datos estructurados y arriesga una acción manual.
+- [ ] **Publicar en la ficha cada semana.** La sección «Novedades» premia la actividad.
+- [ ] **Actualizar el número nuevo fuera del sitio**: ficha de Google, Instagram,
+      Facebook, TikTok, firmas de correo y directorios. La coherencia del NAP (nombre,
+      dirección, teléfono) entre fuentes es un factor de posicionamiento local.
 
 Pendientes de contenido:
 
@@ -202,15 +235,19 @@ Pendientes de contenido:
       definitiva: el plazo de conservación de dos años es un supuesto razonable, no un
       dato que haya aportado la empresa.
 - [x] ~~Páginas propias por servicio~~ — cuatro servicios con página propia en los tres
-      idiomas, cada uno con su `Service` y `BreadcrumbList` en los datos estructurados y
-      enlazado desde su tarjeta de la portada (28/07/2026). El sitio pasó de 3 a 18 URLs
-      indexables. **El texto técnico debería revisarlo el ingeniero** antes de darlo por
-      bueno.
+      idiomas, con `Service` y `BreadcrumbList`, enlazados desde su tarjeta de la portada
+      (28/07/2026). **El texto técnico debería revisarlo el ingeniero.**
+- [x] ~~Página propia por obra~~ — las nueve obras, en los tres idiomas, con galería
+      completa, ficha de datos y `CreativeWork` (28/07/2026). El sitio llegó a 48 URLs.
+- [ ] **Nombrar a las entidades contratantes** de la obra pública: el alcantarillado de
+      La Miranda, los dos colegios y el Aeropuerto Matecaña. La empresa ya autorizó
+      hacerlo, pero faltan los nombres exactos. Da más credibilidad que cualquier texto de
+      marketing y suele abrir la puerta a un enlace desde el sitio de la entidad.
 - [ ] Páginas para los otros cuatro servicios (mantenimiento de infraestructura,
       estructuras y cimentaciones, urbanismo, consultoría). Se añaden igual que las
       existentes; ver «Añadir una página nueva».
-- [ ] Página propia por proyecto, con la galería completa y datos estructurados
-      `CreativeWork`. Son nueve obras reales con 41 fotografías ya disponibles.
+- [ ] Sección de testimonios cuando haya cinco o seis reseñas reales, con enlace a la
+      ficha y **sin** marcado de reseña.
 - [ ] Nombrar las entidades contratantes de la obra pública (alcantarillado y colegios),
       si la empresa autoriza. Da más credibilidad que cualquier texto de marketing.
 - [ ] Sumar certificados, RUP o pólizas escaneadas si se quieren mostrar públicamente.
