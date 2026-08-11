@@ -241,7 +241,7 @@ window.YU_I18N = {
     'form.send': 'Enviar mensaje',
     'form.sending': 'Enviando…',
     'form.ok': '¡Gracias! Su mensaje fue enviado. Le responderemos muy pronto.',
-    'form.err': 'No pudimos enviar el mensaje. Escríbanos por WhatsApp al +57 320 594 0466.',
+    'form.err': 'No pudimos enviar el mensaje. Escríbanos por WhatsApp al +57 304 655 7120.',
     'form.privacy': 'Sus datos se usan únicamente para responder su solicitud.',
     'svc.more': 'Ver el servicio en detalle',
     'form.consent': 'He leído y autorizo el tratamiento de mis datos personales conforme a la',
@@ -292,7 +292,7 @@ window.YU_I18N = {
     'a11y.top': 'Volver arriba',
     'a11y.skip': 'Ir al contenido principal',
     'a11y.logoAlt': 'Logotipo de YU Construcciones S.A.S.',
-    'a11y.wa': 'Escribir por WhatsApp al +57 320 594 0466'
+    'a11y.wa': 'Escribir por WhatsApp al +57 304 655 7120'
   },
 
   /* --------------------------------------------------------------- ENGLISH */
@@ -531,7 +531,7 @@ window.YU_I18N = {
     'form.send': 'Send message',
     'form.sending': 'Sending…',
     'form.ok': 'Thank you! Your message was sent. We will get back to you shortly.',
-    'form.err': 'We could not send the message. Please write to us on WhatsApp at +57 320 594 0466.',
+    'form.err': 'We could not send the message. Please write to us on WhatsApp at +57 304 655 7120.',
     'form.privacy': 'Your data is used only to answer your request.',
     'svc.more': 'See this service in detail',
     'form.consent': 'I have read and authorise the processing of my personal data under the',
@@ -582,7 +582,7 @@ window.YU_I18N = {
     'a11y.top': 'Back to top',
     'a11y.skip': 'Skip to main content',
     'a11y.logoAlt': 'YU Construcciones S.A.S. logo',
-    'a11y.wa': 'Message us on WhatsApp at +57 320 594 0466'
+    'a11y.wa': 'Message us on WhatsApp at +57 304 655 7120'
   },
 
   /* ------------------------------------------------------------- PORTUGUÊS */
@@ -821,7 +821,7 @@ window.YU_I18N = {
     'form.send': 'Enviar mensagem',
     'form.sending': 'Enviando…',
     'form.ok': 'Obrigado! Sua mensagem foi enviada. Responderemos em breve.',
-    'form.err': 'Não foi possível enviar a mensagem. Escreva pelo WhatsApp +57 320 594 0466.',
+    'form.err': 'Não foi possível enviar a mensagem. Escreva pelo WhatsApp +57 304 655 7120.',
     'form.privacy': 'Seus dados são usados apenas para responder à sua solicitação.',
     'svc.more': 'Ver o serviço em detalhe',
     'form.consent': 'Li e autorizo o tratamento dos meus dados pessoais conforme a',
@@ -872,6 +872,6 @@ window.YU_I18N = {
     'a11y.top': 'Voltar ao topo',
     'a11y.skip': 'Ir para o conteúdo principal',
     'a11y.logoAlt': 'Logotipo da YU Construcciones S.A.S.',
-    'a11y.wa': 'Fale conosco pelo WhatsApp +57 320 594 0466'
+    'a11y.wa': 'Fale conosco pelo WhatsApp +57 304 655 7120'
   }
 };
