@@ -27,6 +27,19 @@ const ROOT = path.join(__dirname, '..');
 const BASE = (process.env.YU_BASE || 'https://yuconstructora.com/')
   .replace(/\/*$/, '/');
 
+/* -----------------------------------------------------------------------------
+   Analítica. Vacío = sin medición y sin ninguna etiqueta en el HTML.
+
+   Se usa Cloudflare Web Analytics porque no pone cookies, no recoge datos
+   personales y no necesita banner de consentimiento: la política de tratamiento
+   de datos del sitio promete justamente eso, y Google Analytics obligaría a
+   contradecirla.
+
+   Para activarla: crear el sitio en dash.cloudflare.com → Web Analytics, copiar
+   el token del fragmento que entrega y pegarlo aquí.
+   -------------------------------------------------------------------------- */
+const ANALYTICS_TOKEN = process.env.YU_ANALYTICS || '';
+
 global.window = {};
 // eslint-disable-next-line no-eval
 eval(fs.readFileSync(path.join(ROOT, 'tools/i18n.js'), 'utf8'));
@@ -560,6 +573,25 @@ function stampAssets(html) {
   );
 }
 
+/* --------------------------------------------------------------- Analítica
+   La etiqueta va justo antes de </body>, con defer, para que no compita con el
+   pintado. Si no hay token no se emite nada: el sitio queda exactamente igual
+   que antes y la política de datos sigue siendo cierta al pie de la letra.
+
+   La marca <!-- analitica --> permite que la operación sea idempotente: en la
+   siguiente ejecución se reemplaza el bloque anterior en lugar de acumularlo. */
+function writeAnalytics(html) {
+  const block = ANALYTICS_TOKEN
+    ? '<!-- analitica -->\n<script defer src="https://static.cloudflareinsights.com/beacon.min.js" ' +
+      'data-cf-beacon=\'{"token": "' + ANALYTICS_TOKEN + '"}\'></script>\n<!-- /analitica -->\n'
+    : '';
+
+  if (/<!-- analitica -->[\s\S]*?<!-- \/analitica -->\n?/.test(html)) {
+    return html.replace(/<!-- analitica -->[\s\S]*?<!-- \/analitica -->\n?/, () => block);
+  }
+  return block ? html.replace('</body>', () => block + '</body>') : html;
+}
+
 /* ------------------------------------------------------------------ 404
    GitHub Pages entrega esta página con el contenido de 404.html pero bajo la
    URL que el visitante pidió. Si alguien escribe mal /servicios/obra-civil/,
@@ -727,6 +759,7 @@ for (const page of PAGES) {
     if (page.id !== 'home') out = pointAnchorsHome(out, at);
     out = rewritePageLinks(out, lang, at);
     out = useLangDict(out, lang);
+    out = writeAnalytics(out);
     out = stampAssets(out);
 
     fs.mkdirSync(path.dirname(at.file), { recursive: true });
