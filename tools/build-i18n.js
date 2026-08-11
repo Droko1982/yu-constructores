@@ -621,7 +621,9 @@ function rewritePageLinks(html, lang, at) {
   // Se localiza la etiqueta completa y luego se sustituye su href: el atributo
   // no siempre va primero (en las tarjetas viene después de class) y exigirle
   // una posición fija dejaba enlaces sin resolver.
-  return html.replace(/<a\s[^>]*\sdata-page="([a-z-]+)"[^>]*>/g, (tag, id) => {
+  // El identificador admite dígitos ("obra-p4"): sin ellos en la clase, los
+  // nueve enlaces del portafolio se quedaban en href="#" sin avisar de nada.
+  return html.replace(/<a\s[^>]*\sdata-page="([a-z0-9-]+)"[^>]*>/g, (tag, id) => {
     const target = PAGES.find((p) => p.id === id);
     if (!target) throw new Error('data-page desconocido: "' + id + '"');
     const parts = locate(target, lang).parts;

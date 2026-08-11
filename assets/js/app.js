@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  var WA_NUMBER = '573205940466';
+  var WA_NUMBER = '573046557120';
   var SUPPORTED = ['es', 'en', 'pt'];
   var DICT = window.YU_I18N || {};
   var lang = 'es';
