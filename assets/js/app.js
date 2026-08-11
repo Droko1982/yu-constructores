@@ -375,6 +375,47 @@
     quoteForm.addEventListener('submit', function (e) { e.preventDefault(); });
   }
 
+  /* ------------------------------------------------------------- Medición --
+     Registra los momentos que valen dinero: un clic en WhatsApp, el envío del
+     cotizador y el del formulario. Sin esto solo se sabe cuánta gente entra,
+     que es el dato menos accionable de todos.
+
+     No pone cookies ni identifica a nadie: cuenta sucesos anónimos. Si no hay
+     analítica cargada —o la bloquea el navegador— la función no hace nada y el
+     sitio funciona igual, así que nunca puede romper una conversión. */
+  function track(evento, detalle) {
+    try {
+      if (typeof window.zaraz !== 'undefined' && window.zaraz.track) {
+        window.zaraz.track(evento, detalle || {});
+      } else if (typeof window.plausible === 'function') {
+        window.plausible(evento, { props: detalle || {} });
+      } else if (typeof window.gtag === 'function') {
+        window.gtag('event', evento, detalle || {});
+      }
+    } catch (e) { /* la medición jamás debe interrumpir al visitante */ }
+  }
+
+  /* Un solo oyente en el documento: capta también los enlaces que el guion
+     crea después, como los del visor de galería. */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('wa.me/') > -1) {
+      /* Varios enlaces comparten data-wa="quote" —el botón flotante y el del
+         cotizador— así que el origen se afina con el id o la clase. Saber si la
+         gente escribe desde el cotizador o desde el botón flotante cambia qué
+         conviene mejorar. */
+      var origen = a.id ||
+        (a.classList.contains('fab-wa') ? 'flotante' : (a.getAttribute('data-wa') || 'enlace'));
+      track('whatsapp', { origen: origen, pagina: location.pathname });
+    } else if (href.indexOf('tel:') === 0) {
+      track('llamada', { pagina: location.pathname });
+    } else if (href.indexOf('mailto:') === 0) {
+      track('correo', { pagina: location.pathname });
+    }
+  }, true);
+
   /* ------------------------------------------------ Formulario de contacto -- */
   var contactForm = $('#contactForm');
   var formStatus = $('#formStatus');
@@ -415,10 +456,14 @@
           formStatus.textContent = t('form.ok');
           formStatus.className = 'form-status ok';
           contactForm.reset();
+          track('formulario', { estado: 'enviado' });
         })
         .catch(function () {
           formStatus.textContent = t('form.err');
           formStatus.className = 'form-status err';
+          // Un fallo de envío es una solicitud perdida: interesa tanto o más
+          // que un envío correcto, porque avisa de que algo dejó de funcionar.
+          track('formulario', { estado: 'error' });
         })
         .finally(function () {
           label.textContent = original;

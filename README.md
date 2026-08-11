@@ -135,6 +135,28 @@ identificador y la ruta se resuelve sola:
 <a href="#" data-page="mi-pagina">Ver la página</a>
 ```
 
+## Activar la medición
+
+El sitio trae la instalación lista pero **apagada**: sin token no se emite ninguna
+etiqueta y no se recoge nada.
+
+Se eligió **Cloudflare Web Analytics** porque no pone cookies, no recoge datos personales
+y no necesita banner de consentimiento. Google Analytics obligaría a contradecir la
+política de tratamiento de datos publicada, que promete justamente lo contrario.
+
+1. En [dash.cloudflare.com](https://dash.cloudflare.com) → **Web Analytics** → añadir
+   `yuconstructora.com`. No hace falta mover el DNS.
+2. Copiar el `token` del fragmento que entrega.
+3. Pegarlo en la constante `ANALYTICS_TOKEN` de `tools/build-i18n.js` y regenerar.
+4. **Actualizar la política de datos**: el apartado 2 dice hoy que el sitio no usa
+   herramientas de analítica. Con la medición activa deja de ser cierto y hay que
+   corregirlo en los tres archivos `tools/pages/privacidad.*.html`.
+
+`assets/js/app.js` registra además los sucesos que valen dinero —clic en WhatsApp
+distinguiendo el origen, llamada, correo y envío del formulario, correcto o fallido—.
+La función `track()` no hace nada si no hay analítica cargada, así que ni la medición ni
+un bloqueador pueden romper una conversión.
+
 ## Cambiar de dominio
 
 El dominio vive en **un solo sitio**, la constante `BASE` de `tools/build-i18n.js`.
