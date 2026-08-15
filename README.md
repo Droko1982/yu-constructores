@@ -13,9 +13,9 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 |---|---|
 | **Diseño** | Modo oscuro por defecto + modo claro, paleta tomada del logotipo oficial (ámbar `#f5a302` sobre carbón `#12161a`), tipografía Barlow / Barlow Condensed |
 | **Idiomas** | Español (`/`), Inglés (`/en/`) y Portugués (`/pt/`) — **páginas estáticas independientes**, no traducción por JavaScript, para que cada idioma se indexe con su propio HTML, `<title>`, descripción y datos estructurados |
-| **Tamaño** | **48 páginas** indexables: portada, 4 servicios, 9 obras, cobertura y política de datos, cada una en los tres idiomas |
-| **Contenido** | Héroe con carrusel de obra real, 8 servicios (4 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, FAQ, contacto |
-| **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos |
+| **Tamaño** | **54 páginas** indexables: portada, 6 servicios, 9 obras, cobertura y política de datos, cada una en los tres idiomas |
+| **Contenido** | Héroe con carrusel de obra real, franja de atención post-sismo, 10 servicios (6 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, 11 preguntas frecuentes, contacto |
+| **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos, y triaje por fotografía en WhatsApp para daños de sismo y arreglos pequeños |
 | **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang` e imágenes, `robots.txt`, Open Graph, Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios |
 | **Accesibilidad** | Enlace de salto, roles ARIA, navegación por teclado en la galería, `prefers-reduced-motion`, foco visible, respaldo en `<noscript>` para el contenido animado, HTML validado |
 | **Rendimiento** | **Cero dependencias externas**: tipografías auto-alojadas (sin Google Fonts), iconos SVG en línea, carga diferida, precarga del héroe y de las dos fuentes críticas. Imágenes responsivas en WebP con respaldo JPEG (un teléfono baja 2,0 MB en lugar de 11,1 MB) y diccionario servido por idioma (20 KB en lugar de 58 KB) |
@@ -36,7 +36,7 @@ yu-constructores/
 │
 │  ── Todo lo de abajo se GENERA. No editar a mano. ──
 ├── en/  ·  pt/             # Portadas en inglés y portugués
-├── servicios/…             # 4 páginas de servicio  (en/services/, pt/servicos/)
+├── servicios/…             # 6 páginas de servicio  (en/services/, pt/servicos/)
 ├── proyectos/…             # 9 páginas de obra      (en/projects/, pt/projetos/)
 ├── cobertura/              # Zonas de operación     (en/coverage/, pt/cobertura/)
 ├── politica-de-datos/      # Política de datos      (en/privacy-policy/, pt/politica-de-dados/)
@@ -49,6 +49,8 @@ yu-constructores/
 │       ├── cobertura.{es,en,pt}.html
 │       ├── privacidad.{es,en,pt}.html
 │       ├── obra-civil / acueducto / taludes / remodelaciones .{es,en,pt}.html
+│       ├── sismo.{es,en,pt}.html          # reparación de daños por sismo
+│       ├── obras-menores.{es,en,pt}.html  # arreglos y trabajos de un día
 │       └── obra-p1 … obra-p9 .{es,en,pt}.html     # una por obra ejecutada
 └── assets/
     ├── css/fonts.css       # @font-face de las tipografías auto-alojadas
@@ -134,6 +136,46 @@ identificador y la ruta se resuelve sola:
 ```html
 <a href="#" data-page="mi-pagina">Ver la página</a>
 ```
+
+## Atención por el sismo del 10 de agosto de 2026
+
+El 10/08/2026 un sismo de **magnitud 7,4** con epicentro cerca de San José del Palmar
+(Chocó) y 96 km de profundidad golpeó el centro y el occidente del país. El Eje Cafetero
+—la zona de trabajo de la empresa— fue de lo más afectado: Armenia reportó 174 heridos y
+cinco edificios colapsados, y Pereira y Manizales, colapsos y caídas de fachada. Entre la
+infraestructura dañada está el **Aeropuerto Internacional Matecaña**, donde YU ya ejecutó
+dos obras.
+
+Lo que se añadió al sitio el 14/08/2026:
+
+| Añadido | Dónde |
+|---|---|
+| **Página de reparación de daños por sismo** | `tools/pages/sismo.{es,en,pt}.html` → `/servicios/reparacion-danos-sismo-armenia-quindio/` y sus versiones EN · PT |
+| **Página de reparaciones menores** | `tools/pages/obras-menores.{es,en,pt}.html` → `/servicios/reparaciones-menores-arreglos-armenia/` y sus versiones EN · PT |
+| **Franja de atención en la portada** | Sección `#post-sismo` de `index.html`, entre las cifras y los servicios |
+| **Dos servicios nuevos** | Tarjetas 9 y 10 (`svc.9.*`, `svc.10.*`), con página propia y nodo `Service` |
+| **Dos opciones del cotizador** | «Daño por sismo» y «Arreglo pequeño» (`quote.type6`, `quote.type7`) |
+| **Tres preguntas frecuentes** | `faq.q9`–`faq.q11`, que entran solas al `FAQPage` |
+| **Dos mensajes de WhatsApp** | `wa.sismo` y `wa.menores`, medidos por separado en la analítica |
+
+Tres decisiones que conviene no deshacer sin pensarlo:
+
+- **El slug no lleva la fecha ni la palabra «terremoto».** Es
+  `reparacion-danos-sismo-armenia-quindio`, no `terremoto-agosto-2026`. El daño sísmico se
+  repara durante años y la región es zona de amenaza sísmica alta: la página tiene que
+  seguir sirviendo cuando la noticia pase.
+- **La franja informa, no alarma.** Acento en el ámbar de la marca, sin rojo de emergencia
+  y sin animación. Quien llega ahí acaba de pasar por un terremoto.
+- **El sitio dice explícitamente que YU no hace la evaluación oficial de daños.** La hace
+  gratis la oficina de gestión del riesgo de la alcaldía y es la que vale ante aseguradoras
+  y ayudas del Estado. Decirlo cuesta cero y es lo que separa a una constructora seria de
+  la oferta improvisada que aparece después de un desastre. La página también advierte que
+  el reforzamiento estructural exige licencia de construcción (Ley 400 de 1997 y NSR-10).
+
+> **Revisión pendiente del ingeniero.** Los criterios para distinguir una fisura
+> superficial de un daño estructural están redactados como orientación general y así se
+> declaran, pero conviene que el Ing. Diego Luis Arango Jaramillo los valide antes de dejar
+> el texto como definitivo.
 
 ## Activar la medición
 
@@ -237,8 +279,23 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
 - [x] ~~Cambio de número de contacto~~ a +57 304 655 7120 (11/08/2026), sustituido en las
       51 fuentes y verificado en producción.
 
-Lo que más pesa ahora está **fuera del código**:
+- [x] ~~Atención por el sismo del 10 de agosto de 2026~~ — dos servicios nuevos con página
+      propia en los tres idiomas, franja en la portada, opciones de cotizador, tres FAQ y
+      medición separada (14/08/2026). El sitio llegó a 54 URLs.
 
+Lo que más pesa ahora está **fuera del código**, y con el sismo hay cosas que caducan:
+
+- [ ] **Publicar los dos servicios nuevos en la ficha de Google** (Reparación de daños por
+      sismo · Reparaciones menores) y poner una entrada en «Novedades» diciendo que se está
+      atendiendo la emergencia. En búsqueda local, la ficha mueve más que la web, y ahora
+      mismo es lo más urgente de todo lo que queda en esta lista.
+- [ ] **Publicar obra real de reparación**: fotografías del antes y el después de las
+      primeras reparaciones post-sismo, con municipio y fecha. Es lo que convierte la página
+      nueva en algo que Google trata como experiencia de primera mano y no como texto de
+      servicio. Se añaden como una obra más (ver «Agregar un proyecto»).
+- [ ] **Ofrecerse a las alcaldías y a las administraciones de propiedad horizontal** del
+      Quindío y Risaralda. La demanda de reparación post-sismo se contrata en bloque, no
+      casa por casa, y YU ya tiene historial de obra pública en la región.
 - [ ] **Seguir pidiendo reseñas.** Es el factor de mayor peso en el posicionamiento local
       que queda por trabajar. Nunca se incluyeron testimonios ficticios; el espacio del
       sitio está listo para cuando haya cinco o seis reales.
@@ -268,6 +325,10 @@ Pendientes de contenido:
 - [ ] Páginas para los otros cuatro servicios (mantenimiento de infraestructura,
       estructuras y cimentaciones, urbanismo, consultoría). Se añaden igual que las
       existentes; ver «Añadir una página nueva».
+- [ ] **Que el ingeniero revise la guía de daños por sismo**, en particular la lista que
+      separa la fisura superficial del daño estructural. Está redactada como orientación
+      general y así lo advierte, pero es el texto del sitio con más consecuencias si alguien
+      lo toma al pie de la letra.
 - [ ] Sección de testimonios cuando haya cinco o seis reseñas reales, con enlace a la
       ficha y **sin** marcado de reseña.
 - [ ] Nombrar las entidades contratantes de la obra pública (alcantarillado y colegios),
