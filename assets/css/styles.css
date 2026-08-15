@@ -1160,6 +1160,46 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
 .faq details[open] summary .chev { transform: rotate(180deg); color: var(--brand); }
 .faq details > div { padding: 0 1.4rem 1.3rem 4.2rem; color: var(--ink-mut); font-size: .96rem; }
 
+/* ---------- 16b. Franja de atención post-sismo -------------------------- */
+/* Es un aviso de servicio, no una alarma: acento en el ámbar de la marca en
+   lugar del rojo de emergencia, y sin animación. Quien llega aquí acaba de
+   pasar por un terremoto y no necesita que la página se lo recuerde parpadeando.
+
+   Va entre las cifras (fondo ámbar) y los servicios (fondo --bg-alt), así que
+   usa --surface más un borde: en modo claro --surface y --bg-alt son el mismo
+   blanco y sin el borde la franja desaparecería. */
+.quake {
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+  padding-block: clamp(2.5rem, 5vw, 3.6rem);
+  position: relative;
+  overflow: hidden;
+}
+.quake::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, transparent 0 14px, rgba(245, 163, 2, .045) 14px 28px);
+}
+.quake > * { position: relative; }
+.quake__grid { display: grid; grid-template-columns: 1.65fr 1fr; gap: clamp(1.8rem, 4vw, 3rem); align-items: center; }
+.quake h2 { font-size: clamp(1.55rem, 3.2vw, 2.3rem); text-transform: uppercase; margin-block: .55rem .8rem; }
+.quake p { color: var(--ink-soft); }
+.quake .about__list { margin-top: 1.2rem; }
+/* El punto ámbar hace las veces de indicador de «aviso» sin recurrir al rojo. */
+.quake__eyebrow { display: inline-flex; align-items: center; gap: .55rem; }
+.quake__eyebrow::before {
+  content: '';
+  width: .5rem; height: .5rem;
+  border-radius: 50%;
+  background: var(--brand);
+  flex: none;
+}
+.quake__actions { display: grid; gap: .7rem; }
+
+@media (max-width: 900px) {
+  .quake__grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- 17. Franja CTA ---------------------------------------------- */
 .cta-band {
   position: relative;

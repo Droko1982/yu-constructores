@@ -45,6 +45,15 @@ global.window = {};
 eval(fs.readFileSync(path.join(ROOT, 'tools/i18n.js'), 'utf8'));
 const DICT = global.window.YU_I18N;
 
+/* Cuántos servicios y cuántas preguntas hay se cuenta en el diccionario, no se
+   escribe a mano: añadir una tarjeta o una pregunta a la portada no debería
+   obligar a acordarse de tocar también el generador. El conteo sale del español
+   porque es la fuente; si a otro idioma le falta la clave, el generador ya falla
+   más adelante por su cuenta. */
+const count = (re) => Object.keys(DICT.es).filter((k) => re.test(k)).length;
+const N_SERVICES = count(/^svc\.\d+\.t$/);
+const N_FAQ = count(/^faq\.q\d+$/);
+
 const LOCALES = {
   es: { htmlLang: 'es-CO', ogLocale: 'es_CO', dir: '' },
   en: { htmlLang: 'en', ogLocale: 'en_US', dir: 'en' },
@@ -115,6 +124,32 @@ const PAGES = [
       es: 'servicios/remodelaciones-armenia-quindio',
       en: 'services/remodelling-and-refurbishment',
       pt: 'servicos/reformas-e-adequacoes'
+    }
+  },
+
+  /* Atención por el sismo del 10 de agosto de 2026 (M 7,4, epicentro en San
+     José del Palmar, Chocó). El slug lleva «reparacion-danos-sismo» y no la
+     fecha ni la palabra «terremoto» a propósito: la página tiene que seguir
+     sirviendo cuando la noticia pase, porque el daño sísmico se repara durante
+     años y la región es zona de amenaza alta. */
+  {
+    id: 'sismo',
+    content: 'tools/pages/sismo',
+    service: 9,
+    slug: {
+      es: 'servicios/reparacion-danos-sismo-armenia-quindio',
+      en: 'services/earthquake-damage-repair',
+      pt: 'servicos/reparo-de-danos-por-sismo'
+    }
+  },
+  {
+    id: 'obras-menores',
+    content: 'tools/pages/obras-menores',
+    service: 10,
+    slug: {
+      es: 'servicios/reparaciones-menores-arreglos-armenia',
+      en: 'services/small-repairs-and-minor-works',
+      pt: 'servicos/pequenos-reparos-e-obras-menores'
     }
   }
 ];
@@ -256,7 +291,7 @@ function translateBody(html, lang) {
 function buildFaqJsonLd(lang, pageUrl) {
   const T = DICT[lang];
   const items = [];
-  for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= N_FAQ; i++) {
     items.push({
       '@type': 'Question',
       name: T['faq.q' + i],
@@ -269,7 +304,7 @@ function buildFaqJsonLd(lang, pageUrl) {
 function buildServiceList(lang) {
   const T = DICT[lang];
   const out = [];
-  for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= N_SERVICES; i++) {
     out.push({
       '@type': 'Offer',
       itemOffered: {
