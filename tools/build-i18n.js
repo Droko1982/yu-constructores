@@ -389,6 +389,7 @@ function rebuildJsonLd(html, lang, pageUrl) {
     inLanguage: LOCALES[lang].htmlLang,
     isPartOf: { '@id': BASE + '#sitio' },
     about: { '@id': BASE + '#organizacion' },
+    dateModified: BUILD_DATE,
     primaryImageOfPage: BASE + 'assets/img/brand/og-image.jpg'
   });
   data['@graph'].push(buildProjectList(lang, pageUrl));
@@ -432,7 +433,9 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
       description: meta.desc,
       inLanguage: LOCALES[lang].htmlLang,
       isPartOf: { '@id': BASE + '#sitio' },
-      publisher: { '@id': BASE + '#organizacion' }
+      publisher: { '@id': BASE + '#organizacion' },
+      dateModified: BUILD_DATE,
+      primaryImageOfPage: pageImage(page, lang).url
     },
     { '@type': 'BreadcrumbList', '@id': at.url + '#miga', itemListElement: crumbs }
   ];
@@ -498,6 +501,13 @@ function rewriteHead(html, lang, page, at, meta) {
   html = html.replace(/(<meta property="og:locale" content=")[^"]*(">)/, (_m, a, b) => a + L.ogLocale + b);
   html = html.replace(/(<meta name="twitter:title" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(meta.title) + b);
   html = html.replace(/(<meta name="twitter:description" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(meta.desc) + b);
+
+  const img = pageImage(page, lang);
+  html = html.replace(/(<meta property="og:image" content=")[^"]*(">)/, (_m, a, b) => a + img.url + b);
+  html = html.replace(/(<meta property="og:image:width" content=")[^"]*(">)/, (_m, a, b) => a + img.w + b);
+  html = html.replace(/(<meta property="og:image:height" content=")[^"]*(">)/, (_m, a, b) => a + img.h + b);
+  html = html.replace(/(<meta property="og:image:alt" content=")[^"]*(">)/, (_m, a, b) => a + escAttr(img.alt) + b);
+  html = html.replace(/(<meta name="twitter:image" content=")[^"]*(">)/, (_m, a, b) => a + img.url + b);
 
   const alts = Object.keys(LOCALES).filter((l) => l !== lang).map((l) => LOCALES[l].ogLocale);
   html = html.replace(/(<meta property="og:locale:alternate" content="[^"]*">\s*)+/,
@@ -705,6 +715,42 @@ function rewritePageLinks(html, lang, at) {
 
 /* Número de fotografías de cada obra. Se lee de index.html en lugar de
    repetirse aquí, para que añadir una foto no obligue a tocar dos sitios. */
+/* Fecha de esta compilación. Vive arriba porque la usan tanto el sitemap como
+   dateModified, y las funciones de más abajo la necesitan antes de que el
+   archivo termine de leerse. */
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
+
+/* Anchura y altura reales de un JPEG, leídas de su cabecera. og:image:width y
+   og:image:height tienen que coincidir con la imagen: si mienten, WhatsApp y
+   Facebook recortan mal la vista previa. Leerlo del archivo evita mantener una
+   tabla de medidas a mano. */
+function jpegSize(rel) {
+  const b = fs.readFileSync(path.join(ROOT, rel));
+  let i = 2;
+  while (i < b.length - 9) {
+    if (b[i] !== 0xFF) { i++; continue; }
+    const marker = b[i + 1];
+    if (marker >= 0xC0 && marker <= 0xCF && marker !== 0xC4 && marker !== 0xC8 && marker !== 0xCC) {
+      return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+    }
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  throw new Error('No se pudo leer el tamaño de ' + rel);
+}
+
+/* Qué fotografía representa a cada página de servicio. El trabajo entra por
+   WhatsApp: cuando alguien reenvía el enlace de una obra o de un servicio, la
+   vista previa tiene que mostrar ESA obra y no la imagen genérica de la marca.
+   Las páginas sin obra propia (sismo, arreglos menores, cobertura y la legal)
+   se quedan con la imagen de marca: es preferible a ilustrarlas con algo que
+   no les corresponde. */
+const SOCIAL_IMAGE = {
+  'obra-civil': 'p1',
+  'acueducto': 'p8',
+  'taludes': 'p9',
+  'remodelaciones': 'p2'
+};
+
 const PHOTOS = (() => {
   const out = {};
   for (const m of source.matchAll(/data-slug="([a-z0-9-]+)" data-count="(\d+)" data-key="(p\d)"/g)) {
@@ -712,6 +758,24 @@ const PHOTOS = (() => {
   }
   return out;
 })();
+
+/* Imagen social de una página: la de la obra si la tiene, la de la marca si
+   no. El texto alternativo sale del diccionario, así que también viaja
+   traducido en /en/ y /pt/. */
+function pageImage(page, lang) {
+  const key = page.project || SOCIAL_IMAGE[page.id];
+  if (!key || !PHOTOS[key]) {
+    return {
+      url: BASE + 'assets/img/brand/og-image.jpg',
+      w: 1200,
+      h: 630,
+      alt: DICT[lang]['meta.ogAlt']
+    };
+  }
+  const rel = 'assets/img/proyectos/' + PHOTOS[key].slug + '-1.jpg';
+  const size = jpegSize(rel);
+  return { url: BASE + rel, w: size.w, h: size.h, alt: DICT[lang]['prj.' + key + '.alt'] };
+}
 
 /* Rejilla de fotografías de una obra. Se sirve la variante de 640 px, que es lo
    que ocupa una celda; el .jpg queda de respaldo. Las rutas se escriben
@@ -810,7 +874,7 @@ for (const page of PAGES) {
    Se generan a partir de BASE en lugar de mantenerse a mano: así el dominio
    vive en un solo sitio y las tres versiones de idioma declaran sus imágenes
    con el título traducido, no solo la española. */
-const today = new Date().toISOString().slice(0, 10);
+const today = BUILD_DATE;
 
 function sitemapAlternates(page) {
   return Object.keys(LOCALES)
@@ -829,6 +893,24 @@ function sitemapImages(lang) {
   ).join('\n');
 }
 
+/* Las fotografías de una obra son la prueba del trabajo hecho, y la búsqueda de
+   imágenes trae visitas propias. Cada página de obra declara las suyas —todas,
+   no solo la miniatura— con el título traducido de esa obra. */
+function sitemapProjectImages(key, lang) {
+  const T = DICT[lang];
+  const p = PHOTOS[key];
+  const shots = [];
+  for (let i = 1; i <= p.count; i++) {
+    shots.push(
+      '    <image:image>\n' +
+      `      <image:loc>${BASE}assets/img/proyectos/${p.slug}-${i}.jpg</image:loc>\n` +
+      `      <image:title>${esc(T['prj.' + key + '.t'] + ' — ' + T['prj.' + key + '.l'])}</image:title>\n` +
+      '    </image:image>'
+    );
+  }
+  return shots.join('\n');
+}
+
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n' +
@@ -837,16 +919,27 @@ const sitemap =
   PAGES.flatMap((page) => Object.keys(LOCALES).map((lang) => {
     const at = locate(page, lang);
     const home = page.id === 'home';
-    // La portada en español es la entrada principal; las traducciones y las
-    // páginas legales pesan menos en la jerarquía del sitio.
-    const priority = home ? (LOCALES[lang].dir ? '0.8' : '1.0') : '0.3';
+    /* Jerarquía real del sitio: la portada primero; después las páginas de
+       servicio, que son las que compiten por «constructora en Armenia»; luego
+       las obras que las respaldan, y al final cobertura y la página legal.
+       Antes todo lo que no fuera la portada valía 0.3, lo que dejaba la página
+       de reparación de daños por sismo al mismo nivel que la política de
+       datos. */
+    const priority = home
+      ? (LOCALES[lang].dir ? '0.9' : '1.0')
+      : page.service ? '0.8'
+        : page.project ? '0.6'
+          : page.id === 'cobertura' ? '0.5'
+            : '0.2';
+    const changefreq = home || page.service ? 'monthly' : 'yearly';
     return '  <url>\n' +
       `    <loc>${at.url}</loc>\n` +
       `    <lastmod>${today}</lastmod>\n` +
-      `    <changefreq>${home ? 'monthly' : 'yearly'}</changefreq>\n` +
+      `    <changefreq>${changefreq}</changefreq>\n` +
       `    <priority>${priority}</priority>\n` +
       sitemapAlternates(page) + '\n' +
       (home ? sitemapImages(lang) + '\n' : '') +
+      (page.project ? sitemapProjectImages(page.project, lang) + '\n' : '') +
       '  </url>';
   })).join('\n\n') +
   '\n\n</urlset>\n';

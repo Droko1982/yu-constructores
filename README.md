@@ -16,7 +16,7 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 | **Tamaño** | **54 páginas** indexables: portada, 6 servicios, 9 obras, cobertura y política de datos, cada una en los tres idiomas |
 | **Contenido** | Héroe con carrusel de obra real, franja de atención post-sismo, 10 servicios (6 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, 11 preguntas frecuentes, contacto |
 | **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos, y triaje por fotografía en WhatsApp para daños de sismo y arreglos pequeños |
-| **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang` e imágenes, `robots.txt`, Open Graph, Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios |
+| **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang`, prioridad por tipo de página y las fotografías de cada obra, `robots.txt`, Open Graph con **imagen propia por página** (la obra o el servicio que se comparte, no la genérica), Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios |
 | **Accesibilidad** | Enlace de salto, roles ARIA, navegación por teclado en la galería, `prefers-reduced-motion`, foco visible, respaldo en `<noscript>` para el contenido animado, HTML validado |
 | **Rendimiento** | **Cero dependencias externas**: tipografías auto-alojadas (sin Google Fonts), iconos SVG en línea, carga diferida, precarga del héroe y de las dos fuentes críticas. Imágenes responsivas en WebP con respaldo JPEG (un teléfono baja 2,0 MB en lugar de 11,1 MB) y diccionario servido por idioma (20 KB en lugar de 58 KB) |
 
@@ -81,11 +81,13 @@ yu-constructores/
 node tools/check.js
 ```
 
-Recorre las 48 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
+Recorre las 54 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
 enlaces rotos, `data-page` sin resolver, anclas sin destino, marcado mal anidado, títulos
 o descripciones duplicados o demasiado largos, imágenes sin `alt`, `hreflang` que no se
-autorreferencia, JSON-LD inválido, y **que exista un único número de contacto en todo el
-sitio**.
+autorreferencia, JSON-LD inválido, **que exista un único número de contacto en todo el
+sitio**, **que el menú móvil no vuelva a quedar dentro de `<header>`** y **que ningún
+`aria-label` esté escrito a mano** (uno escrito a mano se queda en español en `/en/` y
+`/pt/`).
 
 Ese último control existe por un motivo concreto: un teléfono desactualizado en una sola
 página perdida es un cliente perdido, y es el tipo de error que no da la cara al revisar
@@ -176,6 +178,62 @@ Tres decisiones que conviene no deshacer sin pensarlo:
 > superficial de un daño estructural están redactados como orientación general y así se
 > declaran, pero conviene que el Ing. Diego Luis Arango Jaramillo los valide antes de dejar
 > el texto como definitivo.
+
+## Arreglo del menú móvil · 1 de septiembre de 2026
+
+El cliente avisó de que en el teléfono, al tocar las tres rayitas, «solo sale una
+pestañita»: el panel se abría recortado y únicamente asomaba **Inicio**. Pasaba en las
+**54 páginas**, en los tres idiomas, y no era del contenido sino de una regla de CSS que
+casi nadie tiene presente:
+
+> Un elemento con `filter` o `backdrop-filter` se convierte en el **bloque contenedor** de
+> sus descendientes `position: fixed`.
+
+La cabecera lleva `backdrop-filter` para el efecto de cristal, y el panel del menú vivía
+dentro de ella. En lugar de anclarse a la ventana, se anclaba a la barra: `inset:
+var(--header-h) 0 0 0` dejaba un panel de 80 px de alto sobre 844 px de pantalla, con los
+637 px de contenido recortados dentro.
+
+Lo verificado con el navegador antes y después, a 390 × 844:
+
+| | Antes | Después |
+|---|---|---|
+| Alto del panel | 80 px | 778 px |
+| Enlaces visibles | 1 de 8 (a medias) | 8 de 8 |
+| Se ancla a | `<header>` | la ventana |
+
+Qué se cambió:
+
+- **El panel salió de `<header>`** y es ahora un `<nav>` hermano. Es todo el arreglo; el
+  resto es refuerzo.
+- **`tools/check.js` falla** si alguien lo vuelve a meter dentro de la cabecera.
+- El panel se compacta en pantallas bajas y pasa a **dos columnas** con el teléfono en
+  horizontal, para que las ocho entradas quepan sin desplazarse.
+- **Escape lo cierra** y devuelve el foco al botón; al pasar a escritorio se cierra solo,
+  que si no el cuerpo se quedaba bloqueado y la página no se podía desplazar.
+- El botón «Cotizar» del menú recupera su forma: `.mobile-nav a` le ganaba en
+  especificidad y lo dejaba alineado a la izquierda y con el texto **blanco sobre ámbar**
+  en modo oscuro.
+
+### Lo que apareció al repasar el resto del sitio
+
+Se recorrieron las 54 páginas con un navegador de verdad, en tres anchuras, comprobando
+consola, recursos, desbordes, menú, galería, cotizador, formulario y anclas:
+
+- **Siete `aria-label` escritos a mano** («Navegación principal», «Ubicación en Google
+  Maps», «Correo electrónico», redes…) se quedaban en español en las 36 páginas de
+  `/en/` y `/pt/`. Ahora salen del diccionario, y el comprobador impide que vuelva a
+  colarse uno.
+- **Zonas táctiles de 34 px** en la cabecera por debajo de 420 px de ancho. Subidas a
+  40 px, que es el mínimo con el que un dedo no falla.
+- **El nombre accesible del logotipo y del selector de idioma no contenía su texto
+  visible**: quien navega por voz decía «pulsa YU Constructora» y no pasaba nada.
+- El visor de galería llevaba `<img src="">`, que en algunos navegadores pide la página
+  entera otra vez.
+
+Lo que **no** se tocó: los tres héroes diferidos aparecen como «imágenes rotas» en
+cualquier auditoría automática hasta que el carrusel los pide. Es deliberado —así el
+teléfono baja una y no cuatro— y se queda como está.
 
 ## Activar la medición
 
@@ -282,6 +340,11 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
 - [x] ~~Atención por el sismo del 10 de agosto de 2026~~ — dos servicios nuevos con página
       propia en los tres idiomas, franja en la portada, opciones de cotizador, tres FAQ y
       medición separada (14/08/2026). El sitio llegó a 54 URLs.
+- [x] ~~Menú móvil recortado~~ — el panel salió de `<header>`, que con `backdrop-filter` lo
+      recortaba a la altura de la barra en las 54 páginas (01/09/2026). Ver la sección
+      «Arreglo del menú móvil».
+- [x] ~~Imagen social por página~~ — al reenviar por WhatsApp el enlace de una obra o de un
+      servicio, la vista previa muestra ya esa obra y no la imagen genérica (01/09/2026).
 
 Lo que más pesa ahora está **fuera del código**, y con el sismo hay cosas que caducan:
 

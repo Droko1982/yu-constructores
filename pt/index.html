@@ -6,7 +6,7 @@
 <title>Construtora em Armenia, Região Cafeeira | YU</title>
 <meta name="description" content="Construtora sediada em Armenia, Quindío. Obras civis, redes de água, taludes, reformas e reparo de danos por sismo em toda a Região Cafeeira.">
 <meta name="author" content="Dr. Mauricio Rodríguez Herrera">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#12161a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
 <meta name="geo.region" content="CO-QUI">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://yuconstructora.com/assets/img/brand/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Casa campestre construida por YU Construcciones S.A.S. en el Eje Cafetero">
+<meta property="og:image:alt" content="Casa de campo construída pela YU Construcciones S.A.S. na Região Cafeeira">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Construtora em Armenia, Região Cafeeira | YU">
 <meta name="twitter:description" content="Construtora sediada em Armenia, Quindío. Obras civis, redes de água, taludes, reformas e reparo de danos por sismo em toda a Região Cafeeira.">
@@ -45,7 +45,17 @@
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-condensed-700-latin.woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/fonts.css?v=1833fdc5">
-<link rel="stylesheet" href="../assets/css/styles.css?v=090c7744">
+<link rel="stylesheet" href="../assets/css/styles.css?v=85ba470c">
+
+<!--
+  Precarga de la siguiente página cuando el visitante muestra intención de ir
+  (pasar el cursor o empezar a tocar un enlace). Es prefetch, no prerender: baja
+  el HTML y nada más, así que no ejecuta guiones ni infla la analítica, y el
+  navegador que no lo entienda sencillamente lo ignora.
+-->
+<script type="speculationrules">
+{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}
+</script>
 
 <noscript>
   <!-- Los bloques .reveal nacen con opacity:0 y los descubre el guion al entrar
@@ -696,6 +706,7 @@
       "about": {
         "@id": "https://yuconstructora.com/#organizacion"
       },
+      "dateModified": "2026-09-01",
       "primaryImageOfPage": "https://yuconstructora.com/assets/img/brand/og-image.jpg"
     },
     {
@@ -1013,15 +1024,18 @@
 <!-- ============ Cabecera ============ -->
 <header class="header" id="header">
   <div class="wrap header__inner">
-    <a class="brand" href="#inicio" aria-label="YU Construcciones S.A.S. — inicio">
-      <img src="../assets/img/brand/logo-192.png" alt="Logotipo da YU Construcciones S.A.S." data-i18n-alt="a11y.logoAlt" width="40" height="40">
+    <a class="brand" href="#inicio">
+      <!-- El logotipo es decorativo: el nombre de la empresa está escrito
+           a su lado, así que repetirlo en el alt solo duplica la lectura y
+           deja el nombre accesible del enlace sin su texto visible. -->
+      <img src="../assets/img/brand/logo-192.png" alt="" width="40" height="40">
       <span>
         <span class="brand__name">YU <span>CONSTRUCTORA</span></span>
         <span class="brand__tag" data-i18n="brand.tag">Construcciones S.A.S. · Região Cafeeira</span>
       </span>
     </a>
 
-    <nav class="nav" id="nav" aria-label="Navegación principal">
+    <nav class="nav" id="nav" data-i18n-aria="a11y.nav" aria-label="Navegação principal">
       <a href="#servicios" data-i18n="nav.services">Serviços</a>
       <a href="#proyectos" data-i18n="nav.projects">Projetos</a>
       <a href="#proceso" data-i18n="nav.process">Processo</a>
@@ -1032,7 +1046,7 @@
 
     <div class="header__tools">
       <div class="lang" id="lang">
-        <button class="lang__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" data-i18n-aria="a11y.lang" aria-label="Mudar idioma">
+        <button class="lang__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" data-i18n-aria="a11y.lang" aria-label="Mudar idioma (PT)">
           <svg aria-hidden="true"><use href="#i-globe"/></svg>
           <span id="langCurrent">PT</span>
         </button>
@@ -1055,18 +1069,25 @@
       </button>
     </div>
   </div>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#inicio" data-i18n="nav.home">Início</a>
-    <a href="#servicios" data-i18n="nav.services">Serviços</a>
-    <a href="#proyectos" data-i18n="nav.projects">Projetos</a>
-    <a href="#proceso" data-i18n="nav.process">Processo</a>
-    <a href="#cobertura" data-i18n="nav.coverage">Cobertura</a>
-    <a href="#nosotros" data-i18n="nav.about">Sobre nós</a>
-    <a href="#contacto" data-i18n="nav.contact">Contato</a>
-    <a class="btn btn--brand btn--block" href="#cotizar" data-i18n="nav.quote">Orçamento</a>
-  </div>
 </header>
+
+<!--
+  El panel móvil vive FUERA de <header> a propósito. La cabecera lleva
+  backdrop-filter, y un elemento con filtro pasa a ser el bloque contenedor de
+  sus descendientes position:fixed: dentro de ella el panel se recortaba a la
+  altura de la barra y solo asomaba el primer enlace. Fuera, se ancla a la
+  ventana y se ve completo. tools/check.js vigila que no vuelva a entrar.
+-->
+<nav class="mobile-nav" id="mobileNav" data-i18n-aria="a11y.navMobile" aria-label="Menu de navegação">
+  <a href="#inicio" data-i18n="nav.home">Início</a>
+  <a href="#servicios" data-i18n="nav.services">Serviços</a>
+  <a href="#proyectos" data-i18n="nav.projects">Projetos</a>
+  <a href="#proceso" data-i18n="nav.process">Processo</a>
+  <a href="#cobertura" data-i18n="nav.coverage">Cobertura</a>
+  <a href="#nosotros" data-i18n="nav.about">Sobre nós</a>
+  <a href="#contacto" data-i18n="nav.contact">Contato</a>
+  <a class="btn btn--brand btn--block" href="#cotizar" data-i18n="nav.quote">Orçamento</a>
+</nav>
 
 <main id="main">
 
@@ -1120,7 +1141,7 @@
       </div>
     </div>
 
-    <div class="hero__dots" id="heroDots" role="group" aria-label="Imágenes destacadas">
+    <div class="hero__dots" id="heroDots" role="group" data-i18n-aria="a11y.heroDots" aria-label="Imagens em destaque">
       <button type="button" aria-current="true" aria-label="1"></button>
       <button type="button" aria-current="false" aria-label="2"></button>
       <button type="button" aria-current="false" aria-label="3"></button>
@@ -1129,7 +1150,7 @@
   </section>
 
   <!-- ============ Cifras ============ -->
-  <section class="stats" aria-label="Cifras de la empresa">
+  <section class="stats" data-i18n-aria="a11y.stats" aria-label="Números da empresa">
     <div class="wrap">
       <div class="stats__grid">
         <div class="stats__item">
@@ -1262,7 +1283,7 @@
         <p data-i18n="prj.sub">Obra real, entregue e verificável. Toque em qualquer projeto para abrir a galeria completa.</p>
       </div>
 
-      <div class="filters" id="filters" role="group" aria-label="Filtrar proyectos">
+      <div class="filters" id="filters" role="group" data-i18n-aria="a11y.filters" aria-label="Filtrar projetos">
         <button type="button" data-filter="all" aria-pressed="true" data-i18n="prj.filter.all">Todos</button>
         <button type="button" data-filter="vivienda" aria-pressed="false" data-i18n="prj.filter.vivienda">Residencial</button>
         <button type="button" data-filter="infra" aria-pressed="false" data-i18n="prj.filter.infra">Infraestrutura</button>
@@ -1803,17 +1824,17 @@ Armenia, Quindío — Colômbia</b></span>
     <div class="footer__grid">
       <div>
         <div class="footer__logo">
-          <img src="../assets/img/brand/logo-192.png" alt="Logotipo da YU Construcciones S.A.S." data-i18n-alt="a11y.logoAlt" width="44" height="44">
+          <img src="../assets/img/brand/logo-192.png" alt="" width="44" height="44">
           <span class="brand__name">YU <span style="color:var(--brand)">CONSTRUCTORA</span></span>
         </div>
         <p data-i18n="footer.about">Construtora de obras civis e infraestrutura sediada em Armenia, Quindío. Projetos residenciais, comerciais, industriais e de contratação pública em todo o país.</p>
         <div class="social">
-          <a href="https://www.instagram.com/yuconstructorasas" target="_blank" rel="noopener" aria-label="Instagram de YU Construcciones"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61552352030870" target="_blank" rel="noopener" aria-label="Facebook de YU Construcciones"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
-          <a href="https://www.tiktok.com/@yuconstructorasas" target="_blank" rel="noopener" aria-label="TikTok de YU Construcciones"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a>
-          <a href="https://wa.me/573046557120?text=Ol%C3%A1%20YU%20Constructora%2C%20escrevo%20pelo%20site%20de%20voc%C3%AAs.%20Gostaria%20de%20fazer%20uma%20consulta." data-wa="general" target="_blank" rel="noopener" aria-label="WhatsApp +57 304 655 7120"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a href="https://maps.app.goo.gl/aVbfpvg7zthBdL8MA" target="_blank" rel="noopener" aria-label="Ubicación en Google Maps"><svg aria-hidden="true"><use href="#i-pin"/></svg></a>
-          <a href="mailto:yuconstruccionessas@gmail.com" aria-label="Correo electrónico"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="https://www.instagram.com/yuconstructorasas" target="_blank" rel="noopener" data-i18n-aria="a11y.ig" aria-label="Instagram da YU Construcciones"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61552352030870" target="_blank" rel="noopener" data-i18n-aria="a11y.fb" aria-label="Facebook da YU Construcciones"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a href="https://www.tiktok.com/@yuconstructorasas" target="_blank" rel="noopener" data-i18n-aria="a11y.tk" aria-label="TikTok da YU Construcciones"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+          <a href="https://wa.me/573046557120?text=Ol%C3%A1%20YU%20Constructora%2C%20escrevo%20pelo%20site%20de%20voc%C3%AAs.%20Gostaria%20de%20fazer%20uma%20consulta." data-wa="general" target="_blank" rel="noopener" data-i18n-aria="a11y.wa" aria-label="Fale conosco pelo WhatsApp +57 304 655 7120"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a href="https://maps.app.goo.gl/aVbfpvg7zthBdL8MA" target="_blank" rel="noopener" data-i18n-aria="a11y.map" aria-label="Localização no Google Maps"><svg aria-hidden="true"><use href="#i-pin"/></svg></a>
+          <a href="mailto:yuconstruccionessas@gmail.com" data-i18n-aria="a11y.email" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
         </div>
       </div>
 
@@ -1885,14 +1906,14 @@ Armenia, Quindío — Colômbia</li>
   </div>
   <div class="lightbox__stage">
     <button class="lightbox__nav prev" id="lbPrev" data-i18n-aria="a11y.prev" aria-label="Imagem anterior"><svg aria-hidden="true"><use href="#i-chev-left"/></svg></button>
-    <img id="lbImg" src="" alt="">
+    <img id="lbImg" alt="">
     <button class="lightbox__nav next" id="lbNext" data-i18n-aria="a11y.next" aria-label="Próxima imagem"><svg aria-hidden="true"><use href="#i-chev-right"/></svg></button>
   </div>
   <div class="lightbox__thumbs" id="lbThumbs"></div>
 </div>
 
-<script src="../assets/js/i18n.pt.js?v=52c3f680"></script>
-<script src="../assets/js/app.js?v=3be55bcf"></script>
+<script src="../assets/js/i18n.pt.js?v=a8f3d00d"></script>
+<script src="../assets/js/app.js?v=639ba380"></script>
 <!-- analitica -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3d774664bfcf4c329fcb0e9c4f75d5b7"}'></script>
 <!-- /analitica -->

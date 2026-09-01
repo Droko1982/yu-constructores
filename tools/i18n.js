@@ -9,6 +9,7 @@ window.YU_I18N = {
   es: {
     'meta.title': 'Constructora en Armenia y el Eje Cafetero | YU',
     'meta.desc': 'Constructora en Armenia, Quindío. Obra civil, acueducto, taludes, remodelaciones y reparación de daños por sismo en todo el Eje Cafetero. Visita sin costo.',
+    'meta.ogAlt': 'Casa campestre construida por YU Construcciones S.A.S. en el Eje Cafetero',
 
     'nav.home': 'Inicio',
     'brand.tag': 'Construcciones S.A.S. · Eje Cafetero',
@@ -311,14 +312,24 @@ window.YU_I18N = {
     'footer.maps': 'Cómo llegar',
 
     'a11y.menu': 'Abrir menú de navegación',
+    'a11y.menuClose': 'Cerrar menú de navegación',
+    'a11y.stats': 'Cifras de la empresa',
+    'a11y.filters': 'Filtrar proyectos',
+    'a11y.ig': 'Instagram de YU Construcciones',
+    'a11y.fb': 'Facebook de YU Construcciones',
+    'a11y.tk': 'TikTok de YU Construcciones',
+    'a11y.nav': 'Navegación principal',
+    'a11y.navMobile': 'Menú de navegación',
+    'a11y.heroDots': 'Imágenes destacadas',
+    'a11y.map': 'Ubicación en Google Maps',
+    'a11y.email': 'Correo electrónico',
     'a11y.theme': 'Cambiar entre modo claro y oscuro',
-    'a11y.lang': 'Cambiar idioma',
+    'a11y.lang': 'Cambiar idioma (ES)',
     'a11y.close': 'Cerrar',
     'a11y.prev': 'Imagen anterior',
     'a11y.next': 'Imagen siguiente',
     'a11y.top': 'Volver arriba',
     'a11y.skip': 'Ir al contenido principal',
-    'a11y.logoAlt': 'Logotipo de YU Construcciones S.A.S.',
     'a11y.wa': 'Escribir por WhatsApp al +57 304 655 7120'
   },
 
@@ -326,6 +337,7 @@ window.YU_I18N = {
   en: {
     'meta.title': 'Construction company in Armenia, Coffee Region | YU',
     'meta.desc': 'Construction company in Armenia, Quindío. Civil works, water networks, slope stabilisation, remodelling and earthquake damage repair across the Coffee Region.',
+    'meta.ogAlt': 'Country house built by YU Construcciones S.A.S. in the Colombian Coffee Region',
 
     'nav.home': 'Home',
     'brand.tag': 'Construcciones S.A.S. · Coffee Region',
@@ -625,14 +637,24 @@ window.YU_I18N = {
     'footer.maps': 'Get directions',
 
     'a11y.menu': 'Open navigation menu',
+    'a11y.menuClose': 'Close navigation menu',
+    'a11y.stats': 'Company figures',
+    'a11y.filters': 'Filter projects',
+    'a11y.ig': 'YU Construcciones on Instagram',
+    'a11y.fb': 'YU Construcciones on Facebook',
+    'a11y.tk': 'YU Construcciones on TikTok',
+    'a11y.nav': 'Main navigation',
+    'a11y.navMobile': 'Navigation menu',
+    'a11y.heroDots': 'Featured images',
+    'a11y.map': 'Location on Google Maps',
+    'a11y.email': 'Email',
     'a11y.theme': 'Switch between light and dark mode',
-    'a11y.lang': 'Change language',
+    'a11y.lang': 'Change language (EN)',
     'a11y.close': 'Close',
     'a11y.prev': 'Previous image',
     'a11y.next': 'Next image',
     'a11y.top': 'Back to top',
     'a11y.skip': 'Skip to main content',
-    'a11y.logoAlt': 'YU Construcciones S.A.S. logo',
     'a11y.wa': 'Message us on WhatsApp at +57 304 655 7120'
   },
 
@@ -640,6 +662,7 @@ window.YU_I18N = {
   pt: {
     'meta.title': 'Construtora em Armenia, Região Cafeeira | YU',
     'meta.desc': 'Construtora sediada em Armenia, Quindío. Obras civis, redes de água, taludes, reformas e reparo de danos por sismo em toda a Região Cafeeira.',
+    'meta.ogAlt': 'Casa de campo construída pela YU Construcciones S.A.S. na Região Cafeeira',
 
     'nav.home': 'Início',
     'brand.tag': 'Construcciones S.A.S. · Região Cafeeira',
@@ -939,14 +962,24 @@ window.YU_I18N = {
     'footer.maps': 'Como chegar',
 
     'a11y.menu': 'Abrir menu de navegação',
+    'a11y.menuClose': 'Fechar menu de navegação',
+    'a11y.stats': 'Números da empresa',
+    'a11y.filters': 'Filtrar projetos',
+    'a11y.ig': 'Instagram da YU Construcciones',
+    'a11y.fb': 'Facebook da YU Construcciones',
+    'a11y.tk': 'TikTok da YU Construcciones',
+    'a11y.nav': 'Navegação principal',
+    'a11y.navMobile': 'Menu de navegação',
+    'a11y.heroDots': 'Imagens em destaque',
+    'a11y.map': 'Localização no Google Maps',
+    'a11y.email': 'E-mail',
     'a11y.theme': 'Alternar entre modo claro e escuro',
-    'a11y.lang': 'Mudar idioma',
+    'a11y.lang': 'Mudar idioma (PT)',
     'a11y.close': 'Fechar',
     'a11y.prev': 'Imagem anterior',
     'a11y.next': 'Próxima imagem',
     'a11y.top': 'Voltar ao topo',
     'a11y.skip': 'Ir para o conteúdo principal',
-    'a11y.logoAlt': 'Logotipo da YU Construcciones S.A.S.',
     'a11y.wa': 'Fale conosco pelo WhatsApp +57 304 655 7120'
   }
 };

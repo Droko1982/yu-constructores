@@ -6,7 +6,7 @@
 <title>Colegio Libre de Circasia — infraestrutura educacional</title>
 <meta name="description" content="Adequação e melhoria de infraestrutura educacional no Colegio Libre de Circasia, Quindío: salas de aula, coberturas e áreas comuns.">
 <meta name="author" content="Dr. Mauricio Rodríguez Herrera">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#12161a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
 <meta name="geo.region" content="CO-QUI">
@@ -27,14 +27,14 @@
 <meta property="og:title" content="Colegio Libre de Circasia — infraestrutura educacional">
 <meta property="og:description" content="Adequação e melhoria de infraestrutura educacional no Colegio Libre de Circasia, Quindío: salas de aula, coberturas e áreas comuns.">
 <meta property="og:url" content="https://yuconstructora.com/pt/projetos/colegio-libre-circasia/">
-<meta property="og:image" content="https://yuconstructora.com/assets/img/brand/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Casa campestre construida por YU Construcciones S.A.S. en el Eje Cafetero">
+<meta property="og:image" content="https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg">
+<meta property="og:image:width" content="675">
+<meta property="og:image:height" content="450">
+<meta property="og:image:alt" content="Adequação de infraestrutura educacional no Colégio Libre, em Circasia, Quindío">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Colegio Libre de Circasia — infraestrutura educacional">
 <meta name="twitter:description" content="Adequação e melhoria de infraestrutura educacional no Colegio Libre de Circasia, Quindío: salas de aula, coberturas e áreas comuns.">
-<meta name="twitter:image" content="https://yuconstructora.com/assets/img/brand/og-image.jpg">
+<meta name="twitter:image" content="https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg">
 
 <link rel="icon" href="../../../assets/img/brand/logo-32.png" sizes="32x32">
 <link rel="icon" href="../../../assets/img/brand/logo-192.png" sizes="192x192">
@@ -43,7 +43,17 @@
 <link rel="preload" as="font" type="font/woff2" href="../../../assets/fonts/barlow-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../../../assets/fonts/barlow-condensed-700-latin.woff2" crossorigin>
 <link rel="stylesheet" href="../../../assets/css/fonts.css?v=1833fdc5">
-<link rel="stylesheet" href="../../../assets/css/styles.css?v=090c7744">
+<link rel="stylesheet" href="../../../assets/css/styles.css?v=85ba470c">
+
+<!--
+  Precarga de la siguiente página cuando el visitante muestra intención de ir
+  (pasar el cursor o empezar a tocar un enlace). Es prefetch, no prerender: baja
+  el HTML y nada más, así que no ejecuta guiones ni infla la analítica, y el
+  navegador que no lo entienda sencillamente lo ignora.
+-->
+<script type="speculationrules">
+{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}
+</script>
 
 <noscript>
   <!-- Los bloques .reveal nacen con opacity:0 y los descubre el guion al entrar
@@ -80,7 +90,9 @@
       },
       "publisher": {
         "@id": "https://yuconstructora.com/#organizacion"
-      }
+      },
+      "dateModified": "2026-09-01",
+      "primaryImageOfPage": "https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg"
     },
     {
       "@type": "BreadcrumbList",
@@ -176,15 +188,18 @@
 <!-- ============ Cabecera ============ -->
 <header class="header" id="header">
   <div class="wrap header__inner">
-    <a class="brand" href="../../#inicio" aria-label="YU Construcciones S.A.S. — inicio">
-      <img src="../../../assets/img/brand/logo-192.png" alt="Logotipo da YU Construcciones S.A.S." data-i18n-alt="a11y.logoAlt" width="40" height="40">
+    <a class="brand" href="../../#inicio">
+      <!-- El logotipo es decorativo: el nombre de la empresa está escrito
+           a su lado, así que repetirlo en el alt solo duplica la lectura y
+           deja el nombre accesible del enlace sin su texto visible. -->
+      <img src="../../../assets/img/brand/logo-192.png" alt="" width="40" height="40">
       <span>
         <span class="brand__name">YU <span>CONSTRUCTORA</span></span>
         <span class="brand__tag" data-i18n="brand.tag">Construcciones S.A.S. · Região Cafeeira</span>
       </span>
     </a>
 
-    <nav class="nav" id="nav" aria-label="Navegación principal">
+    <nav class="nav" id="nav" data-i18n-aria="a11y.nav" aria-label="Navegação principal">
       <a href="../../#servicios" data-i18n="nav.services">Serviços</a>
       <a href="../../#proyectos" data-i18n="nav.projects">Projetos</a>
       <a href="../../#proceso" data-i18n="nav.process">Processo</a>
@@ -195,7 +210,7 @@
 
     <div class="header__tools">
       <div class="lang" id="lang">
-        <button class="lang__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" data-i18n-aria="a11y.lang" aria-label="Mudar idioma">
+        <button class="lang__btn" id="langBtn" aria-haspopup="true" aria-expanded="false" data-i18n-aria="a11y.lang" aria-label="Mudar idioma (PT)">
           <svg aria-hidden="true"><use href="#i-globe"/></svg>
           <span id="langCurrent">PT</span>
         </button>
@@ -218,18 +233,25 @@
       </button>
     </div>
   </div>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="../../#inicio" data-i18n="nav.home">Início</a>
-    <a href="../../#servicios" data-i18n="nav.services">Serviços</a>
-    <a href="../../#proyectos" data-i18n="nav.projects">Projetos</a>
-    <a href="../../#proceso" data-i18n="nav.process">Processo</a>
-    <a href="../../#cobertura" data-i18n="nav.coverage">Cobertura</a>
-    <a href="../../#nosotros" data-i18n="nav.about">Sobre nós</a>
-    <a href="../../#contacto" data-i18n="nav.contact">Contato</a>
-    <a class="btn btn--brand btn--block" href="../../#cotizar" data-i18n="nav.quote">Orçamento</a>
-  </div>
 </header>
+
+<!--
+  El panel móvil vive FUERA de <header> a propósito. La cabecera lleva
+  backdrop-filter, y un elemento con filtro pasa a ser el bloque contenedor de
+  sus descendientes position:fixed: dentro de ella el panel se recortaba a la
+  altura de la barra y solo asomaba el primer enlace. Fuera, se ancla a la
+  ventana y se ve completo. tools/check.js vigila que no vuelva a entrar.
+-->
+<nav class="mobile-nav" id="mobileNav" data-i18n-aria="a11y.navMobile" aria-label="Menu de navegação">
+  <a href="../../#inicio" data-i18n="nav.home">Início</a>
+  <a href="../../#servicios" data-i18n="nav.services">Serviços</a>
+  <a href="../../#proyectos" data-i18n="nav.projects">Projetos</a>
+  <a href="../../#proceso" data-i18n="nav.process">Processo</a>
+  <a href="../../#cobertura" data-i18n="nav.coverage">Cobertura</a>
+  <a href="../../#nosotros" data-i18n="nav.about">Sobre nós</a>
+  <a href="../../#contacto" data-i18n="nav.contact">Contato</a>
+  <a class="btn btn--brand btn--block" href="../../#cotizar" data-i18n="nav.quote">Orçamento</a>
+</nav>
 
 <main id="main">
 <section class="section">
@@ -305,17 +327,17 @@
     <div class="footer__grid">
       <div>
         <div class="footer__logo">
-          <img src="../../../assets/img/brand/logo-192.png" alt="Logotipo da YU Construcciones S.A.S." data-i18n-alt="a11y.logoAlt" width="44" height="44">
+          <img src="../../../assets/img/brand/logo-192.png" alt="" width="44" height="44">
           <span class="brand__name">YU <span style="color:var(--brand)">CONSTRUCTORA</span></span>
         </div>
         <p data-i18n="footer.about">Construtora de obras civis e infraestrutura sediada em Armenia, Quindío. Projetos residenciais, comerciais, industriais e de contratação pública em todo o país.</p>
         <div class="social">
-          <a href="https://www.instagram.com/yuconstructorasas" target="_blank" rel="noopener" aria-label="Instagram de YU Construcciones"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
-          <a href="https://www.facebook.com/profile.php?id=61552352030870" target="_blank" rel="noopener" aria-label="Facebook de YU Construcciones"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
-          <a href="https://www.tiktok.com/@yuconstructorasas" target="_blank" rel="noopener" aria-label="TikTok de YU Construcciones"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a>
-          <a href="https://wa.me/573046557120?text=Ol%C3%A1%20YU%20Constructora%2C%20escrevo%20pelo%20site%20de%20voc%C3%AAs.%20Gostaria%20de%20fazer%20uma%20consulta." data-wa="general" target="_blank" rel="noopener" aria-label="WhatsApp +57 304 655 7120"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a href="https://maps.app.goo.gl/aVbfpvg7zthBdL8MA" target="_blank" rel="noopener" aria-label="Ubicación en Google Maps"><svg aria-hidden="true"><use href="#i-pin"/></svg></a>
-          <a href="mailto:yuconstruccionessas@gmail.com" aria-label="Correo electrónico"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+          <a href="https://www.instagram.com/yuconstructorasas" target="_blank" rel="noopener" data-i18n-aria="a11y.ig" aria-label="Instagram da YU Construcciones"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61552352030870" target="_blank" rel="noopener" data-i18n-aria="a11y.fb" aria-label="Facebook da YU Construcciones"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a href="https://www.tiktok.com/@yuconstructorasas" target="_blank" rel="noopener" data-i18n-aria="a11y.tk" aria-label="TikTok da YU Construcciones"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+          <a href="https://wa.me/573046557120?text=Ol%C3%A1%20YU%20Constructora%2C%20escrevo%20pelo%20site%20de%20voc%C3%AAs.%20Gostaria%20de%20fazer%20uma%20consulta." data-wa="general" target="_blank" rel="noopener" data-i18n-aria="a11y.wa" aria-label="Fale conosco pelo WhatsApp +57 304 655 7120"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a href="https://maps.app.goo.gl/aVbfpvg7zthBdL8MA" target="_blank" rel="noopener" data-i18n-aria="a11y.map" aria-label="Localização no Google Maps"><svg aria-hidden="true"><use href="#i-pin"/></svg></a>
+          <a href="mailto:yuconstruccionessas@gmail.com" data-i18n-aria="a11y.email" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
         </div>
       </div>
 
@@ -375,8 +397,8 @@ Armenia, Quindío — Colômbia</li>
 </button>
 
 <!-- ============ Visor de galería ============ -->
-<script src="../../../assets/js/i18n.pt.js?v=52c3f680"></script>
-<script src="../../../assets/js/app.js?v=3be55bcf"></script>
+<script src="../../../assets/js/i18n.pt.js?v=a8f3d00d"></script>
+<script src="../../../assets/js/app.js?v=639ba380"></script>
 <!-- analitica -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3d774664bfcf4c329fcb0e9c4f75d5b7"}'></script>
 <!-- /analitica -->
