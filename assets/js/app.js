@@ -83,19 +83,36 @@
   var toTop = $('#toTop');
 
   if (burger && mobileNav) {
-    burger.addEventListener('click', function () {
-      var open = mobileNav.classList.toggle('is-open');
+    var setMenu = function (open) {
+      mobileNav.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', t(open ? 'a11y.menuClose' : 'a11y.menu'));
       document.body.classList.toggle('is-locked', open);
       burger.querySelector('use').setAttribute('href', open ? '#i-close' : '#i-menu');
+      if (open) mobileNav.scrollTop = 0;
+    };
+
+    burger.addEventListener('click', function () {
+      setMenu(!mobileNav.classList.contains('is-open'));
     });
     $$('a', mobileNav).forEach(function (a) {
-      a.addEventListener('click', function () {
-        mobileNav.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('is-locked');
-        burger.querySelector('use').setAttribute('href', '#i-menu');
-      });
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    /* Escape cierra y devuelve el foco al botón, como cualquier diálogo. */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+        setMenu(false);
+        burger.focus();
+      }
+    });
+    /*
+      Al pasar a escritorio el botón desaparece: si el menú se quedara abierto,
+      el cuerpo seguiría bloqueado y la página no se podría desplazar.
+    */
+    window.addEventListener('resize', function () {
+      if (mobileNav.classList.contains('is-open') && getComputedStyle(burger).display === 'none') {
+        setMenu(false);
+      }
     });
   }
 
@@ -287,7 +304,7 @@
   function lbClose() {
     lb.classList.remove('is-open');
     document.body.classList.remove('is-locked');
-    lbImg.src = '';
+    lbImg.removeAttribute('src');
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 

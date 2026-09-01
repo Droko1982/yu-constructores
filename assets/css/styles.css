@@ -241,7 +241,7 @@ p { margin: 0; text-wrap: pretty; }
   gap: 1rem;
 }
 
-.brand { display: flex; align-items: center; gap: .7rem; flex: none; }
+.brand { display: flex; align-items: center; gap: .7rem; flex: none; min-height: 44px; }
 .brand img { width: 40px; height: 40px; }
 .brand__name {
   font-family: var(--font-display);
@@ -342,22 +342,34 @@ p { margin: 0; text-wrap: pretty; }
 .lang__menu a[aria-current='true'] { color: var(--brand); font-weight: 700; }
 .lang__menu b { font-family: var(--font-display); letter-spacing: .06em; width: 26px; flex: none; }
 
-/* Menú móvil */
+/* Menú móvil
+   El panel se ancla a la ventana, no a la cabecera: en el HTML va FUERA de
+   <header> porque el backdrop-filter de la barra convertiría a la cabecera en
+   bloque contenedor de cualquier hijo position:fixed y el panel quedaría
+   recortado a la altura de la barra. */
 .burger { display: none; }
 .mobile-nav {
   position: fixed;
   inset: var(--header-h) 0 0 0;
+  /* Respaldo para navegadores sin dvh; el segundo gana donde sí existe */
+  height: calc(100vh - var(--header-h));
+  height: calc(100dvh - var(--header-h));
   background: var(--bg);
   z-index: 99;
-  padding: 2rem var(--gutter) 3rem;
+  padding: 2rem var(--gutter) calc(2.5rem + env(safe-area-inset-bottom, 0px));
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   transform: translateY(-8px);
   opacity: 0;
   visibility: hidden;
   transition: opacity .25s var(--ease), transform .25s var(--ease), visibility .25s;
 }
 .mobile-nav.is-open { opacity: 1; visibility: visible; transform: none; }
-.mobile-nav a {
+/* :not(.btn) porque el botón de cotizar también es un <a>: sin la exclusión,
+   esta regla le ganaba en especificidad a .btn--brand y lo dejaba alineado a
+   la izquierda y con el texto en blanco sobre ámbar. */
+.mobile-nav a:not(.btn) {
   display: block;
   font-family: var(--font-display);
   font-size: 1.55rem;
@@ -366,7 +378,27 @@ p { margin: 0; text-wrap: pretty; }
   border-bottom: 1px solid var(--line-soft);
   color: var(--ink);
 }
-.mobile-nav .btn { margin-top: 1.8rem; }
+.mobile-nav .btn { margin-top: 1.8rem; font-size: 1.05rem; }
+
+/* Pantallas bajas (teléfono apaisado, ventanas cortas): el menú se compacta
+   para que las ocho entradas quepan sin tener que desplazarse. */
+@media (max-height: 720px) {
+  .mobile-nav { padding-top: 1.1rem; }
+  .mobile-nav a:not(.btn) { font-size: 1.2rem; padding: .5rem 0; }
+  .mobile-nav .btn { margin-top: 1rem; padding: .7rem 1.4rem; font-size: .98rem; }
+}
+
+/* Teléfono en horizontal: hay ancho de sobra y falta alto, así que el menú
+   pasa a dos columnas y sigue cabiendo entero sin desplazarse. */
+@media (max-height: 500px) and (min-width: 560px) {
+  .mobile-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.4rem;
+    align-content: start;
+  }
+  .mobile-nav .btn { grid-column: 1 / -1; margin-top: .8rem; }
+}
 
 /* ---------- 6. Héroe ---------------------------------------------------- */
 .hero {
@@ -1413,9 +1445,10 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
   .brand img { width: 28px; height: 28px; }
   .brand__name { font-size: .82rem; letter-spacing: .02em; }
   .header__tools { gap: .3rem; }
-  .lang__btn { padding-inline: .45rem; gap: .25rem; }
-  .icon-btn, .lang__btn { height: 34px; }
-  .icon-btn { width: 34px; }
+  .lang__btn { padding-inline: .5rem; gap: .25rem; min-width: 40px; justify-content: center; }
+  /* 40 px es el mínimo cómodo para el dedo; por debajo se falla el toque */
+  .icon-btn, .lang__btn { height: 40px; }
+  .icon-btn { width: 40px; }
 }
 
 @media (max-width: 360px) {

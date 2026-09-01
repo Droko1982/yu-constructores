@@ -84,6 +84,28 @@ for (const page of pages) {
   }
   if (stack.length) add('ERROR', page, 'etiquetas sin cerrar: ' + stack.slice(-3).join(', '));
 
+  /* --- estructura del menú móvil ---
+     El panel tiene que quedar FUERA de <header>: la cabecera lleva
+     backdrop-filter y eso la convierte en bloque contenedor de sus hijos
+     position:fixed, con lo que el menú se recorta a la altura de la barra y
+     solo asoma el primer enlace. Pasó en producción; que no vuelva a pasar. */
+  const headOpen = body.indexOf('<header');
+  const headClose = body.indexOf('</header>');
+  const navPos = body.indexOf('id="mobileNav"');
+  if (navPos === -1) add('ERROR', page, 'falta el menú móvil (#mobileNav)');
+  else if (headOpen !== -1 && headClose !== -1 && navPos > headOpen && navPos < headClose) {
+    add('ERROR', page, '#mobileNav está dentro de <header>: el panel se recortará en móvil');
+  }
+
+  /* --- etiquetas accesibles traducidas ---
+     Un aria-label escrito a mano se queda en español en /en/ y /pt/. Todos
+     deben venir de una clave del diccionario, salvo los puramente numéricos
+     (los puntos del carrusel). */
+  for (const m of body.matchAll(/<[a-zA-Z][^>]*\saria-label="([^"]*)"[^>]*>/g)) {
+    if (/^\d+$/.test(m[1])) continue;
+    if (!/data-i18n-aria=/.test(m[0])) add('ERROR', page, 'aria-label sin traducir: "' + m[1] + '"');
+  }
+
   /* --- SEO --- */
   const t = (h.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '';
   const d = (h.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
@@ -125,7 +147,7 @@ if (wrong.length) add('ERROR', 'TODO EL SITIO', 'números distintos del oficial 
 
 const errs = problems.filter((p) => p.sev === 'ERROR');
 const warns = problems.filter((p) => p.sev === 'AVISO');
-for (const p of [...errs, ...warns]) console.log(p.sev.padEnd(6) + p.page.padEnd(50) + p.msg);
+for (const p of [...errs, ...warns]) console.log(p.sev.padEnd(6) + p.page.padEnd(62) + p.msg);
 
 console.log('\n' + pages.length + ' páginas · ' + assets + ' recursos · ' + links + ' enlaces');
 console.log('teléfono único en todo el sitio: +' + TEL + '  (' + phones.size + ' variante' + (phones.size === 1 ? '' : 's') + ' encontrada' + (phones.size === 1 ? '' : 's') + ')');
