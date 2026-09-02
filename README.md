@@ -17,8 +17,8 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 | **Contenido** | Héroe con carrusel de obra real, franja de atención post-sismo, 10 servicios (6 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, 11 preguntas frecuentes, contacto |
 | **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos, y triaje por fotografía en WhatsApp para daños de sismo y arreglos pequeños |
 | **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang`, prioridad por tipo de página y las fotografías de cada obra, `robots.txt`, Open Graph con **imagen propia por página** (la obra o el servicio que se comparte, no la genérica), Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios |
-| **Accesibilidad** | Enlace de salto, roles ARIA, navegación por teclado en la galería, `prefers-reduced-motion`, foco visible, respaldo en `<noscript>` para el contenido animado, HTML validado |
-| **Rendimiento** | **Cero dependencias externas**: tipografías auto-alojadas (sin Google Fonts), iconos SVG en línea, carga diferida, precarga del héroe y de las dos fuentes críticas. Imágenes responsivas en WebP con respaldo JPEG (un teléfono baja 2,0 MB en lugar de 11,1 MB) y diccionario servido por idioma (20 KB en lugar de 58 KB) |
+| **Accesibilidad** | Enlace de salto, roles ARIA, navegación por teclado en la galería, `prefers-reduced-motion`, foco visible, respaldo en `<noscript>` para el contenido animado, HTML validado. **Contraste AA en los dos temas**: el ámbar de la marca se reserva para rellenos, bordes, iconos y el titular del héroe —todos sobre fondo oscuro—, y el texto sobre el fondo de la página usa `--brand-ink`, que en modo claro baja a `#8a5a00` |
+| **Rendimiento** | **Cero dependencias externas**: tipografías auto-alojadas (sin Google Fonts), iconos SVG en línea, carga diferida, precarga del héroe y de las dos fuentes críticas. Imágenes responsivas en WebP con respaldo JPEG (un teléfono baja 2,0 MB en lugar de 11,1 MB) y diccionario servido por idioma (20 KB en lugar de 58 KB). **Ningún marco externo se carga solo**: el mapa de Google espera a que alguien lo pida |
 
 ## Estructura
 
@@ -43,8 +43,8 @@ yu-constructores/
 │
 ├── tools/                  # Nada de aquí se publica: son las fuentes de compilación
 │   ├── build-i18n.js       # Genera las 48 páginas + sitemap + robots + rutas del 404
-│   ├── build-images.js     # Genera las variantes .webp a partir de los .jpg
-│   ├── i18n.js             # FUENTE: diccionarios ES · EN · PT (270 claves por idioma)
+│   ├── build-images.js     # Genera las .webp por anchura y la imagen social .jpg
+│   ├── i18n.js             # FUENTE: diccionarios ES · EN · PT (314 claves por idioma)
 │   └── pages/              # FUENTE de las páginas secundarias, un archivo por idioma
 │       ├── cobertura.{es,en,pt}.html
 │       ├── privacidad.{es,en,pt}.html
@@ -82,14 +82,20 @@ node tools/check.js
 ```
 
 Recorre las 54 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
-enlaces rotos, `data-page` sin resolver, anclas sin destino, marcado mal anidado, títulos
-o descripciones duplicados o demasiado largos, imágenes sin `alt`, `hreflang` que no se
-autorreferencia, JSON-LD inválido, **que exista un único número de contacto en todo el
-sitio**, **que el menú móvil no vuelva a quedar dentro de `<header>`** y **que ningún
+enlaces rotos, `data-page` sin resolver, anclas sin destino —también las que apuntan
+dentro de la propia página—, marcado mal anidado, títulos o descripciones duplicados o
+demasiado largos, imágenes sin `alt`, `hreflang` que no se autorreferencia, JSON-LD
+inválido o con `@id` que apuntan a un nodo definido en otra página, enlaces de WhatsApp
+publicados sin mensaje, `og:image` inexistente o tan pesada que WhatsApp deje de dibujar
+la vista previa, el `404.html` con sus rutas absolutas y su `noindex`, y el
+`sitemap.xml` contrastado con el disco en los dos sentidos.
+
+Y tres cosas que ya se rompieron una vez: **que exista un único número de contacto en todo
+el sitio**, **que el menú móvil no vuelva a quedar dentro de `<header>`** y **que ningún
 `aria-label` esté escrito a mano** (uno escrito a mano se queda en español en `/en/` y
 `/pt/`).
 
-Ese último control existe por un motivo concreto: un teléfono desactualizado en una sola
+El control del teléfono existe por un motivo concreto: un teléfono desactualizado en una sola
 página perdida es un cliente perdido, y es el tipo de error que no da la cara al revisar
 a ojo.
 
@@ -99,6 +105,12 @@ Cada `.jpg` tiene versiones `.webp` en varias anchuras, que el HTML ofrece dentr
 `<picture>` con el `.jpg` como respaldo. El héroe es lo que Google mide como LCP: a
 1920 px pesa 439 KB y a 768 px, 82 KB, así que un teléfono ya no descarga la versión
 de escritorio.
+
+De la primera fotografía de cada obra se genera además una **variante social**
+(`-1-og.jpg`, 1200 px), que es la que viaja en `og:image` cuando alguien reenvía el
+enlace de esa obra o del servicio que la usa de referencia. La original llega a 640 KB y
+WhatsApp deja de dibujar la vista previa por encima de unos 600 KB. Si falta, el generador
+se niega a compilar y dice qué comando la produce.
 
 Tras añadir o reemplazar fotografías:
 
@@ -235,27 +247,140 @@ Lo que **no** se tocó: los tres héroes diferidos aparecen como «imágenes rot
 cualquier auditoría automática hasta que el carrusel los pide. Es deliberado —así el
 teléfono baja una y no cuatro— y se queda como está.
 
-## Activar la medición
+## Repaso de rendimiento, contraste y captación · 2 de septiembre de 2026
 
-El sitio trae la instalación lista pero **apagada**: sin token no se emite ninguna
-etiqueta y no se recoge nada.
+Con el menú ya arreglado se recorrió el sitio buscando lo que **cuesta sin verse**: peso
+que el visitante descarga sin haberlo pedido, texto que no se puede leer, tarjetas que no
+llevan a ninguna parte y envíos que se quedan colgados. Lo que salió se agrupa en cinco
+frentes, y todo ello estaba publicado **en silencio**: ninguna de estas cosas da la cara
+al revisar el sitio a ojo.
 
-Se eligió **Cloudflare Web Analytics** porque no pone cookies, no recoge datos personales
-y no necesita banner de consentimiento. Google Analytics obligaría a contradecir la
-política de tratamiento de datos publicada, que promete justamente lo contrario.
+### 1. El mapa dejó de cargarse solo
 
-1. En [dash.cloudflare.com](https://dash.cloudflare.com) → **Web Analytics** → añadir
-   `yuconstructora.com`. No hace falta mover el DNS.
-2. Copiar el `token` del fragmento que entrega.
-3. Pegarlo en la constante `ANALYTICS_TOKEN` de `tools/build-i18n.js` y regenerar.
-4. **Actualizar la política de datos**: el apartado 2 dice hoy que el sitio no usa
-   herramientas de analítica. Con la medición activa deja de ser cierto y hay que
-   corregirlo en los tres archivos `tools/pages/privacidad.*.html`.
+El recuadro de Google Maps de la sección de cobertura era el marco más pesado de la
+portada y salía en **cada visita**, lo pidiera alguien o no. Además contradecía en la
+práctica lo que promete la política de datos: el navegador del visitante contactaba con
+Google antes de que hiciera nada.
+
+En su lugar hay ahora una tarjeta con la dirección y un botón; `app.js` la sustituye por
+el `<iframe>` al pulsarlo. **No queda ningún marco externo que se cargue solo en ninguna
+de las 54 páginas.** La política de datos declara Google Maps en su apartado 4, diciendo
+expresamente que solo interviene si el visitante pide el mapa, y qué recibe Google cuando
+lo pide.
+
+### 2. El ámbar de la marca no vale para texto
+
+`#f5a302` sobre blanco da **2,07:1**. El mínimo de la WCAG para texto es 4,5:1, así que en
+modo claro cada epígrafe, enlace de tarjeta, ubicación de obra y cifra en ámbar estaba por
+debajo. El ámbar no se cambió: se separó en dos tokens.
+
+| Token | Oscuro | Claro | Para qué |
+|---|---|---|---|
+| `--brand` | `#f5a302` | `#f5a302` | Rellenos, bordes, iconos y el titular del héroe: todo sobre fondo oscuro en los dos temas |
+| `--brand-ink` | `#f5a302` | `#8a5a00` — 5,9:1 sobre blanco | Todo lo que sea **texto sobre el fondo de la página** |
+
+Al revisarlo aparecieron tres cosas más:
+
+- **El botón de WhatsApp de las 48 páginas secundarias tenía el texto invisible**, en los
+  dos temas: `.legal a` le ganaba en especificidad a `.btn--brand` y le pintaba el texto
+  ámbar sobre fondo ámbar. Ahora es `.legal a:not(.btn)`, el mismo patrón que ya había
+  hecho falta en `.mobile-nav`.
+- **`outline: none` en el foco de los campos del formulario.** El halo de sombra que lo
+  sustituía no lo dibujan los modos de alto contraste: quien navega con el tabulador se
+  quedaba sin saber dónde estaba.
+- **Al imprimir desde el modo oscuro**, el teléfono, el correo y la dirección salían en
+  blanco sobre blanco: los navegadores no imprimen fondos, pero sí respetan el color del
+  texto.
+
+### 3. Peso que nadie había pedido
+
+| | Antes | Después |
+|---|---|---|
+| Miniaturas del visor, obra de 6 fotos | 900 KB | 284 KB |
+| Imagen social de una obra | hasta 640 KB | 220 KB como máximo |
+| Segunda y tercera foto del héroe | a los 4 s de reloj | cuando el navegador queda ocioso |
+| Cabecera en teléfono | `backdrop-filter` en cada fotograma del desplazamiento | fondo opaco |
+
+- **Las miniaturas del visor se pedían a 1280 px** para pintarlas a 74. Ahora se piden a
+  640: en el conjunto de las nueve obras son 2,7 MB que dejan de bajarse.
+- **La imagen social se genera aparte** (`-1-og.jpg`, 1200 px). WhatsApp —por donde entra
+  el trabajo— deja de dibujar la vista previa por encima de unos 600 KB, y la primera
+  fotografía de los taludes del Matecaña pesa justo 640 KB. El comprobador avisa a partir
+  de 300 KB y falla a partir de 500.
+- **El carrusel arrancaba a los 4 s exactos**, que caen dentro de la ventana del LCP:
+  ponía a bajar la segunda fotografía mientras el teléfono aún estaba pintando la primera.
+  Ahora espera al `load` y a que el navegador quede ocioso, y **con ahorro de datos o red
+  2G no arranca solo**; los puntos siguen ahí para pasarlas a mano.
+
+### 4. El formulario ya no pierde solicitudes
+
+- **No tenía límite de tiempo**: una conexión mala dejaba el botón en «Enviando…» para
+  siempre, sin error y sin número de rescate. Ahora corta a los 12 s.
+- **Si el envío falla, el error trae un enlace de WhatsApp con lo que la persona acababa
+  de escribir**, en vez de pedirle que lo repita. Se arma con `createElement` y
+  `textContent`, nunca con `innerHTML`: el contenido es del visitante.
+- **Campo señuelo** oculto contra el relleno automático.
+- **El asunto del correo dice de quién es y en qué idioma escribió**, y el cuerpo añade la
+  página de origen. Con veinte correos idénticos en la bandeja no se sabía cuál atender
+  primero ni de dónde había salido.
+- **El cotizador ya no llega precontestado.** «Obra nueva · Solo tengo la idea · Lo antes
+  posible» venían marcados de fábrica, así que el mensaje podía afirmar tres cosas que el
+  visitante no había elegido nunca.
+
+### 5. Tarjetas y enlaces que no llevaban a ninguna parte
+
+- Los cuatro servicios sin página propia —mantenimiento, estructuras, urbanismo y
+  consultoría— eran tarjetas **sin ninguna acción**. Ahora cada una abre WhatsApp con su
+  propio mensaje.
+- Cuatro enlaces del pie apuntaban a `#servicios` teniendo la página del servicio hecha.
+- **El mensaje de WhatsApp dice ahora de dónde sale**: `wa.servicio` y `wa.obra` llevan
+  `{servicio}` y `{obra}`, que el generador sustituye por el nombre traducido de esa
+  página. Una sola clave sirve para las seis páginas de servicio y las nueve de obra.
+
+### Lo que se endureció para que no vuelva a pasar
+
+- El reescritor de enlaces de WhatsApp exigía que `data-wa` fuera pegado al `href` y en
+  ese orden: bastaba un `class=` en medio para publicar un enlace **sin mensaje**, y sin
+  aviso. Ahora localiza la etiqueta entera.
+- Las tarjetas de obra se leían con una expresión que exigía los tres atributos en orden y
+  no admitía una décima obra. Ahora se leen de una en una y la compilación falla si a
+  alguna le falta un atributo.
+- El visor se recortaba de las páginas secundarias con una expresión frágil; ahora va
+  entre marcadores `<!-- visor -->` y la compilación falla si no están.
+- **Cada página secundaria arrastraba `@id` que solo existían en la portada**: el
+  `Service` de cada servicio se quedaba sin prestador y cada obra sin autor, con toda la
+  señal de negocio local concentrada en tres páginas. Ahora las 48 llevan su propio nodo
+  de organización y de sitio, derivado del JSON-LD de `index.html` para que el NAP siga
+  teniendo una sola fuente.
+- **Si `app.js` no llegaba a descargarse, las páginas de servicio y de obra salían en
+  blanco**: todo su contenido vive dentro de `.reveal`, que nace invisible. El `<noscript>`
+  cubría el JavaScript desactivado, no el guion que no llega. Ahora una animación de CSS
+  lo destapa a los 4 s pase lo que pase.
+
+## La medición
+
+**Está activa** desde el 1 de septiembre de 2026, con **Cloudflare Web Analytics**. Se
+eligió porque no pone cookies, no recoge datos personales y no necesita banner de
+consentimiento; el apartado 2 de la política de datos la describe tal cual. Google
+Analytics obligaría a contradecir esa política, que promete justamente lo contrario.
+
+El token vive en la constante `ANALYTICS_TOKEN` de `tools/build-i18n.js` y admite la
+variable de entorno `YU_ANALYTICS`. **Sin token no se emite ninguna etiqueta**, así que
+dejarla vacía apaga la medición del todo:
+
+```bash
+YU_ANALYTICS= node tools/build-i18n.js     # regenera el sitio sin analítica
+```
+
+Para medir otro dominio: en [dash.cloudflare.com](https://dash.cloudflare.com) →
+**Web Analytics** → añadir el dominio (no hace falta mover el DNS), copiar el `token` del
+fragmento que entrega y ponerlo en la constante. Si algún día se cambia de herramienta,
+hay que corregir el apartado 2 de los tres archivos `tools/pages/privacidad.*.html`.
 
 `assets/js/app.js` registra además los sucesos que valen dinero —clic en WhatsApp
-distinguiendo el origen, llamada, correo y envío del formulario, correcto o fallido—.
-La función `track()` no hace nada si no hay analítica cargada, así que ni la medición ni
-un bloqueador pueden romper una conversión.
+distinguiendo el origen, llamada, correo, apertura del mapa y envío del formulario,
+correcto o fallido—. La función `track()` no hace nada si no hay analítica cargada, así
+que ni la medición ni un bloqueador pueden romper una conversión.
 
 ## Cambiar de dominio
 
@@ -345,6 +470,11 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
       «Arreglo del menú móvil».
 - [x] ~~Imagen social por página~~ — al reenviar por WhatsApp el enlace de una obra o de un
       servicio, la vista previa muestra ya esa obra y no la imagen genérica (01/09/2026).
+- [x] ~~Repaso de rendimiento, contraste y captación~~ — el mapa dejó de cargarse solo,
+      contraste AA en modo claro, 2,7 MB menos en las miniaturas del visor, el formulario
+      con corte de tiempo y rescate por WhatsApp, y los datos estructurados de las 48
+      páginas secundarias sostenidos por sí solos (02/09/2026). Ver la sección «Repaso de
+      rendimiento, contraste y captación».
 
 Lo que más pesa ahora está **fuera del código**, y con el sismo hay cosas que caducan:
 
@@ -387,7 +517,8 @@ Pendientes de contenido:
       marketing y suele abrir la puerta a un enlace desde el sitio de la entidad.
 - [ ] Páginas para los otros cuatro servicios (mantenimiento de infraestructura,
       estructuras y cimentaciones, urbanismo, consultoría). Se añaden igual que las
-      existentes; ver «Añadir una página nueva».
+      existentes; ver «Añadir una página nueva». Mientras tanto, sus tarjetas ya abren
+      WhatsApp con un mensaje propio en lugar de no llevar a ninguna parte (02/09/2026).
 - [ ] **Que el ingeniero revise la guía de daños por sismo**, en particular la lista que
       separa la fisura superficial del daño estructural. Está redactada como orientación
       general y así lo advierte, pero es el texto del sitio con más consecuencias si alguien

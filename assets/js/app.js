@@ -22,6 +22,9 @@
   })();
 
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
+  // requestIdleCallback no existe en Safari anterior a 17.4
+  var idle = window.requestIdleCallback ? window.requestIdleCallback.bind(window)
+    : function (f) { return setTimeout(f, 1); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
   /* ---------------------------------------------------------------- Tema -- */
@@ -204,8 +207,12 @@
     });
     heroDots.forEach(function (d, n) { d.setAttribute('aria-current', n === heroIx ? 'true' : 'false'); });
 
-    // Precarga la siguiente
-    heroLoad(heroImgs[(heroIx + 1) % heroImgs.length]);
+    /*
+      La siguiente diapositiva se precarga cuando el navegador esté ocioso, no
+      a la vez que la actual: si las dos peticiones salen juntas compiten por
+      el ancho de banda con lo que el visitante sí está viendo.
+    */
+    idle(function () { heroLoad(heroImgs[(heroIx + 1) % heroImgs.length]); });
   }
 
   function heroPlay() {
@@ -218,8 +225,22 @@
     d.addEventListener('click', function () { heroGo(n); heroPlay(); });
   });
 
+  /*
+    El carrusel arranca cuando la página ha terminado de cargar y el navegador
+    queda ocioso, no a los 4 s de reloj: ese número fijo caía justo dentro de
+    la ventana del LCP y ponía a bajar la segunda y la tercera fotografía
+    mientras el teléfono aún estaba pintando la primera.
+    Con ahorro de datos o con red 2G no arranca solo; los puntos siguen ahí
+    para quien quiera pasar las fotos a mano.
+  */
   if (heroImgs.length > 1) {
-    setTimeout(function () { heroGo(1); heroPlay(); }, 4000);
+    var con = navigator.connection;
+    var ahorra = con && (con.saveData || /(^|-)2g$/.test(con.effectiveType || ''));
+    if (!ahorra) {
+      var arranca = function () { idle(function () { heroGo(1); heroPlay(); }); };
+      if (document.readyState === 'complete') setTimeout(arranca, 600);
+      else window.addEventListener('load', function () { setTimeout(arranca, 600); });
+    }
   }
 
   /* -------------------------------------------------- Filtros de proyectos -- */
@@ -253,9 +274,9 @@
   */
   function swapToJpeg(img) {
     // Al cerrar el visor se vacía el src, y eso también dispara "error".
-    if (img.dataset.fallback === 'done' || !/-1280\.webp$/.test(img.src)) return;
+    if (img.dataset.fallback === 'done' || !/-(?:640|1280)\.webp$/.test(img.src)) return;
     img.dataset.fallback = 'done';
-    img.src = img.src.replace(/-1280\.webp$/, '.jpg');
+    img.src = img.src.replace(/-(?:640|1280)\.webp$/, '.jpg');
   }
 
   function lbRender() {
@@ -272,23 +293,29 @@
 
   function lbOpen(slug, count, key, loc) {
     lbState.imgs = [];
+    lbState.thumbs = [];
     for (var i = 1; i <= count; i++) {
-      lbState.imgs.push(ASSET_BASE + 'assets/img/proyectos/' + slug + '-' + i + '-1280.webp');
+      var base = ASSET_BASE + 'assets/img/proyectos/' + slug + '-' + i;
+      lbState.imgs.push(base + '-1280.webp');
+      // La tira de miniaturas se pinta a 74 px: pedirlas a 1280 costaba ~0,9 MB
+      // en el primer toque de una obra de seis fotografías.
+      lbState.thumbs.push(base + '-640.webp');
     }
     lbState.i = 0;
     lbState.key = key;
     lbState.loc = loc;
 
     lbThumbs.innerHTML = '';
-    lbState.imgs.forEach(function (src, n) {
+    lbState.thumbs.forEach(function (src, n) {
       var b = document.createElement('button');
       b.type = 'button';
       b.setAttribute('aria-label', String(n + 1));
       var im = document.createElement('img');
       im.addEventListener('error', function () { swapToJpeg(im); });
-      im.src = src;
+      // loading ANTES que src: al revés la descarga ya se ha disparado
       im.loading = 'lazy';
       im.alt = '';
+      im.src = src;
       b.appendChild(im);
       b.addEventListener('click', function () { lbState.i = n; lbRender(); });
       lbThumbs.appendChild(b);
@@ -339,7 +366,14 @@
       lbState.i = (lbState.i + 1) % lbState.imgs.length;
       lbRender();
     });
-    lb.addEventListener('click', function (e) { if (e.target === lb) lbClose(); });
+    /*
+      Se cierra tocando el marco negro. Se incluye .lightbox__stage porque en
+      Safari de iOS el toque sobre una zona sin nada interactivo no siempre
+      llega hasta el contenedor exterior.
+    */
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb || (e.target.classList && e.target.classList.contains('lightbox__stage'))) lbClose();
+    });
     document.addEventListener('keydown', function (e) {
       if (!lb.classList.contains('is-open')) return;
       if (e.key === 'Escape') lbClose();
@@ -433,6 +467,26 @@
     }
   }, true);
 
+  /* ------------------------------------------------------------- Mapa -- */
+  /*
+    El mapa de Google se carga solo cuando alguien lo pide. Mientras tanto no
+    sale ni una petición hacia Google, que es lo que promete la política de
+    datos del sitio, y la portada se ahorra el marco más pesado que tenía.
+  */
+  var mapAsk = $('#mapAsk');
+  if (mapAsk) {
+    mapAsk.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = mapAsk.getAttribute('data-map');
+      f.loading = 'lazy';
+      f.referrerPolicy = 'origin';
+      f.title = mapAsk.getAttribute('aria-label') || '';
+      f.setAttribute('allowfullscreen', '');
+      mapAsk.parentNode.replaceChild(f, mapAsk);
+      track('mapa', { origen: 'cobertura' });
+    });
+  }
+
   /* ------------------------------------------------ Formulario de contacto -- */
   var contactForm = $('#contactForm');
   var formStatus = $('#formStatus');
@@ -443,6 +497,19 @@
       e.preventDefault();
       if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
 
+      /*
+        Señuelo antispam: el campo está oculto, así que una persona nunca lo
+        rellena. Si viene con algo, se finge el envío correcto y no se manda
+        nada. Va ANTES de deshabilitar el botón para no dejarlo colgado.
+      */
+      var honey = contactForm.querySelector('[name="_honey"]');
+      if (honey && honey.value) {
+        formStatus.textContent = t('form.ok');
+        formStatus.className = 'form-status ok';
+        contactForm.reset();
+        return;
+      }
+
       var label = contactSubmit.querySelector('span');
       var original = label.textContent;
       label.textContent = t('form.sending');
@@ -450,7 +517,14 @@
       formStatus.textContent = '';
       formStatus.className = 'form-status';
 
-      fetch(contactForm.action, {
+      /*
+        Sin límite de tiempo, una conexión mala deja el botón en «Enviando…»
+        para siempre y el visitante no ve ni el error ni el número de rescate.
+      */
+      var ac = ('AbortController' in window) ? new AbortController() : null;
+      var corte = setTimeout(function () { if (ac) ac.abort(); }, 12000);
+
+      var opciones = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
@@ -463,11 +537,22 @@
           autorizacion: $('#cConsent').checked
             ? 'Autorizó el tratamiento de datos el ' + new Date().toLocaleString('es-CO')
             : 'NO autorizó',
-          _subject: 'Nueva solicitud desde el sitio de YU Constructora',
+          // El asunto dice de quién es y en qué idioma escribió, y el cuerpo
+          // añade la página de origen: con veinte correos iguales en la
+          // bandeja no se sabe cuál atender primero ni de dónde salió.
+          _subject: 'Solicitud web · '
+            + String($('#cName').value).replace(/[\r\n]+/g, ' ').trim().slice(0, 60)
+            + ' · ' + (document.documentElement.lang || 'es').toUpperCase(),
+          pagina: location.pathname,
+          idioma: document.documentElement.lang || 'es',
+          _honey: honey ? honey.value : '',
           _template: 'table',
           _captcha: 'false'
         })
-      })
+      };
+      if (ac) opciones.signal = ac.signal;
+
+      fetch(contactForm.action, opciones)
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function () {
           formStatus.textContent = t('form.ok');
@@ -476,13 +561,31 @@
           track('formulario', { estado: 'enviado' });
         })
         .catch(function () {
-          formStatus.textContent = t('form.err');
+          formStatus.textContent = t('form.err') + ' ';
           formStatus.className = 'form-status err';
+          /*
+            El rescate deja de ser una frase y pasa a ser un enlace que ya
+            lleva escrito lo que la persona acababa de teclear: si el envío
+            falla, no se le pide que lo repita. Se construye con createElement
+            y textContent, nunca con innerHTML: el contenido es del visitante.
+          */
+          var rescate = document.createElement('a');
+          rescate.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(
+            t('wa.general') + '\n\n'
+            + $('#cName').value + ' · ' + $('#cPhone').value + '\n'
+            + $('#cMsg').value
+          );
+          rescate.target = '_blank';
+          rescate.rel = 'noopener';
+          rescate.textContent = t('form.errCta');
+          rescate.className = 'form-status__cta';
+          formStatus.appendChild(rescate);
           // Un fallo de envío es una solicitud perdida: interesa tanto o más
           // que un envío correcto, porque avisa de que algo dejó de funcionar.
           track('formulario', { estado: 'error' });
         })
         .finally(function () {
+          clearTimeout(corte);
           label.textContent = original;
           contactSubmit.disabled = false;
         });
