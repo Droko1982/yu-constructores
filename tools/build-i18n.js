@@ -425,6 +425,10 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
   crumbs.push({ '@type': 'ListItem', position: crumbs.length + 1, name: crumbName, item: at.url });
 
   const graph = [
+    /* El grafo de cada página tiene que sostenerse solo: estos dos nodos son
+       los que hacen que publisher, provider y creator apunten a algo. */
+    COMPACT.org,
+    Object.assign({}, COMPACT.site, { inLanguage: LOCALES[lang].htmlLang }),
     {
       '@type': 'WebPage',
       '@id': at.url + '#pagina',
@@ -553,16 +557,33 @@ function rewriteHead(html, lang, page, at, meta) {
    El texto va escrito en el href, no lo pone JavaScript. Así el enlace lleva el
    mensaje aunque el guion no haya cargado todavía, y no depende de que el
    navegador tenga en caché la misma versión del HTML y del guion. */
-function writeWhatsAppLinks(html, lang) {
+function writeWhatsAppLinks(html, lang, page) {
   const T = DICT[lang];
-  return html.replace(
-    /href="(https:\/\/wa\.me\/\d+)(?:\?text=[^"]*)?" data-wa="([a-z]+)"/g,
-    (m, base, key) => {
-      const msg = T['wa.' + key];
-      if (!msg) throw new Error('Falta la clave wa.' + key + ' en "' + lang + '"');
-      return 'href="' + base + '?text=' + encodeURIComponent(msg) + '" data-wa="' + key + '"';
+  /* Se localiza la etiqueta completa y luego se sustituye su href, igual que en
+     rewritePageLinks. Antes se exigía que data-wa fuera pegado al href y en ese
+     orden: bastaba meter un class= entre medias para que el enlace se publicara
+     sin mensaje, y en silencio. */
+  return html.replace(/<a\s[^>]*\sdata-wa="([a-z]+)"[^>]*>/g, (tag, key) => {
+    let msg = T['wa.' + key];
+    if (!msg) throw new Error('Falta la clave wa.' + key + ' en "' + lang + '"');
+
+    /* {servicio} y {obra} se sustituyen por el nombre traducido de ESTA página:
+       una sola clave sirve para las seis páginas de servicio y las nueve de
+       obra, y el mensaje llega diciendo de dónde viene. */
+    if (msg.indexOf('{servicio}') > -1) {
+      if (!page || !page.service) throw new Error('wa.' + key + ' usa {servicio} en una página sin servicio: ' + (page && page.id));
+      msg = msg.replace('{servicio}', T['svc.' + page.service + '.t']);
     }
-  );
+    if (msg.indexOf('{obra}') > -1) {
+      if (!page || !page.project) throw new Error('wa.' + key + ' usa {obra} en una página sin obra: ' + (page && page.id));
+      msg = msg.replace('{obra}', T['prj.' + page.project + '.t']);
+    }
+
+    const href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    return /\shref="/.test(tag)
+      ? tag.replace(/\shref="[^"]*"/, () => ' href="' + href + '"')
+      : tag.replace(/^<a/, '<a href="' + href + '"');
+  });
 }
 
 /* --------------------------------------------- Diccionario por idioma
@@ -675,6 +696,11 @@ const SHELL = (() => {
   if (headEnd < 0 || mainOpen < 0 || mainEnd < 0) {
     throw new Error('index.html no tiene la estructura esperada: </head>, <main id="main">, </main>');
   }
+  // El visor se recorta de las páginas secundarias por estos marcadores: si
+  // faltan, la compilación tiene que fallar antes de escribir nada.
+  if (source.indexOf('<!-- visor -->') < 0 || source.indexOf('<!-- /visor -->') < 0) {
+    throw new Error('index.html no delimita el visor con <!-- visor --> … <!-- /visor -->');
+  }
   return {
     head: source.slice(0, headEnd),
     prelude: source.slice(headEnd, mainOpen),
@@ -685,10 +711,10 @@ const SHELL = (() => {
 /* Secciones de la portada. En una página secundaria "#servicios" tiene que
    apuntar a "../#servicios". Se detectan solas para que añadir una sección
    nueva no obligue a tocar el generador. */
-const SECTIONS = [...source.matchAll(/<section[^>]*\sid="([a-z-]+)"/g)].map((m) => m[1]);
+const SECTIONS = [...source.matchAll(/<section[^>]*\sid="([a-z0-9-]+)"/g)].map((m) => m[1]);
 
 function pointAnchorsHome(html, at) {
-  return html.replace(/href="#([a-z-]+)"/g, (m, id) =>
+  return html.replace(/href="#([a-z0-9-]+)"/g, (m, id) =>
     SECTIONS.indexOf(id) > -1 ? `href="${at.home}#${id}"` : m);
 }
 
@@ -720,6 +746,14 @@ function rewritePageLinks(html, lang, at) {
    archivo termine de leerse. */
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
+/* El número sale del JSON-LD de la portada, que es la fuente única que ya
+   vigila tools/check.js. */
+const WA_NUMBER = (() => {
+  const ld = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const org = ld['@graph'].find((n) => n['@type'] === 'GeneralContractor');
+  return org.telephone.replace(/[^\d]/g, '');
+})();
+
 /* Anchura y altura reales de un JPEG, leídas de su cabecera. og:image:width y
    og:image:height tienen que coincidir con la imagen: si mienten, WhatsApp y
    Facebook recortan mal la vista previa. Leerlo del archivo evita mantener una
@@ -744,6 +778,35 @@ function jpegSize(rel) {
    Las páginas sin obra propia (sismo, arreglos menores, cobertura y la legal)
    se quedan con la imagen de marca: es preferible a ilustrarlas con algo que
    no les corresponde. */
+/* La organización y el sitio, en versión compacta, para las páginas
+   secundarias. Un @id que apunta a un nodo definido en OTRA página no lo
+   resuelve nadie: hasta ahora el Service de cada página de servicio quedaba
+   sin prestador y cada obra sin autor, con toda la señal de negocio local
+   concentrada en las tres portadas.
+
+   Se derivan del JSON-LD de index.html —no se copian a mano— para que el NAP
+   siga teniendo una sola fuente, la que ya vigila tools/check.js. Se podan las
+   propiedades que dependen del idioma (description y hasOfferCatalog, que el
+   generador reescribe por idioma en la portada) y las que solo tienen sentido
+   en la ficha completa. */
+const COMPACT = (() => {
+  const ld = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const org = ld['@graph'].find((n) => n['@type'] === 'GeneralContractor');
+  const site = ld['@graph'].find((n) => n['@type'] === 'WebSite');
+  if (!org || !site) throw new Error('index.html no declara GeneralContractor y WebSite en su JSON-LD');
+
+  const pick = (node, keys) => {
+    const out = {};
+    for (const k of keys) if (node[k] !== undefined) out[k] = node[k];
+    return out;
+  };
+  return {
+    org: pick(org, ['@type', '@id', 'name', 'alternateName', 'url', 'logo', 'image',
+      'telephone', 'email', 'taxID', 'vatID', 'address', 'hasMap', 'sameAs', 'priceRange']),
+    site: pick(site, ['@type', '@id', 'url', 'name', 'publisher'])
+  };
+})();
+
 const SOCIAL_IMAGE = {
   'obra-civil': 'p1',
   'acueducto': 'p8',
@@ -752,9 +815,18 @@ const SOCIAL_IMAGE = {
 };
 
 const PHOTOS = (() => {
+  /* Se localiza primero la tarjeta y después se lee cada atributo por separado:
+     así reordenarlos —o llegar a la obra número diez— deja de romper nada. */
   const out = {};
-  for (const m of source.matchAll(/data-slug="([a-z0-9-]+)" data-count="(\d+)" data-key="(p\d)"/g)) {
-    out[m[3]] = { slug: m[1], count: Number(m[2]) };
+  for (const m of source.matchAll(/<article class="project[^"]*"[^>]*>/g)) {
+    const tag = m[0];
+    const slug = (tag.match(/\sdata-slug="([a-z0-9-]+)"/) || [])[1];
+    const count = (tag.match(/\sdata-count="(\d+)"/) || [])[1];
+    const key = (tag.match(/\sdata-key="(p\d+)"/) || [])[1];
+    if (!slug || !count || !key) {
+      throw new Error('Tarjeta de obra incompleta (faltan data-slug, data-count o data-key): ' + tag.slice(0, 120));
+    }
+    out[key] = { slug, count: Number(count) };
   }
   return out;
 })();
@@ -772,7 +844,14 @@ function pageImage(page, lang) {
       alt: DICT[lang]['meta.ogAlt']
     };
   }
-  const rel = 'assets/img/proyectos/' + PHOTOS[key].slug + '-1.jpg';
+  /* -1-og.jpg, no -1.jpg: la fotografía original llega a 640 KB y por encima de
+     unos 600 KB WhatsApp deja de dibujar la vista previa. La variante social la
+     produce tools/build-images.js; si falta, el generador falla en voz alta en
+     lugar de publicar una tarjeta que no se ve. */
+  const rel = 'assets/img/proyectos/' + PHOTOS[key].slug + '-1-og.jpg';
+  if (!fs.existsSync(path.join(ROOT, rel))) {
+    throw new Error('Falta la variante social ' + rel + ' — ejecute: node tools/build-images.js');
+  }
   const size = jpegSize(rel);
   return { url: BASE + rel, w: size.w, h: size.h, alt: DICT[lang]['prj.' + key + '.alt'] };
 }
@@ -851,12 +930,12 @@ for (const page of PAGES) {
       out = out.replace(/\n?\s*<link rel="preload" as="image"[^>]*>/, '');
 
       // Ni galería: el visor sobra. app.js ya comprueba que exista antes de usarlo.
-      out = out.replace(/<div class="lightbox"[\s\S]*?<\/div>\s*(?=<script src=)/, '');
+      out = out.replace(/<!-- visor -->[\s\S]*?<!-- \/visor -->\n?/, '');
     }
 
     out = translateBody(out, lang);
     out = rewriteHead(out, lang, page, at, meta);
-    out = writeWhatsAppLinks(out, lang);
+    out = writeWhatsAppLinks(out, lang, page);
     if (page.id !== 'home') out = pointAnchorsHome(out, at);
     out = rewritePageLinks(out, lang, at);
     out = useLangDict(out, lang);

@@ -44,6 +44,12 @@ try {
 
 const ROOT = path.join(__dirname, '..');
 const QUALITY = 78;
+/* La imagen social se sirve aparte y en JPEG. WhatsApp —que es por donde entra
+   el trabajo— deja de dibujar la vista previa cuando la imagen pasa de ~600 KB,
+   y la primera fotografía de una obra pesa hasta 640 KB en su tamaño original.
+   1200 px es la anchura que recomiendan Facebook y WhatsApp para la tarjeta. */
+const OG_WIDTH = 1200;
+const OG_QUALITY = 72;
 const FORCE = process.argv.includes('--force');
 
 /* Anchuras por tipo de imagen. Se descartan las que superen el original: no
@@ -153,9 +159,25 @@ const mb = (n) => (n / 1024 / 1024).toFixed(2) + ' MB';
 
     smallestWebp += made[0].bytes;
 
+    /* Variante social de la primera fotografía de cada obra: es la que viaja en
+       og:image cuando alguien reenvía el enlace de esa obra o del servicio que
+       la usa de referencia. */
+    let ogNota = '';
+    if (/proyectos\/[a-z0-9-]+-1\.jpe?g$/i.test(rel)) {
+      const dest = path.join(ROOT, base + '-og.jpg');
+      if (fresh(src, dest)) {
+        kept++;
+      } else {
+        await sharp(src).resize({ width: OG_WIDTH, withoutEnlargement: true })
+          .jpeg({ quality: OG_QUALITY, mozjpeg: true }).toFile(dest);
+        built++;
+      }
+      ogNota = ' · social ' + kb(fs.statSync(dest).size).trim();
+    }
+
     console.log(
       rel.padEnd(50) + kb(srcBytes) + ' →  ' +
-      made.map((m) => m.w + 'px ' + kb(m.bytes).trim()).join(' · ')
+      made.map((m) => m.w + 'px ' + kb(m.bytes).trim()).join(' · ') + ogNota
     );
   }
 

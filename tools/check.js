@@ -84,6 +84,22 @@ for (const page of pages) {
   }
   if (stack.length) add('ERROR', page, 'etiquetas sin cerrar: ' + stack.slice(-3).join(', '));
 
+  /* --- anclas de la propia página ---
+     Una href="#seccion" sin destino no la veía nadie: el generador solo
+     reescribe las que apuntan a la portada. */
+  for (const m of h.matchAll(/href="#([^"]+)"/g)) {
+    if (!new RegExp('\\sid="' + m[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"').test(h)) {
+      add('ERROR', page, 'ancla propia sin destino: #' + m[1]);
+    }
+  }
+
+  /* --- enlaces de WhatsApp con mensaje ---
+     El mensaje lo inyecta el generador a partir de data-wa. Si un enlace se
+     publica sin ?text=, el cliente escribe en blanco y nadie se entera. */
+  for (const m of h.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)) {
+    if (!/\?text=.+/.test(m[1])) add('ERROR', page, 'enlace de WhatsApp sin mensaje: ' + m[1]);
+  }
+
   /* --- estructura del menú móvil ---
      El panel tiene que quedar FUERA de <header>: la cabecera lleva
      backdrop-filter y eso la convierte en bloque contenedor de sus hijos
@@ -134,7 +150,74 @@ for (const page of pages) {
     const ld = JSON.parse(h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     const wp = ld['@graph'].find((n) => n['@type'] === 'WebPage');
     if (wp && wp.url !== c) add('ERROR', page, 'URL del WebPage distinta del canónico');
+
+    /* Un @id que apunta a un nodo definido en OTRA página no lo resuelve
+       nadie: el grafo de cada página tiene que sostenerse solo. */
+    const definidos = new Set();
+    const referencias = [];
+    (function visit(n) {
+      if (Array.isArray(n)) return n.forEach(visit);
+      if (!n || typeof n !== 'object') return;
+      const keys = Object.keys(n);
+      if (n['@id']) {
+        if (keys.some((k) => k !== '@id')) definidos.add(n['@id']);
+        else referencias.push(n['@id']);
+      }
+      for (const k of keys) if (k !== '@id') visit(n[k]);
+    })(ld['@graph']);
+    const sueltas = [...new Set(referencias)].filter((r) => !definidos.has(r));
+    if (sueltas.length) add('ERROR', page, '@id sin nodo en esta página: ' + sueltas.join(', '));
   } catch (e) { add('ERROR', page, 'JSON-LD inválido: ' + e.message); }
+
+  /* --- peso de la imagen social ---
+     WhatsApp deja de dibujar la vista previa por encima de ~600 KB, y es el
+     canal por el que entra el trabajo. */
+  const og = (h.match(/<meta property="og:image" content="([^"]*)"/) || [])[1];
+  if (og) {
+    const rel = og.replace(/^https?:\/\/[^/]+\//, '');
+    if (!fs.existsSync(rel)) add('ERROR', page, 'og:image inexistente: ' + rel);
+    else {
+      const kb = Math.round(fs.statSync(rel).size / 1024);
+      if (kb > 300) add(kb > 500 ? 'ERROR' : 'AVISO', page, 'og:image de ' + kb + ' KB (máximo recomendado 300)');
+    }
+  }
+}
+
+/* --- 404.html ---
+   Es el único HTML publicado que no es un index.html, y ya estuvo una vez en
+   producción con el número de WhatsApp anterior. Sus rutas son absolutas
+   desde la raíz del dominio, no relativas. */
+if (fs.existsSync('404.html')) {
+  const h404 = fs.readFileSync('404.html', 'utf8');
+  for (const m of h404.matchAll(/wa\.me\/(\d+)/g)) phones.add(m[1]);
+  for (const m of h404.matchAll(/\+57\s?\d[\d\s]{8,}/g)) phones.add(m[0].replace(/\D/g, ''));
+  for (const m of h404.matchAll(/\s(?:href|src)="\/(assets\/[^"]+)"/g)) {
+    assets++;
+    const rel = m[1].split('?')[0];
+    if (!fs.existsSync(rel)) add('ERROR', '404.html', 'recurso roto: /' + rel);
+  }
+  if (!/name="robots" content="noindex/.test(h404)) add('ERROR', '404.html', 'sin noindex');
+} else {
+  add('ERROR', '404.html', 'falta la página de error');
+}
+
+/* --- sitemap.xml contra el disco --- */
+if (fs.existsSync('sitemap.xml')) {
+  const sm = fs.readFileSync('sitemap.xml', 'utf8');
+  const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const canonSet = new Set(Object.keys(canons));
+  for (const loc of locs) {
+    if (!canonSet.has(loc)) add('ERROR', 'sitemap.xml', 'URL que ninguna página declara como canónica: ' + loc);
+  }
+  for (const c of canonSet) {
+    if (!locs.includes(c)) add('ERROR', 'sitemap.xml', 'página ausente del sitemap: ' + c);
+  }
+  for (const m of sm.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)) {
+    const rel = m[1].replace(/^https?:\/\/[^/]+\//, '');
+    if (!fs.existsSync(rel)) add('ERROR', 'sitemap.xml', 'imagen inexistente: ' + rel);
+  }
+} else {
+  add('ERROR', 'sitemap.xml', 'falta el sitemap');
 }
 
 for (const [t, ps] of Object.entries(titles)) if (ps.length > 1) add('ERROR', ps[0], 'title duplicado en ' + ps.length + ' páginas');
