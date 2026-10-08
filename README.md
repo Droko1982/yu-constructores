@@ -30,6 +30,7 @@ yu-constructores/
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt                # Resumen para asistentes de IA (generado)
+├── 2e425fce….txt           # Clave de IndexNow — no borrar (ver «Expansión internacional»)
 ├── site.webmanifest        # PWA / icono en escritorio
 ├── .nojekyll               # Evita el procesado Jekyll en GitHub Pages
 ├── AUTHORS.md
@@ -388,6 +389,18 @@ traductor automático convierte la ciudad en «Arménie» o «Armenien». Por es
 - **`llms.txt`** en la raíz: resumen en inglés para los asistentes de IA, que empieza
   aclarando que es la ciudad colombiana y no el país. Se genera con el NAP del JSON-LD, así
   que no puede quedar desactualizado.
+- **IndexNow**: `2e425fce78a770ca98452768e8a446e6.txt` en la raíz es la clave con la que se
+  avisa a Bing, Yandex, Seznam y Naver de las páginas nuevas o cambiadas. El índice de Bing
+  es el que leen ChatGPT Search, Copilot y DuckDuckGo, por donde busca buena parte del
+  cliente extranjero. Las 105 URLs se enviaron el 8/10/2026. Para avisar de nuevo tras
+  publicar cambios, desde la raíz del repositorio:
+
+  ```bash
+  node -e "const s=require('fs').readFileSync('sitemap.xml','utf8');fetch('https://api.indexnow.org/indexnow',{method:'POST',headers:{'Content-Type':'application/json; charset=utf-8'},body:JSON.stringify({host:'yuconstructora.com',key:'2e425fce78a770ca98452768e8a446e6',keyLocation:'https://yuconstructora.com/2e425fce78a770ca98452768e8a446e6.txt',urlList:[...s.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1])})}).then(r=>console.log('IndexNow',r.status))"
+  ```
+
+  Responde 200 o 202 si lo acepta. Si se borra el archivo de la clave, los avisos dejan de
+  valer.
 
 ### Dos idiomas más: francés y alemán
 
@@ -449,6 +462,9 @@ lo que Google penaliza como *doorway page*.
 - [ ] **Dar de alta `/fr/` y `/de/` en Search Console** (basta con reenviar el
       `sitemap.xml`) y vigilar en «Rendimiento → Países» cuándo empiezan a llegar
       impresiones de fuera.
+- [ ] **Dar de alta el sitio en Bing Webmaster Tools**, importándolo desde Search Console
+      (un clic, sin verificar de nuevo). IndexNow ya avisa a Bing de las páginas, pero sin
+      la cuenta no se ve qué búsquedas traen visitas desde ChatGPT, Copilot o DuckDuckGo.
 - [ ] **Publicar la ficha de Google también en inglés**: Google Business Profile admite
       la descripción en un solo idioma, pero las publicaciones semanales pueden alternar
       español e inglés.
