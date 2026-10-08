@@ -12,11 +12,11 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 | Área | Detalle |
 |---|---|
 | **Diseño** | Modo oscuro por defecto + modo claro, paleta tomada del logotipo oficial (ámbar `#f5a302` sobre carbón `#12161a`), tipografía Barlow / Barlow Condensed |
-| **Idiomas** | Español (`/`), Inglés (`/en/`) y Portugués (`/pt/`) — **páginas estáticas independientes**, no traducción por JavaScript, para que cada idioma se indexe con su propio HTML, `<title>`, descripción y datos estructurados |
-| **Tamaño** | **54 páginas** indexables: portada, 6 servicios, 9 obras, cobertura y política de datos, cada una en los tres idiomas |
+| **Idiomas** | Español (`/`), Inglés (`/en/`), Portugués (`/pt/`), Francés (`/fr/`) y Alemán (`/de/`) — **páginas estáticas independientes**, no traducción por JavaScript, para que cada idioma se indexe con su propio HTML, `<title>`, descripción y datos estructurados |
+| **Tamaño** | **105 páginas** indexables: portada, 7 servicios, 2 guías para clientes de fuera, 9 obras, cobertura y política de datos, cada una en los cinco idiomas |
 | **Contenido** | Héroe con carrusel de obra real, franja de atención post-sismo, 10 servicios (6 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, 11 preguntas frecuentes, contacto |
 | **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos, y triaje por fotografía en WhatsApp para daños de sismo y arreglos pequeños |
-| **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang`, prioridad por tipo de página y las fotografías de cada obra, `robots.txt`, Open Graph con **imagen propia por página** (la obra o el servicio que se comparte, no la genérica), Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios |
+| **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang`, prioridad por tipo de página y las fotografías de cada obra, `robots.txt`, Open Graph con **imagen propia por página** (la obra o el servicio que se comparte, no la genérica), Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios. Coordenadas `geo` de la sede, `Article` con fecha en las guías y `llms.txt` para los asistentes de IA |
 | **Accesibilidad** | Enlace de salto, roles ARIA, navegación por teclado en la galería, `prefers-reduced-motion`, foco visible, respaldo en `<noscript>` para el contenido animado, HTML validado. **Contraste AA en los dos temas**: el ámbar de la marca se reserva para rellenos, bordes, iconos y el titular del héroe —todos sobre fondo oscuro—, y el texto sobre el fondo de la página usa `--brand-ink`, que en modo claro baja a `#8a5a00` |
 | **Rendimiento** | **Cero dependencias externas**: tipografías auto-alojadas (sin Google Fonts), iconos SVG en línea, carga diferida, precarga del héroe y de las dos fuentes críticas. Imágenes responsivas en WebP con respaldo JPEG (un teléfono baja 2,0 MB en lugar de 11,1 MB) y diccionario servido por idioma (20 KB en lugar de 58 KB). **Ningún marco externo se carga solo**: el mapa de Google espera a que alguien lo pida |
 
@@ -25,38 +25,43 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 ```
 yu-constructores/
 ├── index.html              # Página en español (FUENTE: aquí se edita la estructura)
-├── en/index.html           # Generada — no editar a mano
-├── pt/index.html           # Generada — no editar a mano
+├── en/ · pt/ · fr/ · de/    # Portadas generadas — no editar a mano
 ├── 404.html
 ├── robots.txt
 ├── sitemap.xml
+├── llms.txt                # Resumen para asistentes de IA (generado)
 ├── site.webmanifest        # PWA / icono en escritorio
 ├── .nojekyll               # Evita el procesado Jekyll en GitHub Pages
 ├── AUTHORS.md
 │
 │  ── Todo lo de abajo se GENERA. No editar a mano. ──
-├── en/  ·  pt/             # Portadas en inglés y portugués
-├── servicios/…             # 6 páginas de servicio  (en/services/, pt/servicos/)
-├── proyectos/…             # 9 páginas de obra      (en/projects/, pt/projetos/)
-├── cobertura/              # Zonas de operación     (en/coverage/, pt/cobertura/)
-├── politica-de-datos/      # Política de datos      (en/privacy-policy/, pt/politica-de-dados/)
+├── en/ · pt/ · fr/ · de/    # Las cuatro versiones extranjeras, con todas sus páginas
+├── servicios/…             # 7 páginas de servicio  (en/services/, pt/servicos/, fr/services/, de/leistungen/)
+├── proyectos/…             # 9 páginas de obra      (en/projects/, pt/projetos/, fr/projets/, de/projekte/)
+├── construir-en-colombia-desde-el-exterior/   # Guía: colombianos en el exterior
+├── guia-construir-en-colombia-extranjeros/    # Guía: extranjeros que construyen
+├── cobertura/              # Zonas de operación
+├── politica-de-datos/      # Política de datos
 │
 ├── tools/                  # Nada de aquí se publica: son las fuentes de compilación
-│   ├── build-i18n.js       # Genera las 48 páginas + sitemap + robots + rutas del 404
+│   ├── build-i18n.js       # Genera las páginas + sitemap + robots + llms.txt + rutas del 404
 │   ├── build-images.js     # Genera las .webp por anchura y la imagen social .jpg
-│   ├── i18n.js             # FUENTE: diccionarios ES · EN · PT (314 claves por idioma)
+│   ├── i18n.js             # FUENTE: diccionarios ES · EN · PT · FR · DE (338 claves por idioma)
 │   └── pages/              # FUENTE de las páginas secundarias, un archivo por idioma
-│       ├── cobertura.{es,en,pt}.html
-│       ├── privacidad.{es,en,pt}.html
-│       ├── obra-civil / acueducto / taludes / remodelaciones .{es,en,pt}.html
-│       ├── sismo.{es,en,pt}.html          # reparación de daños por sismo
-│       ├── obras-menores.{es,en,pt}.html  # arreglos y trabajos de un día
-│       └── obra-p1 … obra-p9 .{es,en,pt}.html     # una por obra ejecutada
+│       ├── cobertura.{es,en,pt,fr,de}.html
+│       ├── privacidad.{es,en,pt,fr,de}.html
+│       ├── obra-civil / acueducto / taludes / remodelaciones .{es,en,pt,fr,de}.html
+│       ├── casas-campestres.{…}.html   # casas de campo y fincas
+│       ├── exterior.{…}.html           # guía: construir desde el exterior
+│       ├── extranjeros.{…}.html        # guía: construir siendo extranjero
+│       ├── sismo.{…}.html              # reparación de daños por sismo
+│       ├── obras-menores.{…}.html      # arreglos y trabajos de un día
+│       └── obra-p1 … obra-p9 .{…}.html # una por obra ejecutada
 └── assets/
     ├── css/fonts.css       # @font-face de las tipografías auto-alojadas
     ├── css/styles.css      # Estilos (tokens de tema, componentes, responsive)
     ├── fonts/              # Barlow y Barlow Condensed (woff2, subconjuntos latin)
-    ├── js/i18n.{es,en,pt}.js  # Generados — cada página carga solo el suyo (20 KB)
+    ├── js/i18n.{es,en,pt,fr,de}.js  # Generados — cada página carga solo el suyo
     ├── js/app.js           # Tema, carrusel, filtros, galería, cotizador, formulario
     └── img/
         ├── brand/          # Logotipos, héroes, imagen Open Graph
@@ -64,7 +69,7 @@ yu-constructores/
                             # cada .jpg tiene sus .webp por anchura (generados)
 ```
 
-> **Importante:** `en/index.html`, `pt/index.html`, `assets/js/i18n.{es,en,pt}.js`,
+> **Importante:** las portadas de `en/`, `pt/`, `fr/` y `de/`, `assets/js/i18n.*.js`, `llms.txt`,
 > `sitemap.xml` y `robots.txt` se generan. Después de tocar `index.html` o
 > `tools/i18n.js` hay que ejecutar:
 >
@@ -81,7 +86,7 @@ yu-constructores/
 node tools/check.js
 ```
 
-Recorre las 54 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
+Recorre las 105 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
 enlaces rotos, `data-page` sin resolver, anclas sin destino —también las que apuntan
 dentro de la propia página—, marcado mal anidado, títulos o descripciones duplicados o
 demasiado largos, imágenes sin `alt`, `hreflang` que no se autorreferencia, JSON-LD
@@ -129,7 +134,7 @@ Las páginas secundarias aportan solo el contenido de `<main>`; el generador las
 envuelve con la cabecera, el pie y el sprite de iconos de `index.html`, de modo que la
 navegación y el estilo no se duplican.
 
-1. Crear `tools/pages/mi-pagina.{es,en,pt}.html` con el contenido y, arriba del todo,
+1. Crear `tools/pages/mi-pagina.{es,en,pt,fr,de}.html` con el contenido y, arriba del todo,
    dos comentarios obligatorios:
    ```html
    <!-- title: Título para la pestaña y el buscador -->
@@ -138,11 +143,11 @@ navegación y el estilo no se duplican.
 2. Registrarla en la lista `PAGES` de `tools/build-i18n.js`, con un slug propio por idioma:
    ```js
    { id: 'mi-pagina', content: 'tools/pages/mi-pagina',
-     slug: { es: 'mi-pagina', en: 'my-page', pt: 'minha-pagina' } }
+     slug: { es: 'mi-pagina', en: 'my-page', pt: 'minha-pagina', fr: 'ma-page', de: 'meine-seite' } }
    ```
 3. Ejecutar `node tools/build-i18n.js`.
 
-El generador se encarga del canónico, el `hreflang` entre las tres versiones, el
+El generador se encarga del canónico, el `hreflang` entre las cinco versiones, el
 `BreadcrumbList`, el conmutador de idioma, las rutas relativas según la profundidad y la
 entrada en el `sitemap.xml`. Para enlazar desde otra página se escribe el destino por su
 identificador y la ruta se resuelve sola:
@@ -357,6 +362,103 @@ Al revisarlo aparecieron tres cosas más:
   cubría el JavaScript desactivado, no el guion que no llega. Ahora una animación de CSS
   lo destapa a los 4 s pase lo que pase.
 
+## Expansión internacional · 7 de octubre de 2026
+
+Objetivo: que quede inequívoco que la empresa está en **Armenia, Quindío (Colombia)** y que
+la encuentren dos públicos que hasta ahora el sitio no atendía de frente: el **extranjero**
+que quiere construir o retirarse en el Eje Cafetero y el **colombiano que vive fuera** y
+construye para volver o para la familia.
+
+### El problema de «Armenia»
+
+Fuera de Colombia, «Armenia» a secas es el país del Cáucaso. Un estadounidense que lee
+*Construction company in Armenia* en un resultado de búsqueda piensa en Ereván, y un
+traductor automático convierte la ciudad en «Arménie» o «Armenien». Por eso:
+
+- **Todo título en las versiones extranjeras que nombra Armenia la ata a Colombia o al
+  Quindío.** El de la portada en inglés pasó de *Construction company in Armenia, Coffee
+  Region* a *Construction company in Armenia, Colombia*. `tools/check.js` **falla** si
+  alguien vuelve a publicar un título así, y también si aparece «Arménie», «Armenien» o
+  «Armênia» en cualquier página.
+- **Coordenadas en el JSON-LD** (`geo`, a tres decimales: la manzana de la Plaza de
+  Bolívar, donde está la Calle 20 #12-32). Es lo que usan Google y los mapas para no
+  confundir la ciudad con el país.
+- El lema bajo el logotipo dice ahora **«Armenia, Quindío»** («Armenia, Colombia» en las
+  versiones extranjeras) en vez de «Eje Cafetero».
+- **`llms.txt`** en la raíz: resumen en inglés para los asistentes de IA, que empieza
+  aclarando que es la ciudad colombiana y no el país. Se genera con el NAP del JSON-LD, así
+  que no puede quedar desactualizado.
+
+### Dos idiomas más: francés y alemán
+
+Son los dos mercados europeos que más se ven comprando y construyendo en la región
+—Francia, Bélgica, Suiza y Quebec; Alemania, Austria y Suiza—. El inglés y el portugués ya
+estaban. Se hizo igual que los otros: páginas estáticas propias, slugs en el idioma
+(`/fr/services/construction-maison-de-campagne-colombie/`,
+`/de/leistungen/landhaus-bauen-kolumbien/`) y diccionario completo (338 claves).
+
+**`x-default` apunta ahora al inglés**, no al español. El colombiano ya recibe la versión
+española por su idioma; a quien habla holandés, italiano o sueco le sirve más la inglesa.
+
+El aviso que propone cambiar de idioma recorre ahora **toda** la lista de idiomas del
+navegador: un suizo con «de-CH, fr» o un holandés con «nl, en» también reciben la oferta.
+
+### Tres páginas nuevas, en los cinco idiomas
+
+| Página | Para quién | Por qué existe |
+|---|---|---|
+| **Casas campestres y fincas** (servicio 11) | Quien construye casa de campo en el Quindío, venga de donde venga | Es lo que más construye el cliente de fuera, y YU tiene tres obras que lo respaldan. Explica la ladera, el suelo, el sismo, el agua y qué revisar **antes de comprar el lote** |
+| **Construir desde el exterior** (guía) | Colombianos en Estados Unidos, España, Canadá, Chile… | Responde «¿cómo controlo una obra desde lejos?»: informes, videollamadas, pagos contra actas, poder consular y el dinero que entra como inversión extranjera aunque el dueño sea colombiano |
+| **Guía para extranjeros** (guía) | Extranjeros que se mudan o se retiran en la región | Si puede comprar (sí), el registro de la inversión ante el Banco de la República, uso del suelo, licencia, NSR-10, costos aparte de la obra, visa e idioma |
+
+Las dos guías se declaran como `Article` con autor y fecha. Se enlazan desde una sección
+nueva de la portada (`#exterior`), desde el pie y entre sí, y suman dos preguntas
+frecuentes (`faq.q12`, `faq.q13`).
+
+Deliberadamente **no** se hizo una página por país («construir en Colombia desde Estados
+Unidos», «… desde España»…): serían la misma página con otra bandera, que es exactamente
+lo que Google penaliza como *doorway page*.
+
+### Captación
+
+- El cotizador pregunta **«¿Dónde vive usted?»** (Quindío / otra ciudad / fuera de
+  Colombia) y lo añade al mensaje: el ingeniero sabe desde la primera línea si tiene que
+  proponer videollamada.
+- Nueva opción **«Casa campestre»** en el tipo de proyecto.
+- Dos mensajes de WhatsApp propios (`wa.exterior`, `wa.extranjeros`), medidos por
+  separado.
+- El horario de contacto dice **«hora de Colombia, UTC−5»**: a un cliente en Madrid o en
+  Zúrich «8:00 a 18:00» sin zona horaria no le dice nada.
+- El 404 ofrece enlaces a las cuatro portadas extranjeras.
+
+### Pendiente de la empresa
+
+- [ ] **Confirmar el idioma de atención.** La guía para extranjeros dice «puede escribirnos
+      en español o en inglés» y el JSON-LD declara `knowsLanguage` es · en · pt. Si en la
+      práctica no se atiende en inglés, hay que quitarlo antes de que llegue el primer
+      cliente que lo dé por hecho. Los mensajes en francés y alemán llegarán en esos
+      idiomas: un traductor basta para leerlos, pero conviene decidir cómo se responden.
+- [ ] **Que un abogado revise la guía para extranjeros** (inversión extranjera, Unidad
+      Agrícola Familiar, visa). Está escrita como orientación general y lo dice, pero es el
+      texto con más consecuencias legales del sitio.
+- [ ] **Que un hablante nativo revise el francés y el alemán.** Las 21 páginas de cada
+      idioma y su diccionario se tradujeron sin revisión nativa. `tools/check.js` vigila
+      la forma —títulos, longitudes, «Armenia» sin traducir— pero no el registro ni la
+      terminología técnica; un error de idioma se nota más que en inglés, porque el
+      lector europeo no lo espera.
+- [ ] **Dar de alta `/fr/` y `/de/` en Search Console** (basta con reenviar el
+      `sitemap.xml`) y vigilar en «Rendimiento → Países» cuándo empiezan a llegar
+      impresiones de fuera.
+- [ ] **Publicar la ficha de Google también en inglés**: Google Business Profile admite
+      la descripción en un solo idioma, pero las publicaciones semanales pueden alternar
+      español e inglés.
+- [ ] **Un caso real de cliente en el exterior**, con su permiso: «construimos esta casa en
+      Circasia para una familia que vive en Nueva Jersey». Vale más que cualquier guía.
+- [ ] **Cifras de costo por metro cuadrado.** Es de lo más buscado por quien construye
+      desde fuera, y el sitio deliberadamente no las da sin visita. Un rango orientativo
+      por tipo de obra, firmado por el ingeniero y fechado, haría de la página de casas
+      campestres la referencia de la región.
+
 ## La medición
 
 **Está activa** desde el 1 de septiembre de 2026, con **Cloudflare Web Analytics**. Se
@@ -375,7 +477,7 @@ YU_ANALYTICS= node tools/build-i18n.js     # regenera el sitio sin analítica
 Para medir otro dominio: en [dash.cloudflare.com](https://dash.cloudflare.com) →
 **Web Analytics** → añadir el dominio (no hace falta mover el DNS), copiar el `token` del
 fragmento que entrega y ponerlo en la constante. Si algún día se cambia de herramienta,
-hay que corregir el apartado 2 de los tres archivos `tools/pages/privacidad.*.html`.
+hay que corregir el apartado 2 de los cinco archivos `tools/pages/privacidad.*.html`.
 
 `assets/js/app.js` registra además los sucesos que valen dinero —clic en WhatsApp
 distinguiendo el origen, llamada, correo, apertura del mapa y envío del formulario,
@@ -386,7 +488,7 @@ que ni la medición ni un bloqueador pueden romper una conversión.
 
 El dominio vive en **un solo sitio**, la constante `BASE` de `tools/build-i18n.js`.
 Al regenerar, el valor se propaga al `hreflang`, al canónico, a Open Graph, a todo el
-bloque JSON-LD, al `sitemap.xml` y al `robots.txt` de los tres idiomas:
+bloque JSON-LD, al `sitemap.xml` y al `robots.txt` de los cinco idiomas:
 
 ```bash
 YU_BASE=https://yuconstructora.com/ node tools/build-i18n.js
@@ -415,8 +517,8 @@ python -m http.server 8080
 ```
 
 ### Cambiar textos
-Todos los textos visibles viven en `tools/i18n.js`, en tres bloques (`es`, `en`, `pt`).
-Buscar la clave, editar el valor en los tres idiomas y volver a generar:
+Todos los textos visibles viven en `tools/i18n.js`, en cinco bloques (`es`, `en`, `pt`, `fr`, `de`).
+Buscar la clave, editar el valor en los cinco idiomas y volver a generar:
 `node tools/build-i18n.js`.
 
 ### Agregar un proyecto
@@ -425,10 +527,10 @@ Buscar la clave, editar el valor en los tres idiomas y volver a generar:
 2. Duplicar un bloque `<article class="project">` en `index.html` y ajustar
    `data-slug`, `data-count`, `data-cat` y `data-key`. La miniatura va dentro de un
    `<picture>`: copiar el de un proyecto vecino y cambiar el nombre del archivo.
-3. Añadir las claves `prj.pN.t`, `prj.pN.l`, `prj.pN.d` y `prj.pN.alt` en los tres idiomas.
+3. Añadir las claves `prj.pN.t`, `prj.pN.l`, `prj.pN.d` y `prj.pN.alt` en los cinco idiomas.
 4. Añadir el proyecto a la lista `PROJECTS` de `tools/build-i18n.js`, para que entre
    en los datos estructurados y en el `sitemap.xml`.
-5. Para darle página propia: crear `tools/pages/obra-pN.{es,en,pt}.html` —copiar una
+5. Para darle página propia: crear `tools/pages/obra-pN.{es,en,pt,fr,de}.html` —copiar una
    existente— con el marcador `<!-- galeria -->` donde vaya la rejilla de fotos, y
    registrarla en el bucle de páginas de obra de `tools/build-i18n.js`.
 6. Ejecutar `node tools/build-images.js`, luego `node tools/build-i18n.js` y por último
@@ -475,6 +577,10 @@ enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
       con corte de tiempo y rescate por WhatsApp, y los datos estructurados de las 48
       páginas secundarias sostenidos por sí solos (02/09/2026). Ver la sección «Repaso de
       rendimiento, contraste y captación».
+- [x] ~~Expansión internacional~~ — francés y alemán, casas campestres, dos guías para
+      clientes de fuera, Armenia atada a Colombia en todos los títulos extranjeros, `geo`,
+      `llms.txt` y `x-default` en inglés (07/10/2026). El sitio llegó a 105 URLs. Ver la
+      sección «Expansión internacional».
 
 Lo que más pesa ahora está **fuera del código**, y con el sismo hay cosas que caducan:
 
