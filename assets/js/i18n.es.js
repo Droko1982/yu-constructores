@@ -212,6 +212,7 @@ window.YU_I18N = {
     "quote.when2": "En 1 a 3 meses",
     "quote.when3": "Este año",
     "quote.when4": "Solo estoy explorando",
+    "quote.pick": "Seleccione…",
     "quote.name": "Su nombre",
     "quote.namePh": "Nombre y apellido",
     "quote.detail": "Detalle adicional (opcional)",

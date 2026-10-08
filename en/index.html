@@ -49,7 +49,7 @@
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-condensed-700-latin.woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/fonts.css?v=1833fdc5">
-<link rel="stylesheet" href="../assets/css/styles.css?v=97eaa26f">
+<link rel="stylesheet" href="../assets/css/styles.css?v=820dad81">
 
 <!--
   Precarga de la siguiente página cuando el visitante muestra intención de ir
@@ -1732,7 +1732,7 @@
         <p class="note" data-i18n="quote.note">We never ask for payment details or documents. The formal quote is delivered in writing after the site visit.</p>
       </div>
 
-      <form class="quoter reveal" id="quoteForm" novalidate>
+      <form class="quoter quoter--compact quoter--quote reveal" id="quoteForm" novalidate>
         <div class="field">
           <fieldset>
             <legend data-i18n="quote.type">Project type</legend>
@@ -1760,49 +1760,51 @@
           </div>
         </div>
 
-        <div class="field">
-          <fieldset>
-            <legend data-i18n="quote.live">Where do you live?</legend>
-            <div class="pills">
-              <input type="radio" name="vive" id="v1" value="1"><label for="v1" data-i18n="quote.live1">In Quindío</label>
-              <input type="radio" name="vive" id="v2" value="2"><label for="v2" data-i18n="quote.live2">Elsewhere in Colombia</label>
-              <input type="radio" name="vive" id="v3" value="3"><label for="v3" data-i18n="quote.live3">Outside Colombia</label>
-            </div>
-          </fieldset>
+        <!-- Listas desplegables en lugar de botones: la misma información en la mitad
+             de alto. Empiezan sin opción elegida: el mensaje no afirma nada que el
+             visitante no haya escogido. -->
+        <div class="field-row">
+          <div class="field">
+            <label for="qLive" data-i18n="quote.live">Where do you live?</label>
+            <select id="qLive" name="vive">
+              <option value="" data-i18n="quote.pick">Select…</option>
+              <option value="1" data-i18n="quote.live1">In Quindío</option>
+              <option value="2" data-i18n="quote.live2">Elsewhere in Colombia</option>
+              <option value="3" data-i18n="quote.live3">Outside Colombia</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qStage" data-i18n="quote.stage">Current stage</label>
+            <select id="qStage" name="estado">
+              <option value="" data-i18n="quote.pick">Select…</option>
+              <option value="1" data-i18n="quote.stage1">Just an idea</option>
+              <option value="2" data-i18n="quote.stage2">I own the land</option>
+              <option value="3" data-i18n="quote.stage3">I have drawings</option>
+              <option value="4" data-i18n="quote.stage4">Works in progress</option>
+            </select>
+          </div>
         </div>
 
-        <div class="field">
-          <fieldset>
-            <legend data-i18n="quote.stage">Current stage</legend>
-            <div class="pills">
-              <input type="radio" name="estado" id="e1" value="1"><label for="e1" data-i18n="quote.stage1">Just an idea</label>
-              <input type="radio" name="estado" id="e2" value="2"><label for="e2" data-i18n="quote.stage2">I own the land</label>
-              <input type="radio" name="estado" id="e3" value="3"><label for="e3" data-i18n="quote.stage3">I have drawings</label>
-              <input type="radio" name="estado" id="e4" value="4"><label for="e4" data-i18n="quote.stage4">Works in progress</label>
-            </div>
-          </fieldset>
-        </div>
-
-        <div class="field">
-          <fieldset>
-            <legend data-i18n="quote.when">When would you like to start?</legend>
-            <div class="pills">
-              <input type="radio" name="inicio" id="w1" value="1"><label for="w1" data-i18n="quote.when1">As soon as possible</label>
-              <input type="radio" name="inicio" id="w2" value="2"><label for="w2" data-i18n="quote.when2">In 1 to 3 months</label>
-              <input type="radio" name="inicio" id="w3" value="3"><label for="w3" data-i18n="quote.when3">This year</label>
-              <input type="radio" name="inicio" id="w4" value="4"><label for="w4" data-i18n="quote.when4">Just exploring</label>
-            </div>
-          </fieldset>
-        </div>
-
-        <div class="field">
-          <label for="qName" data-i18n="quote.name">Your name</label>
-          <input type="text" id="qName" autocomplete="name" placeholder="First and last name" data-i18n-ph="quote.namePh">
+        <div class="field-row">
+          <div class="field">
+            <label for="qWhen" data-i18n="quote.when">When would you like to start?</label>
+            <select id="qWhen" name="inicio">
+              <option value="" data-i18n="quote.pick">Select…</option>
+              <option value="1" data-i18n="quote.when1">As soon as possible</option>
+              <option value="2" data-i18n="quote.when2">In 1 to 3 months</option>
+              <option value="3" data-i18n="quote.when3">This year</option>
+              <option value="4" data-i18n="quote.when4">Just exploring</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qName" data-i18n="quote.name">Your name</label>
+            <input type="text" id="qName" autocomplete="name" placeholder="First and last name" data-i18n-ph="quote.namePh">
+          </div>
         </div>
 
         <div class="field">
           <label for="qDetail" data-i18n="quote.detail">Additional details (optional)</label>
-          <textarea id="qDetail" rows="3" placeholder="Briefly tell us what you need…" data-i18n-ph="quote.detailPh"></textarea>
+          <textarea id="qDetail" rows="2" placeholder="Briefly tell us what you need…" data-i18n-ph="quote.detailPh"></textarea>
         </div>
 
         <a class="btn btn--brand btn--block" id="quoteSend" href="https://wa.me/573046557120?text=Hello%20YU%20Constructora%2C%20I%20am%20writing%20from%20your%20website.%20I%20have%20a%20project%20and%20would%20like%20to%20request%20a%20quote." data-wa="quote" target="_blank" rel="noopener">
@@ -2140,8 +2142,8 @@ Armenia, Quindío — Colombia</li>
 </div>
 <!-- /visor -->
 
-<script src="../assets/js/i18n.en.js?v=a749f1a7"></script>
-<script src="../assets/js/app.js?v=24864996"></script>
+<script src="../assets/js/i18n.en.js?v=134806ae"></script>
+<script src="../assets/js/app.js?v=6495f073"></script>
 <!-- analitica -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3d774664bfcf4c329fcb0e9c4f75d5b7"}'></script>
 <!-- /analitica -->

@@ -212,6 +212,7 @@ window.YU_I18N = {
     "quote.when2": "D'ici 1 à 3 mois",
     "quote.when3": "Cette année",
     "quote.when4": "Je me renseigne",
+    "quote.pick": "Choisir…",
     "quote.name": "Votre nom",
     "quote.namePh": "Prénom et nom",
     "quote.detail": "Précisions (facultatif)",
