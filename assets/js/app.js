@@ -554,8 +554,17 @@
       };
       if (ac) opciones.signal = ac.signal;
 
+      /*
+        FormSubmit contesta 200 también cuando NO envía nada —por ejemplo, si el
+        formulario necesita activarse de nuevo— y lo dice en «success». Antes se
+        daba por bueno cualquier 200: el visitante leía «enviado» y el correo no
+        llegaba. Pasó tras el cambio de dominio. Ahora solo cuenta success true.
+      */
       fetch(contactForm.action, opciones)
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (data) {
+          if (!data || String(data.success) !== 'true') throw new Error((data && data.message) || 'sin confirmación');
+        })
         .then(function () {
           formStatus.textContent = t('form.ok');
           formStatus.className = 'form-status ok';
