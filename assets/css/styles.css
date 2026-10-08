@@ -1725,3 +1725,12 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
    los enlaces legales y el pie no necesita un hueco al final para esquivarlo. */
 .fab-wa.is-compact { padding: .95rem; }
 .fab-wa.is-compact span { display: none; }
+
+/* Cotizador compacto: botones de tipo más pequeños y textarea de dos líneas. */
+.quoter--quote .pills { gap: .4rem; }
+.quoter--quote .pills label { padding: .4rem .8rem; font-size: .82rem; }
+.quoter--quote .field textarea { min-height: 64px; }
+.quoter--compact .field-row { row-gap: 0; }
+.quoter--quote select { font-weight: 400; }
+/* Mientras no se elige nada, la lista se ve como un campo vacío */
+.quoter--quote select:has(option[value=""]:checked) { color: var(--ink-mut); }

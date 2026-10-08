@@ -387,9 +387,12 @@
   var quotePreview = $('#quotePreview');
   var quoteSend = $('#quoteSend');
 
+  // Cada pregunta puede ser un grupo de botones o una lista desplegable.
   function pick(name, prefix) {
-    var el = quoteForm ? quoteForm.querySelector('input[name="' + name + '"]:checked') : null;
-    return el ? t(prefix + el.value) : '';
+    if (!quoteForm) return '';
+    var el = quoteForm.querySelector('input[name="' + name + '"]:checked')
+      || quoteForm.querySelector('select[name="' + name + '"]');
+    return el && el.value ? t(prefix + el.value) : '';
   }
 
   function buildQuote() {
