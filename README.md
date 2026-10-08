@@ -500,9 +500,17 @@ que la empresa está respaldada en Google.
 - **Menú**: «Reseñas» reemplaza a «Proceso» en la cabecera; el menú del teléfono suma
   «Reseñas» y «Preguntas frecuentes».
 - **Pie compacto**: menos aire entre líneas y columnas, redes más pequeñas, menú sin
-  repetidos (Proyectos, Reseñas, zonas, las dos guías y preguntas) y una franja inferior en
-  dos bloques: © y autoría a la izquierda, enlaces legales a la derecha. En el teléfono,
-  Navegación y Servicios van lado a lado.
+  repetidos (Proyectos, Reseñas, zonas, las dos guías y preguntas) y una franja inferior de
+  una sola línea: «© … · NIT … · Diseño y desarrollo: Dr. Mauricio Rodríguez Herrera» a
+  la izquierda, enlaces legales a la derecha. Sin hueco al final: el botón de WhatsApp se
+  reduce a su círculo al llegar al pie y, en el teléfono, «volver arriba» se oculta allí.
+  En el teléfono, Navegación y Servicios van lado a lado.
+- **Menú en una línea**: con «Bewertungen» el alemán partía «Über uns» en dos. Ahora
+  ningún enlace se parte y el lema bajo el logotipo se oculta por debajo de 1180 px, que es
+  donde dejaba de caber; medido en los cinco idiomas entre 901 y 1920 px.
+- **Foto de «Nosotros»**: salía de 500 × 900 px, estirada y recortada, porque el atributo
+  `height="900"` mandaba sobre el `aspect-ratio`. Con `height: auto` se ve completa, en
+  4:3, y la sección quedó mucho más corta.
 - **Contacto compacto**: WhatsApp y teléfono, que eran dos tarjetas con el mismo número,
   son una sola con dos botones («WhatsApp» y «Llamar ahora»); tarjetas más bajas y un
   formulario con menos relleno y un cuadro de mensaje de tres líneas.
