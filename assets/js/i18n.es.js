@@ -240,6 +240,8 @@ window.YU_I18N = {
     "contact.addrV": "Calle 20 #12-32, piso 1 · Sector Centro\nArmenia, Quindío — Colombia",
     "contact.hours": "Horario de atención",
     "contact.hoursV": "Lunes a viernes, 8:00 a. m. – 6:00 p. m. (hora de Colombia, UTC−5)",
+    "contact.langs": "Idiomas de atención",
+    "contact.langsV": "Por escrito: español, inglés, portugués, francés y alemán. Llamadas en español, o en inglés con cita previa.",
     "contact.formTitle": "Escríbanos",
     "form.name": "Nombre completo",
     "form.email": "Correo electrónico",
