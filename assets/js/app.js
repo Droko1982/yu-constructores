@@ -690,6 +690,19 @@
     revSync();
   }
 
+  /* ------------------------------------- Botón de WhatsApp junto al pie --
+    Al llegar a la franja inferior se queda en círculo para no tapar los
+    enlaces legales.
+  */
+  var fab = $('.fab-wa');
+  var footBar = $('.footer__bottom');
+  if (fab && footBar && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      fab.classList.toggle('is-compact', entries[0].isIntersecting);
+      document.body.classList.toggle('is-at-footer', entries[0].isIntersecting);
+    }, { rootMargin: '0px 0px 40px 0px' }).observe(footBar);
+  }
+
   /* ------------------------------------------------------------- Arranque -- */
   var y = $('#year');
   if (y) y.textContent = String(new Date().getFullYear());
