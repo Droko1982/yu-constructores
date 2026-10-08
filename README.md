@@ -13,7 +13,7 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 |---|---|
 | **Diseño** | Modo oscuro por defecto + modo claro, paleta tomada del logotipo oficial (ámbar `#f5a302` sobre carbón `#12161a`), tipografía Barlow / Barlow Condensed |
 | **Idiomas** | Español (`/`), Inglés (`/en/`), Portugués (`/pt/`), Francés (`/fr/`) y Alemán (`/de/`) — **páginas estáticas independientes**, no traducción por JavaScript, para que cada idioma se indexe con su propio HTML, `<title>`, descripción y datos estructurados |
-| **Tamaño** | **105 páginas** indexables: portada, 7 servicios, 2 guías para clientes de fuera, 9 obras, cobertura y política de datos, cada una en los cinco idiomas |
+| **Tamaño** | **110 páginas** indexables: portada, 7 servicios, 2 guías para clientes de fuera, 9 obras, cobertura, política de datos y términos y condiciones, cada una en los cinco idiomas |
 | **Contenido** | Héroe con carrusel de obra real, franja de atención post-sismo, 10 servicios (6 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, 11 preguntas frecuentes, contacto |
 | **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos, y triaje por fotografía en WhatsApp para daños de sismo y arreglos pequeños |
 | **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang`, prioridad por tipo de página y las fotografías de cada obra, `robots.txt`, Open Graph con **imagen propia por página** (la obra o el servicio que se comparte, no la genérica), Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios. Coordenadas `geo` de la sede, `Article` con fecha en las guías y `llms.txt` para los asistentes de IA |
@@ -43,6 +43,7 @@ yu-constructores/
 ├── guia-construir-en-colombia-extranjeros/    # Guía: extranjeros que construyen
 ├── cobertura/              # Zonas de operación
 ├── politica-de-datos/      # Política de datos
+├── terminos-y-condiciones/ # Términos y condiciones, con la autoría del sitio
 │
 ├── tools/                  # Nada de aquí se publica: son las fuentes de compilación
 │   ├── build-i18n.js       # Genera las páginas + sitemap + robots + llms.txt + rutas del 404
@@ -51,6 +52,7 @@ yu-constructores/
 │   └── pages/              # FUENTE de las páginas secundarias, un archivo por idioma
 │       ├── cobertura.{es,en,pt,fr,de}.html
 │       ├── privacidad.{es,en,pt,fr,de}.html
+│       ├── terminos.{es,en,pt,fr,de}.html
 │       ├── obra-civil / acueducto / taludes / remodelaciones .{es,en,pt,fr,de}.html
 │       ├── casas-campestres.{…}.html   # casas de campo y fincas
 │       ├── exterior.{…}.html           # guía: construir desde el exterior
@@ -87,7 +89,7 @@ yu-constructores/
 node tools/check.js
 ```
 
-Recorre las 105 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
+Recorre las 110 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
 enlaces rotos, `data-page` sin resolver, anclas sin destino —también las que apuntan
 dentro de la propia página—, marcado mal anidado, títulos o descripciones duplicados o
 demasiado largos, imágenes sin `alt`, `hreflang` que no se autorreferencia, JSON-LD
@@ -456,6 +458,10 @@ lo que Google penaliza como *doorway page*.
       la regla cambia, hay que tocar `contact.langsV`, `ext.sub`, `faq.a8`, `faq.a12` y
       `wa.exterior` en `tools/i18n.js`, y las páginas `exterior`, `extranjeros`,
       `casas-campestres` y `cobertura` de `tools/pages/`.
+- [ ] **Que un abogado revise los términos y condiciones** (8/10/2026), sobre todo los
+      apartados de responsabilidad, autoría y ley aplicable. Están redactados con la Ley 527
+      de 1999, la 1480 de 2011, la 23 de 1982 y la Decisión Andina 351 a la vista, pero no
+      los ha revisado un abogado.
 - [ ] **Que un abogado revise la guía para extranjeros** (inversión extranjera, Unidad
       Agrícola Familiar, visa). Está escrita como orientación general y lo dice, pero es el
       texto con más consecuencias legales del sitio.
@@ -479,6 +485,31 @@ lo que Google penaliza como *doorway page*.
       desde fuera, y el sitio deliberadamente no las da sin visita. Un rango orientativo
       por tipo de obra, firmado por el ingeniero y fechado, haría de la página de casas
       campestres la referencia de la región.
+
+## Navegación, reseñas de Google y términos · 8 de octubre de 2026
+
+Repaso pedido para que el sitio sea más fácil de recorrer y deje claro, de un vistazo,
+que la empresa está respaldada en Google.
+
+- **Insignia de Google en el héroe**: «G», cinco estrellas, 5,0 y el número de reseñas,
+  justo debajo de los botones. Lleva a la sección de reseñas.
+- **Reseñas en una sola fila** que se desliza, con flechas en escritorio y gesto en el
+  teléfono, junto a una tarjeta de Google (calificación, número de reseñas, perfil
+  verificado, «Ver todas en Google» y «Dejar una reseña»). Pasaron de dos filas de tarjetas
+  a una, y subieron a continuación de Proyectos: la prueba social justo después de la obra.
+- **Menú**: «Reseñas» reemplaza a «Proceso» en la cabecera; el menú del teléfono suma
+  «Reseñas» y «Preguntas frecuentes». «Proceso» sigue en el pie.
+- **Preguntas frecuentes en dos columnas** en escritorio: la misma información en la mitad
+  de altura.
+- **Términos y condiciones** en los cinco idiomas (`tools/pages/terminos.*.html`):
+  alcance del sitio y de las cotizaciones, contenido orientativo, reseñas, propiedad
+  intelectual, **autoría del sitio** (apartado 9, con ancla `#autoria`), terceros,
+  responsabilidad sin recortar derechos del consumidor, idiomas y ley aplicable.
+- **Autoría al pie de todas las páginas**: «Sitio web diseñado y desarrollado por el
+  Dr. Mauricio Rodríguez Herrera», enlazado a los términos. Antes estaba en «Sobre YU», que
+  habla de la empresa y no del sitio.
+
+La portada pasó de unos 15.800 a unos 14.800 px de alto en escritorio.
 
 ## La medición
 
