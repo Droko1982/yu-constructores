@@ -1168,6 +1168,7 @@ function writeLlmsTxt() {
     '- Phone / WhatsApp: ' + org.telephone,
     '- Email: ' + org.email,
     '- Hours: ' + T['contact.hoursV'],
+    '- Languages: ' + T['contact.langsV'],
     '- Works across Quindío, Risaralda, Caldas and northern Valle del Cauca, and takes projects anywhere in Colombia',
     '- Works with clients who live abroad: Colombians overseas and foreigners building or retiring in the Coffee Region',
     '',

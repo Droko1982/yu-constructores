@@ -446,11 +446,16 @@ lo que Google penaliza como *doorway page*.
 
 ### Pendiente de la empresa
 
-- [ ] **Confirmar el idioma de atención.** La guía para extranjeros dice «puede escribirnos
-      en español o en inglés» y el JSON-LD declara `knowsLanguage` es · en · pt. Si en la
-      práctica no se atiende en inglés, hay que quitarlo antes de que llegue el primer
-      cliente que lo dé por hecho. Los mensajes en francés y alemán llegarán en esos
-      idiomas: un traductor basta para leerlos, pero conviene decidir cómo se responden.
+- [x] ~~Confirmar el idioma de atención~~ — definido por la empresa el 8/10/2026:
+      **español**, por escrito, llamada y videollamada; **inglés**, por escrito o en llamada
+      **con cita previa**, para que el consultor de inglés llegue preparado; **portugués,
+      francés y alemán, solo por escrito**. El sitio lo dice en cada idioma: línea «Idiomas
+      de atención» en Contacto, la guía para extranjeros, las preguntas frecuentes y la
+      guía para quien construye desde el exterior. Las versiones portuguesa, francesa y
+      alemana ya no ofrecen videollamadas: prometen informes escritos con fotos y vídeo. Si
+      la regla cambia, hay que tocar `contact.langsV`, `ext.sub`, `faq.a8`, `faq.a12` y
+      `wa.exterior` en `tools/i18n.js`, y las páginas `exterior`, `extranjeros`,
+      `casas-campestres` y `cobertura` de `tools/pages/`.
 - [ ] **Que un abogado revise la guía para extranjeros** (inversión extranjera, Unidad
       Agrícola Familiar, visa). Está escrita como orientación general y lo dice, pero es el
       texto con más consecuencias legales del sitio.
