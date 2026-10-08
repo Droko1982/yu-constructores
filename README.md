@@ -617,8 +617,8 @@ Lo que más pesa ahora está **fuera del código**, y con el sismo hay cosas que
       Quindío y Risaralda. La demanda de reparación post-sismo se contrata en bloque, no
       casa por casa, y YU ya tiene historial de obra pública en la región.
 - [ ] **Seguir pidiendo reseñas.** Es el factor de mayor peso en el posicionamiento local
-      que queda por trabajar. Nunca se incluyeron testimonios ficticios; el espacio del
-      sitio está listo para cuando haya cinco o seis reales.
+      que queda por trabajar. Nunca se incluyeron testimonios ficticios; la portada
+      muestra seis reales desde el 8/10/2026 (ver más abajo).
       **No añadir `aggregateRating` al sitio**: calificarse a sí mismo en la propia web
       incumple las normas de datos estructurados y arriesga una acción manual.
 - [ ] **Publicar en la ficha cada semana.** La sección «Novedades» premia la actividad.
@@ -650,8 +650,16 @@ Pendientes de contenido:
       separa la fisura superficial del daño estructural. Está redactada como orientación
       general y así lo advierte, pero es el texto del sitio con más consecuencias si alguien
       lo toma al pie de la letra.
-- [ ] Sección de testimonios cuando haya cinco o seis reseñas reales, con enlace a la
-      ficha y **sin** marcado de reseña.
+- [x] ~~Sección de testimonios~~ (8/10/2026) — `#resenas` en la portada, antes del
+      cotizador, en los cinco idiomas: seis reseñas reales de la ficha de Google, elegidas
+      entre las 30 que había por contar qué obra se hizo (casa completa, segundo piso,
+      techo de urgencia, dirección de obra, remodelación, adecuaciones). Nombre con la
+      inicial del apellido, como en Google. Se corrigió solo la ortografía y se recortaron
+      saludos y emojis, y la nota bajo las tarjetas lo dice; en los otros idiomas van
+      traducidas, también con nota. **Sin** marcado `Review` ni `aggregateRating`. Para
+      cambiarlas: claves `rev.*` de `tools/i18n.js` y los nombres en `index.html`. El
+      subtítulo dice «30 reseñas a octubre de 2026»: al actualizar la cifra, actualizar
+      también la fecha.
 - [ ] Nombrar las entidades contratantes de la obra pública (alcantarillado y colegios),
       si la empresa autoriza. Da más credibilidad que cualquier texto de marketing.
 - [ ] Sumar certificados, RUP o pólizas escaneadas si se quieren mostrar públicamente.
