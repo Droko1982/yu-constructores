@@ -229,6 +229,106 @@ const PAGES = [
       fr: 'guide-construire-en-colombie-etrangers',
       de: 'ratgeber-hausbau-in-kolumbien-auslaender'
     }
+  },
+
+  /* Expansión del 8/10/2026: los cuatro servicios que solo tenían tarjeta, la
+     página de Pereira —la ciudad grande más cercana, con cuatro obras de YU— y
+     tres guías que responden búsquedas de todo el país y de fuera: licencia,
+     norma sismorresistente y de qué depende el costo de una casa. */
+  {
+    id: 'mantenimiento',
+    content: 'tools/pages/mantenimiento',
+    service: 5,
+    slug: {
+      es: 'servicios/mantenimiento-de-infraestructura-quindio',
+      en: 'services/building-maintenance',
+      pt: 'servicos/manutencao-de-infraestrutura',
+      fr: 'services/maintenance-des-batiments',
+      de: 'leistungen/instandhaltung-von-gebaeuden'
+    }
+  },
+  {
+    id: 'estructuras',
+    content: 'tools/pages/estructuras',
+    service: 6,
+    slug: {
+      es: 'servicios/estructuras-y-cimentaciones-armenia',
+      en: 'services/structures-and-foundations',
+      pt: 'servicos/estruturas-e-fundacoes',
+      fr: 'services/structures-et-fondations',
+      de: 'leistungen/tragwerke-und-fundamente'
+    }
+  },
+  {
+    id: 'urbanismo',
+    content: 'tools/pages/urbanismo',
+    service: 7,
+    slug: {
+      es: 'servicios/urbanismo-y-obras-exteriores-quindio',
+      en: 'services/site-works-and-landscaping',
+      pt: 'servicos/urbanismo-e-obras-externas',
+      fr: 'services/amenagements-exterieurs-et-voirie',
+      de: 'leistungen/aussenanlagen-und-erschliessung'
+    }
+  },
+  {
+    id: 'consultoria',
+    content: 'tools/pages/consultoria',
+    service: 8,
+    slug: {
+      es: 'servicios/consultoria-y-presupuestos-de-obra',
+      en: 'services/construction-consulting-and-estimating',
+      pt: 'servicos/consultoria-e-orcamentos-de-obra',
+      fr: 'services/conseil-et-chiffrage-de-travaux',
+      de: 'leistungen/bauberatung-und-kostenplanung'
+    }
+  },
+  {
+    id: 'pereira',
+    content: 'tools/pages/pereira',
+    slug: {
+      es: 'constructora-en-pereira',
+      en: 'construction-company-pereira-colombia',
+      pt: 'construtora-em-pereira',
+      fr: 'entreprise-de-construction-pereira',
+      de: 'bauunternehmen-pereira-kolumbien'
+    }
+  },
+  {
+    id: 'licencia',
+    content: 'tools/pages/licencia',
+    guide: '2026-10-08',
+    slug: {
+      es: 'guia-licencia-de-construccion-quindio',
+      en: 'building-permit-colombia-guide',
+      pt: 'guia-licenca-de-construcao-colombia',
+      fr: 'guide-permis-de-construire-colombie',
+      de: 'ratgeber-baugenehmigung-kolumbien'
+    }
+  },
+  {
+    id: 'nsr10',
+    content: 'tools/pages/nsr10',
+    guide: '2026-10-08',
+    slug: {
+      es: 'guia-construccion-sismorresistente-nsr-10',
+      en: 'earthquake-resistant-construction-colombia',
+      pt: 'construcao-sismo-resistente-colombia',
+      fr: 'construction-parasismique-colombie',
+      de: 'erdbebensicheres-bauen-kolumbien'
+    }
+  },
+  {
+    id: 'costos',
+    content: 'tools/pages/costos',
+    guide: '2026-10-08',
+    slug: {
+      es: 'guia-costo-de-construir-una-casa-quindio',
+      en: 'cost-of-building-a-house-in-colombia',
+      pt: 'custo-de-construir-uma-casa-na-colombia',
+      fr: 'cout-construction-maison-colombie',
+      de: 'hausbau-kosten-kolumbien'
+    }
   }
 ];
 
@@ -1115,7 +1215,7 @@ const sitemap =
       : page.service ? '0.8'
         : page.guide ? '0.7'
           : page.project ? '0.6'
-            : page.id === 'cobertura' ? '0.5'
+            : page.id === 'cobertura' || page.id === 'pereira' ? '0.5'
               : '0.2';
     const changefreq = home || page.service || page.guide ? 'monthly' : 'yearly';
     return '  <url>\n' +

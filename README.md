@@ -13,7 +13,7 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 |---|---|
 | **Diseño** | Modo oscuro por defecto + modo claro, paleta tomada del logotipo oficial (ámbar `#f5a302` sobre carbón `#12161a`), tipografía Barlow / Barlow Condensed |
 | **Idiomas** | Español (`/`), Inglés (`/en/`), Portugués (`/pt/`), Francés (`/fr/`) y Alemán (`/de/`) — **páginas estáticas independientes**, no traducción por JavaScript, para que cada idioma se indexe con su propio HTML, `<title>`, descripción y datos estructurados |
-| **Tamaño** | **110 páginas** indexables: portada, 7 servicios, 2 guías para clientes de fuera, 9 obras, cobertura, política de datos y términos y condiciones, cada una en los cinco idiomas |
+| **Tamaño** | **150 páginas** indexables: portada, 11 servicios, 5 guías, 9 obras, cobertura, Pereira, política de datos y términos y condiciones, cada una en los cinco idiomas |
 | **Contenido** | Héroe con carrusel de obra real, franja de atención post-sismo, 10 servicios (6 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, 11 preguntas frecuentes, contacto |
 | **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos, y triaje por fotografía en WhatsApp para daños de sismo y arreglos pequeños |
 | **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang`, prioridad por tipo de página y las fotografías de cada obra, `robots.txt`, Open Graph con **imagen propia por página** (la obra o el servicio que se comparte, no la genérica), Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios. Coordenadas `geo` de la sede, `Article` con fecha en las guías y `llms.txt` para los asistentes de IA |
@@ -89,7 +89,7 @@ yu-constructores/
 node tools/check.js
 ```
 
-Recorre las 110 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
+Recorre las 150 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
 enlaces rotos, `data-page` sin resolver, anclas sin destino —también las que apuntan
 dentro de la propia página—, marcado mal anidado, títulos o descripciones duplicados o
 demasiado largos, imágenes sin `alt`, `hreflang` que no se autorreferencia, JSON-LD
@@ -525,6 +525,29 @@ que la empresa está respaldada en Google.
   habla de la empresa y no del sitio.
 
 La portada pasó de unos 15.800 a unos 14.800 px de alto en escritorio.
+
+## Expansión de contenido · 8 de octubre de 2026
+
+Ocho páginas nuevas en los cinco idiomas (40 URLs; el sitio pasa de 110 a 150), pensadas
+para búsquedas reales de todo el país y de fuera, no para multiplicar páginas:
+
+- **Los cuatro servicios que solo tenían tarjeta**: mantenimiento de infraestructura,
+  estructuras y cimentaciones, urbanismo y obras exteriores, y consultoría y
+  presupuestos. Sus tarjetas de la portada dejan de abrir WhatsApp y llevan a la página.
+- **Constructora en Pereira y Risaralda** (`/constructora-en-pereira/`): la ciudad grande
+  más cercana, con cuatro obras reales de YU (dos casas en Cerritos y las dos del
+  Aeropuerto Matecaña). Dice expresamente que no hay oficina en Pereira. Se enlaza desde
+  la sección Risaralda de la página de cobertura.
+- **Tres guías** declaradas como `Article`: licencia de construcción en el Quindío paso a
+  paso, construcción sismorresistente y qué exige la NSR-10, y de qué depende el costo de
+  construir una casa (sin cifras: explica por qué no damos precio por metro cuadrado y
+  cómo comparar presupuestos con APU).
+
+No se hicieron páginas por municipio con el texto cambiado: Google las trata como páginas
+puerta y castiga al sitio. Ninguna página nueva trae precios, plazos legales, tarifas ni
+obras que no existan; las guías dicen que son orientación general y mandan a confirmar
+con la curaduría, un abogado o un ingeniero. **Conviene que el ingeniero lea las guías de
+NSR-10 y de licencia** antes de que se compartan mucho.
 
 ## La medición
 
