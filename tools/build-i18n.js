@@ -92,6 +92,15 @@ const PAGES = [
     slug: { es: 'politica-de-datos', en: 'privacy-policy', pt: 'politica-de-dados',
       fr: 'politique-de-confidentialite', de: 'datenschutz' }
   },
+  /* Términos y condiciones (08/10/2026): uso del sitio, alcance de las
+     cotizaciones, contenido orientativo, reseñas, propiedad intelectual y la
+     autoría del sitio, que el pie de cada página enlaza. */
+  {
+    id: 'terminos',
+    content: 'tools/pages/terminos',
+    slug: { es: 'terminos-y-condiciones', en: 'terms-and-conditions', pt: 'termos-e-condicoes',
+      fr: 'conditions-generales-d-utilisation', de: 'nutzungsbedingungen' }
+  },
 
   /* Páginas de servicio. "service" es el número de la tarjeta correspondiente en
      la portada: de ahí se toman el nombre y la descripción para el JSON-LD, sin

@@ -652,6 +652,35 @@
     setTimeout(function () { if (box.isConnected) dismiss(); }, 14000);
   }
 
+  /* ---------------------------------------------------- Reseñas (carrusel) --
+    Una fila que se desliza con el dedo o el trackpad; las flechas avanzan de
+    tarjeta en tarjeta y se apagan en los extremos.
+  */
+  var revTrack = $('#revTrack');
+  if (revTrack) {
+    var revBtns = $$('[data-rev]');
+    var revStep = function () {
+      var card = revTrack.querySelector('.review');
+      var gap = parseFloat(getComputedStyle(revTrack).columnGap) || 16;
+      return card ? card.getBoundingClientRect().width + gap : revTrack.clientWidth;
+    };
+    var revSync = function () {
+      var max = revTrack.scrollWidth - revTrack.clientWidth - 2;
+      revBtns.forEach(function (b) {
+        b.disabled = +b.getAttribute('data-rev') < 0 ? revTrack.scrollLeft <= 2 : revTrack.scrollLeft >= max;
+      });
+    };
+    revBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        revTrack.scrollBy({ left: +b.getAttribute('data-rev') * revStep(), behavior: still ? 'auto' : 'smooth' });
+      });
+    });
+    revTrack.addEventListener('scroll', revSync, { passive: true });
+    window.addEventListener('resize', revSync);
+    revSync();
+  }
+
   /* ------------------------------------------------------------- Arranque -- */
   var y = $('#year');
   if (y) y.textContent = String(new Date().getFullYear());
