@@ -134,6 +134,21 @@ for (const page of pages) {
   if (t.length > 62) add('AVISO', page, 'title de ' + t.length + ' caracteres');
   if (d.length > 165) add('AVISO', page, 'description de ' + d.length + ' caracteres');
 
+  /* --- Armenia es la ciudad colombiana ---
+     Fuera de Colombia «Armenia» a secas se lee como el país del Cáucaso. En
+     las versiones extranjeras, todo título que nombre la ciudad tiene que
+     atarla a Colombia o al Quindío, y el nombre jamás se traduce: «Arménie» o
+     «Armenien» en una página es, sin excepción, un error de traducción. */
+  const lang = (h.match(/<html lang="([a-z]{2})/) || [])[1];
+  if (lang && lang !== 'es') {
+    if (/Armenia/.test(t) && !/Colombi|Colômbia|Kolumbien|Quindío/.test(t)) {
+      add('ERROR', page, 'el title nombra Armenia sin decir Colombia ni Quindío: "' + t + '"');
+    }
+    if (/Arm[ée]nie\b|Armenien|Armênia/.test(clean)) {
+      add('ERROR', page, 'la ciudad aparece traducida (Arménie / Armenien / Armênia)');
+    }
+  }
+
   const heads = [...body.matchAll(/<h([1-6])[\s>]/g)].map((m) => +m[1]);
   const h1 = heads.filter((n) => n === 1).length;
   if (h1 !== 1) add('ERROR', page, 'tiene ' + h1 + ' <h1>');

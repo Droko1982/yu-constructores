@@ -54,11 +54,21 @@ const count = (re) => Object.keys(DICT.es).filter((k) => re.test(k)).length;
 const N_SERVICES = count(/^svc\.\d+\.t$/);
 const N_FAQ = count(/^faq\.q\d+$/);
 
+/* Francés y alemán se añadieron el 07/10/2026 para el cliente extranjero que
+   construye o se retira en el Eje Cafetero: Francia, Bélgica, Suiza y Quebec;
+   Alemania, Austria y Suiza. El portugués ya cubría Brasil. */
 const LOCALES = {
   es: { htmlLang: 'es-CO', ogLocale: 'es_CO', dir: '' },
   en: { htmlLang: 'en', ogLocale: 'en_US', dir: 'en' },
-  pt: { htmlLang: 'pt-BR', ogLocale: 'pt_BR', dir: 'pt' }
+  pt: { htmlLang: 'pt-BR', ogLocale: 'pt_BR', dir: 'pt' },
+  fr: { htmlLang: 'fr', ogLocale: 'fr_FR', dir: 'fr' },
+  de: { htmlLang: 'de', ogLocale: 'de_DE', dir: 'de' }
 };
+
+/* Idioma al que se manda a quien no habla ninguno de los del sitio (hreflang
+   x-default). Es el inglés y no el español: el colombiano ya cae en «es» por su
+   propio idioma, y al holandés o al italiano le sirve más la versión inglesa. */
+const X_DEFAULT = 'en';
 
 /* -------------------------------------------------------- Páginas del sitio
    La portada es index.html. Las páginas secundarias aportan únicamente el
@@ -67,19 +77,20 @@ const LOCALES = {
    la navegación y el estilo existen en un solo lugar.
 
    El slug cambia según el idioma a propósito: una URL en la lengua del visitante
-   posiciona mejor que la misma cadena castellana repetida en las tres versiones.
+   posiciona mejor que la misma cadena castellana repetida en las cinco versiones.
    -------------------------------------------------------------------------- */
 const PAGES = [
-  { id: 'home', slug: { es: '', en: '', pt: '' } },
+  { id: 'home', slug: { es: '', en: '', pt: '', fr: '', de: '' } },
   {
     id: 'cobertura',
     content: 'tools/pages/cobertura',
-    slug: { es: 'cobertura', en: 'coverage', pt: 'cobertura' }
+    slug: { es: 'cobertura', en: 'coverage', pt: 'cobertura', fr: 'zone-d-intervention', de: 'einsatzgebiet' }
   },
   {
     id: 'privacidad',
     content: 'tools/pages/privacidad',
-    slug: { es: 'politica-de-datos', en: 'privacy-policy', pt: 'politica-de-dados' }
+    slug: { es: 'politica-de-datos', en: 'privacy-policy', pt: 'politica-de-dados',
+      fr: 'politique-de-confidentialite', de: 'datenschutz' }
   },
 
   /* Páginas de servicio. "service" es el número de la tarjeta correspondiente en
@@ -93,7 +104,9 @@ const PAGES = [
     slug: {
       es: 'servicios/construccion-obra-civil-armenia',
       en: 'services/civil-works-construction',
-      pt: 'servicos/construcao-de-obras-civis'
+      pt: 'servicos/construcao-de-obras-civis',
+      fr: 'services/travaux-de-genie-civil',
+      de: 'leistungen/hoch-und-tiefbau'
     }
   },
   {
@@ -103,7 +116,9 @@ const PAGES = [
     slug: {
       es: 'servicios/acueducto-alcantarillado-quindio',
       en: 'services/water-and-sewer-networks',
-      pt: 'servicos/redes-de-agua-e-esgoto'
+      pt: 'servicos/redes-de-agua-e-esgoto',
+      fr: 'services/reseaux-eau-et-assainissement',
+      de: 'leistungen/wasser-und-abwassernetze'
     }
   },
   {
@@ -113,7 +128,9 @@ const PAGES = [
     slug: {
       es: 'servicios/estabilizacion-de-taludes-muros-de-contencion',
       en: 'services/slope-stabilisation-retaining-walls',
-      pt: 'servicos/estabilizacao-de-taludes-muros-de-contencao'
+      pt: 'servicos/estabilizacao-de-taludes-muros-de-contencao',
+      fr: 'services/stabilisation-de-talus-murs-de-soutenement',
+      de: 'leistungen/hangsicherung-und-stuetzmauern'
     }
   },
   {
@@ -123,7 +140,9 @@ const PAGES = [
     slug: {
       es: 'servicios/remodelaciones-armenia-quindio',
       en: 'services/remodelling-and-refurbishment',
-      pt: 'servicos/reformas-e-adequacoes'
+      pt: 'servicos/reformas-e-adequacoes',
+      fr: 'services/renovation-et-amenagement',
+      de: 'leistungen/umbau-und-renovierung'
     }
   },
 
@@ -139,7 +158,9 @@ const PAGES = [
     slug: {
       es: 'servicios/reparacion-danos-sismo-armenia-quindio',
       en: 'services/earthquake-damage-repair',
-      pt: 'servicos/reparo-de-danos-por-sismo'
+      pt: 'servicos/reparo-de-danos-por-sismo',
+      fr: 'services/reparation-degats-seisme',
+      de: 'leistungen/erdbebenschaeden-reparieren'
     }
   },
   {
@@ -149,7 +170,55 @@ const PAGES = [
     slug: {
       es: 'servicios/reparaciones-menores-arreglos-armenia',
       en: 'services/small-repairs-and-minor-works',
-      pt: 'servicos/pequenos-reparos-e-obras-menores'
+      pt: 'servicos/pequenos-reparos-e-obras-menores',
+      fr: 'services/petites-reparations-et-travaux',
+      de: 'leistungen/kleinreparaturen'
+    }
+  },
+
+  /* Cliente de fuera (07/10/2026). La casa campestre es lo que más construye
+     quien llega de otro país o vuelve a Colombia, y YU tiene tres obras que lo
+     respaldan; por eso es un servicio con tarjeta propia y no una guía. */
+  {
+    id: 'casas-campestres',
+    content: 'tools/pages/casas-campestres',
+    service: 11,
+    slug: {
+      es: 'servicios/casas-campestres-fincas-quindio',
+      en: 'services/country-house-construction-colombia',
+      pt: 'servicos/casas-de-campo-na-colombia',
+      fr: 'services/construction-maison-de-campagne-colombie',
+      de: 'leistungen/landhaus-bauen-kolumbien'
+    }
+  },
+
+  /* Las dos guías responden a búsquedas distintas: el colombiano que vive fuera
+     pregunta cómo controlar una obra a distancia; el extranjero, si puede
+     comprar y qué trámites hay. Juntas serían una página que no responde bien a
+     ninguna de las dos. "guide" es la fecha de publicación: se declaran como
+     Article, con autor y fecha. */
+  {
+    id: 'exterior',
+    content: 'tools/pages/exterior',
+    guide: '2026-10-07',
+    slug: {
+      es: 'construir-en-colombia-desde-el-exterior',
+      en: 'build-in-colombia-from-abroad',
+      pt: 'construir-na-colombia-morando-no-exterior',
+      fr: 'construire-en-colombie-depuis-l-etranger',
+      de: 'in-kolumbien-bauen-aus-dem-ausland'
+    }
+  },
+  {
+    id: 'extranjeros',
+    content: 'tools/pages/extranjeros',
+    guide: '2026-10-07',
+    slug: {
+      es: 'guia-construir-en-colombia-extranjeros',
+      en: 'building-a-house-in-colombia-as-a-foreigner',
+      pt: 'guia-construir-na-colombia-estrangeiros',
+      fr: 'guide-construire-en-colombie-etrangers',
+      de: 'ratgeber-hausbau-in-kolumbien-auslaender'
     }
   }
 ];
@@ -176,7 +245,9 @@ for (const [key, slug, place] of [
     slug: {
       es: 'proyectos/' + slug + '-' + place,
       en: 'projects/' + slug + '-' + place,
-      pt: 'projetos/' + slug + '-' + place
+      pt: 'projetos/' + slug + '-' + place,
+      fr: 'projets/' + slug + '-' + place,
+      de: 'projekte/' + slug + '-' + place
     }
   });
 }
@@ -485,6 +556,26 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
     });
   }
 
+  /* Las guías son artículos con autor y fecha: los buscadores y los asistentes
+     de IA dan más peso a un texto fechado y firmado que a una página suelta. */
+  if (page.guide) {
+    graph.push({
+      '@type': 'Article',
+      '@id': at.url + '#articulo',
+      headline: crumbName,
+      description: meta.desc,
+      url: at.url,
+      inLanguage: LOCALES[lang].htmlLang,
+      mainEntityOfPage: { '@id': at.url + '#pagina' },
+      author: { '@id': BASE + '#organizacion' },
+      publisher: { '@id': BASE + '#organizacion' },
+      datePublished: page.guide,
+      dateModified: BUILD_DATE,
+      image: pageImage(page, lang).url,
+      spatialCoverage: { '@type': 'Place', name: 'Quindío, Colombia' }
+    });
+  }
+
   const data = { '@context': 'https://schema.org', '@graph': graph };
   const block = '<script type="application/ld+json">\n' + JSON.stringify(data, null, 2) + '\n</script>';
   return html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => block);
@@ -521,7 +612,7 @@ function rewriteHead(html, lang, page, at, meta) {
      portada. Con slugs distintos por idioma, dejarlos fijos sería un error. */
   const alt = [`<link rel="alternate" hreflang="es-CO" href="${locate(page, 'es').url}">`]
     .concat(Object.keys(LOCALES).map((l) => `<link rel="alternate" hreflang="${l}" href="${locate(page, l).url}">`))
-    .concat(`<link rel="alternate" hreflang="x-default" href="${locate(page, 'es').url}">`)
+    .concat(`<link rel="alternate" hreflang="x-default" href="${locate(page, X_DEFAULT).url}">`)
     .join('\n') + '\n';
   html = html.replace(/(<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*)+/, () => alt);
 
@@ -587,11 +678,11 @@ function writeWhatsAppLinks(html, lang, page) {
 }
 
 /* --------------------------------------------- Diccionario por idioma
-   tools/i18n.js es la fuente y lleva los tres idiomas (57 KB), pero cada
+   tools/i18n.js es la fuente y lleva los cinco idiomas (134 KB), pero cada
    página solo necesita el suyo: el HTML ya viene traducido y el guion únicamente
    arma el mensaje del cotizador, los títulos de la galería y los avisos del
    formulario. Se emite un archivo por idioma y cada página carga el que le toca,
-   con lo que la descarga baja a un tercio. El objeto conserva la forma
+   con lo que la descarga baja a una quinta parte. El objeto conserva la forma
    { <idioma>: { … } } que espera app.js, así que el guion no cambia. */
 function writeLangDict(lang) {
   const out =
@@ -677,7 +768,10 @@ function write404() {
     const hash = /\.(css|js)$/.test(rel) ? hashOf(rel) : null;
     return ' ' + attr + '="' + root + rel + (hash ? '?v=' + hash : '') + '"';
   });
-  h = h.replace(/(<a\s[^>]*)\shref="[^"]*"([^>]*\sdata-home)/, (_m, a, b) => a + ' href="' + root + '"' + b);
+  /* data-home sin valor es la portada en español; data-home="fr", la de ese
+     idioma. Quien llega aquí desde /fr/ con un enlace roto no lee español. */
+  h = h.replace(/(<a\b[^>]*?)\shref="[^"]*"([^>]*\sdata-home(?:="([a-z]{2})")?)/g,
+    (_m, a, b, l) => a + ' href="' + root + (l ? l + '/' : '') + '"' + b);
 
   fs.writeFileSync(file, h, 'utf8');
   return true;
@@ -802,7 +896,7 @@ const COMPACT = (() => {
   };
   return {
     org: pick(org, ['@type', '@id', 'name', 'alternateName', 'url', 'logo', 'image',
-      'telephone', 'email', 'taxID', 'vatID', 'address', 'hasMap', 'sameAs', 'priceRange']),
+      'telephone', 'email', 'taxID', 'vatID', 'address', 'geo', 'hasMap', 'sameAs', 'priceRange']),
     site: pick(site, ['@type', '@id', 'url', 'name', 'publisher'])
   };
 })();
@@ -811,7 +905,10 @@ const SOCIAL_IMAGE = {
   'obra-civil': 'p1',
   'acueducto': 'p8',
   'taludes': 'p9',
-  'remodelaciones': 'p2'
+  'remodelaciones': 'p2',
+  'casas-campestres': 'p3',
+  'exterior': 'p2',
+  'extranjeros': 'p1'
 };
 
 const PHOTOS = (() => {
@@ -951,14 +1048,14 @@ for (const page of PAGES) {
 
 /* ------------------------------------------------- sitemap.xml y robots.txt
    Se generan a partir de BASE en lugar de mantenerse a mano: así el dominio
-   vive en un solo sitio y las tres versiones de idioma declaran sus imágenes
+   vive en un solo sitio y las cinco versiones de idioma declaran sus imágenes
    con el título traducido, no solo la española. */
 const today = BUILD_DATE;
 
 function sitemapAlternates(page) {
   return Object.keys(LOCALES)
     .map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${locate(page, l).url}"/>`)
-    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${locate(page, 'es').url}"/>`)
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${locate(page, X_DEFAULT).url}"/>`)
     .join('\n');
 }
 
@@ -1007,10 +1104,11 @@ const sitemap =
     const priority = home
       ? (LOCALES[lang].dir ? '0.9' : '1.0')
       : page.service ? '0.8'
-        : page.project ? '0.6'
-          : page.id === 'cobertura' ? '0.5'
-            : '0.2';
-    const changefreq = home || page.service ? 'monthly' : 'yearly';
+        : page.guide ? '0.7'
+          : page.project ? '0.6'
+            : page.id === 'cobertura' ? '0.5'
+              : '0.2';
+    const changefreq = home || page.service || page.guide ? 'monthly' : 'yearly';
     return '  <url>\n' +
       `    <loc>${at.url}</loc>\n` +
       `    <lastmod>${today}</lastmod>\n` +
@@ -1032,8 +1130,67 @@ const robots =
 
 fs.writeFileSync(path.join(ROOT, 'robots.txt'), robots, 'utf8');
 
+/* ---------------------------------------------------------------- llms.txt
+   Resumen en texto plano para los asistentes de IA (ChatGPT, Perplexity,
+   Gemini…), que cada vez más responden «¿qué constructora hay en Armenia,
+   Quindío?» sin pasar por el buscador. Se genera desde las mismas fuentes que
+   el resto del sitio —NAP del JSON-LD, nombres del diccionario, rutas de
+   PAGES— para que no pueda quedar desactualizado.
+
+   Va en inglés, que es el idioma en el que esos sistemas resumen mejor, y
+   aclara de entrada que Armenia es la ciudad colombiana: fuera de Colombia la
+   palabra sola se lee como el país. */
+function writeLlmsTxt() {
+  const T = DICT.en;
+  const org = COMPACT.org;
+  const a = org.address;
+  const url = (id, lang) => locate(PAGES.find((p) => p.id === id), lang).url;
+  const line = (id, name, desc) => '- [' + name + '](' + url(id, 'en') + ')' + (desc ? ': ' + desc : '');
+
+  const services = PAGES.filter((p) => p.service)
+    .map((p) => line(p.id, T['svc.' + p.service + '.t'], T['svc.' + p.service + '.d']));
+  const guides = PAGES.filter((p) => p.guide)
+    .map((p) => line(p.id, readContent(p, 'en').title.split(' | ')[0]));
+  const projects = PAGES.filter((p) => p.project)
+    .map((p) => line(p.id, T['prj.' + p.project + '.t'] + ' — ' + T['prj.' + p.project + '.l']));
+  const langs = Object.keys(LOCALES)
+    .map((l) => '- ' + l + ': ' + locate(PAGES[0], l).url);
+
+  const txt = [
+    '# ' + org.name + ' (YU Constructora)',
+    '',
+    '> Civil engineering and construction contractor headquartered in Armenia, ' +
+      'Quindío, Colombia — the capital of Quindío department in Colombia\'s Coffee ' +
+      'Region (Eje Cafetero). "Armenia" here is the Colombian city, not the country.',
+    '',
+    '- Legal name: ' + org.name + ' · NIT (tax ID) ' + org.taxID,
+    '- Address: ' + a.streetAddress + ', ' + a.addressLocality + ', ' + a.addressRegion + ', Colombia',
+    '- Phone / WhatsApp: ' + org.telephone,
+    '- Email: ' + org.email,
+    '- Hours: ' + T['contact.hoursV'],
+    '- Works across Quindío, Risaralda, Caldas and northern Valle del Cauca, and takes projects anywhere in Colombia',
+    '- Works with clients who live abroad: Colombians overseas and foreigners building or retiring in the Coffee Region',
+    '',
+    '## Services',
+    ...services,
+    '',
+    '## Guides',
+    ...guides,
+    '',
+    '## Completed projects',
+    ...projects,
+    '',
+    '## Site languages',
+    ...langs,
+    ''
+  ].join('\n');
+
+  fs.writeFileSync(path.join(ROOT, 'llms.txt'), txt, 'utf8');
+}
+writeLlmsTxt();
+
 const has404 = write404();
 
 console.log('Páginas generadas:\n  ' + built.join('\n  '));
-console.log('sitemap.xml y robots.txt' + (has404 ? ' y 404.html' : '') +
+console.log('sitemap.xml, robots.txt, llms.txt' + (has404 ? ' y 404.html' : '') +
   ' regenerados (lastmod ' + today + ')');

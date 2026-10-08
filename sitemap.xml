@@ -5,13 +5,15 @@
 
   <url>
     <loc>https://yuconstructora.com/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
       <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
@@ -52,13 +54,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
       <image:title>Country House — Lot 78 — Alcalá, Valle del Cauca</image:title>
@@ -99,13 +103,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
       <image:title>Casa de Campo Lote 78 — Alcalá, Valle del Cauca</image:title>
@@ -145,278 +151,829 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/fr/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-thumb.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Soutènement et talus — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-thumb.jpg</image:loc>
+      <image:title>Réseaux d'eaux pluviales et usées — quartier La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-thumb.jpg</image:loc>
+      <image:title>Abattoir porcin Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Eau potable et assainissement — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-thumb.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-thumb.jpg</image:loc>
+      <image:title>Colegio Libre — Circasia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-thumb.jpg</image:loc>
+      <image:title>Colegio San Vicente de Paúl — Génova, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-thumb.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-thumb.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Stützbauwerke und Hänge — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-thumb.jpg</image:loc>
+      <image:title>Regen- und Schmutzwasserkanal — Viertel La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-thumb.jpg</image:loc>
+      <image:title>Schweineschlachthof Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-thumb.jpg</image:loc>
+      <image:title>Wasser und Abwasser — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-thumb.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-thumb.jpg</image:loc>
+      <image:title>Colegio Libre — Circasia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-thumb.jpg</image:loc>
+      <image:title>Colegio San Vicente de Paúl — Génova, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/cobertura/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/zone-d-intervention/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/einsatzgebiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/coverage/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/coverage/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/zone-d-intervention/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/einsatzgebiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/coverage/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/cobertura/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/zone-d-intervention/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/einsatzgebiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/coverage/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/zone-d-intervention/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/zone-d-intervention/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/einsatzgebiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/coverage/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/einsatzgebiet/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/coverage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/cobertura/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/zone-d-intervention/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/einsatzgebiet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/coverage/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/politica-de-datos/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/politica-de-datos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/privacy-policy/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/politica-de-dados/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/privacy-policy/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/privacy-policy/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/politica-de-datos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/privacy-policy/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/politica-de-dados/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/privacy-policy/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/politica-de-dados/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/politica-de-datos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/privacy-policy/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/politica-de-dados/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/privacy-policy/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/politique-de-confidentialite/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/politica-de-dados/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/privacy-policy/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/datenschutz/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/politica-de-datos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/politica-de-dados/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/privacy-policy/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/servicios/construccion-obra-civil-armenia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/construcao-de-obras-civis/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/travaux-de-genie-civil/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hoch-und-tiefbau/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/services/civil-works-construction/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/construcao-de-obras-civis/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/travaux-de-genie-civil/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hoch-und-tiefbau/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/servicos/construcao-de-obras-civis/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/construcao-de-obras-civis/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/travaux-de-genie-civil/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hoch-und-tiefbau/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/services/travaux-de-genie-civil/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/construcao-de-obras-civis/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/travaux-de-genie-civil/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hoch-und-tiefbau/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/leistungen/hoch-und-tiefbau/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/construccion-obra-civil-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/construcao-de-obras-civis/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/travaux-de-genie-civil/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hoch-und-tiefbau/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/civil-works-construction/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/redes-de-agua-e-esgoto/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reseaux-eau-et-assainissement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/wasser-und-abwassernetze/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/services/water-and-sewer-networks/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/redes-de-agua-e-esgoto/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reseaux-eau-et-assainissement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/wasser-und-abwassernetze/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/servicos/redes-de-agua-e-esgoto/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/redes-de-agua-e-esgoto/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reseaux-eau-et-assainissement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/wasser-und-abwassernetze/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/services/reseaux-eau-et-assainissement/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/redes-de-agua-e-esgoto/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reseaux-eau-et-assainissement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/wasser-und-abwassernetze/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/leistungen/wasser-und-abwassernetze/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/acueducto-alcantarillado-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/redes-de-agua-e-esgoto/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reseaux-eau-et-assainissement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/wasser-und-abwassernetze/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/water-and-sewer-networks/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/stabilisation-de-talus-murs-de-soutenement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hangsicherung-und-stuetzmauern/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/stabilisation-de-talus-murs-de-soutenement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hangsicherung-und-stuetzmauern/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/stabilisation-de-talus-murs-de-soutenement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hangsicherung-und-stuetzmauern/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/services/stabilisation-de-talus-murs-de-soutenement/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/stabilisation-de-talus-murs-de-soutenement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hangsicherung-und-stuetzmauern/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/leistungen/hangsicherung-und-stuetzmauern/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/estabilizacion-de-taludes-muros-de-contencion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/estabilizacao-de-taludes-muros-de-contencao/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/stabilisation-de-talus-murs-de-soutenement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/hangsicherung-und-stuetzmauern/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/slope-stabilisation-retaining-walls/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reformas-e-adequacoes/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/renovation-et-amenagement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/umbau-und-renovierung/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/services/remodelling-and-refurbishment/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reformas-e-adequacoes/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/renovation-et-amenagement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/umbau-und-renovierung/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/servicos/reformas-e-adequacoes/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reformas-e-adequacoes/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/renovation-et-amenagement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/umbau-und-renovierung/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/services/renovation-et-amenagement/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reformas-e-adequacoes/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/renovation-et-amenagement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/umbau-und-renovierung/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/leistungen/umbau-und-renovierung/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/remodelaciones-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reformas-e-adequacoes/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/renovation-et-amenagement/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/umbau-und-renovierung/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/remodelling-and-refurbishment/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reparo-de-danos-por-sismo/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reparation-degats-seisme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/erdbebenschaeden-reparieren/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/services/earthquake-damage-repair/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reparo-de-danos-por-sismo/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reparation-degats-seisme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/erdbebenschaeden-reparieren/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/servicos/reparo-de-danos-por-sismo/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reparo-de-danos-por-sismo/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reparation-degats-seisme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/erdbebenschaeden-reparieren/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/services/reparation-degats-seisme/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reparo-de-danos-por-sismo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reparation-degats-seisme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/erdbebenschaeden-reparieren/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/leistungen/erdbebenschaeden-reparieren/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparacion-danos-sismo-armenia-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/reparo-de-danos-por-sismo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/reparation-degats-seisme/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/erdbebenschaeden-reparieren/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/earthquake-damage-repair/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/pequenos-reparos-e-obras-menores/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/petites-reparations-et-travaux/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/kleinreparaturen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/en/services/small-repairs-and-minor-works/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/pequenos-reparos-e-obras-menores/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/petites-reparations-et-travaux/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/kleinreparaturen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/pt/servicos/pequenos-reparos-e-obras-menores/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/pequenos-reparos-e-obras-menores/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/petites-reparations-et-travaux/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/kleinreparaturen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/services/petites-reparations-et-travaux/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/pequenos-reparos-e-obras-menores/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/petites-reparations-et-travaux/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/kleinreparaturen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/leistungen/kleinreparaturen/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/reparaciones-menores-arreglos-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/pequenos-reparos-e-obras-menores/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/petites-reparations-et-travaux/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/kleinreparaturen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/small-repairs-and-minor-works/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/servicios/casas-campestres-fincas-quindio/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/casas-campestres-fincas-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/casas-de-campo-na-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/construction-maison-de-campagne-colombie/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/landhaus-bauen-kolumbien/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/en/services/country-house-construction-colombia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/casas-campestres-fincas-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/casas-de-campo-na-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/construction-maison-de-campagne-colombie/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/landhaus-bauen-kolumbien/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/pt/servicos/casas-de-campo-na-colombia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/casas-campestres-fincas-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/casas-de-campo-na-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/construction-maison-de-campagne-colombie/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/landhaus-bauen-kolumbien/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/services/construction-maison-de-campagne-colombie/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/casas-campestres-fincas-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/casas-de-campo-na-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/construction-maison-de-campagne-colombie/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/landhaus-bauen-kolumbien/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/leistungen/landhaus-bauen-kolumbien/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/servicios/casas-campestres-fincas-quindio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/servicos/casas-de-campo-na-colombia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/services/construction-maison-de-campagne-colombie/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/leistungen/landhaus-bauen-kolumbien/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/services/country-house-construction-colombia/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/construir-en-colombia-desde-el-exterior/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/construir-en-colombia-desde-el-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/construir-na-colombia-morando-no-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/construire-en-colombie-depuis-l-etranger/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/in-kolumbien-bauen-aus-dem-ausland/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/en/build-in-colombia-from-abroad/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/construir-en-colombia-desde-el-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/construir-na-colombia-morando-no-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/construire-en-colombie-depuis-l-etranger/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/in-kolumbien-bauen-aus-dem-ausland/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/pt/construir-na-colombia-morando-no-exterior/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/construir-en-colombia-desde-el-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/construir-na-colombia-morando-no-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/construire-en-colombie-depuis-l-etranger/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/in-kolumbien-bauen-aus-dem-ausland/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/construire-en-colombie-depuis-l-etranger/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/construir-en-colombia-desde-el-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/construir-na-colombia-morando-no-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/construire-en-colombie-depuis-l-etranger/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/in-kolumbien-bauen-aus-dem-ausland/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/in-kolumbien-bauen-aus-dem-ausland/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/construir-en-colombia-desde-el-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/construir-na-colombia-morando-no-exterior/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/construire-en-colombie-depuis-l-etranger/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/in-kolumbien-bauen-aus-dem-ausland/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/build-in-colombia-from-abroad/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/guia-construir-en-colombia-extranjeros/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/guia-construir-en-colombia-extranjeros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/guia-construir-na-colombia-estrangeiros/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/guide-construire-en-colombie-etrangers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/ratgeber-hausbau-in-kolumbien-auslaender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/guia-construir-en-colombia-extranjeros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/guia-construir-na-colombia-estrangeiros/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/guide-construire-en-colombie-etrangers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/ratgeber-hausbau-in-kolumbien-auslaender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/pt/guia-construir-na-colombia-estrangeiros/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/guia-construir-en-colombia-extranjeros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/guia-construir-na-colombia-estrangeiros/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/guide-construire-en-colombie-etrangers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/ratgeber-hausbau-in-kolumbien-auslaender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/guide-construire-en-colombie-etrangers/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/guia-construir-en-colombia-extranjeros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/guia-construir-na-colombia-estrangeiros/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/guide-construire-en-colombie-etrangers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/ratgeber-hausbau-in-kolumbien-auslaender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/ratgeber-hausbau-in-kolumbien-auslaender/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/guia-construir-en-colombia-extranjeros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/guia-construir-na-colombia-estrangeiros/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/guide-construire-en-colombie-etrangers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/ratgeber-hausbau-in-kolumbien-auslaender/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/building-a-house-in-colombia-as-a-foreigner/"/>
   </url>
 
   <url>
     <loc>https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-campestre-lote-78-alcala-valle/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-1.jpg</image:loc>
       <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
@@ -445,13 +1002,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-campestre-lote-78-alcala-valle/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-1.jpg</image:loc>
       <image:title>Country House — Lot 78 — Alcalá, Valle del Cauca</image:title>
@@ -480,13 +1039,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/casa-campestre-lote-78-alcala-valle/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-campestre-lote-78-alcala-valle/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-1.jpg</image:loc>
       <image:title>Casa de Campo Lote 78 — Alcalá, Valle del Cauca</image:title>
@@ -514,14 +1075,90 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/fr/projets/casa-campestre-lote-78-alcala-valle/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-1.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-2.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-3.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-4.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-5.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-6.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/casa-campestre-lote-78-alcala-valle/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-campestre-lote-78-alcala-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-campestre-lote-78-alcala-valle/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-1.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-2.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-3.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-4.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-5.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-campestre-lote-78-6.jpg</image:loc>
+      <image:title>Casa Campestre Lote 78 — Alcalá, Valle del Cauca</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-chambery-lote-9c-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-1.jpg</image:loc>
       <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
@@ -538,13 +1175,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-chambery-lote-9c-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-1.jpg</image:loc>
       <image:title>Chambery House — Lot 9C — Cerritos, Pereira · Risaralda</image:title>
@@ -561,13 +1200,65 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/casa-chambery-lote-9c-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-chambery-lote-9c-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-1.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-2.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-3.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/projets/casa-chambery-lote-9c-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-1.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-2.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-3.jpg</image:loc>
+      <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/casa-chambery-lote-9c-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-chambery-lote-9c-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-chambery-lote-9c-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-chambery-lote-9c-1.jpg</image:loc>
       <image:title>Casa Chambery Lote 9C — Cerritos, Pereira · Risaralda</image:title>
@@ -584,13 +1275,15 @@
 
   <url>
     <loc>https://yuconstructora.com/proyectos/casa-del-bosque-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-del-bosque-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-1.jpg</image:loc>
       <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
@@ -615,13 +1308,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/casa-del-bosque-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-del-bosque-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-1.jpg</image:loc>
       <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
@@ -646,13 +1341,81 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/casa-del-bosque-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-del-bosque-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-1.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-2.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-3.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-4.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-5.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/projets/casa-del-bosque-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-1.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-2.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-3.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-4.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-5.jpg</image:loc>
+      <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/casa-del-bosque-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/casa-del-bosque-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/casa-del-bosque-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/casa-del-bosque-1.jpg</image:loc>
       <image:title>Casa del Bosque — Cerritos, Pereira · Risaralda</image:title>
@@ -677,13 +1440,15 @@
 
   <url>
     <loc>https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/alcantarillado-la-miranda-armenia/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-1.jpg</image:loc>
       <image:title>Alcantarillado pluvial y sanitario — Barrio La Miranda — Armenia, Quindío</image:title>
@@ -704,13 +1469,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/alcantarillado-la-miranda-armenia/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-1.jpg</image:loc>
       <image:title>Storm &amp; Sanitary Sewer — La Miranda Neighbourhood — Armenia, Quindío</image:title>
@@ -731,13 +1498,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/alcantarillado-la-miranda-armenia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/alcantarillado-la-miranda-armenia/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-1.jpg</image:loc>
       <image:title>Drenagem pluvial e esgoto — Bairro La Miranda — Armenia, Quindío</image:title>
@@ -757,14 +1526,74 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/fr/projets/alcantarillado-la-miranda-armenia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-1.jpg</image:loc>
+      <image:title>Réseaux d'eaux pluviales et usées — quartier La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-2.jpg</image:loc>
+      <image:title>Réseaux d'eaux pluviales et usées — quartier La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-3.jpg</image:loc>
+      <image:title>Réseaux d'eaux pluviales et usées — quartier La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-4.jpg</image:loc>
+      <image:title>Réseaux d'eaux pluviales et usées — quartier La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/alcantarillado-la-miranda-armenia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/alcantarillado-la-miranda-armenia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/alcantarillado-la-miranda-armenia/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-1.jpg</image:loc>
+      <image:title>Regen- und Schmutzwasserkanal — Viertel La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-2.jpg</image:loc>
+      <image:title>Regen- und Schmutzwasserkanal — Viertel La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-3.jpg</image:loc>
+      <image:title>Regen- und Schmutzwasserkanal — Viertel La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/alcantarillado-la-miranda-4.jpg</image:loc>
+      <image:title>Regen- und Schmutzwasserkanal — Viertel La Miranda — Armenia, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/planta-frigopork-la-victoria-valle/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-1.jpg</image:loc>
       <image:title>Planta de beneficio porcino Frigopork — La Victoria, Valle del Cauca</image:title>
@@ -785,13 +1614,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/planta-frigopork-la-victoria-valle/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-1.jpg</image:loc>
       <image:title>Frigopork Processing Plant — La Victoria, Valle del Cauca</image:title>
@@ -812,13 +1643,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/planta-frigopork-la-victoria-valle/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/planta-frigopork-la-victoria-valle/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-1.jpg</image:loc>
       <image:title>Planta de abate suíno Frigopork — La Victoria, Valle del Cauca</image:title>
@@ -838,14 +1671,74 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/fr/projets/planta-frigopork-la-victoria-valle/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-1.jpg</image:loc>
+      <image:title>Abattoir porcin Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-2.jpg</image:loc>
+      <image:title>Abattoir porcin Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-3.jpg</image:loc>
+      <image:title>Abattoir porcin Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-4.jpg</image:loc>
+      <image:title>Abattoir porcin Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/planta-frigopork-la-victoria-valle/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/planta-frigopork-la-victoria-valle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/planta-frigopork-la-victoria-valle/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-1.jpg</image:loc>
+      <image:title>Schweineschlachthof Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-2.jpg</image:loc>
+      <image:title>Schweineschlachthof Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-3.jpg</image:loc>
+      <image:title>Schweineschlachthof Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/planta-frigopork-4.jpg</image:loc>
+      <image:title>Schweineschlachthof Frigopork — La Victoria, Valle del Cauca</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/proyectos/colegio-libre-circasia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-libre-circasia/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg</image:loc>
       <image:title>Colegio Libre — Circasia, Quindío</image:title>
@@ -858,13 +1751,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/colegio-libre-circasia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-libre-circasia/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg</image:loc>
       <image:title>Colegio Libre School — Circasia, Quindío</image:title>
@@ -877,13 +1772,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/colegio-libre-circasia/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-libre-circasia/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg</image:loc>
       <image:title>Colégio Libre — Circasia, Quindío</image:title>
@@ -895,14 +1792,58 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/fr/projets/colegio-libre-circasia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg</image:loc>
+      <image:title>Colegio Libre — Circasia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-2.jpg</image:loc>
+      <image:title>Colegio Libre — Circasia, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/colegio-libre-circasia/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-libre-circasia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-libre-circasia/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-1.jpg</image:loc>
+      <image:title>Colegio Libre — Circasia, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-libre-circasia-2.jpg</image:loc>
+      <image:title>Colegio Libre — Circasia, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/proyectos/colegio-san-vicente-genova/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-san-vicente-genova/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-1.jpg</image:loc>
       <image:title>Colegio San Vicente de Paúl — Génova, Quindío</image:title>
@@ -915,13 +1856,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/colegio-san-vicente-genova/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-san-vicente-genova/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-1.jpg</image:loc>
       <image:title>San Vicente de Paúl School — Génova, Quindío</image:title>
@@ -934,13 +1877,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/colegio-san-vicente-genova/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-san-vicente-genova/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-1.jpg</image:loc>
       <image:title>Colégio San Vicente de Paúl — Génova, Quindío</image:title>
@@ -952,14 +1897,58 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/fr/projets/colegio-san-vicente-genova/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-1.jpg</image:loc>
+      <image:title>Colegio San Vicente de Paúl — Génova, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-2.jpg</image:loc>
+      <image:title>Colegio San Vicente de Paúl — Génova, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/colegio-san-vicente-genova/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/colegio-san-vicente-genova/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/colegio-san-vicente-genova/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-1.jpg</image:loc>
+      <image:title>Colegio San Vicente de Paúl — Génova, Quindío</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/colegio-san-vicente-genova-2.jpg</image:loc>
+      <image:title>Colegio San Vicente de Paúl — Génova, Quindío</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/acueducto-aeropuerto-matecana-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-1.jpg</image:loc>
       <image:title>Acueducto y alcantarillado — Aeropuerto Matecaña — Pereira, Risaralda</image:title>
@@ -976,13 +1965,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/acueducto-aeropuerto-matecana-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-1.jpg</image:loc>
       <image:title>Water &amp; Sewer — Matecaña Airport — Pereira, Risaralda</image:title>
@@ -999,13 +1990,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/acueducto-aeropuerto-matecana-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/acueducto-aeropuerto-matecana-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-1.jpg</image:loc>
       <image:title>Água e esgoto — Aeroporto Matecaña — Pereira, Risaralda</image:title>
@@ -1021,14 +2014,66 @@
   </url>
 
   <url>
+    <loc>https://yuconstructora.com/fr/projets/acueducto-aeropuerto-matecana-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-1.jpg</image:loc>
+      <image:title>Eau potable et assainissement — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-2.jpg</image:loc>
+      <image:title>Eau potable et assainissement — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-3.jpg</image:loc>
+      <image:title>Eau potable et assainissement — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/acueducto-aeropuerto-matecana-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/acueducto-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/acueducto-aeropuerto-matecana-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-1.jpg</image:loc>
+      <image:title>Wasser und Abwasser — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-2.jpg</image:loc>
+      <image:title>Wasser und Abwasser — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/acueducto-aeropuerto-matecana-3.jpg</image:loc>
+      <image:title>Wasser und Abwasser — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/taludes-aeropuerto-matecana-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-1.jpg</image:loc>
       <image:title>Contención y taludes — Aeropuerto Matecaña — Pereira, Risaralda</image:title>
@@ -1045,13 +2090,15 @@
 
   <url>
     <loc>https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/taludes-aeropuerto-matecana-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-1.jpg</image:loc>
       <image:title>Retaining &amp; Slopes — Matecaña Airport — Pereira, Risaralda</image:title>
@@ -1068,13 +2115,15 @@
 
   <url>
     <loc>https://yuconstructora.com/pt/projetos/taludes-aeropuerto-matecana-pereira/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/taludes-aeropuerto-matecana-pereira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-1.jpg</image:loc>
       <image:title>Contenção e taludes — Aeroporto Matecaña — Pereira, Risaralda</image:title>
@@ -1086,6 +2135,56 @@
     <image:image>
       <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-3.jpg</image:loc>
       <image:title>Contenção e taludes — Aeroporto Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/fr/projets/taludes-aeropuerto-matecana-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-1.jpg</image:loc>
+      <image:title>Soutènement et talus — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-2.jpg</image:loc>
+      <image:title>Soutènement et talus — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-3.jpg</image:loc>
+      <image:title>Soutènement et talus — aéroport international Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://yuconstructora.com/de/projekte/taludes-aeropuerto-matecana-pereira/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yuconstructora.com/proyectos/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://yuconstructora.com/pt/projetos/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://yuconstructora.com/fr/projets/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://yuconstructora.com/de/projekte/taludes-aeropuerto-matecana-pereira/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yuconstructora.com/en/projects/taludes-aeropuerto-matecana-pereira/"/>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-1.jpg</image:loc>
+      <image:title>Stützbauwerke und Hänge — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-2.jpg</image:loc>
+      <image:title>Stützbauwerke und Hänge — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yuconstructora.com/assets/img/proyectos/taludes-aeropuerto-matecana-3.jpg</image:loc>
+      <image:title>Stützbauwerke und Hänge — Internationaler Flughafen Matecaña — Pereira, Risaralda</image:title>
     </image:image>
   </url>
 

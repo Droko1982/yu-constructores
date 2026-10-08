@@ -6,7 +6,7 @@
   'use strict';
 
   var WA_NUMBER = '573046557120';
-  var SUPPORTED = ['es', 'en', 'pt'];
+  var SUPPORTED = ['es', 'en', 'pt', 'fr', 'de'];
   var DICT = window.YU_I18N || {};
   var lang = 'es';
 
@@ -397,6 +397,7 @@
     var tipo = pick('tipo', 'quote.type');
     var estado = pick('estado', 'quote.stage');
     var inicio = pick('inicio', 'quote.when');
+    var vive = pick('vive', 'quote.live');
     var area = ($('#qArea') || {}).value;
     var city = (($('#qCity') || {}).value || '').trim();
     var name = (($('#qName') || {}).value || '').trim();
@@ -405,6 +406,7 @@
     if (tipo) lines.push('• ' + t('quote.msgType') + ': ' + tipo);
     if (area) lines.push('• ' + t('quote.msgArea') + ': ' + area + ' m²');
     if (city) lines.push('• ' + t('quote.msgCity') + ': ' + city);
+    if (vive) lines.push('• ' + t('quote.msgLive') + ': ' + vive);
     if (estado) lines.push('• ' + t('quote.msgStage') + ': ' + estado);
     if (inicio) lines.push('• ' + t('quote.msgWhen') + ': ' + inicio);
     if (name) lines.push('• ' + t('quote.msgName') + ': ' + name);
@@ -601,15 +603,30 @@
   */
   var OFFERS = {
     en: { text: 'This site is available in English', cta: 'View in English' },
-    pt: { text: 'Este site está disponível em português', cta: 'Ver em português' }
+    pt: { text: 'Este site está disponível em português', cta: 'Ver em português' },
+    fr: { text: 'Ce site est disponible en français', cta: 'Voir en français' },
+    de: { text: 'Diese Website gibt es auch auf Deutsch', cta: 'Auf Deutsch ansehen' }
   };
 
   function maybeOfferLanguage() {
     if (lang !== 'es') return;
     try { if (localStorage.getItem('yu-lang-hint') === 'off') return; } catch (e) {}
 
-    var nav = (navigator.language || 'es').slice(0, 2).toLowerCase();
-    var offer = OFFERS[nav];
+    /*
+      Se recorre la lista completa de idiomas del navegador, no solo el primero:
+      un holandés con «nl, en» o un suizo con «de-CH, fr» también tienen una
+      versión que les sirve. Si el español aparece antes que cualquiera de los
+      ofrecidos, no se propone nada: esa persona ya está en su idioma.
+    */
+    var prefs = navigator.languages && navigator.languages.length
+      ? navigator.languages : [navigator.language || 'es'];
+    var nav = null;
+    for (var i = 0; i < prefs.length; i++) {
+      var code = String(prefs[i]).slice(0, 2).toLowerCase();
+      if (code === 'es') return;
+      if (OFFERS[code]) { nav = code; break; }
+    }
+    var offer = nav && OFFERS[nav];
     if (!offer) return;
 
     var link = $('#lang [data-lang="' + nav + '"]');
