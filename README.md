@@ -498,7 +498,14 @@ que la empresa está respaldada en Google.
   verificado, «Ver todas en Google» y «Dejar una reseña»). Pasaron de dos filas de tarjetas
   a una, y subieron a continuación de Proyectos: la prueba social justo después de la obra.
 - **Menú**: «Reseñas» reemplaza a «Proceso» en la cabecera; el menú del teléfono suma
-  «Reseñas» y «Preguntas frecuentes». «Proceso» sigue en el pie.
+  «Reseñas» y «Preguntas frecuentes».
+- **Pie compacto**: menos aire entre líneas y columnas, redes más pequeñas, menú sin
+  repetidos (Proyectos, Reseñas, zonas, las dos guías y preguntas) y una franja inferior en
+  dos bloques: © y autoría a la izquierda, enlaces legales a la derecha. En el teléfono,
+  Navegación y Servicios van lado a lado.
+- **Contacto compacto**: WhatsApp y teléfono, que eran dos tarjetas con el mismo número,
+  son una sola con dos botones («WhatsApp» y «Llamar ahora»); tarjetas más bajas y un
+  formulario con menos relleno y un cuadro de mensaje de tres líneas.
 - **Preguntas frecuentes en dos columnas** en escritorio: la misma información en la mitad
   de altura.
 - **Términos y condiciones** en los cinco idiomas (`tools/pages/terminos.*.html`):
@@ -593,9 +600,22 @@ Usa [FormSubmit](https://formsubmit.co) apuntando a `yuconstruccionessas@gmail.c
 **El primer envío llega como correo de activación**: hay que abrirlo y confirmar el
 enlace una sola vez para que los mensajes siguientes lleguen a la bandeja.
 
+**La activación es por dominio.** Se activó el 23/07/2026 sobre la dirección de GitHub
+Pages, y el 24/07 se conectó yuconstructora.com: desde entonces FormSubmit respondía
+«This form needs Activation» y no reenviaba nada. Se detectó el 8/10/2026 con un envío de
+prueba. Peor aún, el sitio mostraba «mensaje enviado», porque daba por bueno cualquier
+respuesta 200 y FormSubmit contesta 200 también cuando no envía. Desde el 8/10 `app.js`
+solo da el envío por bueno si la respuesta trae `success: true`; si no, muestra el error y
+el enlace de WhatsApp con el mensaje ya escrito. **Si algún día cambia el dominio, hay que
+reactivar el formulario** (enviar uno de prueba y pulsar el enlace del correo).
+
 ## Pendientes sugeridos
 
-- [x] ~~Activar FormSubmit~~ — hecho y verificado de punta a punta el 23/07/2026.
+- [ ] **Reactivar FormSubmit para yuconstructora.com** — el 8/10/2026 se envió un mensaje de
+      prueba y FormSubmit mandó a yuconstruccionessas@gmail.com el correo «Activate Form».
+      Hay que abrirlo y pulsar el enlace; hasta entonces el formulario no llega al correo
+      (el sitio ya lo dice y ofrece WhatsApp). La primera activación, del 23/07/2026, era
+      del dominio anterior.
 - [x] ~~Publicar el horario de atención~~ — lunes a viernes de 8:00 a 18:00, visible en
       Contacto y declarado como `openingHoursSpecification` (28/07/2026).
 - [x] ~~Conectar un dominio propio~~ — **yuconstructora.com** conectado el 24/07/2026
