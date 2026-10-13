@@ -31,6 +31,7 @@ yu-constructores/
 ├── sitemap.xml
 ├── llms.txt                # Resumen para asistentes de IA (generado)
 ├── 2e425fce….txt           # Clave de IndexNow — no borrar (ver «Expansión internacional»)
+├── BingSiteAuth.xml        # Verificación de Bing Webmaster Tools — no borrar
 ├── site.webmanifest        # PWA / icono en escritorio
 ├── .nojekyll               # Evita el procesado Jekyll en GitHub Pages
 ├── AUTHORS.md
