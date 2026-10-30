@@ -283,26 +283,32 @@
     if (!lbState.imgs.length) return;
     delete lbImg.dataset.fallback;
     lbImg.src = lbState.imgs[lbState.i];
-    lbImg.alt = t('prj.' + lbState.key + '.t') + ' — ' + (lbState.i + 1) + '/' + lbState.imgs.length;
-    lbTitle.textContent = t('prj.' + lbState.key + '.t');
+    lbImg.alt = lbState.title + ' — ' + (lbState.i + 1) + '/' + lbState.imgs.length;
+    lbTitle.textContent = lbState.title;
     lbMeta.textContent = lbState.loc + ' · ' + (lbState.i + 1) + '/' + lbState.imgs.length;
     $$('button', lbThumbs).forEach(function (b, n) {
       b.setAttribute('aria-current', n === lbState.i ? 'true' : 'false');
     });
   }
 
-  function lbOpen(slug, count, key, loc) {
+  /*
+    dir, title y start son para las galerías que no son obras —las casas en
+    venta—: carpeta de las fotos, título ya traducido y foto con la que abrir.
+    Sin ellos se comporta como siempre con las obras del portafolio.
+  */
+  function lbOpen(slug, count, key, loc, dir, title, start) {
     lbState.imgs = [];
     lbState.thumbs = [];
     for (var i = 1; i <= count; i++) {
-      var base = ASSET_BASE + 'assets/img/proyectos/' + slug + '-' + i;
+      var base = ASSET_BASE + 'assets/img/' + (dir || 'proyectos') + '/' + slug + '-' + i;
       lbState.imgs.push(base + '-1280.webp');
       // La tira de miniaturas se pinta a 74 px: pedirlas a 1280 costaba ~0,9 MB
       // en el primer toque de una obra de seis fotografías.
       lbState.thumbs.push(base + '-640.webp');
     }
-    lbState.i = 0;
+    lbState.i = Math.min(Math.max(start || 0, 0), count - 1);
     lbState.key = key;
+    lbState.title = title || t('prj.' + key + '.t');
     lbState.loc = loc;
 
     lbThumbs.innerHTML = '';
@@ -354,6 +360,28 @@
       );
     });
   });
+
+  /*
+    Galerías de las casas en venta: la foto grande, las de al lado y el botón
+    «Ver las N fotos» abren el visor en la foto que se tocó.
+  */
+  if (lb) {
+    $$('.js-gallery').forEach(function (g) {
+      g.addEventListener('click', function (e) {
+        var b = e.target.closest ? e.target.closest('[data-i]') : null;
+        if (!b || !g.contains(b)) return;
+        lbOpen(
+          g.getAttribute('data-slug'),
+          parseInt(g.getAttribute('data-count'), 10) || 1,
+          '',
+          g.getAttribute('data-loc') || '',
+          g.getAttribute('data-dir') || 'proyectos',
+          g.getAttribute('data-title') || '',
+          parseInt(b.getAttribute('data-i'), 10) || 0
+        );
+      });
+    });
+  }
 
   if (lb) {
     lbImg.addEventListener('error', function () { swapToJpeg(lbImg); });

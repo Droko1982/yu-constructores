@@ -27,7 +27,13 @@ let assets = 0, links = 0;
    página es un cliente perdido. */
 const homeLd = JSON.parse(fs.readFileSync('index.html', 'utf8')
   .match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
-const TEL = homeLd['@graph'].find((n) => n['@type'] === 'GeneralContractor').telephone.replace('+', '');
+const ORG = homeLd['@graph'].find((n) => n['@type'] === 'GeneralContractor');
+const TEL = ORG.telephone.replace('+', '');
+/* Línea de ventas de propiedades (30/10/2026): solo puede aparecer en las
+   páginas marcadas con data-line="ventas", y allí es la única que puede
+   aparecer. El JSON-LD no se revisa aquí: describe a la empresa y lleva las dos. */
+const SALES_CP = [].concat(ORG.contactPoint || []).find((c) => c.contactType === 'real estate sales');
+const SALES_TEL = SALES_CP ? SALES_CP.telephone.replace('+', '') : null;
 const phones = new Set();
 
 for (const page of pages) {
@@ -68,9 +74,23 @@ for (const page of pages) {
   }
 
   /* --- teléfono coherente --- */
-  // Se normaliza a solo dígitos: "+57 304…" y "wa.me/57304…" son el mismo número
-  for (const m of h.matchAll(/wa\.me\/(\d+)/g)) phones.add(m[1]);
-  for (const m of h.matchAll(/\+57\s?\d[\d\s]{8,}/g)) phones.add(m[0].replace(/\D/g, ''));
+  // Se normaliza a solo dígitos: "+57 304…" y "wa.me/57304…" son el mismo número.
+  // Cada página tiene un solo número esperado: el general o, en la sección de
+  // venta de casas, la línea de ventas. Mezclarlos es un cliente mal dirigido.
+  {
+    const isSales = /<body[^>]*\sdata-line="ventas"/.test(h);
+    const expected = isSales ? SALES_TEL : TEL;
+    if (isSales && !SALES_TEL) add('ERROR', page, 'página de ventas sin ContactPoint "real estate sales" en la portada');
+    const scan = h.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
+    const found = new Set();
+    for (const m of scan.matchAll(/wa\.me\/(\d+)/g)) found.add(m[1]);
+    for (const m of scan.matchAll(/\+57\s?\d[\d\s]{8,}/g)) found.add(m[0].replace(/\D/g, ''));
+    for (const m of scan.matchAll(/tel:\+?(\d+)/g)) found.add(m[1]);
+    for (const n of found) {
+      phones.add(n);
+      if (n !== expected) add('ERROR', page, 'teléfono ' + n + ' en una página que debe usar solo ' + expected);
+    }
+  }
 
   /* --- marcado bien formado --- */
   const clean = h.replace(/<!--[\s\S]*?-->/g, '').replace(/<script[\s\S]*?<\/script>/g, '')
@@ -239,15 +259,15 @@ for (const [t, ps] of Object.entries(titles)) if (ps.length > 1) add('ERROR', ps
 for (const [d, ps] of Object.entries(descs)) if (ps.length > 1) add('ERROR', ps[0], 'description duplicada en ' + ps.length + ' páginas');
 for (const [c, ps] of Object.entries(canons)) if (ps.length > 1) add('ERROR', ps[0], 'canónico duplicado: ' + c);
 
-/* Teléfonos: debe haber uno solo en todo el sitio */
-const wrong = [...phones].filter((p) => p.replace(/^\+/, '') !== TEL);
-if (wrong.length) add('ERROR', 'TODO EL SITIO', 'números distintos del oficial (' + TEL + '): ' + wrong.join(', '));
+/* Teléfonos: el general y, si existe, la línea de ventas. Ninguno más. */
+const wrong = [...phones].filter((p) => p !== TEL && p !== SALES_TEL);
+if (wrong.length) add('ERROR', 'TODO EL SITIO', 'números distintos de los oficiales (' + TEL + (SALES_TEL ? ', ' + SALES_TEL : '') + '): ' + wrong.join(', '));
 
 const errs = problems.filter((p) => p.sev === 'ERROR');
 const warns = problems.filter((p) => p.sev === 'AVISO');
 for (const p of [...errs, ...warns]) console.log(p.sev.padEnd(6) + p.page.padEnd(62) + p.msg);
 
 console.log('\n' + pages.length + ' páginas · ' + assets + ' recursos · ' + links + ' enlaces');
-console.log('teléfono único en todo el sitio: +' + TEL + '  (' + phones.size + ' variante' + (phones.size === 1 ? '' : 's') + ' encontrada' + (phones.size === 1 ? '' : 's') + ')');
+console.log('teléfonos: general +' + TEL + (SALES_TEL ? ' · ventas de casas +' + SALES_TEL : '') + '  (' + phones.size + ' número' + (phones.size === 1 ? '' : 's') + ' en uso)');
 console.log(errs.length + ' errores · ' + warns.length + ' avisos');
 process.exit(errs.length ? 1 : 0);

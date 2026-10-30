@@ -1734,3 +1734,117 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
 .quoter--quote select { font-weight: 400; }
 /* Mientras no se elige nada, la lista se ve como un campo vacío */
 .quoter--quote select:has(option[value=""]:checked) { color: var(--ink-mut); }
+
+/* ---------- Casas en venta (30/10/2026) ----------------------------------
+   Tarjetas de la portada y de la página general, galería en mosaico y ficha
+   de cada casa con una columna lateral fija que lleva el precio y el botón
+   de WhatsApp de la línea de ventas. */
+.sale-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: .5rem; }
+.sale-card {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.sale-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--brand); }
+.sale-card__img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-alt); }
+.sale-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.sale-card:hover .sale-card__img img { transform: scale(1.04); }
+.sale-card__badge {
+  position: absolute; left: 1rem; top: 1rem;
+  background: var(--brand); color: var(--on-brand);
+  font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .35rem .75rem; border-radius: 100px;
+}
+.sale-card__body { display: flex; flex-direction: column; gap: .55rem; padding: 1.35rem 1.4rem 1.4rem; flex: 1; }
+.sale-card__body h2, .sale-card__body h3 { font-size: 1.3rem; line-height: 1.2; text-transform: none; letter-spacing: 0; }
+.sale-card__loc { color: var(--ink-mut); font-size: .88rem; }
+.sale-card__facts { list-style: none; margin: .3rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .86rem; color: var(--ink-mut); }
+.sale-card__facts b { color: var(--ink); font-weight: 700; }
+.sale-card__foot {
+  margin-top: auto; padding-top: .9rem; border-top: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.sale-card__price { font-family: var(--font-display); font-size: 1.05rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink); }
+.sale-card__cta { color: var(--brand-ink); font-weight: 700; font-size: .88rem; white-space: nowrap; }
+.sale-card__cta::after { content: ' →'; }
+.sale-more { text-align: center; margin-top: 2rem; }
+
+.listing__head { margin-bottom: 1.4rem; }
+.listing__head h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.08; margin-top: .4rem; }
+.listing__loc { color: var(--ink-mut); margin-top: .55rem; }
+
+.lgal {
+  position: relative;
+  display: grid;
+  gap: .5rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  height: clamp(280px, 46vw, 520px);
+}
+.lgal button { border: 0; padding: 0; margin: 0; background: var(--bg-alt); cursor: zoom-in; overflow: hidden; display: block; }
+.lgal picture { display: contents; }
+.lgal img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.lgal button:hover img { transform: scale(1.04); }
+.lgal__main { grid-row: 1 / -1; }
+.lgal--3 { grid-template-columns: 2fr 1fr; }
+.lgal--2 { grid-template-columns: 2fr 1fr; grid-template-rows: 1fr; }
+.lgal--1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+.lgal__all {
+  position: absolute; right: 1rem; bottom: 1rem;
+  background: var(--surface) !important; color: var(--ink);
+  border: 1px solid var(--line) !important;
+  border-radius: 100px;
+  padding: .55rem 1rem !important;
+  font-weight: 700; font-size: .85rem;
+  box-shadow: var(--shadow);
+  cursor: pointer !important;
+}
+
+.listing__grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; margin-top: 2rem; }
+.listing__body { max-width: none; }
+.facts { list-style: none; margin: 0 0 1.6rem !important; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.facts li {
+  margin: 0 !important;
+  display: flex; flex-direction: column;
+  padding: .7rem 1rem;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface);
+  line-height: 1.25 !important;
+}
+.facts b { font-family: var(--font-display); font-size: 1.35rem; color: var(--ink); }
+.facts span { font-size: .78rem; color: var(--ink-mut); }
+.listing__side { position: sticky; top: calc(var(--header-h) + 1rem); }
+.listing__card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: grid; gap: .75rem;
+}
+.listing__price { font-family: var(--font-display); font-size: 1.6rem; text-transform: uppercase; color: var(--ink); line-height: 1.1; }
+.listing__name { font-weight: 700; color: var(--ink); }
+.listing__mini { font-size: .86rem; color: var(--ink-mut); }
+.listing__note { font-size: .8rem; color: var(--ink-mut); }
+.sale-info { margin-top: 3rem; }
+
+@media (max-width: 900px) {
+  .listing__grid { grid-template-columns: minmax(0, 1fr); }
+  .listing__side { position: static; order: -1; }
+  .lgal { grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; height: clamp(300px, 80vw, 520px); }
+  .lgal__main { grid-row: auto; grid-column: 1 / -1; }
+  .lgal .lgal__cell:nth-of-type(n + 4) { display: none; }
+  .lgal--2 .lgal__main, .lgal--1 .lgal__main { grid-row: 1 / -1; }
+}
+@media (max-width: 680px) {
+  .sale-cards { grid-template-columns: minmax(0, 1fr); }
+}
+/* Las fotos de fachada suelen llevar mucho cielo arriba: se encuadra más abajo. */
+.lgal__main img, .sale-card__img img { object-position: center 68%; }
