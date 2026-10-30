@@ -73,13 +73,14 @@ const RULES = [
      desde el <source> de la rejilla— así que deben existir siempre, incluso para
      las pocas fotos que son más angostas que 640 px. withoutEnlargement evita
      que se amplíen: se quedan en su tamaño y conservan el nombre acordado. */
-  { test: /proyectos[/\\][a-z0-9-]+-\d+\.jpe?g$/i, widths: [640, 1280], nominal: true },
+  { test: /(?:proyectos|venta)[/\\][a-z0-9-]+-\d+\.jpe?g$/i, widths: [640, 1280], nominal: true },
   { test: /.*/, widths: [1280] }
 ];
 
 /* og-image.jpg queda fuera a propósito (ver cabecera). */
 const SKIP = new Set(['og-image.jpg']);
-const DIRS = ['assets/img/brand', 'assets/img/proyectos'];
+/* venta: fotos de las casas en venta (30/10/2026), con las mismas variantes que las obras. */
+const DIRS = ['assets/img/brand', 'assets/img/proyectos', 'assets/img/venta'];
 
 function sources() {
   const out = [];
@@ -87,7 +88,9 @@ function sources() {
     const abs = path.join(ROOT, dir);
     if (!fs.existsSync(abs)) continue;
     for (const name of fs.readdirSync(abs)) {
-      if (!/\.jpe?g$/i.test(name) || SKIP.has(name)) continue;
+      // Las -og.jpg son variantes que produce este mismo guion, no originales:
+      // convertirlas otra vez dejaba un -og-1280.webp que nada usa.
+      if (!/\.jpe?g$/i.test(name) || SKIP.has(name) || /-og\.jpe?g$/i.test(name)) continue;
       out.push(path.join(abs, name));
     }
   }
@@ -163,7 +166,7 @@ const mb = (n) => (n / 1024 / 1024).toFixed(2) + ' MB';
        og:image cuando alguien reenvía el enlace de esa obra o del servicio que
        la usa de referencia. */
     let ogNota = '';
-    if (/proyectos\/[a-z0-9-]+-1\.jpe?g$/i.test(rel)) {
+    if (/(?:proyectos|venta)\/[a-z0-9-]+-1\.jpe?g$/i.test(rel)) {
       const dest = path.join(ROOT, base + '-og.jpg');
       if (fresh(src, dest)) {
         kept++;

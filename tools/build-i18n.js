@@ -102,6 +102,46 @@ const PAGES = [
       fr: 'conditions-generales-d-utilisation', de: 'nutzungsbedingungen' }
   },
 
+  /* Casas en venta (30/10/2026). Toda la sección usa la línea de ventas de
+     propiedades (sales: true) en lugar del número general: botones de
+     WhatsApp, botón flotante, teléfono del pie. "listing" es la clave de la
+     casa en LISTINGS y en el diccionario (sale.s1.t…). Los slugs no llevan
+     municipio a propósito: si la ubicación se precisa después, la URL no cambia
+     y no se pierde lo que Google ya haya indexado. */
+  {
+    id: 'venta',
+    content: 'tools/pages/venta',
+    sales: true,
+    slug: { es: 'casas-en-venta', en: 'homes-for-sale', pt: 'casas-a-venda',
+      fr: 'maisons-a-vendre', de: 'haeuser-zum-verkauf' }
+  },
+  {
+    id: 'venta-s1',
+    content: 'tools/pages/venta-s1',
+    sales: true,
+    listing: 's1',
+    slug: {
+      es: 'casas-en-venta/casa-campestre-inteligente-eje-cafetero',
+      en: 'homes-for-sale/smart-country-house-coffee-region',
+      pt: 'casas-a-venda/casa-de-campo-inteligente-regiao-cafeeira',
+      fr: 'maisons-a-vendre/maison-de-campagne-connectee-region-du-cafe',
+      de: 'haeuser-zum-verkauf/smart-landhaus-kaffeeregion'
+    }
+  },
+  {
+    id: 'venta-s2',
+    content: 'tools/pages/venta-s2',
+    sales: true,
+    listing: 's2',
+    slug: {
+      es: 'casas-en-venta/casa-campestre-estilo-americano-eje-cafetero',
+      en: 'homes-for-sale/american-style-country-house-coffee-region',
+      pt: 'casas-a-venda/casa-de-campo-estilo-americano-regiao-cafeeira',
+      fr: 'maisons-a-vendre/maison-de-campagne-style-americain-region-du-cafe',
+      de: 'haeuser-zum-verkauf/landhaus-amerikanischer-stil-kaffeeregion'
+    }
+  },
+
   /* Páginas de servicio. "service" es el número de la tarjeta correspondiente en
      la portada: de ahí se toman el nombre y la descripción para el JSON-LD, sin
      duplicar textos. Los slugs incluyen la ciudad o el departamento porque la
@@ -512,6 +552,55 @@ const PROJECTS = [
   ['p7', 'colegio-san-vicente-genova']
 ];
 
+/* Casas en venta. Las cifras van aquí, una sola vez, porque las usan el JSON-LD
+   (RealEstateListing) y el sitemap; el texto de cada página está en
+   tools/pages/venta-s*.{idioma}.html. "count" es el número de fotografías en
+   assets/img/venta/<slug>-N.jpg; el generador falla si falta alguna. Precio y
+   municipio quedan fuera hasta que la empresa los confirme. */
+const LISTINGS = {
+  s1: {
+    slug: 'casa-inteligente', count: 3, posted: '2026-10-30',
+    built: 220, lot: 1000, bedrooms: 4, bathrooms: 5,
+    video: 'https://www.instagram.com/reel/DeX8dDZM1Px/'
+  },
+  s2: {
+    slug: 'casa-americana', count: 14, posted: '2026-10-30',
+    built: 427, lot: 2350, bedrooms: 4, bathrooms: 5
+  }
+};
+for (const [k, l] of Object.entries(LISTINGS)) {
+  for (let i = 1; i <= l.count; i++) {
+    const f = 'assets/img/venta/' + l.slug + '-' + i + '.jpg';
+    if (!fs.existsSync(path.join(ROOT, f))) throw new Error('Falta la foto ' + f + ' de la casa ' + k);
+  }
+}
+
+/* Galería de una casa: la primera foto grande y hasta cuatro al lado; cualquiera
+   abre el visor en esa foto. data-dir, data-slug y data-count le dicen al visor
+   de app.js dónde están las imágenes; el título va traducido. */
+function buildListingGallery(key, lang) {
+  const T = DICT[lang];
+  const l = LISTINGS[key];
+  const alt = T['sale.' + key + '.alt'];
+  const shown = Math.min(l.count, 5);
+  const cell = (i, cls, size) => {
+    const base = 'assets/img/venta/' + l.slug + '-' + i;
+    return `        <button class="${cls}" type="button" data-i="${i - 1}">\n` +
+      '          <picture>\n' +
+      `            <source type="image/webp" srcset="${base}-${size}.webp">\n` +
+      `            <img src="${base}.jpg" ${i === 1 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" alt="${escAttr(alt)} (${i}/${l.count})">\n` +
+      '          </picture>\n' +
+      '        </button>';
+  };
+  const cells = [cell(1, 'lgal__main', 1280)];
+  for (let i = 2; i <= shown; i++) cells.push(cell(i, 'lgal__cell', 640));
+  return `      <div class="lgal lgal--${shown} js-gallery reveal" data-dir="venta" data-slug="${l.slug}" ` +
+    `data-count="${l.count}" data-title="${escAttr(T['sale.' + key + '.t'])}" data-loc="${escAttr(T['sale.' + key + '.l'])}">\n` +
+    cells.join('\n') + '\n' +
+    `        <button class="lgal__all" type="button" data-i="0">${esc(T['sale.photos'].replace('{n}', l.count))}</button>\n` +
+    '      </div>';
+}
+
 function buildProjectList(lang, pageUrl) {
   const T = DICT[lang];
   return {
@@ -599,6 +688,10 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
   if (page.project) {
     crumbs.push({ '@type': 'ListItem', position: 2, name: T['nav.projects'], item: homeUrl + '#proyectos' });
   }
+  if (page.listing) {
+    const ventaAt = locate(PAGES.find((p) => p.id === 'venta'), lang);
+    crumbs.push({ '@type': 'ListItem', position: 2, name: T['nav.sale'], item: ventaAt.url });
+  }
   /* La miga se dibuja bajo el resultado de búsqueda, así que lleva el nombre de
      la página a secas: el sufijo de marca del <title> ahí sobra. */
   const crumbName = meta.title.split(' | ')[0].trim();
@@ -662,6 +755,41 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
       creator: { '@id': BASE + '#organizacion' },
       inLanguage: LOCALES[lang].htmlLang,
       image: imgs
+    });
+  }
+
+  /* Cada casa en venta es un RealEstateListing sobre una vivienda
+     unifamiliar. Sin precio todavía: la oferta se declara sin cifra hasta que
+     la empresa la confirme, y el vendedor es la propia organización. */
+  if (page.listing) {
+    const k = page.listing;
+    const l = LISTINGS[k];
+    const imgs = [];
+    for (let i = 1; i <= l.count; i++) imgs.push(BASE + 'assets/img/venta/' + l.slug + '-' + i + '.jpg');
+    const m2 = (v) => ({ '@type': 'QuantitativeValue', value: v, unitCode: 'MTK' });
+    graph.push({
+      '@type': 'RealEstateListing',
+      '@id': at.url + '#inmueble',
+      name: T['sale.' + k + '.t'],
+      description: meta.desc,
+      url: at.url,
+      inLanguage: LOCALES[lang].htmlLang,
+      datePosted: l.posted,
+      image: imgs,
+      offers: {
+        '@type': 'Offer',
+        businessFunction: 'http://purl.org/goodrelations/v1#Sell',
+        availability: 'https://schema.org/InStock',
+        seller: { '@id': BASE + '#organizacion' }
+      },
+      about: {
+        '@type': 'SingleFamilyResidence',
+        name: T['sale.' + k + '.t'],
+        floorSize: m2(l.built),
+        numberOfBedrooms: l.bedrooms,
+        numberOfBathroomsTotal: l.bathrooms,
+        address: { '@type': 'PostalAddress', addressRegion: 'Eje Cafetero', addressCountry: 'CO' }
+      }
     });
   }
 
@@ -764,6 +892,10 @@ function writeWhatsAppLinks(html, lang, page) {
      orden: bastaba meter un class= entre medias para que el enlace se publicara
      sin mensaje, y en silencio. */
   return html.replace(/<a\s[^>]*\sdata-wa="([a-z]+)"[^>]*>/g, (tag, key) => {
+    /* En la sección de venta quien escribe es un comprador: el botón flotante,
+       el del pie y cualquier otro llevan el mensaje de la casa (o de la sección),
+       no el de «tengo un proyecto». */
+    if (page && page.sales && key !== 'venta' && key !== 'ventas') key = page.listing ? 'venta' : 'ventas';
     let msg = T['wa.' + key];
     if (!msg) throw new Error('Falta la clave wa.' + key + ' en "' + lang + '"');
 
@@ -779,7 +911,13 @@ function writeWhatsAppLinks(html, lang, page) {
       msg = msg.replace('{obra}', T['prj.' + page.project + '.t']);
     }
 
-    const href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    if (msg.indexOf('{casa}') > -1) {
+      if (!page || !page.listing) throw new Error('wa.' + key + ' usa {casa} en una página sin casa: ' + (page && page.id));
+      msg = msg.replace('{casa}', T['sale.' + page.listing + '.t']);
+    }
+
+    const number = page && page.sales ? SALES_NUMBER : WA_NUMBER;
+    const href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(msg);
     return /\shref="/.test(tag)
       ? tag.replace(/\shref="[^"]*"/, () => ' href="' + href + '"')
       : tag.replace(/^<a/, '<a href="' + href + '"');
@@ -957,6 +1095,35 @@ const WA_NUMBER = (() => {
   return org.telephone.replace(/[^\d]/g, '');
 })();
 
+/* Línea de ventas de propiedades (30/10/2026). Vive en el mismo JSON-LD, como
+   un ContactPoint aparte, y de ahí la toman este generador y tools/check.js.
+   Solo la usan las páginas con sales: true. */
+const SALES_NUMBER = (() => {
+  const ld = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const org = ld['@graph'].find((n) => n['@type'] === 'GeneralContractor');
+  const cp = [].concat(org.contactPoint || []).find((c) => c.contactType === 'real estate sales');
+  if (!cp) throw new Error('index.html no declara el ContactPoint "real estate sales" con la línea de ventas');
+  return cp.telephone.replace(/[^\d]/g, '');
+})();
+
+/* "573046557120" → "+57 304 655 7120", como se escribe en el sitio. */
+const fmtPhone = (n) => '+' + n.slice(0, 2) + ' ' + n.slice(2, 5) + ' ' + n.slice(5, 8) + ' ' + n.slice(8);
+
+/* En las páginas de venta todo contacto telefónico es la línea de ventas: el
+   enlace tel:, el número visible y las etiquetas accesibles que lo nombran. El
+   JSON-LD se deja tal cual: describe a la empresa, y su teléfono es el general.
+   La marca data-line="ventas" en <body> le dice a check.js qué número esperar. */
+function useSalesLine(html) {
+  const parts = html.split(/(<script type="application\/ld\+json">[\s\S]*?<\/script>)/);
+  for (let i = 0; i < parts.length; i += 2) {
+    parts[i] = parts[i]
+      .split('wa.me/' + WA_NUMBER).join('wa.me/' + SALES_NUMBER)
+      .split('tel:+' + WA_NUMBER).join('tel:+' + SALES_NUMBER)
+      .split(fmtPhone(WA_NUMBER)).join(fmtPhone(SALES_NUMBER));
+  }
+  return parts.join('').replace(/<body([^>]*)>/, (m, a) => '<body' + a + ' data-line="ventas">');
+}
+
 /* Anchura y altura reales de un JPEG, leídas de su cabecera. og:image:width y
    og:image:height tienen que coincidir con la imagen: si mienten, WhatsApp y
    Facebook recortan mal la vista previa. Leerlo del archivo evita mantener una
@@ -1041,6 +1208,17 @@ const PHOTOS = (() => {
    no. El texto alternativo sale del diccionario, así que también viaja
    traducido en /en/ y /pt/. */
 function pageImage(page, lang) {
+  /* Casas en venta: la foto de portada de la casa. La página general de la
+     sección usa la de la primera casa. */
+  const sale = page.listing || (page.id === 'venta' ? 's1' : null);
+  if (sale) {
+    const rel = 'assets/img/venta/' + LISTINGS[sale].slug + '-1-og.jpg';
+    if (!fs.existsSync(path.join(ROOT, rel))) {
+      throw new Error('Falta la variante social ' + rel + ' — ejecute: node tools/build-images.js');
+    }
+    const size = jpegSize(rel);
+    return { url: BASE + rel, w: size.w, h: size.h, alt: DICT[lang]['sale.' + sale + '.alt'] };
+  }
   const key = page.project || SOCIAL_IMAGE[page.id];
   if (!key || !PHOTOS[key]) {
     return {
@@ -1130,18 +1308,26 @@ for (const page of PAGES) {
         }
         body = body.replace('<!-- galeria -->', () => buildGallery(page.project, lang));
       }
+      if (page.listing) {
+        if (!body.includes('<!-- galeria-venta -->')) {
+          throw new Error('Falta el marcador <!-- galeria-venta --> en ' + page.content + '.' + lang + '.html');
+        }
+        body = body.replace('<!-- galeria-venta -->', () => buildListingGallery(page.listing, lang));
+      }
       out = SHELL.head + SHELL.prelude + '<main id="main">\n' + body + '\n</main>' + SHELL.postlude;
 
       // Aquí no hay héroe: precargarlo descargaría cientos de KB que no se pintan.
       out = out.replace(/\n?\s*<link rel="preload" as="image"[^>]*>/, '');
 
-      // Ni galería: el visor sobra. app.js ya comprueba que exista antes de usarlo.
-      out = out.replace(/<!-- visor -->[\s\S]*?<!-- \/visor -->\n?/, '');
+      // Ni galería: el visor sobra (salvo en las casas en venta, que sí lo usan).
+      // app.js ya comprueba que exista antes de usarlo.
+      if (!page.listing) out = out.replace(/<!-- visor -->[\s\S]*?<!-- \/visor -->\n?/, '');
     }
 
     out = translateBody(out, lang);
     out = rewriteHead(out, lang, page, at, meta);
     out = writeWhatsAppLinks(out, lang, page);
+    if (page.sales) out = useSalesLine(out);
     if (page.id !== 'home') out = pointAnchorsHome(out, at);
     out = rewritePageLinks(out, lang, at);
     out = useLangDict(out, lang);
@@ -1196,6 +1382,22 @@ function sitemapProjectImages(key, lang) {
   return shots.join('\n');
 }
 
+/* Fotos de una casa en venta, con su nombre y ubicación traducidos. */
+function sitemapListingImages(key, lang) {
+  const T = DICT[lang];
+  const l = LISTINGS[key];
+  const shots = [];
+  for (let i = 1; i <= l.count; i++) {
+    shots.push(
+      '    <image:image>\n' +
+      `      <image:loc>${BASE}assets/img/venta/${l.slug}-${i}.jpg</image:loc>\n` +
+      `      <image:title>${esc(T['sale.' + key + '.t'] + ' — ' + T['sale.' + key + '.l'])}</image:title>\n` +
+      '    </image:image>'
+    );
+  }
+  return shots.join('\n');
+}
+
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n' +
@@ -1212,12 +1414,13 @@ const sitemap =
        datos. */
     const priority = home
       ? (LOCALES[lang].dir ? '0.9' : '1.0')
-      : page.service ? '0.8'
+      : page.service || page.sales ? '0.8'
         : page.guide ? '0.7'
           : page.project ? '0.6'
             : page.id === 'cobertura' || page.id === 'pereira' ? '0.5'
               : '0.2';
-    const changefreq = home || page.service || page.guide ? 'monthly' : 'yearly';
+    // Las casas en venta cambian (precio, disponibilidad): se revisan cada semana.
+    const changefreq = page.sales ? 'weekly' : home || page.service || page.guide ? 'monthly' : 'yearly';
     return '  <url>\n' +
       `    <loc>${at.url}</loc>\n` +
       `    <lastmod>${today}</lastmod>\n` +
@@ -1226,6 +1429,7 @@ const sitemap =
       sitemapAlternates(page) + '\n' +
       (home ? sitemapImages(lang) + '\n' : '') +
       (page.project ? sitemapProjectImages(page.project, lang) + '\n' : '') +
+      (page.listing ? sitemapListingImages(page.listing, lang) + '\n' : '') +
       '  </url>';
   })).join('\n\n') +
   '\n\n</urlset>\n';
@@ -1262,6 +1466,8 @@ function writeLlmsTxt() {
     .map((p) => line(p.id, readContent(p, 'en').title.split(' | ')[0]));
   const projects = PAGES.filter((p) => p.project)
     .map((p) => line(p.id, T['prj.' + p.project + '.t'] + ' — ' + T['prj.' + p.project + '.l']));
+  const sales = PAGES.filter((p) => p.listing)
+    .map((p) => line(p.id, T['sale.' + p.listing + '.t'], T['sale.' + p.listing + '.l']));
   const langs = Object.keys(LOCALES)
     .map((l) => '- ' + l + ': ' + locate(PAGES[0], l).url);
 
@@ -1289,6 +1495,11 @@ function writeLlmsTxt() {
     '',
     '## Completed projects',
     ...projects,
+    '',
+    '## Homes for sale',
+    '- Property sales line (WhatsApp): ' + fmtPhone(SALES_NUMBER) + ' (use this number for the homes below, not the general one)',
+    '- All listings: ' + locate(PAGES.find((p) => p.id === 'venta'), 'en').url,
+    ...sales,
     '',
     '## Site languages',
     ...langs,

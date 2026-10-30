@@ -13,7 +13,7 @@ infraestructura con sede en Armenia, Quindío, Colombia.
 |---|---|
 | **Diseño** | Modo oscuro por defecto + modo claro, paleta tomada del logotipo oficial (ámbar `#f5a302` sobre carbón `#12161a`), tipografía Barlow / Barlow Condensed |
 | **Idiomas** | Español (`/`), Inglés (`/en/`), Portugués (`/pt/`), Francés (`/fr/`) y Alemán (`/de/`) — **páginas estáticas independientes**, no traducción por JavaScript, para que cada idioma se indexe con su propio HTML, `<title>`, descripción y datos estructurados |
-| **Tamaño** | **150 páginas** indexables: portada, 11 servicios, 5 guías, 9 obras, cobertura, Pereira, política de datos y términos y condiciones, cada una en los cinco idiomas |
+| **Tamaño** | **165 páginas** indexables: portada, 11 servicios, 5 guías, 9 obras, casas en venta (página general y una por casa), cobertura, Pereira, política de datos y términos y condiciones, cada una en los cinco idiomas |
 | **Contenido** | Héroe con carrusel de obra real, franja de atención post-sismo, 10 servicios (6 con página propia), 9 obras con página y galería completa (41 fotografías), proceso de 5 etapas, cobertura por municipios, 6 diferenciadores, cotizador rápido, 11 preguntas frecuentes, contacto |
 | **Captación** | Botón flotante de WhatsApp, cotizador que arma el mensaje listo para enviar, formulario de contacto por FormSubmit con casilla de autorización de datos, y triaje por fotografía en WhatsApp para daños de sismo y arreglos pequeños |
 | **SEO** | Datos estructurados `GeneralContractor` + `WebSite` + `WebPage` + `ItemList` + `FAQPage` + `Service` + `CreativeWork` por obra + `BreadcrumbList` en cada página secundaria. `sitemap.xml` con `hreflang`, prioridad por tipo de página y las fotografías de cada obra, `robots.txt`, Open Graph con **imagen propia por página** (la obra o el servicio que se comparte, no la genérica), Twitter Cards. `areaServed` con la región, los cuatro departamentos y quince municipios. Coordenadas `geo` de la sede, `Article` con fecha en las guías y `llms.txt` para los asistentes de IA |
@@ -45,6 +45,7 @@ yu-constructores/
 ├── cobertura/              # Zonas de operación
 ├── politica-de-datos/      # Política de datos
 ├── terminos-y-condiciones/ # Términos y condiciones, con la autoría del sitio
+├── casas-en-venta/         # Casas en venta: página general y una por casa (línea de ventas propia)
 │
 ├── tools/                  # Nada de aquí se publica: son las fuentes de compilación
 │   ├── build-i18n.js       # Genera las páginas + sitemap + robots + llms.txt + rutas del 404
@@ -54,6 +55,7 @@ yu-constructores/
 │       ├── cobertura.{es,en,pt,fr,de}.html
 │       ├── privacidad.{es,en,pt,fr,de}.html
 │       ├── terminos.{es,en,pt,fr,de}.html
+│       ├── venta.{…}.html · venta-s1.{…}.html · venta-s2.{…}.html   # casas en venta
 │       ├── obra-civil / acueducto / taludes / remodelaciones .{es,en,pt,fr,de}.html
 │       ├── casas-campestres.{…}.html   # casas de campo y fincas
 │       ├── exterior.{…}.html           # guía: construir desde el exterior
@@ -90,7 +92,7 @@ yu-constructores/
 node tools/check.js
 ```
 
-Recorre las 150 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
+Recorre las 165 páginas y falla con código 1 si encuentra algo. Comprueba recursos y
 enlaces rotos, `data-page` sin resolver, anclas sin destino —también las que apuntan
 dentro de la propia página—, marcado mal anidado, títulos o descripciones duplicados o
 demasiado largos, imágenes sin `alt`, `hreflang` que no se autorreferencia, JSON-LD
@@ -526,6 +528,50 @@ que la empresa está respaldada en Google.
   habla de la empresa y no del sitio.
 
 La portada pasó de unos 15.800 a unos 14.800 px de alto en escritorio.
+
+## Casas en venta · 30 de octubre de 2026
+
+Sección para vender casas listas para habitar, con **su propia línea de WhatsApp: +57 311 311
+1669**. El resto del sitio sigue con el número general.
+
+- **Páginas**: `/casas-en-venta/` (general) y una por casa, en los cinco idiomas. «Casas en
+  venta» ocupa en el menú el lugar de «Cobertura», que sigue en el pie. En la portada hay
+  una franja con las casas, después de Proyectos.
+- **La línea de ventas** está en el JSON-LD de la portada como un `ContactPoint` con
+  `contactType: "real estate sales"`; de ahí la leen el generador y `tools/check.js`. Las
+  páginas con `sales: true` en `PAGES` llevan ese número en todos sus enlaces de WhatsApp
+  (incluido el botón flotante y el pie), en el `tel:` y en el número visible, y el mensaje
+  es el de comprador: «Hola, me interesa esta casa…: {casa}». `check.js` falla si una página
+  de venta muestra el número general o si cualquier otra muestra el de ventas.
+- **Cada casa** se declara como `RealEstateListing` sobre una `SingleFamilyResidence`
+  (área, habitaciones, baños, fotos y vendedor). Sin precio hasta que la empresa lo confirme.
+- **Fotos** en `assets/img/venta/<slug>-N.jpg`, máximo 1600 px y **sin metadatos** (se
+  reprocesan sin EXIF ni GPS, que podrían revelar la ubicación exacta). `tools/build-images.js`
+  genera las variantes de 640 y 1280 px y la imagen para compartir. En la página de cada casa
+  se ven en mosaico y se abren en el mismo visor de las obras.
+- **Privacidad**: no se publicó la foto de la habitación infantil de la Casa 2, que llevaba el
+  nombre de la niña en la pared. Mismo criterio para las próximas: nada de nombres, placas
+  legibles ni fotos familiares.
+
+### Agregar una casa
+
+1. Fotos en `assets/img/venta/<slug>-1.jpg … -N.jpg` (la 1 es la portada) y
+   `node tools/build-images.js`.
+2. En `tools/build-i18n.js`: la casa en `LISTINGS` (slug, número de fotos, m², habitaciones,
+   baños) y su página en `PAGES` con `sales: true` y `listing: 's3'`.
+3. En `tools/i18n.js`, en los cinco idiomas: `sale.s3.t`, `.l`, `.badge` y `.alt`.
+4. `tools/pages/venta-s3.{es,en,pt,fr,de}.html` con el marcador `<!-- galeria-venta -->`, y la
+   tarjeta en la portada y en `venta.*.html`.
+5. `node tools/build-i18n.js` y `node tools/check.js`.
+
+### Pendiente de la empresa
+
+- [ ] **Precio** de cada casa (o confirmar «precio a consultar»).
+- [ ] **Municipio y sector** de cada casa: con eso los títulos pueden decir «casa en venta en
+      [municipio]», que es lo que se busca. Las URL no llevan municipio a propósito: no cambian.
+- [ ] **Nombre del asesor** de la línea de ventas, idiomas en que responde y horario.
+- [ ] **Más fotos de la Casa 1** (hay tres) y el **video** como archivo, para mostrarlo en el
+      sitio en lugar de enlazar a Instagram.
 
 ## Expansión de contenido · 8 de octubre de 2026
 

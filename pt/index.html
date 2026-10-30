@@ -49,7 +49,7 @@
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-condensed-700-latin.woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/fonts.css?v=1833fdc5">
-<link rel="stylesheet" href="../assets/css/styles.css?v=820dad81">
+<link rel="stylesheet" href="../assets/css/styles.css?v=6d85043c">
 
 <!--
   Precarga de la siguiente página cuando el visitante muestra intención de ir
@@ -671,6 +671,13 @@
           ],
           "areaServed": "CO",
           "name": "Ing. Diego Luis Arango Jaramillo"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "real estate sales",
+          "name": "Venta de casas YU",
+          "telephone": "+573113111669",
+          "areaServed": "CO"
         }
       ],
       "makesOffer": {
@@ -757,7 +764,7 @@
       "about": {
         "@id": "https://yuconstructora.com/#organizacion"
       },
-      "dateModified": "2026-10-08",
+      "dateModified": "2026-10-30",
       "primaryImageOfPage": "https://yuconstructora.com/assets/img/brand/og-image.jpg"
     },
     {
@@ -1108,7 +1115,7 @@
       <a href="#servicios" data-i18n="nav.services">Serviços</a>
       <a href="#proyectos" data-i18n="nav.projects">Projetos</a>
       <a href="#resenas" data-i18n="nav.reviews">Avaliações</a>
-      <a href="#cobertura" data-i18n="nav.coverage">Cobertura</a>
+      <a href="../pt/casas-a-venda/" data-page="venta" data-i18n="nav.sale">Casas à venda</a>
       <a href="#nosotros" data-i18n="nav.about">Sobre nós</a>
       <a href="#contacto" data-i18n="nav.contact">Contato</a>
     </nav>
@@ -1154,7 +1161,7 @@
   <a href="#servicios" data-i18n="nav.services">Serviços</a>
   <a href="#proyectos" data-i18n="nav.projects">Projetos</a>
   <a href="#resenas" data-i18n="nav.reviews">Avaliações</a>
-  <a href="#cobertura" data-i18n="nav.coverage">Cobertura</a>
+  <a href="../pt/casas-a-venda/" data-page="venta" data-i18n="nav.sale">Casas à venda</a>
   <a href="#nosotros" data-i18n="nav.about">Sobre nós</a>
   <a href="#faq" data-i18n="faq.eyebrow">Perguntas frequentes</a>
   <a href="#contacto" data-i18n="nav.contact">Contato</a>
@@ -1582,6 +1589,65 @@
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ============ Casas en venta ============
+       Casas listas para habitar, con su propia línea de WhatsApp (la de ventas),
+       que solo usan las páginas de la sección. Aquí solo hay enlaces. -->
+  <section class="section section--alt" id="venta">
+    <div class="wrap">
+      <div class="section-head section-head--center reveal">
+        <div class="rule"></div>
+        <span class="eyebrow" data-i18n="sale.eyebrow">Casas YU à venda</span>
+        <h2 data-i18n="sale.title">Procura uma casa na Região Cafeeira?</h2>
+        <p data-i18n="sale.sub">Se prefere comprar a construir, também temos casas prontas para morar. E se nenhuma for a sua, construímos a sua sob medida.</p>
+      </div>
+
+      <div class="sale-cards">
+        <a class="sale-card reveal" href="../pt/casas-a-venda/casa-de-campo-inteligente-regiao-cafeeira/" data-page="venta-s1">
+          <div class="sale-card__img">
+            <picture>
+              <source type="image/webp" srcset="../assets/img/venta/casa-inteligente-1-640.webp">
+              <img src="../assets/img/venta/casa-inteligente-1.jpg" loading="lazy" decoding="async" width="1600" height="899" alt="Casa de campo inteligente à venda, com jacuzzi de borda infinita, na Região Cafeeira da Colômbia" data-i18n-alt="sale.s1.alt">
+            </picture>
+            <span class="sale-card__badge" data-i18n="sale.s1.badge">Nova</span>
+          </div>
+          <div class="sale-card__body">
+            <h3 data-i18n="sale.s1.t">Casa de campo inteligente, nova</h3>
+            <p class="sale-card__loc" data-i18n="sale.s1.l">Região Cafeeira · a 25 min de Pereira e 45 min de Armenia</p>
+            <ul class="sale-card__facts">
+              <li><b>220 m²</b> <span data-i18n="sale.built">construídos</span></li>
+              <li><b>1000 m²</b> <span data-i18n="sale.lot">de terreno</span></li>
+              <li><b>4</b> <span data-i18n="sale.beds">quartos</span></li>
+              <li><b>5</b> <span data-i18n="sale.baths">banheiros</span></li>
+            </ul>
+            <div class="sale-card__foot"><span class="sale-card__price" data-i18n="sale.price">Preço sob consulta</span><span class="sale-card__cta" data-i18n="sale.cta">Ver a casa</span></div>
+          </div>
+        </a>
+        <a class="sale-card reveal" href="../pt/casas-a-venda/casa-de-campo-estilo-americano-regiao-cafeeira/" data-page="venta-s2">
+          <div class="sale-card__img">
+            <picture>
+              <source type="image/webp" srcset="../assets/img/venta/casa-americana-1-640.webp">
+              <img src="../assets/img/venta/casa-americana-1.jpg" loading="lazy" decoding="async" width="1280" height="960" alt="Casa de campo em estilo americano à venda na Região Cafeeira da Colômbia" data-i18n-alt="sale.s2.alt">
+            </picture>
+            <span class="sale-card__badge" data-i18n="sale.s2.badge">Terreno de 2.350 m²</span>
+          </div>
+          <div class="sale-card__body">
+            <h3 data-i18n="sale.s2.t">Casa de campo em estilo americano com riacho</h3>
+            <p class="sale-card__loc" data-i18n="sale.s2.l">Região Cafeeira · em condomínio fechado</p>
+            <ul class="sale-card__facts">
+              <li><b>427 m²</b> <span data-i18n="sale.built">construídos</span></li>
+              <li><b>2350 m²</b> <span data-i18n="sale.lot">de terreno</span></li>
+              <li><b>4</b> <span data-i18n="sale.beds">quartos</span></li>
+              <li><b>5</b> <span data-i18n="sale.baths">banheiros</span></li>
+            </ul>
+            <div class="sale-card__foot"><span class="sale-card__price" data-i18n="sale.price">Preço sob consulta</span><span class="sale-card__cta" data-i18n="sale.cta">Ver a casa</span></div>
+          </div>
+        </a>
+      </div>
+
+      <p class="sale-more reveal"><a class="btn btn--ghost" href="../pt/casas-a-venda/" data-page="venta" data-i18n="sale.all">Ver todas as casas à venda</a></p>
     </div>
   </section>
 
@@ -2065,6 +2131,7 @@ Armenia, Quindío — Colômbia</b></span>
       <div>
         <h2 class="footer__h" data-i18n="footer.nav">Navegação</h2>
         <ul>
+          <li><a href="../pt/casas-a-venda/" data-page="venta" data-i18n="nav.sale">Casas à venda</a></li>
           <li><a href="#proyectos" data-i18n="nav.projects">Projetos</a></li>
           <li><a href="#resenas" data-i18n="nav.reviews">Avaliações</a></li>
           <li><a href="../pt/cobertura/" data-page="cobertura" data-i18n="cov.more">Áreas onde atuamos</a></li>
@@ -2142,8 +2209,8 @@ Armenia, Quindío — Colômbia</li>
 </div>
 <!-- /visor -->
 
-<script src="../assets/js/i18n.pt.js?v=76d53751"></script>
-<script src="../assets/js/app.js?v=6495f073"></script>
+<script src="../assets/js/i18n.pt.js?v=ac0c8617"></script>
+<script src="../assets/js/app.js?v=e251f823"></script>
 <!-- analitica -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3d774664bfcf4c329fcb0e9c4f75d5b7"}'></script>
 <!-- /analitica -->
