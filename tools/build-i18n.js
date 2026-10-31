@@ -788,7 +788,8 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
         floorSize: m2(l.built),
         numberOfBedrooms: l.bedrooms,
         numberOfBathroomsTotal: l.bathrooms,
-        address: { '@type': 'PostalAddress', addressRegion: 'Eje Cafetero', addressCountry: 'CO' }
+        // Departamento confirmado por la empresa (30/10/2026); municipio pendiente.
+        address: { '@type': 'PostalAddress', addressRegion: 'Quindío', addressCountry: 'CO' }
       }
     });
   }
