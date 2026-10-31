@@ -689,11 +689,10 @@ reactivar el formulario** (enviar uno de prueba y pulsar el enlace del correo).
 
 ## Pendientes sugeridos
 
-- [ ] **Reactivar FormSubmit para yuconstructora.com** — el 8/10/2026 se envió un mensaje de
-      prueba y FormSubmit mandó a yuconstruccionessas@gmail.com el correo «Activate Form».
-      Hay que abrirlo y pulsar el enlace; hasta entonces el formulario no llega al correo
-      (el sitio ya lo dice y ofrece WhatsApp). La primera activación, del 23/07/2026, era
-      del dominio anterior.
+- [x] ~~Reactivar FormSubmit para yuconstructora.com~~ — activado y verificado el 30/10/2026:
+      un envío de prueba devolvió `success: true` y llegó a yuconstruccionessas@gmail.com. La
+      primera activación, del 23/07/2026, era del dominio anterior; entre el 24/07 y el 30/10
+      el formulario no reenvió nada.
 - [x] ~~Publicar el horario de atención~~ — lunes a viernes de 8:00 a 18:00, visible en
       Contacto y declarado como `openingHoursSpecification` (28/07/2026).
 - [x] ~~Conectar un dominio propio~~ — **yuconstructora.com** conectado el 24/07/2026
