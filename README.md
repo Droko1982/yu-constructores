@@ -566,12 +566,24 @@ Sección para vender casas listas para habitar, con **su propia línea de WhatsA
 
 ### Pendiente de la empresa
 
-- [ ] **Precio** de cada casa (o confirmar «precio a consultar»).
-- [ ] **Municipio y sector** de cada casa: con eso los títulos pueden decir «casa en venta en
-      [municipio]», que es lo que se busca. Las URL no llevan municipio a propósito: no cambian.
-- [ ] **Nombre del asesor** de la línea de ventas, idiomas en que responde y horario.
-- [ ] **Más fotos de la Casa 1** (hay tres) y el **video** como archivo, para mostrarlo en el
-      sitio en lugar de enlazar a Instagram.
+- [ ] **Precio** de cada casa (por ahora, «precio a consultar»).
+- [x] ~~Ubicación~~ — **Quindío**, confirmado el 30/10/2026. Va en títulos, descripciones,
+      encabezados, texto alternativo de las fotos y en el JSON-LD (`addressRegion`). Si se
+      precisa el **municipio**, sumarlo a los títulos: «casa en venta en [municipio]» es la
+      búsqueda más concreta. Las URL no llevan municipio a propósito: no cambian.
+- [x] ~~Asesor~~ — la línea se publica solo con el número, sin nombre (30/10/2026).
+- [ ] **Más fotos de la Casa 1** (hay tres; por ahora se usan esas) y el **video** como
+      archivo, para mostrarlo en el sitio en lugar de enlazar a Instagram.
+
+### SEO de la sección (30/10/2026)
+
+- Títulos y descripciones con «casa campestre en venta en el Quindío» y sus equivalentes en
+  los otros cuatro idiomas.
+- La página general suma contenido propio: por qué el Quindío, **qué revisar antes de
+  comprar una casa campestre** (situación jurídica, licencia, estructura, terreno y agua,
+  acceso, conjunto) con enlaces a las guías de licencia y NSR-10, y preguntas frecuentes.
+- Enlaces hacia la sección desde casas campestres, la guía para extranjeros, construir
+  desde el exterior y Pereira, en los cinco idiomas.
 
 ## Expansión de contenido · 8 de octubre de 2026
 
