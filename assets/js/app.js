@@ -734,6 +734,18 @@
     }, { rootMargin: '0px 0px 40px 0px' }).observe(footBar);
   }
 
+  /*
+    Barra fija de la venta (móvil): se retira cuando aparece la franja de
+    cierre, que ya tiene su propio botón de WhatsApp, y no vuelve en el pie.
+  */
+  var saleBand = $('.sale-band');
+  if ($('.sale-bar') && saleBand && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      var e = entries[0];
+      document.body.classList.toggle('is-past-band', e.isIntersecting || e.boundingClientRect.top < 0);
+    }).observe(saleBand);
+  }
+
   /* ------------------------------------------------------------- Arranque -- */
   var y = $('#year');
   if (y) y.textContent = String(new Date().getFullYear());

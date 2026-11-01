@@ -559,7 +559,10 @@ Sección para vender casas listas para habitar, con **su propia línea de WhatsA
    `node tools/build-images.js`.
 2. En `tools/build-i18n.js`: la casa en `LISTINGS` (slug, número de fotos, m², habitaciones,
    baños) y su página en `PAGES` con `sales: true` y `listing: 's3'`.
-3. En `tools/i18n.js`, en los cinco idiomas: `sale.s3.t`, `.l`, `.badge` y `.alt`.
+3. En `tools/i18n.js`, en los cinco idiomas: `sale.s3.t`, `.l`, `.badge` y `.alt`, y lo mejor
+   de la casa en `sale.s3.h1.t/.d … h4.t/.d` (sus iconos van en `saleHighlights`). Si cambia el
+   rango de lotes, actualizar `sale.stat.lotv`; el número de casas y el rango de m² construidos
+   de la portada salen solos de `LISTINGS`.
 4. `tools/pages/venta-s3.{es,en,pt,fr,de}.html` con el marcador `<!-- galeria-venta -->`, y la
    tarjeta en la portada y en `venta.*.html`.
 5. `node tools/build-i18n.js` y `node tools/check.js`.
@@ -584,6 +587,22 @@ Sección para vender casas listas para habitar, con **su propia línea de WhatsA
   acceso, conjunto) con enlaces a las guías de licencia y NSR-10, y preguntas frecuentes.
 - Enlaces hacia la sección desde casas campestres, la guía para extranjeros, construir
   desde el exterior y Pereira, en los cinco idiomas.
+
+### Diseño de la sección (01/11/2026)
+
+Las páginas fuente (`venta*.html`) siguen siendo texto sencillo; el generador
+(`decorateSale` en `tools/build-i18n.js`) les agrega la presentación:
+
+- **Página general**: portada a todo el ancho con la foto de la Casa 1, cifras (casas,
+  m² construidos, lotes, ubicación) y dos botones (ver las casas · escribir a ventas); franja
+  de confianza (respaldo de constructora, todo por escrito, visitas, compra desde el
+  exterior); la guía de compra en tarjetas numeradas y las preguntas frecuentes en tarjetas.
+- **Cada casa**: ruta de navegación, ubicación con icono, cifras con iconos en una fila,
+  cuatro puntos destacados, listas con viñetas de verificación y, al final, «otras casas en
+  venta».
+- **En todas**: el número de fotos sobre cada tarjeta, una franja de cierre con el botón de
+  WhatsApp y la línea de ventas, y en el celular una **barra fija** con «precio a consultar»
+  y el botón, que reemplaza al botón flotante y se retira al llegar a la franja de cierre.
 
 ## Expansión de contenido · 8 de octubre de 2026
 

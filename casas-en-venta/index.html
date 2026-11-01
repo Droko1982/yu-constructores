@@ -47,7 +47,7 @@
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/barlow-condensed-700-latin.woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/fonts.css?v=1833fdc5">
-<link rel="stylesheet" href="../assets/css/styles.css?v=6d85043c">
+<link rel="stylesheet" href="../assets/css/styles.css?v=66feb674">
 
 <!--
   Precarga de la siguiente página cuando el visitante muestra intención de ir
@@ -144,7 +144,7 @@
       "publisher": {
         "@id": "https://yuconstructora.com/#organizacion"
       },
-      "dateModified": "2026-10-31",
+      "dateModified": "2026-11-01",
       "primaryImageOfPage": "https://yuconstructora.com/assets/img/venta/casa-inteligente-1-og.jpg"
     },
     {
@@ -286,22 +286,34 @@
 </nav>
 
 <main id="main">
-<section class="section listing">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="rule"></div>
-      <span class="eyebrow">Casas YU en venta</span>
-      <h1>Casas campestres en venta en el Quindío</h1>
-      <p>
-        Además de construir, tenemos casas listas para habitar en conjuntos campestres del
-        Quindío, en el corazón del Eje Cafetero. Cada una tiene aquí sus fotos, sus cifras y
-        sus características por escrito, y una línea de WhatsApp dedicada a la venta.
-      </p>
+<section class="sale-hero">
+  <picture class="sale-hero__bg">
+    <source type="image/webp" sizes="100vw" srcset="../assets/img/venta/casa-inteligente-1-640.webp 640w, ../assets/img/venta/casa-inteligente-1-1280.webp 1280w">
+    <img src="../assets/img/venta/casa-inteligente-1.jpg" alt="" fetchpriority="high" width="1600" height="899">
+  </picture>
+  <div class="wrap sale-hero__inner">
+    <span class="eyebrow">Casas YU en venta</span>
+    <h1>Casas campestres en venta en el Quindío</h1>
+    <p class="sale-hero__sub">Además de construir, tenemos casas listas para habitar en conjuntos campestres del Quindío, en el corazón del Eje Cafetero. Cada una tiene aquí sus fotos, sus cifras y sus características por escrito, y una línea de WhatsApp dedicada a la venta.</p>
+    <ul class="sale-hero__stats">
+      <li><b>2</b><span>casas disponibles</span></li>
+      <li><b>220–427 m²</b><span>construidos</span></li>
+      <li><b>1.000–2.350 m²</b><span>de lote</span></li>
+      <li><b>Quindío, Colombia</b><span>ubicación</span></li>
+    </ul>
+    <div class="sale-hero__cta">
+      <a class="btn btn--brand" href="#casas"><span>Ver las casas</span><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a class="btn btn--light" href="https://wa.me/573113111669?text=Hola%2C%20vi%20las%20casas%20en%20venta%20en%20la%20p%C3%A1gina%20de%20YU%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Escribir a ventas</span></a>
     </div>
+  </div>
+</section>
 
-    <div class="sale-cards">
+<section class="section listing listing--index">
+  <div class="wrap">
+
+    <div class="sale-cards" id="casas">
       <a class="sale-card reveal" href="../casas-en-venta/casa-campestre-inteligente-eje-cafetero/" data-page="venta-s1">
-        <div class="sale-card__img">
+        <div class="sale-card__img"><span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>3</span>
           <picture>
             <source type="image/webp" srcset="../assets/img/venta/casa-inteligente-1-640.webp">
             <img src="../assets/img/venta/casa-inteligente-1.jpg" loading="lazy" decoding="async" width="1600" height="899" alt="Casa campestre inteligente en venta, con jacuzzi de borde infinito, en el Quindío" data-i18n-alt="sale.s1.alt">
@@ -321,7 +333,7 @@
         </div>
       </a>
       <a class="sale-card reveal" href="../casas-en-venta/casa-campestre-estilo-americano-eje-cafetero/" data-page="venta-s2">
-        <div class="sale-card__img">
+        <div class="sale-card__img"><span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>14</span>
           <picture>
             <source type="image/webp" srcset="../assets/img/venta/casa-americana-1-640.webp">
             <img src="../assets/img/venta/casa-americana-1.jpg" loading="lazy" decoding="async" width="1280" height="960" alt="Casa campestre de estilo americano en venta en el Quindío" data-i18n-alt="sale.s2.alt">
@@ -340,6 +352,13 @@
           <div class="sale-card__foot"><span class="sale-card__price" data-i18n="sale.price">Precio a consultar</span><span class="sale-card__cta" data-i18n="sale.cta">Ver la casa</span></div>
         </div>
       </a>
+    </div>
+
+    <div class="trust reveal">
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-user-check"/></svg></span><span><b>Respaldo de constructora</b>Somos una empresa de ingeniería con obra en cuatro departamentos del Eje Cafetero y el Valle.</span></div>
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-file"/></svg></span><span><b>Todo por escrito</b>Fotos, cifras y características de cada casa, y la información que pida, por escrito.</span></div>
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span><span><b>Visitas coordinadas</b>Agendamos la visita por WhatsApp; si vive fuera, puede ir un familiar o un apoderado.</span></div>
+      <a class="trust__item" href="../guia-construir-en-colombia-extranjeros/" data-page="extranjeros"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><span><b>Compra desde el exterior</b>Guías para extranjeros y para colombianos que viven fuera.</span></a>
     </div>
 
     <div class="legal sale-info reveal">
@@ -385,28 +404,33 @@
       </p>
 
       <h2>Preguntas frecuentes</h2>
-      <p><b>¿Dónde están exactamente las casas?</b><br>
+      <p class="qa"><b>¿Dónde están exactamente las casas?</b><br>
         Las dos están en conjuntos campestres del Quindío; una de ellas, a unos 25 minutos
         de Pereira y 45 de Armenia. Le enviamos la ubicación exacta por WhatsApp.</p>
-      <p><b>¿Puedo visitarlas?</b><br>
+      <p class="qa"><b>¿Puedo visitarlas?</b><br>
         Sí. Escríbanos a la línea de ventas y coordinamos la visita. Si vive fuera, un
         familiar o un apoderado puede ir en su nombre.</p>
-      <p><b>¿Cuál es el precio?</b><br>
+      <p class="qa"><b>¿Cuál es el precio?</b><br>
         Se lo damos por WhatsApp, junto con los datos que necesite para decidir.</p>
-      <p><b>¿Tienen más casas en venta?</b><br>
+      <p class="qa"><b>¿Tienen más casas en venta?</b><br>
         Esta página reúne las que tenemos disponibles. Si busca algo distinto, cuéntenos qué
         necesita: también podemos construirla.</p>
-
-      <p>
-        <a class="btn btn--brand" href="https://wa.me/573113111669?text=Hola%2C%20vi%20las%20casas%20en%20venta%20en%20la%20p%C3%A1gina%20de%20YU%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." data-wa="ventas" target="_blank" rel="noopener">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg>
-          <span>Escribir a la línea de ventas</span>
-        </a>
-      </p>
-      <p class="note">Línea de ventas de casas: +57 311 311 1669.</p>
     </div>
   </div>
 </section>
+<section class="sale-band">
+  <div class="wrap sale-band__inner">
+    <div>
+      <h2>¿Le interesa alguna de nuestras casas?</h2>
+      <p>Escríbanos por WhatsApp: le enviamos la ubicación, resolvemos sus dudas y coordinamos la visita.</p>
+    </div>
+    <div class="sale-band__cta">
+      <a class="btn btn--brand" href="https://wa.me/573113111669?text=Hola%2C%20vi%20las%20casas%20en%20venta%20en%20la%20p%C3%A1gina%20de%20YU%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Escribir por WhatsApp</span></a>
+      <span class="sale-band__line">Línea de ventas: +57 311 311 1669</span>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ============ Pie ============ -->
@@ -491,8 +515,8 @@ Armenia, Quindío — Colombia</li>
 
 <!-- ============ Visor de galería ============ -->
 
-<script src="../assets/js/i18n.es.js?v=325b0f8c"></script>
-<script src="../assets/js/app.js?v=e251f823"></script>
+<script src="../assets/js/i18n.es.js?v=60c760ab"></script>
+<script src="../assets/js/app.js?v=35f210b5"></script>
 <!-- analitica -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3d774664bfcf4c329fcb0e9c4f75d5b7"}'></script>
 <!-- /analitica -->
