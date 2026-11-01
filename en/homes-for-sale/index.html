@@ -47,7 +47,7 @@
 <link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/barlow-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/barlow-condensed-700-latin.woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/css/fonts.css?v=1833fdc5">
-<link rel="stylesheet" href="../../assets/css/styles.css?v=6d85043c">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=66feb674">
 
 <!--
   Precarga de la siguiente página cuando el visitante muestra intención de ir
@@ -144,7 +144,7 @@
       "publisher": {
         "@id": "https://yuconstructora.com/#organizacion"
       },
-      "dateModified": "2026-10-31",
+      "dateModified": "2026-11-01",
       "primaryImageOfPage": "https://yuconstructora.com/assets/img/venta/casa-inteligente-1-og.jpg"
     },
     {
@@ -286,23 +286,34 @@
 </nav>
 
 <main id="main">
-<section class="section listing">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="rule"></div>
-      <span class="eyebrow">YU homes for sale</span>
-      <h1>Country houses for sale in Quindío, Colombia</h1>
-      <p>
-        As well as building, we have houses ready to move into, in gated country estates in
-        Quindío, at the heart of Colombia's Coffee Region. Each one is presented here with its
-        photographs, its figures and its features in writing, and there is a dedicated
-        WhatsApp line for sales.
-      </p>
+<section class="sale-hero">
+  <picture class="sale-hero__bg">
+    <source type="image/webp" sizes="100vw" srcset="../../assets/img/venta/casa-inteligente-1-640.webp 640w, ../../assets/img/venta/casa-inteligente-1-1280.webp 1280w">
+    <img src="../../assets/img/venta/casa-inteligente-1.jpg" alt="" fetchpriority="high" width="1600" height="899">
+  </picture>
+  <div class="wrap sale-hero__inner">
+    <span class="eyebrow">YU homes for sale</span>
+    <h1>Country houses for sale in Quindío, Colombia</h1>
+    <p class="sale-hero__sub">As well as building, we have houses ready to move into, in gated country estates in Quindío, at the heart of Colombia's Coffee Region. Each one is presented here with its photographs, its figures and its features in writing, and there is a dedicated WhatsApp line for sales.</p>
+    <ul class="sale-hero__stats">
+      <li><b>2</b><span>homes available</span></li>
+      <li><b>220–427 m²</b><span>built</span></li>
+      <li><b>1,000–2,350 m²</b><span>plot</span></li>
+      <li><b>Quindío, Colombia</b><span>location</span></li>
+    </ul>
+    <div class="sale-hero__cta">
+      <a class="btn btn--brand" href="#casas"><span>View the homes</span><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a class="btn btn--light" href="https://wa.me/573113111669?text=Hello%2C%20I%20saw%20the%20homes%20for%20sale%20on%20YU's%20website%20and%20would%20like%20more%20information." data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Message sales</span></a>
     </div>
+  </div>
+</section>
 
-    <div class="sale-cards">
+<section class="section listing listing--index">
+  <div class="wrap">
+
+    <div class="sale-cards" id="casas">
       <a class="sale-card reveal" href="../../en/homes-for-sale/smart-country-house-coffee-region/" data-page="venta-s1">
-        <div class="sale-card__img">
+        <div class="sale-card__img"><span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>3</span>
           <picture>
             <source type="image/webp" srcset="../../assets/img/venta/casa-inteligente-1-640.webp">
             <img src="../../assets/img/venta/casa-inteligente-1.jpg" loading="lazy" decoding="async" width="1600" height="899" alt="Smart country house for sale with an infinity-edge jacuzzi in Quindío, Colombia" data-i18n-alt="sale.s1.alt">
@@ -322,7 +333,7 @@
         </div>
       </a>
       <a class="sale-card reveal" href="../../en/homes-for-sale/american-style-country-house-coffee-region/" data-page="venta-s2">
-        <div class="sale-card__img">
+        <div class="sale-card__img"><span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>14</span>
           <picture>
             <source type="image/webp" srcset="../../assets/img/venta/casa-americana-1-640.webp">
             <img src="../../assets/img/venta/casa-americana-1.jpg" loading="lazy" decoding="async" width="1280" height="960" alt="American-style country house for sale in Quindío, Colombia" data-i18n-alt="sale.s2.alt">
@@ -341,6 +352,13 @@
           <div class="sale-card__foot"><span class="sale-card__price" data-i18n="sale.price">Price on request</span><span class="sale-card__cta" data-i18n="sale.cta">View the house</span></div>
         </div>
       </a>
+    </div>
+
+    <div class="trust reveal">
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-user-check"/></svg></span><span><b>Backed by a builder</b>We are an engineering company with projects in four departments of the Coffee Region and Valle.</span></div>
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-file"/></svg></span><span><b>Everything in writing</b>Photos, figures and features of each house, plus any information you ask for, in writing.</span></div>
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span><span><b>Arranged viewings</b>We schedule the visit on WhatsApp; if you live abroad, a relative or representative can go for you.</span></div>
+      <a class="trust__item" href="../../en/building-a-house-in-colombia-as-a-foreigner/" data-page="extranjeros"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><span><b>Buying from abroad</b>Guides for foreigners and for Colombians who live abroad.</span></a>
     </div>
 
     <div class="legal sale-info reveal">
@@ -388,28 +406,33 @@
       </p>
 
       <h2>Frequently asked questions</h2>
-      <p><b>Where exactly are the houses?</b><br>
+      <p class="qa"><b>Where exactly are the houses?</b><br>
         Both are in gated country estates in Quindío; one of them is about 25 minutes from
         Pereira and 45 from Armenia. We will send you the exact location on WhatsApp.</p>
-      <p><b>Can I view them?</b><br>
+      <p class="qa"><b>Can I view them?</b><br>
         Yes. Message the sales line and we will arrange the viewing. If you live abroad, a
         relative or someone holding your power of attorney can go on your behalf.</p>
-      <p><b>What is the price?</b><br>
+      <p class="qa"><b>What is the price?</b><br>
         We will give it to you on WhatsApp, along with any details you need to make your decision.</p>
-      <p><b>Do you have other houses for sale?</b><br>
+      <p class="qa"><b>Do you have other houses for sale?</b><br>
         This page brings together the ones we have available. If you are looking for something
         different, tell us what you need: we can also build it.</p>
-
-      <p>
-        <a class="btn btn--brand" href="https://wa.me/573113111669?text=Hello%2C%20I%20saw%20the%20homes%20for%20sale%20on%20YU's%20website%20and%20would%20like%20more%20information." data-wa="ventas" target="_blank" rel="noopener">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg>
-          <span>Message the sales line</span>
-        </a>
-      </p>
-      <p class="note">Home sales line: +57 311 311 1669.</p>
     </div>
   </div>
 </section>
+<section class="sale-band">
+  <div class="wrap sale-band__inner">
+    <div>
+      <h2>Interested in one of our homes?</h2>
+      <p>Message us on WhatsApp: we will send you the location, answer your questions and arrange a visit.</p>
+    </div>
+    <div class="sale-band__cta">
+      <a class="btn btn--brand" href="https://wa.me/573113111669?text=Hello%2C%20I%20saw%20the%20homes%20for%20sale%20on%20YU's%20website%20and%20would%20like%20more%20information." data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Message us on WhatsApp</span></a>
+      <span class="sale-band__line">Sales line: +57 311 311 1669</span>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ============ Pie ============ -->
@@ -494,8 +517,8 @@ Armenia, Quindío — Colombia</li>
 
 <!-- ============ Visor de galería ============ -->
 
-<script src="../../assets/js/i18n.en.js?v=f9b7dbe4"></script>
-<script src="../../assets/js/app.js?v=e251f823"></script>
+<script src="../../assets/js/i18n.en.js?v=2c7e1d6d"></script>
+<script src="../../assets/js/app.js?v=35f210b5"></script>
 <!-- analitica -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3d774664bfcf4c329fcb0e9c4f75d5b7"}'></script>
 <!-- /analitica -->

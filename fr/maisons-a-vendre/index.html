@@ -47,7 +47,7 @@
 <link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/barlow-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/barlow-condensed-700-latin.woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/css/fonts.css?v=1833fdc5">
-<link rel="stylesheet" href="../../assets/css/styles.css?v=6d85043c">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=66feb674">
 
 <!--
   Precarga de la siguiente página cuando el visitante muestra intención de ir
@@ -144,7 +144,7 @@
       "publisher": {
         "@id": "https://yuconstructora.com/#organizacion"
       },
-      "dateModified": "2026-10-31",
+      "dateModified": "2026-11-01",
       "primaryImageOfPage": "https://yuconstructora.com/assets/img/venta/casa-inteligente-1-og.jpg"
     },
     {
@@ -286,23 +286,34 @@
 </nav>
 
 <main id="main">
-<section class="section listing">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="rule"></div>
-      <span class="eyebrow">Maisons YU à vendre</span>
-      <h1>Maisons de campagne à vendre dans le Quindío</h1>
-      <p>
-        En plus de construire, nous proposons des maisons prêtes à habiter dans des résidences
-        fermées du Quindío, au cœur de la région du café (Eje Cafetero). Pour chacune, vous
-        trouverez ici les photos, les chiffres et les caractéristiques par écrit, ainsi qu'une
-        ligne WhatsApp dédiée à la vente.
-      </p>
+<section class="sale-hero">
+  <picture class="sale-hero__bg">
+    <source type="image/webp" sizes="100vw" srcset="../../assets/img/venta/casa-inteligente-1-640.webp 640w, ../../assets/img/venta/casa-inteligente-1-1280.webp 1280w">
+    <img src="../../assets/img/venta/casa-inteligente-1.jpg" alt="" fetchpriority="high" width="1600" height="899">
+  </picture>
+  <div class="wrap sale-hero__inner">
+    <span class="eyebrow">Maisons YU à vendre</span>
+    <h1>Maisons de campagne à vendre dans le Quindío</h1>
+    <p class="sale-hero__sub">En plus de construire, nous proposons des maisons prêtes à habiter dans des résidences fermées du Quindío, au cœur de la région du café (Eje Cafetero). Pour chacune, vous trouverez ici les photos, les chiffres et les caractéristiques par écrit, ainsi qu'une ligne WhatsApp dédiée à la vente.</p>
+    <ul class="sale-hero__stats">
+      <li><b>2</b><span>maisons disponibles</span></li>
+      <li><b>220–427 m²</b><span>habitables</span></li>
+      <li><b>1 000–2 350 m²</b><span>de terrain</span></li>
+      <li><b>Quindío, Colombie</b><span>emplacement</span></li>
+    </ul>
+    <div class="sale-hero__cta">
+      <a class="btn btn--brand" href="#casas"><span>Voir les maisons</span><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a class="btn btn--light" href="https://wa.me/573113111669?text=Bonjour%2C%20j'ai%20vu%20les%20maisons%20%C3%A0%20vendre%20sur%20le%20site%20de%20YU%20et%20j'aimerais%20plus%20d'informations." data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Écrire au service des ventes</span></a>
     </div>
+  </div>
+</section>
 
-    <div class="sale-cards">
+<section class="section listing listing--index">
+  <div class="wrap">
+
+    <div class="sale-cards" id="casas">
       <a class="sale-card reveal" href="../../fr/maisons-a-vendre/maison-de-campagne-connectee-region-du-cafe/" data-page="venta-s1">
-        <div class="sale-card__img">
+        <div class="sale-card__img"><span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>3</span>
           <picture>
             <source type="image/webp" srcset="../../assets/img/venta/casa-inteligente-1-640.webp">
             <img src="../../assets/img/venta/casa-inteligente-1.jpg" loading="lazy" decoding="async" width="1600" height="899" alt="Maison de campagne connectée à vendre, avec jacuzzi à débordement, dans le Quindío, en Colombie" data-i18n-alt="sale.s1.alt">
@@ -322,7 +333,7 @@
         </div>
       </a>
       <a class="sale-card reveal" href="../../fr/maisons-a-vendre/maison-de-campagne-style-americain-region-du-cafe/" data-page="venta-s2">
-        <div class="sale-card__img">
+        <div class="sale-card__img"><span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>14</span>
           <picture>
             <source type="image/webp" srcset="../../assets/img/venta/casa-americana-1-640.webp">
             <img src="../../assets/img/venta/casa-americana-1.jpg" loading="lazy" decoding="async" width="1280" height="960" alt="Maison de campagne de style américain à vendre dans le Quindío, en Colombie" data-i18n-alt="sale.s2.alt">
@@ -341,6 +352,13 @@
           <div class="sale-card__foot"><span class="sale-card__price" data-i18n="sale.price">Prix sur demande</span><span class="sale-card__cta" data-i18n="sale.cta">Voir la maison</span></div>
         </div>
       </a>
+    </div>
+
+    <div class="trust reveal">
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-user-check"/></svg></span><span><b>Le sérieux d'un constructeur</b>Nous sommes une entreprise d'ingénierie avec des chantiers dans quatre départements de la région du café et du Valle.</span></div>
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-file"/></svg></span><span><b>Tout par écrit</b>Photos, chiffres et caractéristiques de chaque maison, et les informations que vous demandez, par écrit.</span></div>
+      <div class="trust__item"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span><span><b>Visites organisées</b>Nous organisons la visite sur WhatsApp ; si vous vivez à l'étranger, un proche ou un mandataire peut s'y rendre.</span></div>
+      <a class="trust__item" href="../../fr/guide-construire-en-colombie-etrangers/" data-page="extranjeros"><span class="trust__ico"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><span><b>Acheter depuis l'étranger</b>Des guides pour les étrangers et pour les Colombiens de l'étranger.</span></a>
     </div>
 
     <div class="legal sale-info reveal">
@@ -390,30 +408,35 @@
       </p>
 
       <h2>Questions fréquentes</h2>
-      <p><b>Où se trouvent exactement les maisons ?</b><br>
+      <p class="qa"><b>Où se trouvent exactement les maisons ?</b><br>
         Toutes deux se trouvent dans des résidences fermées du Quindío ; l'une d'elles est à
         environ 25 minutes de Pereira et 45 minutes d'Armenia. Nous vous envoyons l'emplacement
         exact par WhatsApp.</p>
-      <p><b>Puis-je les visiter ?</b><br>
+      <p class="qa"><b>Puis-je les visiter ?</b><br>
         Oui. Écrivez au service des ventes et nous organisons la visite. Si vous vivez à
         l'étranger, un proche ou un mandataire peut s'y rendre en votre nom.</p>
-      <p><b>Quel est le prix ?</b><br>
+      <p class="qa"><b>Quel est le prix ?</b><br>
         Nous vous le communiquons par WhatsApp, avec les informations dont vous avez besoin
         pour décider.</p>
-      <p><b>Avez-vous d'autres maisons à vendre ?</b><br>
+      <p class="qa"><b>Avez-vous d'autres maisons à vendre ?</b><br>
         Cette page réunit celles dont nous disposons. Si vous cherchez autre chose, dites-nous
         ce dont vous avez besoin : nous pouvons aussi la construire.</p>
-
-      <p>
-        <a class="btn btn--brand" href="https://wa.me/573113111669?text=Bonjour%2C%20j'ai%20vu%20les%20maisons%20%C3%A0%20vendre%20sur%20le%20site%20de%20YU%20et%20j'aimerais%20plus%20d'informations." data-wa="ventas" target="_blank" rel="noopener">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg>
-          <span>Écrire au service des ventes</span>
-        </a>
-      </p>
-      <p class="note">Numéro dédié à la vente des maisons : +57 311 311 1669.</p>
     </div>
   </div>
 </section>
+<section class="sale-band">
+  <div class="wrap sale-band__inner">
+    <div>
+      <h2>Une de nos maisons vous intéresse ?</h2>
+      <p>Écrivez-nous sur WhatsApp : nous vous envoyons l'emplacement, répondons à vos questions et organisons la visite.</p>
+    </div>
+    <div class="sale-band__cta">
+      <a class="btn btn--brand" href="https://wa.me/573113111669?text=Bonjour%2C%20j'ai%20vu%20les%20maisons%20%C3%A0%20vendre%20sur%20le%20site%20de%20YU%20et%20j'aimerais%20plus%20d'informations." data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Écrire sur WhatsApp</span></a>
+      <span class="sale-band__line">Ligne de vente: +57 311 311 1669</span>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ============ Pie ============ -->
@@ -498,8 +521,8 @@ Armenia, Quindío — Colombie</li>
 
 <!-- ============ Visor de galería ============ -->
 
-<script src="../../assets/js/i18n.fr.js?v=1c93813c"></script>
-<script src="../../assets/js/app.js?v=e251f823"></script>
+<script src="../../assets/js/i18n.fr.js?v=e63bb829"></script>
+<script src="../../assets/js/app.js?v=35f210b5"></script>
 <!-- analitica -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3d774664bfcf4c329fcb0e9c4f75d5b7"}'></script>
 <!-- /analitica -->

@@ -601,6 +601,178 @@ function buildListingGallery(key, lang) {
     '      </div>';
 }
 
+/* ---------------------------------------- Rediseño de la venta (01/11/2026)
+   Piezas que el generador pone alrededor del contenido de las páginas de la
+   sección: portada con foto y cifras, franja de confianza, lo mejor de cada
+   casa, miga de pan, otras casas, cierre con WhatsApp y, en el teléfono, una
+   barra fija con el botón. Salen del diccionario y de LISTINGS, de modo que
+   valen para los cinco idiomas sin retraducir las páginas. */
+const fmtNum = (n, lang) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g,
+  lang === 'en' ? ',' : lang === 'fr' ? ' ' : '.');
+
+function saleCard(key, lang) {
+  const T = DICT[lang];
+  const l = LISTINGS[key];
+  const img = 'assets/img/venta/' + l.slug + '-1';
+  const size = jpegSize(img + '.jpg');
+  return `        <a class="sale-card reveal" href="#" data-page="venta-${key}">
+          <div class="sale-card__img">
+            <picture>
+              <source type="image/webp" srcset="${img}-640.webp">
+              <img src="${img}.jpg" loading="lazy" decoding="async" width="${size.w}" height="${size.h}" alt="${escAttr(T['sale.' + key + '.alt'])}">
+            </picture>
+            <span class="sale-card__badge">${esc(T['sale.' + key + '.badge'])}</span>
+          </div>
+          <div class="sale-card__body">
+            <h3>${esc(T['sale.' + key + '.t'])}</h3>
+            <p class="sale-card__loc">${esc(T['sale.' + key + '.l'])}</p>
+            <ul class="sale-card__facts">
+              <li><b>${fmtNum(l.built, lang)} m²</b> <span>${esc(T['sale.built'])}</span></li>
+              <li><b>${fmtNum(l.lot, lang)} m²</b> <span>${esc(T['sale.lot'])}</span></li>
+              <li><b>${l.bedrooms}</b> <span>${esc(T['sale.beds'])}</span></li>
+              <li><b>${l.bathrooms}</b> <span>${esc(T['sale.baths'])}</span></li>
+            </ul>
+            <div class="sale-card__foot"><span class="sale-card__price">${esc(T['sale.price'])}</span><span class="sale-card__cta">${esc(T['sale.cta'])}</span></div>
+          </div>
+        </a>`;
+}
+
+/* Portada de la página general: la cabecera del contenido (antetítulo, h1 e
+   introducción) pasa a un bloque a todo el ancho con la foto de la primera casa. */
+function saleHero(lang, body) {
+  const T = DICT[lang];
+  const m = body.match(/<section class="section listing">\s*<div class="wrap">\s*<div class="section-head reveal">\s*<div class="rule"><\/div>\s*<span class="eyebrow">([\s\S]*?)<\/span>\s*<h1>([\s\S]*?)<\/h1>\s*<p>([\s\S]*?)<\/p>\s*<\/div>/);
+  if (!m) throw new Error('venta (' + lang + '): no se reconoce la cabecera de la página general');
+  const built = Object.values(LISTINGS).map((l) => l.built);
+  const cover = 'assets/img/venta/' + LISTINGS.s1.slug + '-1';
+  const size = jpegSize(cover + '.jpg');
+  const hero = `<section class="sale-hero">
+  <picture class="sale-hero__bg">
+    <source type="image/webp" sizes="100vw" srcset="${cover}-640.webp 640w, ${cover}-1280.webp 1280w">
+    <img src="${cover}.jpg" alt="" fetchpriority="high" width="${size.w}" height="${size.h}">
+  </picture>
+  <div class="wrap sale-hero__inner">
+    <span class="eyebrow">${m[1]}</span>
+    <h1>${m[2]}</h1>
+    <p class="sale-hero__sub">${m[3].trim().replace(/\s+/g, ' ')}</p>
+    <ul class="sale-hero__stats">
+      <li><b>${Object.keys(LISTINGS).length}</b><span>${esc(T['sale.stat.homes'])}</span></li>
+      <li><b>${Math.min(...built)}–${Math.max(...built)} m²</b><span>${esc(T['sale.built'])}</span></li>
+      <li><b>${esc(T['sale.stat.lotv'])}</b><span>${esc(T['sale.lot'])}</span></li>
+      <li><b>${esc(T['sale.stat.place'])}</b><span>${esc(T['sale.stat.where'])}</span></li>
+    </ul>
+    <div class="sale-hero__cta">
+      <a class="btn btn--brand" href="#casas"><span>${esc(T['sale.hero.cta1'])}</span><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a class="btn btn--light" href="https://wa.me/${WA_NUMBER}" data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>${esc(T['sale.hero.cta2'])}</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section listing listing--index">
+  <div class="wrap">`;
+  return body.replace(m[0], () => hero).replace('<div class="sale-cards">', () => '<div class="sale-cards" id="casas">');
+}
+
+function saleTrust(lang) {
+  const T = DICT[lang];
+  const items = ['i-user-check', 'i-file', 'i-calendar', 'i-globe'].map((ic, i) => {
+    const n = i + 1;
+    const open = n === 4 ? '<a class="trust__item" href="#" data-page="extranjeros">' : '<div class="trust__item">';
+    const close = n === 4 ? '</a>' : '</div>';
+    return `      ${open}<span class="trust__ico"><svg aria-hidden="true"><use href="#${ic}"/></svg></span>` +
+      `<span><b>${esc(T['sale.trust.' + n + '.t'])}</b>${esc(T['sale.trust.' + n + '.d'])}</span>${close}`;
+  });
+  return '<div class="trust reveal">\n' + items.join('\n') + '\n    </div>\n\n    ';
+}
+
+function saleHighlights(key, lang) {
+  const T = DICT[lang];
+  const icons = { s1: ['i-phone', 'i-water', 'i-shield', 'i-house'], s2: ['i-map', 'i-layers', 'i-house', 'i-briefcase'] }[key];
+  if (!icons) throw new Error('Faltan los iconos de lo mejor de la casa ' + key);
+  return '        <div class="hl">\n' + icons.map((ic, i) => {
+    const p = 'sale.' + key + '.h' + (i + 1);
+    return `          <div class="hl__item"><span class="hl__ico"><svg aria-hidden="true"><use href="#${ic}"/></svg></span>` +
+      `<b>${esc(T[p + '.t'])}</b><span>${esc(T[p + '.d'])}</span></div>`;
+  }).join('\n') + '\n        </div>\n';
+}
+
+function saleCrumbs(key, lang) {
+  const T = DICT[lang];
+  return `<nav class="crumbs" data-i18n-aria="a11y.crumbs" aria-label="${escAttr(T['a11y.crumbs'])}">` +
+    `<a href="#" data-page="home">${esc(T['nav.home'])}</a><span aria-hidden="true">›</span>` +
+    `<a href="#" data-page="venta">${esc(T['nav.sale'])}</a><span aria-hidden="true">›</span>` +
+    `<span aria-current="page">${esc(T['sale.' + key + '.t'])}</span></nav>\n      `;
+}
+
+function saleOthers(key, lang) {
+  const others = Object.keys(LISTINGS).filter((k) => k !== key);
+  if (!others.length) return '';
+  return `<section class="section section--alt sale-others">
+  <div class="wrap">
+    <h2 class="sale-others__h">${esc(DICT[lang]['sale.others'])}</h2>
+    <div class="sale-cards sale-cards--others">
+${others.map((k) => saleCard(k, lang)).join('\n')}
+    </div>
+  </div>
+</section>
+`;
+}
+
+function saleBand(lang, waKey) {
+  const T = DICT[lang];
+  return `<section class="sale-band">
+  <div class="wrap sale-band__inner">
+    <div>
+      <h2>${esc(T['sale.band.t'])}</h2>
+      <p>${esc(T['sale.band.d'])}</p>
+    </div>
+    <div class="sale-band__cta">
+      <a class="btn btn--brand" href="https://wa.me/${WA_NUMBER}" data-wa="${waKey}" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>${esc(T['sale.band.btn'])}</span></a>
+      <span class="sale-band__line">${esc(T['sale.line'])}: ${fmtPhone(SALES_NUMBER)}</span>
+    </div>
+  </div>
+</section>
+`;
+}
+
+/* Barra fija del teléfono en la ficha de una casa: el precio y el botón,
+   siempre a mano. En escritorio no se muestra (está la columna lateral). */
+function saleBar(lang) {
+  const T = DICT[lang];
+  return `<div class="sale-bar">
+  <span class="sale-bar__price">${esc(T['sale.price'])}</span>
+  <a class="btn btn--brand" href="https://wa.me/${WA_NUMBER}" data-wa="venta" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>${esc(T['sale.ask'])}</span></a>
+</div>
+`;
+}
+
+function decorateSale(page, lang, body) {
+  const must = (ok, what) => { if (!ok) throw new Error(page.id + ' (' + lang + '): no se encuentra ' + what); };
+  if (page.id === 'venta') {
+    body = saleHero(lang, body);
+    must(body.includes('<div class="legal sale-info reveal">'), '.sale-info');
+    body = body.replace('<div class="legal sale-info reveal">', () => saleTrust(lang) + '<div class="legal sale-info reveal">');
+    return body + '\n' + saleBand(lang, 'ventas');
+  }
+  if (page.listing) {
+    const k = page.listing;
+    must(body.includes('<div class="listing__head reveal">'), '.listing__head');
+    body = body.replace('<div class="listing__head reveal">', () => '<div class="listing__head reveal">\n      ' + saleCrumbs(k, lang));
+    must(/<ul class="facts">[\s\S]*?<\/ul>\n/.test(body), 'la lista de cifras');
+    body = body.replace(/<ul class="facts">[\s\S]*?<\/ul>\n/, (m) => m + saleHighlights(k, lang));
+    return body + '\n' + saleOthers(k, lang) + '\n' + saleBand(lang, 'venta') + '\n' + saleBar(lang);
+  }
+  return body;
+}
+
+/* Número de fotos sobre cada tarjeta de casa, en cualquier página. */
+function addPhotoCounts(html) {
+  return html.replace(/(<a class="sale-card[^"]*"[^>]*\sdata-page="venta-(s\d+)"[^>]*>\s*<div class="sale-card__img">)/g, (m, open, key) => {
+    if (!LISTINGS[key]) throw new Error('Tarjeta de una casa que no existe: ' + key);
+    return open + `<span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>${LISTINGS[key].count}</span>`;
+  });
+}
+
 function buildProjectList(lang, pageUrl) {
   const T = DICT[lang];
   return {
@@ -1315,6 +1487,7 @@ for (const page of PAGES) {
         }
         body = body.replace('<!-- galeria-venta -->', () => buildListingGallery(page.listing, lang));
       }
+      if (page.sales) body = decorateSale(page, lang, body);
       out = SHELL.head + SHELL.prelude + '<main id="main">\n' + body + '\n</main>' + SHELL.postlude;
 
       // Aquí no hay héroe: precargarlo descargaría cientos de KB que no se pintan.
@@ -1325,6 +1498,7 @@ for (const page of PAGES) {
       if (!page.listing) out = out.replace(/<!-- visor -->[\s\S]*?<!-- \/visor -->\n?/, '');
     }
 
+    out = addPhotoCounts(out);
     out = translateBody(out, lang);
     out = rewriteHead(out, lang, page, at, meta);
     out = writeWhatsAppLinks(out, lang, page);

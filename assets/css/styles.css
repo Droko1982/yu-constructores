@@ -1809,8 +1809,8 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
 
 .listing__grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; margin-top: 2rem; }
 .listing__body { max-width: none; }
-.facts { list-style: none; margin: 0 0 1.6rem !important; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
-.facts li {
+.listing__body .facts { list-style: none; margin: 0 0 1.6rem; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.listing__body .facts li {
   margin: 0 !important;
   display: flex; flex-direction: column;
   padding: .7rem 1rem;
@@ -1818,8 +1818,8 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
   background: var(--surface);
   line-height: 1.25 !important;
 }
-.facts b { font-family: var(--font-display); font-size: 1.35rem; color: var(--ink); }
-.facts span { font-size: .78rem; color: var(--ink-mut); }
+.listing__body .facts b { font-family: var(--font-display); font-size: 1.35rem; color: var(--ink); }
+.listing__body .facts span { font-size: .78rem; color: var(--ink-mut); }
 .listing__side { position: sticky; top: calc(var(--header-h) + 1rem); }
 .listing__card {
   background: var(--surface);
@@ -1848,3 +1848,190 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
 }
 /* Las fotos de fachada suelen llevar mucho cielo arriba: se encuadra más abajo. */
 .lgal__main img, .sale-card__img img { object-position: center 68%; }
+
+/* ---------- Casas en venta · rediseño (01/11/2026) -----------------------
+   Portada con foto y cifras, franja de confianza, iconos en las cifras,
+   listas con marca, guía de compra en tarjetas numeradas, preguntas en
+   tarjetas, lo mejor de cada casa, cierre con WhatsApp y barra fija en el
+   teléfono. Los iconos de las cifras son máscaras SVG: toman el color de la
+   marca en los dos temas. */
+:root {
+  --ico-area: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3'/></svg>");
+  --ico-lot: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z'/><path d='M9 3v15M15 6v15'/></svg>");
+  --ico-bed: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8'/><path d='M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4'/><path d='M12 4v6M2 18h20'/></svg>");
+  --ico-bath: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5'/><path d='M2 12h20M7 19v2M17 19v2'/></svg>");
+  --ico-car: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2'/><circle cx='7' cy='17' r='2'/><path d='M9 17h6'/><circle cx='17' cy='17' r='2'/></svg>");
+  --ico-check: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg>");
+  --ico-pin: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/><circle cx='12' cy='10' r='3'/></svg>");
+}
+.facts li:nth-child(1), .sale-card__facts li:nth-child(1) { --ico: var(--ico-area); }
+.facts li:nth-child(2), .sale-card__facts li:nth-child(2) { --ico: var(--ico-lot); }
+.facts li:nth-child(3), .sale-card__facts li:nth-child(3) { --ico: var(--ico-bed); }
+.facts li:nth-child(4), .sale-card__facts li:nth-child(4) { --ico: var(--ico-bath); }
+.facts li:nth-child(5) { --ico: var(--ico-car); }
+
+/* Portada de la página general */
+.sale-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  color: #fff;
+  padding: calc(var(--header-h) + clamp(3rem, 8vw, 6rem)) 0 clamp(3rem, 7vw, 5rem);
+  min-height: min(78vh, 680px);
+  display: flex; align-items: flex-end;
+}
+.sale-hero__bg { position: absolute; inset: 0; z-index: -2; }
+.sale-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+.sale-hero::after {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(10, 12, 14, .55) 0%, rgba(10, 12, 14, .2) 38%, rgba(10, 12, 14, .88) 100%),
+    linear-gradient(90deg, rgba(10, 12, 14, .86) 0%, rgba(10, 12, 14, .6) 42%, rgba(10, 12, 14, 0) 78%);
+}
+.sale-hero__inner { width: 100%; }
+.sale-hero .eyebrow { color: var(--brand); }
+.sale-hero h1 { color: #fff; font-size: clamp(2.2rem, 5.4vw, 4.1rem); line-height: 1.02; text-transform: uppercase; max-width: 18ch; margin: .6rem 0 1rem; }
+.sale-hero__sub { max-width: 60ch; color: rgba(255, 255, 255, .9); font-size: clamp(1rem, 1.6vw, 1.12rem); line-height: 1.65; }
+.sale-hero__stats {
+  list-style: none; padding: 0; margin: 2rem 0 0;
+  display: grid; grid-template-columns: repeat(4, auto); justify-content: start;
+  width: fit-content; max-width: 100%;
+  border: 1px solid rgba(255, 255, 255, .22); border-radius: var(--radius-lg);
+  background: rgba(10, 12, 14, .38); backdrop-filter: blur(8px);
+}
+.sale-hero__stats li { padding: .85rem 1.4rem; display: flex; flex-direction: column; gap: .15rem; border-left: 1px solid rgba(255, 255, 255, .18); }
+.sale-hero__stats li:first-child { border-left: 0; }
+.sale-hero__stats b { font-family: var(--font-display); font-size: 1.45rem; line-height: 1.1; color: #fff; white-space: nowrap; }
+.sale-hero__stats span { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .75); }
+.sale-hero__cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+.section.listing--index { padding-top: clamp(2.6rem, 5vw, 4rem); }
+
+/* Franja de confianza */
+.trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2.6rem; }
+.trust__item {
+  display: flex; gap: .85rem; align-items: flex-start;
+  padding: 1.15rem 1.15rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  color: var(--ink-mut); font-size: .86rem; line-height: 1.5; text-decoration: none;
+  transition: border-color .25s var(--ease), transform .25s var(--ease);
+}
+a.trust__item:hover { border-color: var(--brand); transform: translateY(-3px); }
+.trust__item b { display: block; color: var(--ink); font-size: .96rem; margin-bottom: .2rem; }
+.trust__ico { width: 40px; height: 40px; flex: none; border-radius: var(--radius); background: rgba(245, 163, 2, .12); color: var(--brand-ink); display: grid; place-items: center; }
+.trust__ico svg { width: 20px; height: 20px; }
+
+/* Guía de compra en tarjetas numeradas y preguntas en tarjetas */
+.sale-info { max-width: none; margin-top: 3.5rem; }
+.sale-info > p, .sale-info > h2 { max-width: 78ch; }
+.sale-info ul { list-style: none; margin: 1.3rem 0 2.2rem; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; counter-reset: paso; }
+.sale-info li {
+  counter-increment: paso; position: relative; margin: 0;
+  padding: 3rem 1.25rem 1.25rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  font-size: .9rem; line-height: 1.6; color: var(--ink-soft);
+}
+.sale-info li::before { content: counter(paso, decimal-leading-zero); position: absolute; left: 1.25rem; top: .95rem; font-family: var(--font-display); font-size: 1.35rem; color: var(--brand-ink); }
+.sale-info li b { display: block; color: var(--ink); margin-bottom: .25rem; }
+.qa {
+  max-width: 78ch;
+  background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--brand);
+  border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: .8rem;
+}
+.qa b { color: var(--ink); }
+
+/* Ficha de cada casa */
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; font-size: .82rem; color: var(--ink-mut); margin-bottom: 1rem; }
+.crumbs a { color: var(--ink-mut); text-decoration: none; }
+.crumbs a:hover { color: var(--brand-ink); }
+.crumbs [aria-current] { color: var(--ink); }
+.listing__loc { display: flex; align-items: center; gap: .45rem; }
+.listing__loc::before { content: ''; width: 18px; height: 18px; flex: none; background: var(--brand-ink); -webkit-mask: var(--ico-pin) center / contain no-repeat; mask: var(--ico-pin) center / contain no-repeat; }
+.listing__body .facts li { position: relative; padding-left: 2.9rem !important; justify-content: center; }
+.facts li::before, .sale-card__facts li::before {
+  content: ''; background: var(--brand-ink);
+  -webkit-mask: var(--ico) center / contain no-repeat; mask: var(--ico) center / contain no-repeat;
+}
+.listing__body .facts li::before { position: absolute; left: .95rem; top: 50%; width: 21px; height: 21px; transform: translateY(-50%); }
+.sale-card__facts li { display: inline-flex; align-items: center; gap: .35rem; }
+.sale-card__facts li::before { width: 15px; height: 15px; flex: none; }
+.hl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; margin: 0 0 2.2rem; }
+.hl__item {
+  display: grid; grid-template-columns: auto 1fr; column-gap: .9rem; row-gap: .15rem; align-items: start;
+  padding: 1.1rem 1.2rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+}
+.hl__ico { grid-row: span 2; width: 42px; height: 42px; border-radius: var(--radius); background: rgba(245, 163, 2, .12); color: var(--brand-ink); display: grid; place-items: center; }
+.hl__ico svg { width: 21px; height: 21px; }
+.hl__item b { color: var(--ink); font-size: 1rem; line-height: 1.3; }
+.hl__item span:last-child { color: var(--ink-mut); font-size: .88rem; line-height: 1.5; }
+.listing__body h2 { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.listing__body ul:not(.facts) { list-style: none; margin: 0 0 1.6rem; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem 1.4rem; }
+.listing__body ul:not(.facts) li { position: relative; padding-left: 1.7rem; margin: 0; line-height: 1.55; }
+.listing__body ul:not(.facts) li::before {
+  content: ''; position: absolute; left: 0; top: .22em; width: 1.05rem; height: 1.05rem;
+  background: var(--brand-ink); -webkit-mask: var(--ico-check) center / contain no-repeat; mask: var(--ico-check) center / contain no-repeat;
+}
+
+/* Tarjetas: número de fotos */
+.sale-card__count {
+  position: absolute; right: 1rem; top: 1rem; z-index: 1;
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .3rem .65rem; border-radius: 100px;
+  background: rgba(10, 12, 14, .62); color: #fff; font-size: .78rem; font-weight: 700;
+  backdrop-filter: blur(4px);
+}
+.sale-card__count svg { width: 14px; height: 14px; }
+
+/* Otras casas y cierre */
+.sale-others__h { font-size: clamp(1.5rem, 3vw, 2rem); text-transform: uppercase; margin-bottom: 1.4rem; }
+.sale-cards--others { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 540px)); }
+.sale-band { background: linear-gradient(120deg, #101418, #1d242b); color: #fff; padding-block: clamp(2.8rem, 6vw, 4.2rem); border-top: 3px solid var(--brand); }
+.sale-band__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; flex-wrap: wrap; }
+.sale-band h2 { color: #fff; font-size: clamp(1.6rem, 3.4vw, 2.4rem); text-transform: uppercase; line-height: 1.05; }
+.sale-band p { color: rgba(255, 255, 255, .82); margin-top: .5rem; max-width: 58ch; }
+.sale-band__cta { display: flex; flex-direction: column; align-items: flex-start; gap: .6rem; }
+.sale-band__line { font-size: .85rem; color: rgba(255, 255, 255, .75); }
+
+/* Barra fija del teléfono */
+.sale-bar { display: none; }
+
+@media (max-width: 1000px) {
+  .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sale-info ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .sale-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 95;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .7rem 16px calc(.7rem + env(safe-area-inset-bottom));
+    background: var(--surface); border-top: 1px solid var(--line);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, .18);
+    transition: transform .3s var(--ease), visibility .3s;
+  }
+  body.is-past-band .sale-bar { transform: translateY(110%); visibility: hidden; }
+  body.is-past-band .to-top { bottom: 24px; }
+  .sale-bar__price { font-family: var(--font-display); text-transform: uppercase; font-size: 1rem; line-height: 1.1; color: var(--ink); }
+  .sale-bar .btn { padding: .7rem 1rem; }
+  body:has(.sale-bar) .fab-wa { display: none; }
+  body:has(.sale-bar) .footer { padding-bottom: 6.5rem; }
+  body:has(.sale-bar) .to-top { bottom: 84px; }
+}
+@media (max-width: 760px) {
+  .sale-hero { min-height: 0; }
+  .sale-hero::after { background: linear-gradient(180deg, rgba(10, 12, 14, .74) 0%, rgba(10, 12, 14, .66) 55%, rgba(10, 12, 14, .92) 100%); }
+  .sale-hero__cta .btn { flex: 1 1 100%; justify-content: center; }
+  .sale-hero__stats { grid-template-columns: 1fr 1fr; width: 100%; }
+  .sale-hero__stats li:nth-child(3) { border-left: 0; }
+  .sale-hero__stats li:nth-child(n + 3) { border-top: 1px solid rgba(255, 255, 255, .18); }
+  .hl { grid-template-columns: minmax(0, 1fr); }
+  .listing__body ul:not(.facts) { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .trust, .sale-info ul { grid-template-columns: minmax(0, 1fr); }
+  .sale-band__cta { width: 100%; }
+  .sale-band__cta .btn { width: 100%; justify-content: center; }
+}
+
+/* Cifras de la casa: la clase .facts ya existía para la ficha de las obras (con marco
+   y fondo propios). Dentro de una casa se neutraliza y se reparte en una fila pareja. */
+.listing__body .facts { border: 0; background: none; padding: 0; box-shadow: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: .6rem; }
+.listing__body .facts li { min-width: 0; }
+.listing__body .facts span { overflow-wrap: anywhere; }
