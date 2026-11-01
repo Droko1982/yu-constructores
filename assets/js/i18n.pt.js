@@ -236,7 +236,6 @@ window.YU_I18N = {
     "wa.venta": "Olá, tenho interesse nesta casa que vi no site da YU: {casa}. Podem me enviar mais informações?",
     "wa.ventas": "Olá, vi as casas à venda no site da YU e gostaria de mais informações.",
     "a11y.crumbs": "Trilha de navegação",
-    "sale.hero.cta1": "Ver as casas",
     "sale.hero.cta2": "Falar com vendas",
     "sale.stat.homes": "casas disponíveis",
     "sale.stat.lotv": "1.000–2.350 m²",

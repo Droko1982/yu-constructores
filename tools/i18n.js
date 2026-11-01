@@ -259,7 +259,6 @@ window.YU_I18N = {
     'wa.ventas': 'Hola, vi las casas en venta en la página de YU y quisiera más información.',
     /* Rediseño de la sección de venta (01/11/2026) */
     'a11y.crumbs': 'Ruta de navegación',
-    'sale.hero.cta1': 'Ver las casas',
     'sale.hero.cta2': 'Escribir a ventas',
     'sale.stat.homes': 'casas disponibles',
     'sale.stat.lotv': '1.000–2.350 m²',
@@ -709,7 +708,6 @@ window.YU_I18N = {
     'wa.ventas': 'Hello, I saw the homes for sale on YU\'s website and would like more information.',
     /* Rediseño de la sección de venta (01/11/2026) */
     'a11y.crumbs': 'Breadcrumb',
-    'sale.hero.cta1': 'View the homes',
     'sale.hero.cta2': 'Message sales',
     'sale.stat.homes': 'homes available',
     'sale.stat.lotv': '1,000–2,350 m²',
@@ -1159,7 +1157,6 @@ window.YU_I18N = {
     'wa.ventas': 'Olá, vi as casas à venda no site da YU e gostaria de mais informações.',
     /* Rediseño de la sección de venta (01/11/2026) */
     'a11y.crumbs': 'Trilha de navegação',
-    'sale.hero.cta1': 'Ver as casas',
     'sale.hero.cta2': 'Falar com vendas',
     'sale.stat.homes': 'casas disponíveis',
     'sale.stat.lotv': '1.000–2.350 m²',
@@ -1609,7 +1606,6 @@ window.YU_I18N = {
     'wa.ventas': 'Bonjour, j\'ai vu les maisons à vendre sur le site de YU et j\'aimerais plus d\'informations.',
     /* Rediseño de la sección de venta (01/11/2026) */
     'a11y.crumbs': 'Fil d\'Ariane',
-    'sale.hero.cta1': 'Voir les maisons',
     'sale.hero.cta2': 'Écrire au service des ventes',
     'sale.stat.homes': 'maisons disponibles',
     'sale.stat.lotv': '1 000–2 350 m²',
@@ -2059,7 +2055,6 @@ window.YU_I18N = {
     'wa.ventas': 'Hallo, ich habe die Häuser zum Verkauf auf der Website von YU gesehen und hätte gern mehr Informationen.',
     /* Rediseño de la sección de venta (01/11/2026) */
     'a11y.crumbs': 'Brotkrumen-Navigation',
-    'sale.hero.cta1': 'Häuser ansehen',
     'sale.hero.cta2': 'Verkauf kontaktieren',
     'sale.stat.homes': 'Häuser verfügbar',
     'sale.stat.lotv': '1.000–2.350 m²',
