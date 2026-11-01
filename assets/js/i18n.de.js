@@ -236,7 +236,6 @@ window.YU_I18N = {
     "wa.venta": "Hallo, ich interessiere mich für dieses Haus auf der Website von YU: {casa}. Könnten Sie mir mehr Informationen schicken?",
     "wa.ventas": "Hallo, ich habe die Häuser zum Verkauf auf der Website von YU gesehen und hätte gern mehr Informationen.",
     "a11y.crumbs": "Brotkrumen-Navigation",
-    "sale.hero.cta1": "Häuser ansehen",
     "sale.hero.cta2": "Verkauf kontaktieren",
     "sale.stat.homes": "Häuser verfügbar",
     "sale.stat.lotv": "1.000–2.350 m²",

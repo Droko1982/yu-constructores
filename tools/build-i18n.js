@@ -603,7 +603,7 @@ function buildListingGallery(key, lang) {
 
 /* ---------------------------------------- Rediseño de la venta (01/11/2026)
    Piezas que el generador pone alrededor del contenido de las páginas de la
-   sección: portada con foto y cifras, franja de confianza, lo mejor de cada
+   sección: cabecera con cifras, franja de confianza, lo mejor de cada
    casa, miga de pan, otras casas, cierre con WhatsApp y, en el teléfono, una
    barra fija con el botón. Salen del diccionario y de LISTINGS, de modo que
    valen para los cinco idiomas sin retraducir las páginas. */
@@ -637,40 +637,34 @@ function saleCard(key, lang) {
         </a>`;
 }
 
-/* Portada de la página general: la cabecera del contenido (antetítulo, h1 e
-   introducción) pasa a un bloque a todo el ancho con la foto de la primera casa. */
-function saleHero(lang, body) {
+/* Cabecera de la página general: corta, para que la página arranque con las
+   casas (y no se parezca a la portada del sitio). Antetítulo, h1, las cifras
+   de la sección en una línea y el botón de la línea de ventas; la introducción
+   pasa debajo de las tarjetas, delante de la franja de confianza. */
+function saleIntro(lang, body) {
   const T = DICT[lang];
-  const m = body.match(/<section class="section listing">\s*<div class="wrap">\s*<div class="section-head reveal">\s*<div class="rule"><\/div>\s*<span class="eyebrow">([\s\S]*?)<\/span>\s*<h1>([\s\S]*?)<\/h1>\s*<p>([\s\S]*?)<\/p>\s*<\/div>/);
+  const m = body.match(/<div class="section-head reveal">\s*<div class="rule"><\/div>\s*<span class="eyebrow">([\s\S]*?)<\/span>\s*<h1>([\s\S]*?)<\/h1>\s*<p>([\s\S]*?)<\/p>\s*<\/div>/);
   if (!m) throw new Error('venta (' + lang + '): no se reconoce la cabecera de la página general');
+  if (!body.includes('<div class="legal sale-info reveal">')) throw new Error('venta (' + lang + '): no se encuentra .sale-info');
   const built = Object.values(LISTINGS).map((l) => l.built);
-  const cover = 'assets/img/venta/' + LISTINGS.s1.slug + '-1';
-  const size = jpegSize(cover + '.jpg');
-  const hero = `<section class="sale-hero">
-  <picture class="sale-hero__bg">
-    <source type="image/webp" sizes="100vw" srcset="${cover}-640.webp 640w, ${cover}-1280.webp 1280w">
-    <img src="${cover}.jpg" alt="" fetchpriority="high" width="${size.w}" height="${size.h}">
-  </picture>
-  <div class="wrap sale-hero__inner">
-    <span class="eyebrow">${m[1]}</span>
-    <h1>${m[2]}</h1>
-    <p class="sale-hero__sub">${m[3].trim().replace(/\s+/g, ' ')}</p>
-    <ul class="sale-hero__stats">
-      <li><b>${Object.keys(LISTINGS).length}</b><span>${esc(T['sale.stat.homes'])}</span></li>
-      <li><b>${Math.min(...built)}–${Math.max(...built)} m²</b><span>${esc(T['sale.built'])}</span></li>
-      <li><b>${esc(T['sale.stat.lotv'])}</b><span>${esc(T['sale.lot'])}</span></li>
-      <li><b>${esc(T['sale.stat.place'])}</b><span>${esc(T['sale.stat.where'])}</span></li>
-    </ul>
-    <div class="sale-hero__cta">
-      <a class="btn btn--brand" href="#casas"><span>${esc(T['sale.hero.cta1'])}</span><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-      <a class="btn btn--light" href="https://wa.me/${WA_NUMBER}" data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>${esc(T['sale.hero.cta2'])}</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="section listing listing--index">
-  <div class="wrap">`;
-  return body.replace(m[0], () => hero).replace('<div class="sale-cards">', () => '<div class="sale-cards" id="casas">');
+  const intro = `<div class="sale-intro">
+      <div>
+        <div class="rule"></div>
+        <span class="eyebrow">${m[1]}</span>
+        <h1>${m[2]}</h1>
+        <ul class="sale-intro__stats">
+          <li><b>${Object.keys(LISTINGS).length}</b> <span>${esc(T['sale.stat.homes'])}</span></li>
+          <li><b>${Math.min(...built)}–${Math.max(...built)} m²</b> <span>${esc(T['sale.built'])}</span></li>
+          <li><b>${esc(T['sale.stat.lotv'])}</b> <span>${esc(T['sale.lot'])}</span></li>
+          <li><b>${esc(T['sale.stat.place'])}</b></li>
+        </ul>
+      </div>
+      <a class="btn btn--brand sale-intro__cta" href="https://wa.me/${WA_NUMBER}" data-wa="ventas" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>${esc(T['sale.hero.cta2'])}</span></a>
+    </div>`;
+  const lead = `<p class="sale-lead reveal">${m[3].trim().replace(/\s+/g, ' ')}</p>\n    `;
+  return body.replace('<section class="section listing">', () => '<section class="section listing listing--index">')
+    .replace(m[0], () => intro)
+    .replace('<div class="legal sale-info reveal">', () => lead + saleTrust(lang) + '<div class="legal sale-info reveal">');
 }
 
 function saleTrust(lang) {
@@ -749,10 +743,7 @@ function saleBar(lang) {
 function decorateSale(page, lang, body) {
   const must = (ok, what) => { if (!ok) throw new Error(page.id + ' (' + lang + '): no se encuentra ' + what); };
   if (page.id === 'venta') {
-    body = saleHero(lang, body);
-    must(body.includes('<div class="legal sale-info reveal">'), '.sale-info');
-    body = body.replace('<div class="legal sale-info reveal">', () => saleTrust(lang) + '<div class="legal sale-info reveal">');
-    return body + '\n' + saleBand(lang, 'ventas');
+    return saleIntro(lang, body) + '\n' + saleBand(lang, 'ventas');
   }
   if (page.listing) {
     const k = page.listing;

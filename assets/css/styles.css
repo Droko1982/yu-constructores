@@ -1870,39 +1870,21 @@ a.contact-item:hover { border-color: var(--brand); transform: translateX(4px); }
 .facts li:nth-child(4), .sale-card__facts li:nth-child(4) { --ico: var(--ico-bath); }
 .facts li:nth-child(5) { --ico: var(--ico-car); }
 
-/* Portada de la página general */
-.sale-hero {
-  position: relative; isolation: isolate; overflow: hidden;
-  color: #fff;
-  padding: calc(var(--header-h) + clamp(3rem, 8vw, 6rem)) 0 clamp(3rem, 7vw, 5rem);
-  min-height: min(78vh, 680px);
-  display: flex; align-items: flex-end;
+/* Cabecera de la página general: corta, para que la página arranque con las
+   dos casas. La introducción va debajo de las tarjetas (.sale-lead). */
+.section.listing--index { padding-top: calc(var(--header-h) + clamp(1.6rem, 3.5vw, 2.6rem)); }
+.sale-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.2rem 2.5rem; margin-bottom: clamp(1.4rem, 2.6vw, 2rem); }
+.sale-intro .rule { margin-bottom: 1rem; }
+.sale-intro h1 { font-size: clamp(1.9rem, 3.4vw, 2.75rem); line-height: 1.05; text-transform: uppercase; margin: .45rem 0 .9rem; }
+.sale-intro__stats { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+.sale-intro__stats li {
+  padding: .38rem .85rem; border: 1px solid var(--line); border-radius: 100px; background: var(--surface);
+  font-size: .86rem; color: var(--ink-mut); white-space: nowrap;
 }
-.sale-hero__bg { position: absolute; inset: 0; z-index: -2; }
-.sale-hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
-.sale-hero::after {
-  content: ''; position: absolute; inset: 0; z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(10, 12, 14, .55) 0%, rgba(10, 12, 14, .2) 38%, rgba(10, 12, 14, .88) 100%),
-    linear-gradient(90deg, rgba(10, 12, 14, .86) 0%, rgba(10, 12, 14, .6) 42%, rgba(10, 12, 14, 0) 78%);
-}
-.sale-hero__inner { width: 100%; }
-.sale-hero .eyebrow { color: var(--brand); }
-.sale-hero h1 { color: #fff; font-size: clamp(2.2rem, 5.4vw, 4.1rem); line-height: 1.02; text-transform: uppercase; max-width: 18ch; margin: .6rem 0 1rem; }
-.sale-hero__sub { max-width: 60ch; color: rgba(255, 255, 255, .9); font-size: clamp(1rem, 1.6vw, 1.12rem); line-height: 1.65; }
-.sale-hero__stats {
-  list-style: none; padding: 0; margin: 2rem 0 0;
-  display: grid; grid-template-columns: repeat(4, auto); justify-content: start;
-  width: fit-content; max-width: 100%;
-  border: 1px solid rgba(255, 255, 255, .22); border-radius: var(--radius-lg);
-  background: rgba(10, 12, 14, .38); backdrop-filter: blur(8px);
-}
-.sale-hero__stats li { padding: .85rem 1.4rem; display: flex; flex-direction: column; gap: .15rem; border-left: 1px solid rgba(255, 255, 255, .18); }
-.sale-hero__stats li:first-child { border-left: 0; }
-.sale-hero__stats b { font-family: var(--font-display); font-size: 1.45rem; line-height: 1.1; color: #fff; white-space: nowrap; }
-.sale-hero__stats span { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .75); }
-.sale-hero__cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
-.section.listing--index { padding-top: clamp(2.6rem, 5vw, 4rem); }
+.sale-intro__stats b { color: var(--ink); font-weight: 700; }
+.sale-intro__cta { flex: none; }
+.sale-lead { max-width: 78ch; margin-top: clamp(2.4rem, 5vw, 3.4rem); font-size: 1.06rem; color: var(--ink-soft); }
+.sale-lead + .trust { margin-top: 1.4rem; }
 
 /* Franja de confianza */
 .trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2.6rem; }
@@ -2015,17 +1997,14 @@ a.trust__item:hover { border-color: var(--brand); transform: translateY(-3px); }
   body:has(.sale-bar) .to-top { bottom: 84px; }
 }
 @media (max-width: 760px) {
-  .sale-hero { min-height: 0; }
-  .sale-hero::after { background: linear-gradient(180deg, rgba(10, 12, 14, .74) 0%, rgba(10, 12, 14, .66) 55%, rgba(10, 12, 14, .92) 100%); }
-  .sale-hero__cta .btn { flex: 1 1 100%; justify-content: center; }
-  .sale-hero__stats { grid-template-columns: 1fr 1fr; width: 100%; }
-  .sale-hero__stats li:nth-child(3) { border-left: 0; }
-  .sale-hero__stats li:nth-child(n + 3) { border-top: 1px solid rgba(255, 255, 255, .18); }
+  .sale-intro { flex-direction: column; align-items: stretch; }
+  .sale-intro__cta { justify-content: center; }
   .hl { grid-template-columns: minmax(0, 1fr); }
   .listing__body ul:not(.facts) { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 600px) {
   .trust, .sale-info ul { grid-template-columns: minmax(0, 1fr); }
+  .sale-intro__cta { display: none; } /* en el celular ya está el botón flotante, con la misma línea */
   .sale-band__cta { width: 100%; }
   .sale-band__cta .btn { width: 100%; justify-content: center; }
 }

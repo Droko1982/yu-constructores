@@ -236,7 +236,6 @@ window.YU_I18N = {
     "wa.venta": "Bonjour, cette maison vue sur le site de YU m'intéresse : {casa}. Pourriez-vous m'envoyer plus d'informations ?",
     "wa.ventas": "Bonjour, j'ai vu les maisons à vendre sur le site de YU et j'aimerais plus d'informations.",
     "a11y.crumbs": "Fil d'Ariane",
-    "sale.hero.cta1": "Voir les maisons",
     "sale.hero.cta2": "Écrire au service des ventes",
     "sale.stat.homes": "maisons disponibles",
     "sale.stat.lotv": "1 000–2 350 m²",

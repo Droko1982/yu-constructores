@@ -593,10 +593,12 @@ Sección para vender casas listas para habitar, con **su propia línea de WhatsA
 Las páginas fuente (`venta*.html`) siguen siendo texto sencillo; el generador
 (`decorateSale` en `tools/build-i18n.js`) les agrega la presentación:
 
-- **Página general**: portada a todo el ancho con la foto de la Casa 1, cifras (casas,
-  m² construidos, lotes, ubicación) y dos botones (ver las casas · escribir a ventas); franja
-  de confianza (respaldo de constructora, todo por escrito, visitas, compra desde el
-  exterior); la guía de compra en tarjetas numeradas y las preguntas frecuentes en tarjetas.
+- **Página general**: arranca con las casas. Encima solo van el título, las cifras en una
+  línea (casas, m² construidos, lotes, ubicación) y el botón «Escribir a ventas»; sin foto de
+  portada, para que no se parezca a la página de inicio ni repita la foto de la primera casa.
+  Debajo de las tarjetas, la introducción, la franja de confianza (respaldo de constructora,
+  todo por escrito, visitas, compra desde el exterior), la guía de compra en tarjetas
+  numeradas y las preguntas frecuentes en tarjetas.
 - **Cada casa**: ruta de navegación, ubicación con icono, cifras con iconos en una fila,
   cuatro puntos destacados, listas con viñetas de verificación y, al final, «otras casas en
   venta».
