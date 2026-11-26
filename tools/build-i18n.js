@@ -555,17 +555,20 @@ const PROJECTS = [
 /* Casas en venta. Las cifras van aquí, una sola vez, porque las usan el JSON-LD
    (RealEstateListing) y el sitemap; el texto de cada página está en
    tools/pages/venta-s*.{idioma}.html. "count" es el número de fotografías en
-   assets/img/venta/<slug>-N.jpg; el generador falla si falta alguna. Precio y
-   municipio quedan fuera hasta que la empresa los confirme. */
+   assets/img/venta/<slug>-N.jpg; el generador falla si falta alguna.
+   Precio en pesos y municipio confirmados por la empresa el 26/11/2026: la casa
+   inteligente («casa YU») en el Quindío sin municipio publicado, y la de estilo
+   americano en Circasia. El precio visible está en tools/i18n.js (sale.sN.price). */
 const LISTINGS = {
   s1: {
     slug: 'casa-inteligente', count: 3, posted: '2026-10-30',
-    built: 220, lot: 1000, bedrooms: 4, bathrooms: 5,
+    built: 220, lot: 1000, bedrooms: 4, bathrooms: 5, price: 1300000000,
     video: 'https://www.instagram.com/reel/DeX8dDZM1Px/'
   },
   s2: {
     slug: 'casa-americana', count: 14, posted: '2026-10-30',
-    built: 427, lot: 2350, bedrooms: 4, bathrooms: 5
+    built: 427, lot: 2350, bedrooms: 4, bathrooms: 5, price: 1700000000,
+    locality: 'Circasia'
   }
 };
 for (const [k, l] of Object.entries(LISTINGS)) {
@@ -632,7 +635,7 @@ function saleCard(key, lang) {
               <li><b>${l.bedrooms}</b> <span>${esc(T['sale.beds'])}</span></li>
               <li><b>${l.bathrooms}</b> <span>${esc(T['sale.baths'])}</span></li>
             </ul>
-            <div class="sale-card__foot"><span class="sale-card__price">${esc(T['sale.price'])}</span><span class="sale-card__cta">${esc(T['sale.cta'])}</span></div>
+            <div class="sale-card__foot"><span class="sale-card__price">${esc(T['sale.' + key + '.price'] || T['sale.price'])}</span><span class="sale-card__cta">${esc(T['sale.cta'])}</span></div>
           </div>
         </a>`;
 }
@@ -731,10 +734,10 @@ function saleBand(lang, waKey) {
 
 /* Barra fija del teléfono en la ficha de una casa: el precio y el botón,
    siempre a mano. En escritorio no se muestra (está la columna lateral). */
-function saleBar(lang) {
+function saleBar(lang, key) {
   const T = DICT[lang];
   return `<div class="sale-bar">
-  <span class="sale-bar__price">${esc(T['sale.price'])}</span>
+  <span class="sale-bar__price">${esc(T['sale.' + key + '.price'] || T['sale.price'])}</span>
   <a class="btn btn--brand" href="https://wa.me/${WA_NUMBER}" data-wa="venta" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>${esc(T['sale.ask'])}</span></a>
 </div>
 `;
@@ -751,7 +754,7 @@ function decorateSale(page, lang, body) {
     body = body.replace('<div class="listing__head reveal">', () => '<div class="listing__head reveal">\n      ' + saleCrumbs(k, lang));
     must(/<ul class="facts">[\s\S]*?<\/ul>\n/.test(body), 'la lista de cifras');
     body = body.replace(/<ul class="facts">[\s\S]*?<\/ul>\n/, (m) => m + saleHighlights(k, lang));
-    return body + '\n' + saleOthers(k, lang) + '\n' + saleBand(lang, 'venta') + '\n' + saleBar(lang);
+    return body + '\n' + saleOthers(k, lang) + '\n' + saleBand(lang, 'venta') + '\n' + saleBar(lang, k);
   }
   return body;
 }
@@ -924,8 +927,7 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
   }
 
   /* Cada casa en venta es un RealEstateListing sobre una vivienda
-     unifamiliar. Sin precio todavía: la oferta se declara sin cifra hasta que
-     la empresa la confirme, y el vendedor es la propia organización. */
+     unifamiliar, con su precio en pesos; el vendedor es la propia organización. */
   if (page.listing) {
     const k = page.listing;
     const l = LISTINGS[k];
@@ -944,6 +946,7 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
       offers: {
         '@type': 'Offer',
         businessFunction: 'http://purl.org/goodrelations/v1#Sell',
+        ...(l.price ? { price: l.price, priceCurrency: 'COP' } : {}),
         availability: 'https://schema.org/InStock',
         seller: { '@id': BASE + '#organizacion' }
       },
@@ -953,9 +956,35 @@ function buildSecondaryJsonLd(html, lang, page, at, meta) {
         floorSize: m2(l.built),
         numberOfBedrooms: l.bedrooms,
         numberOfBathroomsTotal: l.bathrooms,
-        // Departamento confirmado por la empresa (30/10/2026); municipio pendiente.
-        address: { '@type': 'PostalAddress', addressRegion: 'Quindío', addressCountry: 'CO' }
+        // Departamento confirmado el 30/10/2026; municipio, donde la empresa lo dio (26/11/2026).
+        address: Object.assign({ '@type': 'PostalAddress' },
+          l.locality ? { addressLocality: l.locality } : {},
+          { addressRegion: 'Quindío', addressCountry: 'CO' })
       }
+    });
+  }
+
+  /* La página general de venta declara la lista de casas: le dice a Google y a
+     los asistentes de IA que es un listado de inmuebles y cuáles son. Cada
+     elemento va con su URL, no con @id: el nodo de la casa vive en otra página. */
+  if (page.id === 'venta') {
+    const keys = Object.keys(LISTINGS);
+    graph.push({
+      '@type': 'ItemList',
+      '@id': at.url + '#casas',
+      name: crumbName,
+      numberOfItems: keys.length,
+      itemListElement: keys.map((k, i) => {
+        const lp = PAGES.find((p) => p.listing === k);
+        if (!lp) throw new Error('La casa ' + k + ' no tiene página');
+        return {
+          '@type': 'ListItem',
+          position: i + 1,
+          url: locate(lp, lang).url,
+          name: T['sale.' + k + '.t'],
+          image: BASE + 'assets/img/venta/' + LISTINGS[k].slug + '-1.jpg'
+        };
+      })
     });
   }
 
@@ -1060,14 +1089,24 @@ function rewriteHead(html, lang, page, at, meta) {
 
    La marca no prueba nada —se puede copiar o reenviar—: solo es una pista.
    Va una sola vez: si el cuerpo ya la trajera, se quita antes de añadirla.
-   app.js arma el cotizador y el rescate del formulario con la misma forma. La
-   línea de ventas de casas no la lleva: es otro número y Sofy no está en él. */
+   app.js arma el cotizador y el rescate del formulario con la misma forma.
+
+   La línea de ventas de casas (26/11/2026) lleva su propia marca, [YU-WEB-VENTAS],
+   al final y en su propio párrafo: quien atiende ve primero la casa que le
+   preguntan, y la marca dice que el comprador llegó por la página. Es distinta
+   a propósito: quien busque «[YU-WEB]» exacto no la confunde con una cotización
+   de obra, y la bienvenida de construcción no le llega a un comprador. */
 const WA_TAG = '[YU-WEB]';
+const WA_TAG_SALES = '[YU-WEB-VENTAS]';
 const WA_TAG_RE = /[ \t]*\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*\][ \t]*/gi;
+const WA_TAG_SALES_RE = /[ \t]*\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*[-‐‑–—_ ]?\s*ventas\s*\][ \t]*/gi;
+const waStrip = (s) => String(s).replace(WA_TAG_SALES_RE, ' ').replace(WA_TAG_RE, ' ').trim();
 function waCompose(T, body) {
   if (!T['wa.hello']) throw new Error('Falta la clave wa.hello');
-  const clean = String(body).replace(WA_TAG_RE, ' ').trim();
-  return T['wa.hello'] + '\n\n' + WA_TAG + '\n\n' + clean;
+  return T['wa.hello'] + '\n\n' + WA_TAG + '\n\n' + waStrip(body);
+}
+function waComposeSales(body) {
+  return waStrip(body) + '\n\n' + WA_TAG_SALES;
 }
 
 /* --------------------------------------------- Mensajes de WhatsApp
@@ -1106,7 +1145,7 @@ function writeWhatsAppLinks(html, lang, page) {
     }
 
     const number = page && page.sales ? SALES_NUMBER : WA_NUMBER;
-    if (number === WA_NUMBER) msg = waCompose(T, msg);
+    msg = number === WA_NUMBER ? waCompose(T, msg) : waComposeSales(msg);
     const href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(msg);
     return /\shref="/.test(tag)
       ? tag.replace(/\shref="[^"]*"/, () => ' href="' + href + '"')
@@ -1661,7 +1700,8 @@ function writeLlmsTxt() {
   const projects = PAGES.filter((p) => p.project)
     .map((p) => line(p.id, T['prj.' + p.project + '.t'] + ' — ' + T['prj.' + p.project + '.l']));
   const sales = PAGES.filter((p) => p.listing)
-    .map((p) => line(p.id, T['sale.' + p.listing + '.t'], T['sale.' + p.listing + '.l']));
+    .map((p) => line(p.id, T['sale.' + p.listing + '.t'],
+      T['sale.' + p.listing + '.l'] + (T['sale.' + p.listing + '.price'] ? ' · ' + T['sale.' + p.listing + '.price'] : '')));
   const langs = Object.keys(LOCALES)
     .map((l) => '- ' + l + ': ' + locate(PAGES[0], l).url);
 

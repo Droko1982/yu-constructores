@@ -38,17 +38,24 @@ const phones = new Set();
 
 /* Sofy, el asistente del WhatsApp de la empresa, reconoce los chats que vienen
    de la página por la marca [YU-WEB]. En la línea general tiene que ir una vez,
-   ni cero ni dos. La línea de ventas es otro número y no la lleva. */
+   ni cero ni dos. La línea de ventas lleva la suya, [YU-WEB-VENTAS], también una
+   sola vez, y nunca la de la línea general. */
 function checkWaTag(page, href) {
   const num = (href.match(/wa\.me\/(\d+)/) || [])[1];
   const text = (href.match(/\?text=([^&#]*)/) || [])[1];
-  if (num !== TEL || !text) return;
+  if (!text || (num !== TEL && num !== SALES_TEL)) return;
   let msg;
   try { msg = decodeURIComponent(text); } catch (e) { add('ERROR', page, 'mensaje de WhatsApp mal codificado: ' + href.slice(0, 80)); return; }
   // Se cuentan también las variantes ([yu-web], [ YU-WEB ]…): un servidor que
   // compare sin distinguir mayúsculas las vería como una segunda marca.
-  const n = (msg.match(/\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*\]/gi) || []).length;
-  if (n !== 1 || !msg.includes('[YU-WEB]')) add('ERROR', page, 'mensaje de WhatsApp con [YU-WEB] ' + n + ' veces: ' + msg.slice(0, 60));
+  const web = (msg.match(/\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*\]/gi) || []).length;
+  const ventas = (msg.match(/\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*[-‐‑–—_ ]?\s*ventas\s*\]/gi) || []).length;
+  if (num === TEL && (web !== 1 || ventas || !msg.includes('[YU-WEB]'))) {
+    add('ERROR', page, 'línea general: [YU-WEB] ' + web + ' veces y [YU-WEB-VENTAS] ' + ventas + ': ' + msg.slice(0, 60));
+  }
+  if (num === SALES_TEL && (ventas !== 1 || web || !msg.includes('[YU-WEB-VENTAS]'))) {
+    add('ERROR', page, 'línea de ventas: [YU-WEB-VENTAS] ' + ventas + ' veces y [YU-WEB] ' + web + ': ' + msg.slice(0, 60));
+  }
 }
 
 for (const page of pages) {
