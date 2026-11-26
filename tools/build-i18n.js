@@ -756,9 +756,11 @@ function decorateSale(page, lang, body) {
   return body;
 }
 
-/* Número de fotos sobre cada tarjeta de casa, en cualquier página. */
+/* Número de fotos sobre cada tarjeta de casa, en cualquier página. Las que ya
+   hubiera se quitan antes de poner la nueva: el generador reescribe index.html
+   sobre sí mismo y, sin esto, cada compilación apilaba otra insignia. */
 function addPhotoCounts(html) {
-  return html.replace(/(<a class="sale-card[^"]*"[^>]*\sdata-page="venta-(s\d+)"[^>]*>\s*<div class="sale-card__img">)/g, (m, open, key) => {
+  return html.replace(/(<a class="sale-card[^"]*"[^>]*\sdata-page="venta-(s\d+)"[^>]*>\s*<div class="sale-card__img">)(?:<span class="sale-card__count">[\s\S]*?<\/span>)*/g, (m, open, key) => {
     if (!LISTINGS[key]) throw new Error('Tarjeta de una casa que no existe: ' + key);
     return open + `<span class="sale-card__count"><svg aria-hidden="true"><use href="#i-images"/></svg>${LISTINGS[key].count}</span>`;
   });
@@ -1045,6 +1047,29 @@ function rewriteHead(html, lang, page, at, meta) {
     : buildSecondaryJsonLd(html, lang, page, at, meta);
 }
 
+/* Marca de origen (25/11/2026). Sofy, el asistente conectado al WhatsApp de la
+   empresa, la busca para saber que la conversación viene de la página y mandar
+   la bienvenida comercial, y no hacerlo en chats personales o de proveedores.
+   Todo mensaje a la línea general queda así:
+
+     <saludo «les escribo desde su página web»>
+
+     [YU-WEB]
+
+     <lo que pide esa página o ese botón>
+
+   La marca no prueba nada —se puede copiar o reenviar—: solo es una pista.
+   Va una sola vez: si el cuerpo ya la trajera, se quita antes de añadirla.
+   app.js arma el cotizador y el rescate del formulario con la misma forma. La
+   línea de ventas de casas no la lleva: es otro número y Sofy no está en él. */
+const WA_TAG = '[YU-WEB]';
+const WA_TAG_RE = /[ \t]*\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*\][ \t]*/gi;
+function waCompose(T, body) {
+  if (!T['wa.hello']) throw new Error('Falta la clave wa.hello');
+  const clean = String(body).replace(WA_TAG_RE, ' ').trim();
+  return T['wa.hello'] + '\n\n' + WA_TAG + '\n\n' + clean;
+}
+
 /* --------------------------------------------- Mensajes de WhatsApp
    El texto va escrito en el href, no lo pone JavaScript. Así el enlace lleva el
    mensaje aunque el guion no haya cargado todavía, y no depende de que el
@@ -1081,6 +1106,7 @@ function writeWhatsAppLinks(html, lang, page) {
     }
 
     const number = page && page.sales ? SALES_NUMBER : WA_NUMBER;
+    if (number === WA_NUMBER) msg = waCompose(T, msg);
     const href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(msg);
     return /\shref="/.test(tag)
       ? tag.replace(/\shref="[^"]*"/, () => ' href="' + href + '"')
@@ -1183,6 +1209,8 @@ function write404() {
      idioma. Quien llega aquí desde /fr/ con un enlace roto no lee español. */
   h = h.replace(/(<a\b[^>]*?)\shref="[^"]*"([^>]*\sdata-home(?:="([a-z]{2})")?)/g,
     (_m, a, b, l) => a + ' href="' + root + (l ? l + '/' : '') + '"' + b);
+  // El botón de WhatsApp lleva el mismo mensaje (y la marca [YU-WEB]) que el resto del sitio.
+  h = writeWhatsAppLinks(h, 'es', null);
 
   fs.writeFileSync(file, h, 'utf8');
   return true;

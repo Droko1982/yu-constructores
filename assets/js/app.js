@@ -6,6 +6,11 @@
   'use strict';
 
   var WA_NUMBER = '573046557120';
+  /* Marca de origen para Sofy, el asistente del WhatsApp de la empresa. Es la
+     misma forma que escribe tools/build-i18n.js (waCompose): saludo, la marca
+     sola en su párrafo y luego el cuerpo. Lo que teclea el visitante pasa por
+     sinMarca, para que la marca no salga dos veces aunque alguien la escriba. */
+  var WA_TAG = '[YU-WEB]';
   var SUPPORTED = ['es', 'en', 'pt', 'fr', 'de'];
   var DICT = window.YU_I18N || {};
   var lang = 'es';
@@ -423,16 +428,21 @@
     return el && el.value ? t(prefix + el.value) : '';
   }
 
+  // Quita también variantes tecleadas a mano: [yu-web], [ YU-WEB ], [YU‑WEB]…
+  var WA_TAG_RE = /[ \t]*\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*\][ \t]*/gi;
+  function sinMarca(s) { return String(s == null ? '' : s).replace(WA_TAG_RE, ' ').trim(); }
+  function waText(body) { return t('wa.hello') + '\n\n' + WA_TAG + '\n\n' + sinMarca(body); }
+
   function buildQuote() {
-    var lines = [t('quote.msgIntro'), ''];
+    var lines = [t('wa.hello'), '', WA_TAG, '', t('quote.msgIntro'), ''];
     var tipo = pick('tipo', 'quote.type');
     var estado = pick('estado', 'quote.stage');
     var inicio = pick('inicio', 'quote.when');
     var vive = pick('vive', 'quote.live');
     var area = ($('#qArea') || {}).value;
-    var city = (($('#qCity') || {}).value || '').trim();
-    var name = (($('#qName') || {}).value || '').trim();
-    var detail = (($('#qDetail') || {}).value || '').trim();
+    var city = sinMarca(($('#qCity') || {}).value);
+    var name = sinMarca(($('#qName') || {}).value);
+    var detail = sinMarca(($('#qDetail') || {}).value);
 
     if (tipo) lines.push('• ' + t('quote.msgType') + ': ' + tipo);
     if (area) lines.push('• ' + t('quote.msgArea') + ': ' + area + ' m²');
@@ -443,6 +453,9 @@
     if (name) lines.push('• ' + t('quote.msgName') + ': ' + name);
     if (detail) lines.push('• ' + t('quote.msgDetail') + ': ' + detail);
 
+    // Sin ningún dato todavía, «…con estos datos:» quedaría colgando: se envía
+    // el mensaje principal de cotización, el mismo del botón flotante.
+    if (lines.length === 6) return waText(t('wa.quote'));
     return lines.join('\n');
   }
 
@@ -612,11 +625,11 @@
             y textContent, nunca con innerHTML: el contenido es del visitante.
           */
           var rescate = document.createElement('a');
-          rescate.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(
+          rescate.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(waText(
             t('wa.general') + '\n\n'
-            + $('#cName').value + ' · ' + $('#cPhone').value + '\n'
-            + $('#cMsg').value
-          );
+            + sinMarca($('#cName').value) + ' · ' + sinMarca($('#cPhone').value) + '\n'
+            + sinMarca($('#cMsg').value)
+          ));
           rescate.target = '_blank';
           rescate.rel = 'noopener';
           rescate.textContent = t('form.errCta');

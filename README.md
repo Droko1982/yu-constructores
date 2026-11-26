@@ -97,7 +97,9 @@ enlaces rotos, `data-page` sin resolver, anclas sin destino —también las que 
 dentro de la propia página—, marcado mal anidado, títulos o descripciones duplicados o
 demasiado largos, imágenes sin `alt`, `hreflang` que no se autorreferencia, JSON-LD
 inválido o con `@id` que apuntan a un nodo definido en otra página, enlaces de WhatsApp
-publicados sin mensaje, `og:image` inexistente o tan pesada que WhatsApp deje de dibujar
+publicados sin mensaje o, en la línea general, sin la marca `[YU-WEB]` exactamente una vez
+(la usa Sofy, el asistente de WhatsApp, para reconocer los chats que vienen de la página; la
+compone `waCompose` en `tools/build-i18n.js` y `waText` en `assets/js/app.js`), `og:image` inexistente o tan pesada que WhatsApp deje de dibujar
 la vista previa, el `404.html` con sus rutas absolutas y su `noindex`, y el
 `sitemap.xml` contrastado con el disco en los dos sentidos.
 

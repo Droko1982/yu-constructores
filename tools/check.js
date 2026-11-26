@@ -36,6 +36,21 @@ const SALES_CP = [].concat(ORG.contactPoint || []).find((c) => c.contactType ===
 const SALES_TEL = SALES_CP ? SALES_CP.telephone.replace('+', '') : null;
 const phones = new Set();
 
+/* Sofy, el asistente del WhatsApp de la empresa, reconoce los chats que vienen
+   de la página por la marca [YU-WEB]. En la línea general tiene que ir una vez,
+   ni cero ni dos. La línea de ventas es otro número y no la lleva. */
+function checkWaTag(page, href) {
+  const num = (href.match(/wa\.me\/(\d+)/) || [])[1];
+  const text = (href.match(/\?text=([^&#]*)/) || [])[1];
+  if (num !== TEL || !text) return;
+  let msg;
+  try { msg = decodeURIComponent(text); } catch (e) { add('ERROR', page, 'mensaje de WhatsApp mal codificado: ' + href.slice(0, 80)); return; }
+  // Se cuentan también las variantes ([yu-web], [ YU-WEB ]…): un servidor que
+  // compare sin distinguir mayúsculas las vería como una segunda marca.
+  const n = (msg.match(/\[\s*yu\s*[-‐‑–—_ ]?\s*web\s*\]/gi) || []).length;
+  if (n !== 1 || !msg.includes('[YU-WEB]')) add('ERROR', page, 'mensaje de WhatsApp con [YU-WEB] ' + n + ' veces: ' + msg.slice(0, 60));
+}
+
 for (const page of pages) {
   const dir = path.dirname(page);
   const h = fs.readFileSync(page, 'utf8');
@@ -118,6 +133,7 @@ for (const page of pages) {
      publica sin ?text=, el cliente escribe en blanco y nadie se entera. */
   for (const m of h.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)) {
     if (!/\?text=.+/.test(m[1])) add('ERROR', page, 'enlace de WhatsApp sin mensaje: ' + m[1]);
+    checkWaTag(page, m[1]);
   }
 
   /* --- estructura del menú móvil ---
@@ -225,6 +241,7 @@ for (const page of pages) {
 if (fs.existsSync('404.html')) {
   const h404 = fs.readFileSync('404.html', 'utf8');
   for (const m of h404.matchAll(/wa\.me\/(\d+)/g)) phones.add(m[1]);
+  for (const m of h404.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)) checkWaTag('404.html', m[1]);
   for (const m of h404.matchAll(/\+57\s?\d[\d\s]{8,}/g)) phones.add(m[0].replace(/\D/g, ''));
   for (const m of h404.matchAll(/\s(?:href|src)="\/(assets\/[^"]+)"/g)) {
     assets++;
